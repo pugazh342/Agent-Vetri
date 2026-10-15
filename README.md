@@ -17,7 +17,7 @@
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=flat-square)](#quick-start)
 [![Security Skills](https://img.shields.io/badge/security%20skills-72%20active-red?style=flat-square)](skills/)
 
-*Developed by **[Pugazhmani K](https://github.com/pugazhmani)** — AI & Cybersecurity Researcher*
+*Developed by **[Pugazhmani K](https://github.com/pugazh342)** — AI & Cybersecurity Researcher*
 
 </div>
 
