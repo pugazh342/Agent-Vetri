@@ -1,0 +1,15 @@
+name: vetri-toolsmith
+repo: https://github.com/Adolanium/vetri-toolsmith
+sha: 86a830cb2468d16022fd101087c8035501030ed6
+version: "1.0.1"
+description: Local developer tools, transformation recipes, and reviewed chat handoff inside Vetri Desktop.
+maintainer: Adolanium
+tier: community
+category: desktop
+requires_vetri: ">=0.21.3"
+docs_url: https://github.com/Adolanium/vetri-toolsmith#readme
+capabilities:
+  provides_tools: []
+  provides_hooks: []
+  provides_middleware: []
+  requires_env: []

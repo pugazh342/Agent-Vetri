@@ -1,0 +1,17 @@
+name: vetri-kame-provider
+repo: https://github.com/Kame696/kame-api-rotation-for-vetri
+sha: cab5372d18d233da905c9f84a343359d2bc26564
+subdir: vetri-kame-provider
+description: "Companion to vetri-kame-api-rotation (install both). A model-provider plugin that re-registers Vetri' bundled API-key profiles unchanged except for create_client and create_messages_client, which return the rotation plugin's key-rotating client; otherwise None and Vetri builds its own. Same endpoints as Vetri, no third-party service, no core override."
+maintainer: Kame696
+tier: community
+category: models
+requires_vetri: ">=0.21.4"
+version: "1.8.2.2"
+docs_url: https://github.com/Kame696/kame-api-rotation-for-vetri/tree/v1.8.2.2/vetri-kame-provider#readme
+readme: true
+capabilities:
+  provides_tools: []
+  provides_hooks: []
+  provides_middleware: []
+  requires_env: []

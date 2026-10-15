@@ -1,0 +1,64 @@
+# Paths that need a vetri-agent-core approval before merge. This replaces the
+# ``ci-reviewed`` label gate: GitHub requests the review and enforces it
+# (ruleset: "Require review from Code Owners"), so CI no longer needs to
+# classify these paths, check a label, or rerun jobs when one is added.
+#
+# Last match wins; every rule below has the same owner, so order is moot.
+# Patterns without a leading slash match at any depth.
+
+# Workflows, composite actions, and this file: they decide what CI executes
+# and what the autofix job pushes to main. The scripts the workflows run get the
+# same review for the same reason.
+/.github/                       @NousResearch/vetri-agent-core
+/scripts/ci/                    @NousResearch/vetri-agent-core
+# The code-health gate decides whether a PR passes; weakening it is a CI change.
+/scripts/check                  @NousResearch/vetri-agent-core
+/scripts/code_health/           @NousResearch/vetri-agent-core
+
+# The committed system prompt + tools[] render every session sends (scripts/ci/prompt_surface.py).
+# The prompt-surface-review ruleset requires one vetri-agent-core approval here; this line requests it.
+/tests/fixtures/prompt_surface/ @NousResearch/vetri-agent-core
+
+# eslint configs can define custom ``fix`` functions that run arbitrary code.
+eslint.config.*                 @NousResearch/vetri-agent-core
+/.prettierrc                    @NousResearch/vetri-agent-core
+
+# MCP catalog entries define local commands users later install into
+# ``mcp_servers``; the installer decides how they are fetched and run.
+/optional-mcps/                 @NousResearch/vetri-agent-core
+/vetri_cli/mcp_catalog.py      @NousResearch/vetri-agent-core
+
+# Files that execute at pip-install or interpreter startup.
+/setup.py                       @NousResearch/vetri-agent-core
+/setup.cfg                      @NousResearch/vetri-agent-core
+/sitecustomize.py               @NousResearch/vetri-agent-core
+/usercustomize.py               @NousResearch/vetri-agent-core
+*.pth                           @NousResearch/vetri-agent-core
+
+# Dependency manifests, resolved pins, and image builds: an edit here changes
+# what gets installed and run without touching any reviewed source.
+pyproject.toml                  @NousResearch/vetri-agent-core
+package.json                    @NousResearch/vetri-agent-core
+uv.lock                         @NousResearch/vetri-agent-core
+*package-lock.json              @NousResearch/vetri-agent-core
+/flake.lock                     @NousResearch/vetri-agent-core
+/pm/lock.json                   @NousResearch/vetri-agent-core
+*Dockerfile                     @NousResearch/vetri-agent-core
+
+# The npm supply-chain quarantine (min-release-age) lives here.
+.npmrc                          @NousResearch/vetri-agent-core
+
+# Where PM fetches artifacts from.
+/pm/artifact-mirror.json        @NousResearch/vetri-agent-core
+
+# The installers users pipe into a shell, and the generator for the pins they carry.
+/scripts/install.sh             @NousResearch/vetri-agent-core
+/scripts/install.ps1            @NousResearch/vetri-agent-core
+/scripts/install.cmd            @NousResearch/vetri-agent-core
+/scripts/gen-bootstrap-pins.py  @NousResearch/vetri-agent-core
+
+# The trust model and the scope authority for security reports.
+/SECURITY.md                    @NousResearch/vetri-agent-core
+
+# Each entry pins a third-party repo by sha; editing it changes what users install.
+/plugin-catalog/                @NousResearch/vetri-agent-core

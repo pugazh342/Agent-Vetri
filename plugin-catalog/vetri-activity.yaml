@@ -1,0 +1,20 @@
+name: vetri-activity
+repo: https://github.com/hassan-kamel/vetri-activity
+sha: ea47366f594ebd7f7e475a363c1659dfd9a97280
+title: Activity
+description: "Vetri Desktop session analytics and provider-reported usage: annual heatmaps, token mix, model breakdowns and source-period summaries. Disclosure — reads the selected profile's state.db read-only and, for the Providers tab, an Activity cache under plugin-data/vetri-activity plus the optional Quota quota_cache.json. Fetch provider data runs a local Node.js (22.18+) collector and, only on that explicit click, calls chatgpt.com through Vetri's signed-in Codex request route (requires_auth: openai-codex) and api.commandcode.ai, opencode.ai and ollama.com with the optional API keys you configure as plugin secrets; it stores usage aggregates and hashed key identifiers locally. No other credential reads, telemetry or sign-in flow; remote profiles go through the configured gateway."
+maintainer: hassan-kamel
+tier: community
+category: desktop
+requires_vetri: ">=0.21.7"
+docs_url: https://github.com/hassan-kamel/vetri-activity
+version: "0.2.1"
+screenshots:
+  - https://raw.githubusercontent.com/hassan-kamel/vetri-activity/ea47366f594ebd7f7e475a363c1659dfd9a97280/assets/activity-preview.png
+readme: true
+platforms: []
+capabilities:
+  provides_tools: []
+  provides_hooks: []
+  provides_middleware: []
+  requires_env: []

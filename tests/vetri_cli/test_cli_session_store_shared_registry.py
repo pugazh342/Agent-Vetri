@@ -1,0 +1,21 @@
+"""The CLI's session store is the gateway's, never a state.db writer in the CLI process.
+
+Main acquired ``vetri_state_registry`` (a writer handle) at startup. Rewired, the gateway is the
+single writer: ``_init_session_store`` builds a ``GatewaySessionStore`` and opens no SessionDB.
+"""
+
+from types import SimpleNamespace
+
+from cli import VetriCLI
+
+
+def test_cli_session_store_is_the_gateway_store_and_opens_no_writer(monkeypatch):
+    import vetri_state_registry
+    from vetri_cli.gateway_session_store import GatewaySessionStore
+
+    constructed = []
+    monkeypatch.setattr(vetri_state_registry, "_open_session_db", lambda path: constructed.append(path))
+    cli = SimpleNamespace()
+    VetriCLI._init_session_store(cli)
+    assert isinstance(cli._session_db, GatewaySessionStore) and not cli._session_db_unavailable
+    assert constructed == []
