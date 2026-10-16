@@ -34,7 +34,7 @@ class PentestReport:
 def run_kubectl(args: list, timeout: int = 30) -> tuple:
     cmd = ["kubectl"] + args
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout, check=False)
         return result.returncode, result.stdout.strip(), result.stderr.strip()
     except (subprocess.TimeoutExpired, FileNotFoundError) as e:
         return -1, "", str(e)
@@ -77,7 +77,7 @@ def test_anonymous_access(report: PentestReport):
     ]
 
     for cmd, description in test_commands:
-        rc, out, err = run_kubectl(["--as=system:anonymous"] + cmd)
+        rc, _out, err = run_kubectl(["--as=system:anonymous"] + cmd)
         if rc == 0 and "Forbidden" not in err:
             report.findings.append(PentestFinding(
                 category="Authentication",
@@ -104,7 +104,7 @@ def test_rbac_misconfigurations(report: PentestReport):
 
             for subject in subjects:
                 subject_name = subject.get("name", "")
-                subject_kind = subject.get("kind", "")
+                subject.get("kind", "")
 
                 # Check for dangerous bindings
                 dangerous_subjects = [
@@ -158,12 +158,11 @@ def test_secret_exposure(report: PentestReport):
         return
 
     sa_token_count = 0
-    opaque_count = 0
 
     for secret in secrets.get("items", []):
         secret_type = secret.get("type", "")
-        name = secret["metadata"]["name"]
-        namespace = secret["metadata"]["namespace"]
+        secret["metadata"]["name"]
+        secret["metadata"]["namespace"]
 
         if secret_type == "kubernetes.io/service-account-token":
             sa_token_count += 1
@@ -313,7 +312,7 @@ def test_pss_enforcement(report: PentestReport):
                 severity="MEDIUM",
                 details=f"Namespace '{ns_name}' lacks PSA enforce label",
                 impact="No built-in restrictions on pod security contexts",
-                remediation=f"Label namespace with pod-security.kubernetes.io/enforce=baseline or restricted"
+                remediation="Label namespace with pod-security.kubernetes.io/enforce=baseline or restricted"
             ))
         elif enforce == "privileged":
             report.findings.append(PentestFinding(
@@ -333,7 +332,7 @@ def print_report(report: PentestReport):
     print("=" * 70)
 
     if report.cluster_info:
-        print(f"\nCluster Info:")
+        print("\nCluster Info:")
         for k, v in report.cluster_info.items():
             print(f"  {k}: {v}")
 

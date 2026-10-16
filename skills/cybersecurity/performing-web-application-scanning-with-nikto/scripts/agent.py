@@ -38,7 +38,7 @@ class NiktoScanAgent:
 
         try:
             result = subprocess.run(cmd, capture_output=True, text=True,
-                                    timeout=timeout)
+                                    timeout=timeout, check=False)
             return {"return_code": result.returncode,
                     "xml_output": str(xml_output),
                     "stderr": result.stderr[:500] if result.stderr else ""}
@@ -92,7 +92,7 @@ class NiktoScanAgent:
                str(timeout) + "s", "-nointeractive"]
         try:
             result = subprocess.run(cmd, capture_output=True, text=True,
-                                    timeout=timeout + 30)
+                                    timeout=timeout + 30, check=False)
             lines = result.stdout.splitlines()
             for line in lines:
                 if "+ " in line and "OSVDB" in line:

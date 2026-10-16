@@ -48,7 +48,7 @@ def detect_wmiexec_artifacts_evtx(evtx_file):
                         })
                 elif eid == "7045":
                     svc_name = data.get("ServiceName", "")
-                    if re.search(r"(BTOBTO|wmiprvse|wmi_|cmd\.exe)", svc_name, re.I):
+                    if re.search(r"(BTOBTO|wmiprvse|wmi_|cmd\.exe)", svc_name, re.IGNORECASE):
                         indicators["service_install"].append({
                             "service": svc_name,
                             "path": data.get("ImagePath", "")[:200],
@@ -71,7 +71,7 @@ def run_wmiexec_impacket(target, domain, username, command="whoami"):
     cmd = ["python3", "-m", "impacket.examples.wmiexec",
            f"{domain}/{username}@{target}", command]
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=30, check=False)
         return {
             "target": target, "domain": domain, "user": username,
             "command": command, "output": result.stdout[:500],
@@ -91,7 +91,7 @@ def detect_wmi_network_traffic(pcap_file):
            "-T", "fields", "-e", "ip.src", "-e", "ip.dst", "-e", "tcp.dstport",
            "-e", "dcerpc.cn_bind_uuid", "-e", "frame.time"]
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=60, check=False)
         connections = []
         for line in result.stdout.strip().splitlines():
             parts = line.split("\t")
@@ -120,7 +120,7 @@ def check_wmi_persistence():
     results = {}
     for name, cmd in checks.items():
         try:
-            result = subprocess.run(cmd, capture_output=True, text=True, timeout=15)
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=15, check=False)
             entries = [line.strip() for line in result.stdout.splitlines() if "=" in line]
             results[name] = {"count": len(entries), "entries": entries[:10]}
         except Exception as e:

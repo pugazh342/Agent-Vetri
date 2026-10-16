@@ -34,7 +34,7 @@ class SubdomainEnumerationAgent:
             cmd.append("-recursive")
 
         try:
-            result = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=300, check=False)
             if out_file.exists():
                 self.subdomains = [
                     line.strip() for line in out_file.read_text().splitlines()
@@ -53,7 +53,7 @@ class SubdomainEnumerationAgent:
         """Run subfinder with JSON output for source tracking."""
         cmd = ["subfinder", "-d", self.domain, "-oJ", "-silent"]
         try:
-            result = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=300, check=False)
             entries = []
             for line in result.stdout.strip().splitlines():
                 try:
@@ -80,7 +80,7 @@ class SubdomainEnumerationAgent:
         cmd = ["httpx", "-l", str(input_file), "-ports", ports,
                "-status-code", "-title", "-json", "-o", str(out_file), "-silent"]
         try:
-            subprocess.run(cmd, capture_output=True, text=True, timeout=600)
+            subprocess.run(cmd, capture_output=True, text=True, timeout=600, check=False)
             if out_file.exists():
                 for line in out_file.read_text().splitlines():
                     try:
@@ -99,7 +99,7 @@ class SubdomainEnumerationAgent:
         input_file.write_text("\n".join(self.subdomains))
         cmd = ["dnsx", "-l", str(input_file), "-a", "-resp", "-json", "-silent"]
         try:
-            result = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=300, check=False)
             records = []
             for line in result.stdout.strip().splitlines():
                 try:

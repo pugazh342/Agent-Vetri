@@ -69,7 +69,7 @@ def analyze_session_log(log_file):
 def check_evilginx_installation():
     """Check if Evilginx3 is installed and get version."""
     try:
-        result = subprocess.run(["evilginx", "--version"], capture_output=True, text=True, timeout=10)
+        result = subprocess.run(["evilginx", "--version"], capture_output=True, text=True, timeout=10, check=False)
         version = result.stdout.strip() or result.stderr.strip()
         return {"installed": True, "version": version}
     except FileNotFoundError:

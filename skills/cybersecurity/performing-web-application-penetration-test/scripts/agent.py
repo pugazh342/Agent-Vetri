@@ -5,6 +5,7 @@ import subprocess
 import sys
 import json
 import os
+import tempfile
 from urllib.parse import urlparse
 
 try:
@@ -120,14 +121,15 @@ def run_directory_bruteforce(target_url, wordlist=None):
     if not os.path.exists(wordlist):
         return {"error": f"Wordlist not found: {wordlist}"}
     try:
+        ffuf_out = os.path.join(tempfile.gettempdir(), "ffuf_output.json")
         result = subprocess.run(
             ["ffuf", "-w", wordlist, "-u", f"{target_url}/FUZZ",
-             "-mc", "200,301,302,403", "-t", "20", "-o", "/tmp/ffuf_output.json",
+             "-mc", "200,301,302,403", "-t", "20", "-o", ffuf_out,
              "-of", "json", "-s"],
-            capture_output=True, text=True, timeout=120
+            capture_output=True, text=True, timeout=120, check=False
         )
-        if os.path.exists("/tmp/ffuf_output.json"):
-            with open("/tmp/ffuf_output.json") as f:
+        if os.path.exists(ffuf_out):
+            with open(ffuf_out) as f:
                 return json.load(f)
         return {"stdout": result.stdout[:1000]}
     except FileNotFoundError:

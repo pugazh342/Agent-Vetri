@@ -30,7 +30,7 @@ class PrivescAssessmentAgent:
             needs_shell = any(op in clean_cmd for op in ("|", ";", "&&", "||"))
             result = subprocess.run(
                 clean_cmd if needs_shell else shlex.split(clean_cmd),
-                shell=needs_shell, capture_output=True, text=True, timeout=timeout
+                shell=needs_shell, capture_output=True, text=True, timeout=timeout, check=False
             )
             return result.stdout.strip()
         except (subprocess.TimeoutExpired, FileNotFoundError, ValueError):
@@ -199,8 +199,8 @@ class PrivescAssessmentAgent:
 
         try:
             parts = kernel.split(".")
-            major, minor = int(parts[0]), int(parts[1])
-            patch = int(parts[2].split("-")[0]) if len(parts) > 2 else 0
+            _major, _minor = int(parts[0]), int(parts[1])
+            int(parts[2].split("-")[0]) if len(parts) > 2 else 0
         except (ValueError, IndexError):
             return exploits
 

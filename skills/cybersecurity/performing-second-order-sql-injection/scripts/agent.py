@@ -111,7 +111,7 @@ def trace_data_flow(db_findings: list[dict], code_findings: list[dict]) -> list[
     return attack_paths
 
 
-def generate_report(db_dump_path: str = None, source_dir: str = None) -> dict:
+def generate_report(db_dump_path: str | None = None, source_dir: str | None = None) -> dict:
     """Run analysis and build consolidated report."""
     findings = []
     db_findings = []

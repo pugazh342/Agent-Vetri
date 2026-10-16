@@ -127,7 +127,7 @@ def _run(cmd: list[str], timeout: float) -> tuple[str, Optional[str]]:
     try:
         proc = subprocess.run(
             cmd, capture_output=True, text=True, encoding="utf-8", errors="replace",
-            timeout=timeout,
+            timeout=timeout, check=False,
         )
     except subprocess.TimeoutExpired:
         return "", f"timeout after {timeout:.0f}s"

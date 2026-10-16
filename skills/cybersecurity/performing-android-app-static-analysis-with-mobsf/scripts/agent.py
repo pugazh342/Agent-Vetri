@@ -10,7 +10,7 @@ import json
 import os
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timezone, UTC
 
 try:
     import requests
@@ -172,7 +172,7 @@ def format_summary(report, findings):
     security_score = report.get("security_score", "N/A")
 
     print(f"\n{'='*60}")
-    print(f"  MobSF Static Analysis Report")
+    print("  MobSF Static Analysis Report")
     print(f"{'='*60}")
     print(f"  App Name    : {app_name}")
     print(f"  Package     : {package}")
@@ -186,12 +186,12 @@ def format_summary(report, findings):
         sev = f.get("severity", "INFO")
         severity_counts[sev] = severity_counts.get(sev, 0) + 1
 
-    print(f"\n  Findings Summary:")
+    print("\n  Findings Summary:")
     for sev in ["CRITICAL", "HIGH", "WARNING", "MEDIUM", "INFO", "LOW"]:
         if sev in severity_counts:
             print(f"    {sev:10s}: {severity_counts[sev]}")
 
-    print(f"\n  Top Findings:")
+    print("\n  Top Findings:")
     high_findings = [f for f in findings if f.get("severity") in ("CRITICAL", "HIGH", "WARNING")]
     for f in high_findings[:10]:
         print(f"    [{f['severity']:8s}] [{f['category']:12s}] {f['title']}")
@@ -230,7 +230,7 @@ def main():
     severity_counts = format_summary(report, findings)
 
     output_report = {
-        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "timestamp": datetime.now(UTC).isoformat(),
         "tool": "MobSF",
         "apk": args.apk,
         "app_name": report.get("app_name", ""),

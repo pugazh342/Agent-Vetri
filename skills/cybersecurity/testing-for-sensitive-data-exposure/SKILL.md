@@ -223,13 +223,13 @@ curl -s "https://target.example.com/.git/HEAD"
 
 # If .git is exposed, use git-dumper to download
 # pip install git-dumper
-git-dumper https://target.example.com/.git /tmp/target-repo
+git-dumper https://target.example.com/.git ${TMPDIR:-/tmp}/target-repo
 
 # Scan downloaded repository with trufflehog
-trufflehog filesystem /tmp/target-repo
+trufflehog filesystem ${TMPDIR:-/tmp}/target-repo
 
 # Scan with gitleaks
-gitleaks detect --source /tmp/target-repo -v
+gitleaks detect --source ${TMPDIR:-/tmp}/target-repo -v
 
 # If GitHub/GitLab repository is available (authorized scope)
 trufflehog github --org target-organization --token $GITHUB_TOKEN
@@ -245,7 +245,7 @@ gitleaks detect --source https://github.com/org/repo -v
 # - SMTP credentials
 
 # Search for secrets in Docker images
-# docker save target-image:latest | tar x -C /tmp/docker-layers
+# docker save target-image:latest | tar x -C ${TMPDIR:-/tmp}/docker-layers
 # Search each layer for credentials
 ```
 

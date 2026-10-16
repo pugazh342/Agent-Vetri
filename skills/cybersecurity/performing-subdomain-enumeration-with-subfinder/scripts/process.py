@@ -22,7 +22,7 @@ def run_subfinder(domain: str, output_dir: str, use_all_sources: bool = False) -
     if use_all_sources:
         cmd.append("-all")
 
-    result = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=300, check=False)
     subdomains = [line.strip() for line in result.stdout.strip().split("\n") if line.strip()]
 
     with open(output_file, "w") as f:
@@ -41,7 +41,7 @@ def validate_with_httpx(subdomains: list, output_dir: str) -> list:
     ]
 
     result = subprocess.run(
-        cmd, input=input_data, capture_output=True, text=True, timeout=600
+        cmd, input=input_data, capture_output=True, text=True, timeout=600, check=False
     )
 
     live_hosts = []
@@ -75,7 +75,7 @@ def detect_takeover_candidates(subdomains: list) -> list:
         try:
             result = subprocess.run(
                 ["dig", "+short", "CNAME", subdomain],
-                capture_output=True, text=True, timeout=10
+                capture_output=True, text=True, timeout=10, check=False
             )
             cname = result.stdout.strip()
             if cname:
@@ -102,7 +102,7 @@ def generate_report(domain: str, subdomains: list, live_hosts: list,
     with open(report_path, "w") as f:
         f.write(f"# Subdomain Enumeration Report: {domain}\n\n")
         f.write(f"**Date**: {timestamp}\n\n")
-        f.write(f"## Summary\n")
+        f.write("## Summary\n")
         f.write(f"- **Total Subdomains Discovered**: {len(subdomains)}\n")
         f.write(f"- **Live Hosts**: {len(live_hosts)}\n")
         f.write(f"- **Takeover Candidates**: {len(takeover_candidates)}\n\n")
@@ -121,12 +121,10 @@ def generate_report(domain: str, subdomains: list, live_hosts: list,
             f.write("\n## Potential Subdomain Takeover Candidates\n\n")
             f.write("| Subdomain | CNAME | Service |\n")
             f.write("|-----------|-------|---------|\n")
-            for candidate in takeover_candidates:
-                f.write(f"| {candidate['subdomain']} | {candidate['cname']} | {candidate['service']} |\n")
+            f.writelines(f"| {candidate['subdomain']} | {candidate['cname']} | {candidate['service']} |\n" for candidate in takeover_candidates)
 
         f.write("\n## All Discovered Subdomains\n\n")
-        for sub in sorted(subdomains):
-            f.write(f"- {sub}\n")
+        f.writelines(f"- {sub}\n" for sub in sorted(subdomains))
 
     print(f"[+] Report saved to {report_path}")
     return report_path

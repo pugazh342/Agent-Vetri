@@ -69,7 +69,7 @@ class NiktoScanner:
         print(f"[*] Scanning {target}...")
         try:
             proc = subprocess.run(
-                cmd, capture_output=True, text=True, timeout=self.timeout
+                cmd, capture_output=True, text=True, timeout=self.timeout, check=False
             )
             result["status"] = "completed"
             result["end_time"] = datetime.now().isoformat()

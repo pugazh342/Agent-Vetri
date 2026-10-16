@@ -715,10 +715,10 @@ __all__ = [
     "Say",
     "ServiceAccount",
     "TokenPolicy",
-    "vetri_setup",
     "make_service_account",
     "make_tls_material",
     "signatures_on_wire",
     "validate_chat_body",
     "verify_jwt_assertion",
+    "vetri_setup",
 ]

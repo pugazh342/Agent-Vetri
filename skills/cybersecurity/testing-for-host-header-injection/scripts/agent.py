@@ -107,7 +107,7 @@ class HostHeaderInjectionAgent:
         cache_buster = f"?cb={random.randint(100000, 999999)}"
         evil_host = "evil.attacker.com"
 
-        resp1 = self._request("GET", f"{path}{cache_buster}",
+        self._request("GET", f"{path}{cache_buster}",
                                headers={"X-Forwarded-Host": evil_host})
         resp2 = self._request("GET", f"{path}{cache_buster}")
 

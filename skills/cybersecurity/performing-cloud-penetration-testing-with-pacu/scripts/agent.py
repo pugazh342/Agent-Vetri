@@ -10,7 +10,7 @@ WARNING: Only use with explicit written authorization on approved AWS accounts.
 import json
 import subprocess
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timezone, UTC
 
 import boto3
 from botocore.exceptions import ClientError
@@ -23,7 +23,7 @@ def run_pacu_module(module_name: str, session_name: str = "pentest", args: str =
         cmd.extend(["--module-args", args])
 
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=300, check=False)
         return {
             "module": module_name,
             "success": result.returncode == 0,
@@ -36,7 +36,7 @@ def run_pacu_module(module_name: str, session_name: str = "pentest", args: str =
         return {"module": module_name, "success": False, "error": "Pacu not installed. Install with: pip install pacu"}
 
 
-def enumerate_iam_with_boto(profile: str = None) -> dict:
+def enumerate_iam_with_boto(profile: str | None = None) -> dict:
     """Fallback IAM enumeration using boto3 when Pacu is unavailable."""
     session = boto3.Session(profile_name=profile) if profile else boto3.Session()
     iam = session.client("iam")
@@ -164,13 +164,13 @@ def generate_report(iam_data: dict, escalation: list, access: dict, pacu_results
         "=" * 65,
         f"Account: {iam_data.get('identity', {}).get('account', 'N/A')}",
         f"Identity: {iam_data.get('identity', {}).get('arn', 'N/A')}",
-        f"Date: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}",
+        f"Date: {datetime.now(UTC).strftime('%Y-%m-%d %H:%M UTC')}",
         "",
         "SERVICE ACCESS:",
         f"  Accessible: {', '.join(access.get('accessible_services', []))}",
         f"  Denied: {', '.join(access.get('denied_services', []))}",
         "",
-        f"IAM ENUMERATION:",
+        "IAM ENUMERATION:",
         f"  Users Found: {len(iam_data.get('users', []))}",
         f"  Roles Found: {len(iam_data.get('roles', []))}",
         "",
@@ -223,7 +223,7 @@ if __name__ == "__main__":
     report = generate_report(iam_data, escalation, access, pacu_results)
     print(report)
 
-    output = f"pacu_pentest_{datetime.now(timezone.utc).strftime('%Y%m%d')}.json"
+    output = f"pacu_pentest_{datetime.now(UTC).strftime('%Y%m%d')}.json"
     with open(output, "w") as f:
         json.dump({"iam": iam_data, "escalation": escalation, "access": access,
                     "pacu_results": pacu_results}, f, indent=2, default=str)

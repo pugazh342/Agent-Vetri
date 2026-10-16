@@ -269,7 +269,7 @@ meterpreter> run post/multi/recon/local_exploit_suggester
 
 # Data exfiltration proof
 # Create proof file (DO NOT exfiltrate real sensitive data)
-echo "PENTEST-PROOF-$(date +%Y%m%d)" > /tmp/pentest_proof.txt
+echo "PENTEST-PROOF-$(date +%Y%m%d)" > ${TMPDIR:-/tmp}/pentest_proof.txt
 
 # Network pivoting through compromised host
 # Set up SOCKS proxy via SSH

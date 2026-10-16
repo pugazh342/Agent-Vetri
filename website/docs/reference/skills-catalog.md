@@ -28,8 +28,8 @@ If a skill is missing from this list but present in the repo, the catalog is reg
 | [`claude-code`](../user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-claude-code.md) | Delegate coding to Claude Code CLI (features, PRs). | `autonomous-ai-agents/claude-code` |
 | [`codex`](../user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-codex.md) | Delegate coding to OpenAI Codex CLI (features, PRs). | `autonomous-ai-agents/codex` |
 | [`computer-use`](../user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-computer-use.md) | Drive the desktop background-first; escalate on signal. | `autonomous-ai-agents/computer-use` |
-| [`vetri-agent`](../user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-vetri-agent.md) | Use, configure, theme, extend, and orchestrate Vetri Agent. | `autonomous-ai-agents/vetri-agent` |
 | [`opencode`](../user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-opencode.md) | Delegate coding to OpenCode CLI (features, PR review). | `autonomous-ai-agents/opencode` |
+| [`vetri-agent`](../user-guide/skills/bundled/autonomous-ai-agents/autonomous-ai-agents-vetri-agent.md) | Use, configure, theme, extend, and orchestrate Vetri Agent. | `autonomous-ai-agents/vetri-agent` |
 
 ## creative
 
@@ -45,6 +45,73 @@ If a skill is missing from this list but present in the repo, the catalog is reg
 | [`p5js`](../user-guide/skills/bundled/creative/creative-p5js.md) | p5.js sketches: gen art, shaders, interactive, 3D. | `creative/p5js` |
 | [`popular-web-designs`](../user-guide/skills/bundled/creative/creative-popular-web-designs.md) | 54 real design systems (Stripe, Linear, Vercel) as HTML/CSS. | `creative/popular-web-designs` |
 | [`songwriting-and-ai-music`](../user-guide/skills/bundled/creative/creative-songwriting-and-ai-music.md) | Songwriting craft and Suno AI music prompts. | `creative/songwriting-and-ai-music` |
+
+## cybersecurity
+
+| Skill | Description | Path |
+|-------|-------------|------|
+| [`performing-agentless-vulnerability-scanning`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-agentless-vulnerability-scanning.md) | Configure and execute agentless vulnerability scanning. | `cybersecurity/performing-agentless-vulnerability-scanning` |
+| [`performing-android-app-static-analysis-with-mobsf`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-android-app-static-analysis-with-mobsf.md) | Performs automated static analysis of Android applications. | `cybersecurity/performing-android-app-static-analysis-with-mobsf` |
+| [`performing-api-inventory-and-discovery`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-api-inventory-and-discovery.md) | Performs API inventory and discovery to identify all API. | `cybersecurity/performing-api-inventory-and-discovery` |
+| [`performing-api-rate-limiting-bypass`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-api-rate-limiting-bypass.md) | Tests API rate limiting for bypass vulnerabilities using. | `cybersecurity/performing-api-rate-limiting-bypass` |
+| [`performing-api-security-testing-with-postman`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-api-security-testing-with-postman.md) | Uses Postman to build structured API security test. | `cybersecurity/performing-api-security-testing-with-postman` |
+| [`performing-binary-exploitation-analysis`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-binary-exploitation-analysis.md) | Analyze ELF binaries for memory-corruption vulnerabilities. | `cybersecurity/performing-binary-exploitation-analysis` |
+| [`performing-blind-ssrf-exploitation`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-blind-ssrf-exploitation.md) | Detect and exploit blind Server-Side Request Forgery. | `cybersecurity/performing-blind-ssrf-exploitation` |
+| [`performing-cloud-penetration-testing-with-pacu`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-cloud-penetration-testing-with-pacu.md) | Run authorized AWS penetration tests with Pacu, the. | `cybersecurity/performing-cloud-penetration-testing-with-pacu` |
+| [`performing-content-security-policy-bypass`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-content-security-policy-bypass.md) | Analyze Content-Security-Policy headers and bypass them to. | `cybersecurity/performing-content-security-policy-bypass` |
+| [`performing-directory-traversal-testing`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-directory-traversal-testing.md) | Test web applications for path traversal and Local/Remote. | `cybersecurity/performing-directory-traversal-testing` |
+| [`performing-dns-enumeration-and-zone-transfer`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-dns-enumeration-and-zone-transfer.md) | Enumerates DNS records, attempts zone transfers. | `cybersecurity/performing-dns-enumeration-and-zone-transfer` |
+| [`performing-external-network-penetration-test`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-external-network-penetration-test.md) | Conduct a external network penetration test. | `cybersecurity/performing-external-network-penetration-test` |
+| [`performing-graphql-depth-limit-attack`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-graphql-depth-limit-attack.md) | Execute and test GraphQL depth limit attacks using deeply. | `cybersecurity/performing-graphql-depth-limit-attack` |
+| [`performing-graphql-introspection-attack`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-graphql-introspection-attack.md) | Performs GraphQL introspection attacks that extract the. | `cybersecurity/performing-graphql-introspection-attack` |
+| [`performing-graphql-security-assessment`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-graphql-security-assessment.md) | Assessing GraphQL API endpoints for introspection leaks. | `cybersecurity/performing-graphql-security-assessment` |
+| [`performing-http-parameter-pollution-attack`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-http-parameter-pollution-attack.md) | Executes HTTP Parameter Pollution attacks that inject. | `cybersecurity/performing-http-parameter-pollution-attack` |
+| [`performing-initial-access-with-evilginx3`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-initial-access-with-evilginx3.md) | Perform authorized initial access using EvilGinx3. | `cybersecurity/performing-initial-access-with-evilginx3` |
+| [`performing-ip-reputation-analysis-with-shodan`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-ip-reputation-analysis-with-shodan.md) | Analyze IP address reputation using the Shodan API to. | `cybersecurity/performing-ip-reputation-analysis-with-shodan` |
+| [`performing-jwt-none-algorithm-attack`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-jwt-none-algorithm-attack.md) | Execute and test the JWT none algorithm attack, crafting. | `cybersecurity/performing-jwt-none-algorithm-attack` |
+| [`performing-kerberoasting-attack`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-kerberoasting-attack.md) | Perform Kerberoasting, a post-exploitation technique that. | `cybersecurity/performing-kerberoasting-attack` |
+| [`performing-kubernetes-penetration-testing`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-kubernetes-penetration-testing.md) | Evaluates Kubernetes cluster security by actively. | `cybersecurity/performing-kubernetes-penetration-testing` |
+| [`performing-lateral-movement-with-wmiexec`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-lateral-movement-with-wmiexec.md) | Perform lateral movement across Windows networks using. | `cybersecurity/performing-lateral-movement-with-wmiexec` |
+| [`performing-malware-triage-with-yara`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-malware-triage-with-yara.md) | Performs rapid malware triage and classification using. | `cybersecurity/performing-malware-triage-with-yara` |
+| [`performing-open-source-intelligence-gathering`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-open-source-intelligence-gathering.md) | Open Source Intelligence (OSINT) gathering is the first. | `cybersecurity/performing-open-source-intelligence-gathering` |
+| [`performing-osint-with-spiderfoot`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-osint-with-spiderfoot.md) | Automate OSINT collection with the SpiderFoot REST API and. | `cybersecurity/performing-osint-with-spiderfoot` |
+| [`performing-phishing-simulation-with-gophish`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-phishing-simulation-with-gophish.md) | Deploy and run authorized phishing awareness campaigns. | `cybersecurity/performing-phishing-simulation-with-gophish` |
+| [`performing-privilege-escalation-assessment`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-privilege-escalation-assessment.md) | Performs privilege escalation assessments on compromised. | `cybersecurity/performing-privilege-escalation-assessment` |
+| [`performing-privilege-escalation-on-linux`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-privilege-escalation-on-linux.md) | Guides manual enumeration and automated tooling to. | `cybersecurity/performing-privilege-escalation-on-linux` |
+| [`performing-second-order-sql-injection`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-second-order-sql-injection.md) | Detect and exploit second-order SQL injection. | `cybersecurity/performing-second-order-sql-injection` |
+| [`performing-ssrf-vulnerability-exploitation`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-ssrf-vulnerability-exploitation.md) | Tests web application URL parameters for Server-Side. | `cybersecurity/performing-ssrf-vulnerability-exploitation` |
+| [`performing-static-malware-analysis-with-pe-studio`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-static-malware-analysis-with-pe-studio.md) | Performs static analysis of Windows PE malware samples. | `cybersecurity/performing-static-malware-analysis-with-pe-studio` |
+| [`performing-subdomain-enumeration-with-subfinder`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-subdomain-enumeration-with-subfinder.md) | Enumerate subdomains of target domains using. | `cybersecurity/performing-subdomain-enumeration-with-subfinder` |
+| [`performing-thick-client-application-penetration-test`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-thick-client-application-penetration-test.md) | Conduct a thick client application penetration test to. | `cybersecurity/performing-thick-client-application-penetration-test` |
+| [`performing-web-application-firewall-bypass`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-web-application-firewall-bypass.md) | Bypasses Web Application Firewall protections using. | `cybersecurity/performing-web-application-firewall-bypass` |
+| [`performing-web-application-penetration-test`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-web-application-penetration-test.md) | Performs systematic security testing of web applications. | `cybersecurity/performing-web-application-penetration-test` |
+| [`performing-web-application-scanning-with-nikto`](../user-guide/skills/bundled/cybersecurity/cybersecurity-performing-web-application-scanning-with-nikto.md) | Runs Nikto, an open-source web server and web application. | `cybersecurity/performing-web-application-scanning-with-nikto` |
+| [`red-teaming-llms-with-garak`](../user-guide/skills/bundled/cybersecurity/cybersecurity-red-teaming-llms-with-garak.md) | Runs NVIDIA garak probe suites (jailbreak, prompt. | `cybersecurity/red-teaming-llms-with-garak` |
+| [`relaying-ntlm-for-adcs-esc8`](../user-guide/skills/bundled/cybersecurity/cybersecurity-relaying-ntlm-for-adcs-esc8.md) | Uses Impacket's ntlmrelayx.py with a coercion tool. | `cybersecurity/relaying-ntlm-for-adcs-esc8` |
+| [`reverse-engineering-malware-with-ghidra`](../user-guide/skills/bundled/cybersecurity/cybersecurity-reverse-engineering-malware-with-ghidra.md) | Reverse engineers malware binaries using NSA's Ghidra. | `cybersecurity/reverse-engineering-malware-with-ghidra` |
+| [`scanning-network-with-nmap-advanced`](../user-guide/skills/bundled/cybersecurity/cybersecurity-scanning-network-with-nmap-advanced.md) | Performs advanced network recon using Nmap's Scripting. | `cybersecurity/scanning-network-with-nmap-advanced` |
+| [`securing-agentic-ai-tool-invocation`](../user-guide/skills/bundled/cybersecurity/cybersecurity-securing-agentic-ai-tool-invocation.md) | Implements defense-in-depth controls at an AI agent's. | `cybersecurity/securing-agentic-ai-tool-invocation` |
+| [`testing-api-authentication-weaknesses`](../user-guide/skills/bundled/cybersecurity/cybersecurity-testing-api-authentication-weaknesses.md) | Tests API authentication mechanisms for weaknesses. | `cybersecurity/testing-api-authentication-weaknesses` |
+| [`testing-api-for-broken-object-level-authorization`](../user-guide/skills/bundled/cybersecurity/cybersecurity-testing-api-for-broken-object-level-authorization.md) | Tests REST and GraphQL APIs for Broken Object Level. | `cybersecurity/testing-api-for-broken-object-level-authorization` |
+| [`testing-api-for-mass-assignment-vulnerability`](../user-guide/skills/bundled/cybersecurity/cybersecurity-testing-api-for-mass-assignment-vulnerability.md) | Tests APIs for mass assignment (auto-binding), OWASP. | `cybersecurity/testing-api-for-mass-assignment-vulnerability` |
+| [`testing-api-security-with-owasp-top-10`](../user-guide/skills/bundled/cybersecurity/cybersecurity-testing-api-security-with-owasp-top-10.md) | Systematically assesses REST, GraphQL, and gRPC API. | `cybersecurity/testing-api-security-with-owasp-top-10` |
+| [`testing-cors-misconfiguration`](../user-guide/skills/bundled/cybersecurity/cybersecurity-testing-cors-misconfiguration.md) | Identifying and exploiting Cross-Origin Resource Sharing. | `cybersecurity/testing-cors-misconfiguration` |
+| [`testing-for-broken-access-control`](../user-guide/skills/bundled/cybersecurity/cybersecurity-testing-for-broken-access-control.md) | Systematically tests web applications and APIs for broken. | `cybersecurity/testing-for-broken-access-control` |
+| [`testing-for-business-logic-vulnerabilities`](../user-guide/skills/bundled/cybersecurity/cybersecurity-testing-for-business-logic-vulnerabilities.md) | Manually identifies flaws in application business logic -. | `cybersecurity/testing-for-business-logic-vulnerabilities` |
+| [`testing-for-email-header-injection`](../user-guide/skills/bundled/cybersecurity/cybersecurity-testing-for-email-header-injection.md) | Tests web application email functionality (contact forms. | `cybersecurity/testing-for-email-header-injection` |
+| [`testing-for-host-header-injection`](../user-guide/skills/bundled/cybersecurity/cybersecurity-testing-for-host-header-injection.md) | Test web applications for HTTP Host header injection. | `cybersecurity/testing-for-host-header-injection` |
+| [`testing-for-json-web-token-vulnerabilities`](../user-guide/skills/bundled/cybersecurity/cybersecurity-testing-for-json-web-token-vulnerabilities.md) | Tests JWT implementations for algorithm confusion, "none". | `cybersecurity/testing-for-json-web-token-vulnerabilities` |
+| [`testing-for-open-redirect-vulnerabilities`](../user-guide/skills/bundled/cybersecurity/cybersecurity-testing-for-open-redirect-vulnerabilities.md) | Identifies and exploits open redirect vulnerabilities by. | `cybersecurity/testing-for-open-redirect-vulnerabilities` |
+| [`testing-for-sensitive-data-exposure`](../user-guide/skills/bundled/cybersecurity/cybersecurity-testing-for-sensitive-data-exposure.md) | Identifying sensitive data exposure vulnerabilities. | `cybersecurity/testing-for-sensitive-data-exposure` |
+| [`testing-for-system-prompt-leakage`](../user-guide/skills/bundled/cybersecurity/cybersecurity-testing-for-system-prompt-leakage.md) | Extracts LLM system prompts using direct requests. | `cybersecurity/testing-for-system-prompt-leakage` |
+| [`testing-for-xml-injection-vulnerabilities`](../user-guide/skills/bundled/cybersecurity/cybersecurity-testing-for-xml-injection-vulnerabilities.md) | Test web applications for XML injection vulnerabilities. | `cybersecurity/testing-for-xml-injection-vulnerabilities` |
+| [`testing-for-xss-vulnerabilities`](../user-guide/skills/bundled/cybersecurity/cybersecurity-testing-for-xss-vulnerabilities.md) | Tests web applications for reflected, stored, and. | `cybersecurity/testing-for-xss-vulnerabilities` |
+| [`testing-for-xss-vulnerabilities-with-burpsuite`](../user-guide/skills/bundled/cybersecurity/cybersecurity-testing-for-xss-vulnerabilities-with-burpsuite.md) | Identifying and validating cross-site scripting. | `cybersecurity/testing-for-xss-vulnerabilities-with-burpsuite` |
+| [`testing-for-xxe-injection-vulnerabilities`](../user-guide/skills/bundled/cybersecurity/cybersecurity-testing-for-xxe-injection-vulnerabilities.md) | Discovering and exploiting XML External Entity injection. | `cybersecurity/testing-for-xxe-injection-vulnerabilities` |
+| [`testing-jwt-token-security`](../user-guide/skills/bundled/cybersecurity/cybersecurity-testing-jwt-token-security.md) | Assessing JSON Web Token implementations for cryptographic. | `cybersecurity/testing-jwt-token-security` |
+| [`testing-oauth2-implementation-flaws`](../user-guide/skills/bundled/cybersecurity/cybersecurity-testing-oauth2-implementation-flaws.md) | Tests OAuth 2.0 and OpenID Connect implementations for. | `cybersecurity/testing-oauth2-implementation-flaws` |
+| [`testing-prompt-injection-in-rag-pipelines`](../user-guide/skills/bundled/cybersecurity/cybersecurity-testing-prompt-injection-in-rag-pipelines.md) | Probes Retrieval-Augmented Generation pipelines for. | `cybersecurity/testing-prompt-injection-in-rag-pipelines` |
+| [`testing-websocket-api-security`](../user-guide/skills/bundled/cybersecurity/cybersecurity-testing-websocket-api-security.md) | Tests WebSocket API implementations for missing. | `cybersecurity/testing-websocket-api-security` |
 
 ## devops
 
@@ -72,6 +139,21 @@ If a skill is missing from this list but present in the repo, the catalog is reg
 | Skill | Description | Path |
 |-------|-------------|------|
 | [`obsidian`](../user-guide/skills/bundled/note-taking/note-taking-obsidian.md) | Read, search, create, and edit notes in the Obsidian vault. | `note-taking/obsidian` |
+
+## pentesting
+
+| Skill | Description | Path |
+|-------|-------------|------|
+| [`autonomous-pentest-agent`](../user-guide/skills/bundled/pentesting/pentesting-autonomous-pentest-agent.md) | Run a fully autonomous, AI-agent-driven security. | `pentesting/autonomous-pentest-agent` |
+| [`ci-security-scanning-with-strix`](../user-guide/skills/bundled/pentesting/pentesting-ci-security-scanning-with-strix.md) | Add security scanning to CI/CD with Strix — GitHub Actions. | `pentesting/ci-security-scanning-with-strix` |
+| [`fix-security-vulnerabilities-with-strix`](../user-guide/skills/bundled/pentesting/pentesting-fix-security-vulnerabilities-with-strix.md) | Fix security vulnerabilities found by a Strix pentest. | `pentesting/fix-security-vulnerabilities-with-strix` |
+| [`managed-pentesting-with-strix`](../user-guide/skills/bundled/pentesting/pentesting-managed-pentesting-with-strix.md) | Run a managed pentest of a web app or API through the. | `pentesting/managed-pentesting-with-strix` |
+| [`penetration-testing-with-strix`](../user-guide/skills/bundled/pentesting/pentesting-penetration-testing-with-strix.md) | Pentest a web app, API, codebase, repository, URL, domain. | `pentesting/penetration-testing-with-strix` |
+| [`pentest-tool-playbooks`](../user-guide/skills/bundled/pentesting/pentesting-pentest-tool-playbooks.md) | Safe, agent-safe CLI playbooks for the core pentest tools. | `pentesting/pentest-tool-playbooks` |
+| [`pentest-vulnerability-catalog`](../user-guide/skills/bundled/pentesting/pentesting-pentest-vulnerability-catalog.md) | Condensed testing playbooks for the core web vulnerability. | `pentesting/pentest-vulnerability-catalog` |
+| [`pentestgpt-autonomous-loop`](../user-guide/skills/bundled/pentesting/pentesting-pentestgpt-autonomous-loop.md) | Run or structure an autonomous AI-driven penetration test. | `pentesting/pentestgpt-autonomous-loop` |
+| [`pentestgpt-ptt-methodology`](../user-guide/skills/bundled/pentesting/pentesting-pentestgpt-ptt-methodology.md) | Interactive penetration-testing methodology with the. | `pentesting/pentestgpt-ptt-methodology` |
+| [`strix-agent-internals`](../user-guide/skills/bundled/pentesting/pentesting-strix-agent-internals.md) | Strix internal architecture and working logic from source. | `pentesting/strix-agent-internals` |
 
 ## productivity
 
@@ -111,10 +193,10 @@ If a skill is missing from this list but present in the repo, the catalog is reg
 
 | Skill | Description | Path |
 |-------|-------------|------|
+| [`code-diagnostics`](../user-guide/skills/bundled/software-development/software-development-code-diagnostics.md) | Lint files; report findings with file, line, and severity. | `software-development/code-diagnostics` |
 | [`codebase-inspection`](../user-guide/skills/bundled/software-development/software-development-codebase-inspection.md) | Inspect codebases w/ pygount: LOC, languages, ratios. | `software-development/codebase-inspection` |
 | [`dogfood`](../user-guide/skills/bundled/software-development/software-development-dogfood.md) | Exploratory QA of web apps: find bugs, evidence, reports. | `software-development/dogfood` |
 | [`github`](../user-guide/skills/bundled/software-development/software-development-github.md) | GitHub via gh CLI: PRs, issues, reviews, repos, auth. | `software-development/github` |
-| [`vetri-agent-skill-authoring`](../user-guide/skills/bundled/software-development/software-development-vetri-agent-skill-authoring.md) | Author in-repo SKILL.md files: frontmatter and structure. | `software-development/vetri-agent-skill-authoring` |
 | [`inspecting-vetri-desktop-dom`](../user-guide/skills/bundled/software-development/software-development-inspecting-vetri-desktop-dom.md) | Read the live Vetri desktop DOM/CSS over CDP. | `software-development/inspecting-vetri-desktop-dom` |
 | [`node-inspect-debugger`](../user-guide/skills/bundled/software-development/software-development-node-inspect-debugger.md) | Debug Node.js via --inspect + Chrome DevTools Protocol CLI. | `software-development/node-inspect-debugger` |
 | [`python-debugpy`](../user-guide/skills/bundled/software-development/software-development-python-debugpy.md) | Debug Python: pdb REPL + debugpy remote (DAP). | `software-development/python-debugpy` |
@@ -123,6 +205,7 @@ If a skill is missing from this list but present in the repo, the catalog is reg
 | [`spike`](../user-guide/skills/bundled/software-development/software-development-spike.md) | Throwaway experiments to validate an idea before build. | `software-development/spike` |
 | [`systematic-debugging`](../user-guide/skills/bundled/software-development/software-development-systematic-debugging.md) | 4-phase root cause debugging: understand bugs before fixing. | `software-development/systematic-debugging` |
 | [`test-driven-development`](../user-guide/skills/bundled/software-development/software-development-test-driven-development.md) | TDD: enforce RED-GREEN-REFACTOR, tests before code. | `software-development/test-driven-development` |
+| [`vetri-agent-skill-authoring`](../user-guide/skills/bundled/software-development/software-development-vetri-agent-skill-authoring.md) | Author in-repo SKILL.md files: frontmatter and structure. | `software-development/vetri-agent-skill-authoring` |
 
 ## web
 

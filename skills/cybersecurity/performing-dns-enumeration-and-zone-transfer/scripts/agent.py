@@ -9,7 +9,7 @@ WARNING: Only use with explicit written authorization for the target domain.
 
 import json
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timezone, UTC
 
 import dns.resolver
 import dns.zone
@@ -134,7 +134,7 @@ def check_email_security(domain: str) -> dict:
     return security
 
 
-def brute_force_subdomains(domain: str, wordlist: list[str] = None) -> list[dict]:
+def brute_force_subdomains(domain: str, wordlist: list[str] | None = None) -> list[dict]:
     """Brute-force subdomain discovery via DNS resolution."""
     if wordlist is None:
         wordlist = [
@@ -178,7 +178,7 @@ def generate_report(
         "DNS ENUMERATION AND ZONE TRANSFER REPORT — AUTHORIZED TESTING ONLY",
         "=" * 65,
         f"Target Domain: {domain}",
-        f"Date: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}",
+        f"Date: {datetime.now(UTC).strftime('%Y-%m-%d %H:%M UTC')}",
         "",
         "DNS RECORDS:",
     ]
@@ -244,7 +244,7 @@ if __name__ == "__main__":
     report = generate_report(domain, records, nameservers, zone_transfer, email_security, subdomains)
     print(report)
 
-    output = f"dns_enum_{domain.replace('.', '_')}_{datetime.now(timezone.utc).strftime('%Y%m%d')}.json"
+    output = f"dns_enum_{domain.replace('.', '_')}_{datetime.now(UTC).strftime('%Y%m%d')}.json"
     with open(output, "w") as f:
         json.dump({"records": records, "nameservers": nameservers, "zone_transfer": zone_transfer,
                     "email_security": email_security, "subdomains": subdomains}, f, indent=2)

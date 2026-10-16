@@ -146,7 +146,7 @@ def main():
     if len(sys.argv) < 2:
         print("Usage: python process.py <session_file> [output_format]")
         print("  output_format: json (default) or netscape")
-        print("")
+        print()
         print("Example: python process.py session_capture.txt json")
         return
 

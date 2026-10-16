@@ -18,7 +18,7 @@ def enumerate_cluster_info():
     }
     for key, cmd in cmds.items():
         try:
-            result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=30, check=False)
             data = json.loads(result.stdout) if result.returncode == 0 else {"error": result.stderr[:200]}
             if key == "nodes":
                 results[key] = [{"name": n["metadata"]["name"],
@@ -54,7 +54,7 @@ def test_service_account_permissions(namespace="default"):
     results = []
     for name, cmd in checks:
         try:
-            result = subprocess.run(cmd, capture_output=True, text=True, timeout=10)
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=10, check=False)
             allowed = "yes" in result.stdout.lower()
             results.append({"check": name, "allowed": allowed})
         except Exception as e:
@@ -71,7 +71,7 @@ def scan_exposed_dashboards():
     """Check for exposed Kubernetes dashboards and management interfaces."""
     cmd = ["kubectl", "get", "services", "--all-namespaces", "-o", "json"]
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=30, check=False)
         data = json.loads(result.stdout)
         dashboard_patterns = ["dashboard", "grafana", "prometheus", "kibana", "jaeger", "argocd", "rancher", "lens"]
         exposed = []
@@ -94,7 +94,7 @@ def check_pod_escape_vectors(namespace="default"):
     """Check for container escape vectors in running pods."""
     cmd = ["kubectl", "get", "pods", "-n", namespace, "-o", "json"]
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=30, check=False)
         data = json.loads(result.stdout)
         escape_vectors = []
         for pod in data.get("items", []):

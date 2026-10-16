@@ -24,7 +24,7 @@ def tcp_port_scan(host, ports=None):
             except Exception:
                 banner = ""
             results.append({"port": port, "state": "open", "banner": banner})
-        except (socket.timeout, ConnectionRefusedError, OSError):
+        except (TimeoutError, ConnectionRefusedError, OSError):
             pass
         finally:
             sock.close()
@@ -42,7 +42,7 @@ def run_nmap_scan(target, scan_type="quick"):
     args = scan_args.get(scan_type, scan_args["quick"])
     cmd = ["nmap", "-oX", "-"] + args + [target]
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=300, check=False)
         import xml.etree.ElementTree as ET
         root = ET.fromstring(result.stdout)
         hosts = []

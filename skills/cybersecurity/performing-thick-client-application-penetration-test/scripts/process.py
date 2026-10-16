@@ -115,7 +115,7 @@ def generate_report(app_dir: str, string_findings: list[dict],
                      output_dir: Path) -> str:
     """Generate thick client analysis report."""
     report_file = output_dir / "thick_client_report.md"
-    timestamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    timestamp = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%d %H:%M UTC")
     all_dlls, writable_dlls = dll_info
 
     with open(report_file, "w") as f:
@@ -127,8 +127,7 @@ def generate_report(app_dir: str, string_findings: list[dict],
         if string_findings:
             f.write(f"Found **{len(string_findings)}** potentially sensitive strings:\n\n")
             f.write("| Type | Match | Severity |\n|------|-------|----------|\n")
-            for finding in string_findings[:50]:
-                f.write(f"| {finding['type']} | `{finding['match'][:80]}` | {finding['severity']} |\n")
+            f.writelines(f"| {finding['type']} | `{finding['match'][:80]}` | {finding['severity']} |\n" for finding in string_findings[:50])
         else:
             f.write("No sensitive strings detected in binaries.\n")
         f.write("\n")
@@ -136,8 +135,7 @@ def generate_report(app_dir: str, string_findings: list[dict],
         f.write("## Configuration File Analysis\n\n")
         if config_findings:
             f.write(f"Found **{len(config_findings)}** sensitive entries in configs:\n\n")
-            for finding in config_findings[:20]:
-                f.write(f"- **{finding['type']}** in `{finding['file']}`: `{finding['match'][:80]}`\n")
+            f.writelines(f"- **{finding['type']}** in `{finding['file']}`: `{finding['match'][:80]}`\n" for finding in config_findings[:20])
         else:
             f.write("No sensitive data found in configuration files.\n")
         f.write("\n")
@@ -147,8 +145,7 @@ def generate_report(app_dir: str, string_findings: list[dict],
         f.write(f"Writable DLLs (potential hijacking): **{len(writable_dlls)}**\n\n")
         if writable_dlls:
             f.write("| DLL | Path |\n|-----|------|\n")
-            for dll in writable_dlls:
-                f.write(f"| {dll['name']} | {dll['path']} |\n")
+            f.writelines(f"| {dll['name']} | {dll['path']} |\n" for dll in writable_dlls)
         f.write("\n")
 
     print(f"[+] Report: {report_file}")

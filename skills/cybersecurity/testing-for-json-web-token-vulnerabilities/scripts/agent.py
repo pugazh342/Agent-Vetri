@@ -56,7 +56,7 @@ class JWTTestAgent:
 
     def analyze_token(self, token):
         """Analyze JWT for security issues."""
-        header, payload, sig = self.decode_jwt(token)
+        header, payload, _sig = self.decode_jwt(token)
         if not header:
             return {"error": "Invalid JWT"}
 
@@ -84,7 +84,7 @@ class JWTTestAgent:
 
     def test_none_algorithm(self, token):
         """Forge token with alg:none to bypass signature."""
-        header, payload, _ = self.decode_jwt(token)
+        header, _payload, _ = self.decode_jwt(token)
         if not header:
             return []
 
@@ -157,7 +157,7 @@ class JWTTestAgent:
 
     def test_kid_injection(self, token):
         """Test kid header parameter for injection."""
-        header, payload, _ = self.decode_jwt(token)
+        header, _payload, _ = self.decode_jwt(token)
         if not header or "kid" not in header:
             return []
 

@@ -130,7 +130,7 @@ class OAuth2TestAgent:
             "grant_type": "authorization_code", "code": auth_code,
             "client_id": self.client_id, "redirect_uri": self.redirect_uri,
         }
-        resp1 = self._post(self.token_url, data=data)
+        self._post(self.token_url, data=data)
         resp2 = self._post(self.token_url, data=data)
         if resp2 and resp2.status_code == 200:
             self.findings.append({"severity": "high", "type": "Code Reuse",

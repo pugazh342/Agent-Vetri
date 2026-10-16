@@ -8,7 +8,7 @@ WARNING: Only use with explicit written authorization for the target application
 """
 
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timezone, UTC
 from urllib.parse import urlparse, parse_qs, urlencode, urlunparse
 
 import requests
@@ -202,7 +202,7 @@ def generate_report(traversal: list, null_byte: list, wrappers: list) -> str:
     lines = [
         "DIRECTORY TRAVERSAL TESTING REPORT — AUTHORIZED TESTING ONLY",
         "=" * 65,
-        f"Date: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}",
+        f"Date: {datetime.now(UTC).strftime('%Y-%m-%d %H:%M UTC')}",
         f"Total Vulnerabilities Found: {len(all_vulns)}",
         "",
         f"TRAVERSAL FINDINGS ({len(traversal)}):",

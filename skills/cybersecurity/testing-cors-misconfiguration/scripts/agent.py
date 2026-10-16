@@ -75,7 +75,7 @@ def test_preflight(url, origin="https://evil.com"):
             }
             resp = requests.options(url, headers=headers, timeout=10, verify=not os.environ.get("SKIP_TLS_VERIFY", "").lower() == "true")  # Set SKIP_TLS_VERIFY=true for self-signed certs in lab environments
             acam = resp.headers.get("Access-Control-Allow-Methods", "")
-            acah = resp.headers.get("Access-Control-Allow-Headers", "")
+            resp.headers.get("Access-Control-Allow-Headers", "")
             max_age = resp.headers.get("Access-Control-Max-Age", "")
             if method in acam:
                 print(f"  [+] {method} allowed in preflight")
@@ -99,10 +99,10 @@ def test_wildcard_with_credentials(url):
         acao = resp.headers.get("Access-Control-Allow-Origin", "")
         acac = resp.headers.get("Access-Control-Allow-Credentials", "")
         if acao == "*" and acac.lower() == "true":
-            print(f"  [!] CRITICAL: Wildcard (*) with credentials=true")
+            print("  [!] CRITICAL: Wildcard (*) with credentials=true")
             return [{"url": url, "issue": "wildcard_with_credentials", "severity": "CRITICAL"}]
         elif acao == "*":
-            print(f"  [+] Wildcard (*) without credentials (acceptable for public APIs)")
+            print("  [+] Wildcard (*) without credentials (acceptable for public APIs)")
     except requests.RequestException:
         pass
     return []
@@ -123,7 +123,7 @@ def test_null_origin(url, cookies=None):
             return [{"url": url, "issue": "null_origin_accepted",
                       "credentials": creds, "severity": severity}]
         else:
-            print(f"  [+] Null origin not reflected")
+            print("  [+] Null origin not reflected")
     except requests.RequestException:
         pass
     return []
@@ -153,8 +153,6 @@ def test_internal_origins(url, cookies=None):
 def scan_endpoints(base_url, endpoints, token=None):
     """Scan multiple endpoints for CORS issues."""
     all_findings = []
-    cookies = None
-    headers_auth = {"Authorization": f"Bearer {token}"} if token else {}
     domain = urlparse(base_url).netloc
     dynamic_origins = build_dynamic_origins(domain)
     test_origins = EVIL_ORIGINS + dynamic_origins
@@ -196,7 +194,7 @@ def main():
     parser.add_argument("-o", "--output", default="cors_report.json")
     args = parser.parse_args()
 
-    print(f"[*] CORS Misconfiguration Assessment")
+    print("[*] CORS Misconfiguration Assessment")
     print(f"[*] Target: {args.base_url}")
     findings = scan_endpoints(args.base_url, args.endpoints, args.token)
     generate_report(findings, args.output)

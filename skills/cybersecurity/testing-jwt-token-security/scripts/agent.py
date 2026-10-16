@@ -10,7 +10,7 @@ import os
 import argparse
 import requests
 import urllib3
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta, timezone, UTC
 from urllib.parse import urljoin
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -37,8 +37,8 @@ def decode_jwt(token):
     print(json.dumps(payload, indent=2))
 
     if "exp" in payload:
-        exp_time = datetime.fromtimestamp(payload["exp"], tz=timezone.utc)
-        now = datetime.now(timezone.utc)
+        exp_time = datetime.fromtimestamp(payload["exp"], tz=UTC)
+        now = datetime.now(UTC)
         if exp_time < now:
             print(f"\n  [!] Token EXPIRED at {exp_time.isoformat()}")
         else:
@@ -120,7 +120,7 @@ def forge_token(secret, claims, algorithm="HS256"):
     """Create a forged JWT with custom claims."""
     print(f"\n[*] Forging token with claims: {claims}")
     if "exp" not in claims:
-        claims["exp"] = int((datetime.now(timezone.utc) + timedelta(hours=24)).timestamp())
+        claims["exp"] = int((datetime.now(UTC) + timedelta(hours=24)).timestamp())
     token = jwt.encode(claims, secret, algorithm=algorithm)
     print(f"  [+] Forged token: {token[:80]}...")
     return token
@@ -128,10 +128,10 @@ def forge_token(secret, claims, algorithm="HS256"):
 
 def test_expired_token(token, target_url):
     """Test if expired tokens are still accepted."""
-    print(f"\n[*] Testing expired token acceptance...")
+    print("\n[*] Testing expired token acceptance...")
     parts = token.split(".")
     payload = json.loads(base64.urlsafe_b64decode(parts[1] + "=="))
-    if "exp" in payload and payload["exp"] < datetime.now(timezone.utc).timestamp():
+    if "exp" in payload and payload["exp"] < datetime.now(UTC).timestamp():
         try:
             resp = requests.get(target_url, headers={"Authorization": f"Bearer {token}"},
                                 timeout=10, verify=not os.environ.get("SKIP_TLS_VERIFY", "").lower() == "true")  # Set SKIP_TLS_VERIFY=true for self-signed certs in lab environments
@@ -149,7 +149,7 @@ def test_expired_token(token, target_url):
 
 def test_token_after_logout(token, target_url, logout_url):
     """Test if token is still valid after logout."""
-    print(f"\n[*] Testing token validity after logout...")
+    print("\n[*] Testing token validity after logout...")
     headers = {"Authorization": f"Bearer {token}"}
     try:
         pre = requests.get(target_url, headers=headers, timeout=10, verify=not os.environ.get("SKIP_TLS_VERIFY", "").lower() == "true")  # Set SKIP_TLS_VERIFY=true for self-signed certs in lab environments
@@ -159,10 +159,10 @@ def test_token_after_logout(token, target_url, logout_url):
         requests.post(logout_url, headers=headers, timeout=10, verify=not os.environ.get("SKIP_TLS_VERIFY", "").lower() == "true")  # Set SKIP_TLS_VERIFY=true for self-signed certs in lab environments
         post = requests.get(target_url, headers=headers, timeout=10, verify=not os.environ.get("SKIP_TLS_VERIFY", "").lower() == "true")  # Set SKIP_TLS_VERIFY=true for self-signed certs in lab environments
         if post.status_code == 200:
-            print(f"  [!] VULNERABLE: Token still valid after logout")
+            print("  [!] VULNERABLE: Token still valid after logout")
             return [{"type": "NO_TOKEN_REVOCATION", "severity": "HIGH"}]
         else:
-            print(f"  [+] Token properly revoked after logout")
+            print("  [+] Token properly revoked after logout")
     except requests.RequestException:
         pass
     return []
@@ -170,7 +170,7 @@ def test_token_after_logout(token, target_url, logout_url):
 
 def check_jwks_endpoint(base_url):
     """Check for JWKS and OpenID configuration endpoints."""
-    print(f"\n[*] Checking for JWKS/OIDC endpoints...")
+    print("\n[*] Checking for JWKS/OIDC endpoints...")
     endpoints = [
         "/.well-known/jwks.json", "/.well-known/openid-configuration",
         "/oauth/certs", "/auth/keys", "/.well-known/keys",
@@ -215,7 +215,7 @@ def main():
 
     print("[*] JWT Token Security Assessment")
     findings = []
-    header, payload = decode_jwt(args.token)
+    _header, _payload = decode_jwt(args.token)
     if args.base_url:
         check_jwks_endpoint(args.base_url)
     findings.extend(test_alg_none(args.token, args.target_url))

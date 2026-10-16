@@ -115,7 +115,7 @@ def test_mass_assignment(base_url, user_token, profile_endpoint):
         try:
             resp = requests.put(url, headers=headers, json=payload, timeout=10, verify=False)
             if resp.status_code in (200, 201):
-                field = list(payload.keys())[0]
+                field = next(iter(payload.keys()))
                 resp_text = resp.text.lower()
                 if str(payload[field]).lower() in resp_text:
                     findings.append({

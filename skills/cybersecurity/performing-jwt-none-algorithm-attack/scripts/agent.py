@@ -44,7 +44,7 @@ def decode_jwt(token):
 def forge_none_token(token, modify_claims=None):
     """Forge a JWT with 'none' algorithm (removes signature)."""
     parts = token.split(".")
-    payload = json.loads(b64url_decode(parts[0]))
+    json.loads(b64url_decode(parts[0]))
     claims = json.loads(b64url_decode(parts[1]))
     if modify_claims:
         claims.update(modify_claims)

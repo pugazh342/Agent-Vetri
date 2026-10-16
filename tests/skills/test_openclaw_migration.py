@@ -5,6 +5,8 @@ import json
 import sys
 from pathlib import Path
 
+import pytest
+
 
 SCRIPT_PATH = (
     Path(__file__).resolve().parents[2]
@@ -260,7 +262,11 @@ def test_symlinked_config_stays_a_symlink(tmp_path: Path):
                     encoding="utf-8")
     migrator, config_path = _allowlist_migrator(mod, tmp_path, "placeholder: true\n")
     config_path.unlink()
-    config_path.symlink_to(real)
+    try:
+        config_path.symlink_to(real)
+    except OSError as exc:
+        # Windows without Developer Mode/elevation refuses symlink creation (WinError 1314).
+        pytest.skip(f"symlink creation unavailable on this host: {exc}")
 
     migrator.migrate()
 

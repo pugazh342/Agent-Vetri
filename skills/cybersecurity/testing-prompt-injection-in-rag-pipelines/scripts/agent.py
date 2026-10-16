@@ -17,7 +17,7 @@ Examples:
 import argparse
 import json
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timezone, UTC
 
 try:
     import requests
@@ -79,7 +79,7 @@ def run_inject(args):
 
     vuln = sum(1 for r in results if r["vulnerable"])
     report = {
-        "generated": datetime.now(timezone.utc).isoformat(),
+        "generated": datetime.now(UTC).isoformat(),
         "target": args.url, "total": len(results), "vulnerable": vuln,
         "atlas": "AML.T0051", "owasp": "LLM01:2025", "results": results,
     }

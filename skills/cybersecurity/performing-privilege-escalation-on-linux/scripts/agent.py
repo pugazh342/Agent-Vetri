@@ -24,7 +24,7 @@ def enumerate_system_info():
     results = {}
     for key, cmd in cmds.items():
         try:
-            result = subprocess.run(cmd, capture_output=True, text=True, timeout=10)
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=10, check=False)
             results[key] = result.stdout.strip()
         except Exception as e:
             results[key] = str(e)
@@ -34,7 +34,7 @@ def enumerate_system_info():
 def check_sudo_permissions():
     """Check sudo permissions for current user."""
     try:
-        result = subprocess.run(["sudo", "-l"], capture_output=True, text=True, timeout=10)
+        result = subprocess.run(["sudo", "-l"], capture_output=True, text=True, timeout=10, check=False)
         output = result.stdout + result.stderr
         escalation_vectors = []
         dangerous_binaries = [
@@ -63,7 +63,7 @@ def find_suid_binaries():
     """Find SUID/SGID binaries that may allow privilege escalation."""
     cmd = ["find", "/", "-perm", "-4000", "-type", "f", "-exec", "ls", "-la", "{}", ";"]
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=30, check=False)
         binaries = []
         gtfobins_suid = [
             "nmap", "vim", "find", "bash", "more", "less", "nano", "cp", "mv",
@@ -106,7 +106,7 @@ def check_writable_files():
     cmd = ["find", "/", "-writable", "-type", "f", "-not", "-path", "'/proc/*'",
            "-not", "-path", "'/sys/*'", "-not", "-path", "'/dev/*'"]
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=15)
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=15, check=False)
         writable_files = result.stdout.strip().splitlines()[:50]
         sensitive = [f for f in writable_files if any(p in f for p in ["/etc/", "/root/", "cron", ".service", "/bin/", "/sbin/"])]
         findings.extend([{"path": f, "writable": True, "severity": "HIGH"} for f in sensitive[:10]])
@@ -135,7 +135,7 @@ def check_cron_jobs():
                 if f.is_file():
                     findings.append({"cron_file": str(f), "type": "cron.d entry"})
     try:
-        result = subprocess.run(["crontab", "-l"], capture_output=True, text=True, timeout=10)
+        result = subprocess.run(["crontab", "-l"], capture_output=True, text=True, timeout=10, check=False)
         if result.returncode == 0:
             findings.append({"type": "user_crontab", "content": result.stdout[:500]})
     except Exception:
@@ -146,7 +146,7 @@ def check_cron_jobs():
 def check_capabilities():
     """Find binaries with Linux capabilities set."""
     try:
-        result = subprocess.run(["getcap", "-r", "/"], capture_output=True, text=True, timeout=15)
+        result = subprocess.run(["getcap", "-r", "/"], capture_output=True, text=True, timeout=15, check=False)
         caps = []
         for line in result.stdout.strip().splitlines():
             parts = line.split(" = ")

@@ -17,7 +17,7 @@ import json
 import sys
 import csv
 import os
-from datetime import datetime, timezone
+from datetime import datetime, timezone, UTC
 from pathlib import Path
 from dataclasses import dataclass, field
 from typing import Optional
@@ -82,7 +82,7 @@ class GoPhishClient:
 
     # Email Templates
     def create_template(self, name: str, subject: str, html: str,
-                        text: str = "", attachments: list = None) -> dict:
+                        text: str = "", attachments: list | None = None) -> dict:
         data = {
             "name": name,
             "subject": subject,
@@ -303,7 +303,7 @@ tr:hover {{ background: #f8f9fa; }}
 <p><strong>Campaign:</strong> {name}<br>
 <strong>Date:</strong> {created}<br>
 <strong>Status:</strong> {status}<br>
-<strong>Generated:</strong> {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}</p>
+<strong>Generated:</strong> {datetime.now(UTC).strftime('%Y-%m-%d %H:%M UTC')}</p>
 
 <h2>Campaign Metrics</h2>
 <div class="metric-grid">

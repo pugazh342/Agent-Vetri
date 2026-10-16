@@ -8,11 +8,17 @@ from __future__ import annotations
 
 import os
 import platform
-import pwd
 import subprocess
 from pathlib import Path
 
 import pytest
+
+# POSIX-only stdlib module: this file covers launchd/systemd gateway services,
+# which only exist on POSIX hosts - skip collection where pwd cannot exist.
+pwd = pytest.importorskip(
+    "pwd",
+    reason="POSIX-only: launchd/systemd gateway-service rename needs passwd lookups",
+)
 
 from vetri_cli import gateway, profiles
 from vetri_constants import reset_vetri_home_override, set_vetri_home_override
