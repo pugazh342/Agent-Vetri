@@ -2,9 +2,9 @@
   "name": "vetri",
   "productName": "Vetri",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Native desktop shell for Vetri Agent.",
-  "author": "Nous Research",
+  "author": "Pugazhmani K",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NousResearch/vetri-agent.git"

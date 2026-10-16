@@ -1,10 +1,6 @@
 ---
 name: testing-for-system-prompt-leakage
-description: Extracts LLM system prompts using direct requests, jailbreak/instruction-override
-  framing, translation/encoding tricks, and few-shot replay, combining manual payloads with
-  automated garak and Promptfoo scanners to surface embedded secrets, routing logic, and
-  policy leakage (OWASP LLM07:2025). Use during LLM application red-team engagements or
-  when validating that no credentials or authorization logic live in the system prompt.
+description: "Extracts LLM system prompts using direct requests."
 domain: cybersecurity
 subdomain: ai-security
 tags:
@@ -23,6 +19,7 @@ nist_ai_rmf:
 - MEASURE-2.7
 atlas_techniques:
 - AML.T0057
+platforms: [linux, macos, windows]
 ---
 # Testing for System Prompt Leakage
 

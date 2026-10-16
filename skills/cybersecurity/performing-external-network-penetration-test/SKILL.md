@@ -1,8 +1,6 @@
 ---
 name: performing-external-network-penetration-test
-description: Conduct a comprehensive external network penetration test to identify
-  vulnerabilities in internet-facing infrastructure using PTES methodology, reconnaissance,
-  scanning, exploitation, and reporting.
+description: "Conduct a external network penetration test."
 domain: cybersecurity
 subdomain: penetration-testing
 tags:
@@ -29,8 +27,8 @@ mitre_attack:
 - T1059
 - T1078
 - T1592
+platforms: [linux, macos, windows]
 ---
-
 # Performing External Network Penetration Test
 
 ## Overview

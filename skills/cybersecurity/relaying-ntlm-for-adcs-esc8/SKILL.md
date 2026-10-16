@@ -1,10 +1,6 @@
 ---
 name: relaying-ntlm-for-adcs-esc8
-description: Uses Impacket's ntlmrelayx.py with a coercion tool (PetitPotam, Coercer,
-  printerbug) to relay NTLM authentication from a coerced domain controller into
-  the AD CS HTTP web-enrollment endpoint (ESC8), obtaining a DC certificate usable
-  via Certipy for PKINIT/DCSync. Use during internal AD penetration tests or purple-team
-  exercises when AD CS Web Enrollment lacks Extended Protection for Authentication.
+description: "Uses Impacket's ntlmrelayx.py with a coercion tool."
 domain: cybersecurity
 subdomain: red-teaming
 tags:
@@ -23,6 +19,7 @@ nist_csf:
 - DE.CM-01
 mitre_attack:
 - T1557.001
+platforms: [linux, macos, windows]
 ---
 # Relaying NTLM for ADCS ESC8
 

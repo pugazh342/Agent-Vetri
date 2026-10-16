@@ -125,6 +125,39 @@ between CLI sessions.
 When `.worktrees/` grows past 10 trees or 5 GB, startup prints a one-line
 notice pointing at these commands.
 
+### Model catalog
+
+`vetri models` prints the active model and provider, the resolved context window
+(with where the number came from: config override, built-in catalog, or fallback),
+configured `model_aliases:` entries, and multiplex profiles - without starting the
+interactive picker:
+
+```bash
+vetri models              # what is configured right now
+vetri models --catalog    # every model in the built-in context-window table
+vetri models --json       # machine-readable
+```
+
+Change the selection with `vetri model` (interactive).
+
+### Code diagnostics
+
+`vetri diagnose` runs whatever language checkers are installed on the machine -
+`pyright`/`basedpyright` or `ruff` for Python, `tsc` or `eslint` for JS/TS, and
+`shellcheck` for shell - and normalizes their output into a single
+`file:line:column: severity` stream:
+
+```bash
+vetri diagnose .                    # check the current directory
+vetri diagnose src/ tests/ --json   # bounded, machine-readable
+vetri diagnose --checkers           # which checkers are available
+```
+
+Exit codes follow the usual convention: `0` clean, `1` diagnostics found, `2`
+nothing could run. There is no language server to install and no state kept
+between runs - each invocation is a fresh, read-only pass. The agent-facing
+workflow lives in the bundled `code-diagnostics` skill.
+
 ### Plugin management
 
 The `vetri plugins` commands manage native Vetri plugins and portable Agent

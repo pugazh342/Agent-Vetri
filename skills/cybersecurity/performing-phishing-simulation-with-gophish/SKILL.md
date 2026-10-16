@@ -1,6 +1,6 @@
 ---
 name: performing-phishing-simulation-with-gophish
-description: Deploy and run authorized phishing awareness campaigns with GoPhish, covering admin panel setup, SMTP sending profiles, email template and landing page creation, target user groups, and campaign reporting to measure click and credential-submission rates. Use when planning or executing a phishing simulation for employee security-awareness testing or measuring susceptibility to social engineering.
+description: "Deploy and run authorized phishing awareness campaigns."
 domain: cybersecurity
 subdomain: phishing-defense
 tags:
@@ -55,6 +55,7 @@ mitre_f3:
     name: Impersonate Account Holder
     tactic: initial-access
     source: f3
+platforms: [linux, macos, windows]
 ---
 # Performing Phishing Simulation with GoPhish
 

@@ -1,8 +1,6 @@
 ---
 name: testing-for-host-header-injection
-description: Test web applications for HTTP Host header injection vulnerabilities
-  to identify password reset poisoning, web cache poisoning, SSRF, and virtual host
-  routing manipulation risks.
+description: "Test web applications for HTTP Host header injection."
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -27,8 +25,8 @@ mitre_attack:
 - T1505.003
 - T1083
 - T1055
+platforms: [linux, macos, windows]
 ---
-
 # Testing for Host Header Injection
 
 ## When to Use

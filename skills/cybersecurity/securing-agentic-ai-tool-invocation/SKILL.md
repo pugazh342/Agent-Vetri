@@ -1,11 +1,6 @@
 ---
 name: securing-agentic-ai-tool-invocation
-description: Implements defense-in-depth controls at an AI agent's tool-invocation
-  boundary using tool allowlisting, least-privilege identity binding, NeMo Guardrails
-  policy enforcement, human-in-the-loop approval, and audit logging. Use when hardening
-  an agent that calls tools with real side effects (email, payments, file writes,
-  code execution), mapping OWASP Agentic AI Top 10 controls, or bounding prompt-injection
-  blast radius.
+description: "Implements defense-in-depth controls at an AI agent's."
 domain: cybersecurity
 subdomain: ai-security
 tags:
@@ -24,6 +19,7 @@ nist_ai_rmf:
 - GOVERN-1.3
 atlas_techniques:
 - AML.T0053
+platforms: [linux, macos, windows]
 ---
 # Securing Agentic AI Tool Invocation
 

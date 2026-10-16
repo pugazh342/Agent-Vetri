@@ -1,10 +1,6 @@
 ---
 name: testing-for-open-redirect-vulnerabilities
-description: Identifies and exploits open redirect vulnerabilities by analyzing URL
-  redirection parameters (next, url, redirect, return, goto), applying bypass techniques,
-  and chaining findings into phishing or token-theft exploits, using Burp Suite/OWASP ZAP
-  and Burp Collaborator. Use when testing login/logout flows, OAuth redirect_uri handling,
-  or SSO redirect validation.
+description: "Identifies and exploits open redirect vulnerabilities by."
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -29,8 +25,8 @@ mitre_attack:
 - T1505.003
 - T1083
 - T1566
+platforms: [linux, macos, windows]
 ---
-
 # Testing for Open Redirect Vulnerabilities
 
 ## When to Use

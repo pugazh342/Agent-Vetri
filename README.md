@@ -11,7 +11,7 @@
 
 **The open-source AI agent built for security work.**
 
-[![Version](https://img.shields.io/badge/version-0.1.0-blue?style=flat-square)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.2.0-blue?style=flat-square)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.11%20%E2%80%93%203.14-blue?style=flat-square)](pyproject.toml)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=flat-square)](#quick-start)
@@ -45,6 +45,8 @@ Vetri is free, open-source software built on the MIT-licensed
 - 🖥️ **Four surfaces** — Rich CLI, Ink-based TUI, Electron desktop app, embedded web dashboard
 - 💸 **Cost-aware** — per-conversation prompt caching, context compression, auxiliary side-LLM routing
 - 🔐 **Model-agnostic** — NVIDIA NIM, OpenAI-compatible, Anthropic, Ollama and more; bring any key
+- **Model catalog** - `vetri models`: active model, context window, aliases and profiles at a glance
+- **Code diagnostics** - `vetri diagnose`: lint/type-check any repo with whatever checkers are installed
 
 ## 🔴 Security Arsenal
 

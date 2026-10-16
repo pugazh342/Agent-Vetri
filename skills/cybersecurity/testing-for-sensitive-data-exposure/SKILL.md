@@ -1,8 +1,6 @@
 ---
 name: testing-for-sensitive-data-exposure
-description: Identifying sensitive data exposure vulnerabilities including API key
-  leakage, PII in responses, insecure storage, and unprotected data transmission during
-  security assessments.
+description: "Identifying sensitive data exposure vulnerabilities."
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -34,8 +32,8 @@ mitre_attack:
 - T1059.007
 - T1505.003
 - T1083
+platforms: [linux, macos, windows]
 ---
-
 # Testing for Sensitive Data Exposure
 
 ## When to Use

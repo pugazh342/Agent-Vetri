@@ -1,8 +1,6 @@
 ---
 name: testing-cors-misconfiguration
-description: Identifying and exploiting Cross-Origin Resource Sharing misconfigurations
-  that allow unauthorized cross-domain data access and credential theft during security
-  assessments.
+description: "Identifying and exploiting Cross-Origin Resource Sharing."
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -26,8 +24,8 @@ mitre_attack:
 - T1505.003
 - T1083
 - T1003
+platforms: [linux, macos, windows]
 ---
-
 # Testing CORS Misconfiguration
 
 ## When to Use

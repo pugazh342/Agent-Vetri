@@ -1,11 +1,6 @@
 ---
 name: performing-content-security-policy-bypass
-description: Analyze Content-Security-Policy headers and bypass them to achieve cross-site
-  scripting by exploiting unsafe-inline/unsafe-eval, whitelisted JSONP endpoints, base-uri
-  and form-action gaps, and nonce/hash weaknesses, then exfiltrate data even without
-  script-src control. Use during web application security assessments or bug bounty
-  hunting when XSS is found but blocked by CSP, or when auditing CSP header configuration
-  for weaknesses.
+description: "Analyze Content-Security-Policy headers and bypass them to."
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -30,8 +25,8 @@ mitre_attack:
 - T1505.003
 - T1083
 - T1055
+platforms: [linux, macos, windows]
 ---
-
 # Performing Content Security Policy Bypass
 
 ## When to Use

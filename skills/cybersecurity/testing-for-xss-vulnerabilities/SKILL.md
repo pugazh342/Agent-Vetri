@@ -1,10 +1,6 @@
 ---
 name: testing-for-xss-vulnerabilities
-description: Tests web applications for reflected, stored, and DOM-based Cross-Site
-  Scripting by injecting JavaScript payloads with Burp Suite (XSS extensions, Active
-  Scan++) and browser tools, then bypassing sanitization and CSP to demonstrate session
-  hijacking and user impersonation. Use for OWASP WSTG client-side injection testing or
-  when evaluating input sanitization and output encoding coverage.
+description: "Tests web applications for reflected, stored, and."
 domain: cybersecurity
 subdomain: penetration-testing
 tags:
@@ -27,6 +23,7 @@ mitre_attack:
 - T1059
 - T1078
 - T1055
+platforms: [linux, macos, windows]
 ---
 # Testing for XSS Vulnerabilities
 

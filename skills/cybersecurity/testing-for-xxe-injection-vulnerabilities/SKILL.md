@@ -1,8 +1,6 @@
 ---
 name: testing-for-xxe-injection-vulnerabilities
-description: Discovering and exploiting XML External Entity injection vulnerabilities
-  to read server files, perform SSRF, and exfiltrate data during authorized penetration
-  tests.
+description: "Discovering and exploiting XML External Entity injection."
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -26,8 +24,8 @@ mitre_attack:
 - T1505.003
 - T1083
 - T1048
+platforms: [linux, macos, windows]
 ---
-
 # Testing for XXE Injection Vulnerabilities
 
 ## When to Use

@@ -1,10 +1,6 @@
 ---
 name: testing-for-business-logic-vulnerabilities
-description: Manually identifies flaws in application business logic - price manipulation,
-  multi-step workflow bypass, and privilege escalation - by intercepting and modifying
-  requests with Burp Suite, going beyond what automated vulnerability scanners detect.
-  Use for e-commerce checkout/cart flows, voucher and rewards systems, or any assessment
-  where scanners find little but business rules need scrutiny.
+description: "Manually identifies flaws in application business logic -."
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -28,8 +24,8 @@ mitre_attack:
 - T1505.003
 - T1083
 - T1068
+platforms: [linux, macos, windows]
 ---
-
 # Testing for Business Logic Vulnerabilities
 
 ## When to Use

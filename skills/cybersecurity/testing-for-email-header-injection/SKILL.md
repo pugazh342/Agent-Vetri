@@ -1,10 +1,6 @@
 ---
 name: testing-for-email-header-injection
-description: Tests web application email functionality (contact forms, password reset,
-  newsletter subscriptions) for CRLF/SMTP header injection using Burp Suite and OWASP ZAP,
-  checking whether attackers can inject headers, modify recipients, or abuse forms for
-  spam relay. Use when testing any user-input-driven email-sending feature during a
-  penetration test.
+description: "Tests web application email functionality (contact forms."
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -29,8 +25,8 @@ mitre_attack:
 - T1505.003
 - T1083
 - T1055
+platforms: [linux, macos, windows]
 ---
-
 # Testing for Email Header Injection
 
 ## When to Use

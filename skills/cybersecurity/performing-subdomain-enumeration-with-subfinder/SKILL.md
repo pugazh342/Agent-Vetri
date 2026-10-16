@@ -1,7 +1,6 @@
 ---
 name: performing-subdomain-enumeration-with-subfinder
-description: Enumerate subdomains of target domains using ProjectDiscovery's Subfinder
-  passive reconnaissance tool to map the attack surface during security assessments.
+description: "Enumerate subdomains of target domains using."
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -26,8 +25,8 @@ mitre_attack:
 - T1505.003
 - T1083
 - T1595
+platforms: [linux, macos, windows]
 ---
-
 # Performing Subdomain Enumeration with Subfinder
 
 ## When to Use

@@ -1,13 +1,6 @@
 ---
 name: scanning-network-with-nmap-advanced
-description: 'Performs advanced network recon using Nmap''s Scripting Engine (NSE),
-  timing controls, firewall/IDS evasion, and structured output parsing to discover
-  hosts, enumerate service versions, detect vulnerabilities, and fingerprint OSes.
-  Use during authorized penetration tests or enterprise asset-discovery assessments
-  needing scan evasion, NSE vulnerability checks, or output fed into a vulnerability
-  management pipeline.
-
-  '
+description: "Performs advanced network recon using Nmap's Scripting."
 domain: cybersecurity
 subdomain: network-security
 tags:
@@ -30,6 +23,7 @@ mitre_attack:
 - T1557
 - T1071
 - T1595
+platforms: [linux, macos, windows]
 ---
 # Scanning Network with Nmap Advanced Techniques
 

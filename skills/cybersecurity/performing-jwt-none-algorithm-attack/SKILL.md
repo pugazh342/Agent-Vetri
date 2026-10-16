@@ -1,10 +1,6 @@
 ---
 name: performing-jwt-none-algorithm-attack
-description: Execute and test the JWT none algorithm attack, crafting tokens with
-  the alg header set to none using PyJWT and an intercepting proxy (Burp Suite/mitmproxy)
-  to bypass signature verification and forge arbitrary claims. Use during authorized
-  penetration tests or security assessments of applications that use JWT for authentication
-  or authorization, to validate that the server rejects unsigned tokens.
+description: "Execute and test the JWT none algorithm attack, crafting."
 domain: cybersecurity
 subdomain: api-security
 tags:
@@ -30,8 +26,8 @@ mitre_attack:
 - T1552.001
 - T1027
 - T1070
+platforms: [linux, macos, windows]
 ---
-
 # Performing JWT None Algorithm Attack
 
 ## Overview

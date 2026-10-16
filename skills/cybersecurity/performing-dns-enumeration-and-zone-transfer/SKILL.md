@@ -1,10 +1,6 @@
 ---
 name: performing-dns-enumeration-and-zone-transfer
-description: 'Enumerates DNS records, attempts zone transfers, brute-forces subdomains,
-  and maps DNS infrastructure during authorized reconnaissance to identify attack
-  surface, misconfigurations, and information disclosure in target domains.
-
-  '
+description: "Enumerates DNS records, attempts zone transfers."
 domain: cybersecurity
 subdomain: network-security
 tags:
@@ -27,6 +23,7 @@ mitre_attack:
 - T1557
 - T1071
 - T1595
+platforms: [linux, macos, windows]
 ---
 # Performing DNS Enumeration and Zone Transfer
 

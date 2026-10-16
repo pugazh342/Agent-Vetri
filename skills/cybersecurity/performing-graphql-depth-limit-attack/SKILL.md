@@ -1,7 +1,6 @@
 ---
 name: performing-graphql-depth-limit-attack
-description: Execute and test GraphQL depth limit attacks using deeply nested recursive
-  queries to identify denial-of-service vulnerabilities in GraphQL APIs.
+description: "Execute and test GraphQL depth limit attacks using deeply."
 domain: cybersecurity
 subdomain: api-security
 tags:
@@ -25,8 +24,8 @@ mitre_attack:
 - T1190
 - T1059.007
 - T1552.001
+platforms: [linux, macos, windows]
 ---
-
 # Performing GraphQL Depth Limit Attack
 
 ## Overview

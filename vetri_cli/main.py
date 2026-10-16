@@ -395,6 +395,8 @@ from vetri_cli.subcommands.vault import build_vault_parser
 from vetri_cli.subcommands.moa import build_moa_parser
 from vetri_cli.subcommands.fallback import build_fallback_parser
 from vetri_cli.subcommands.worktree import build_worktree_parser
+from vetri_cli.subcommands.models import build_models_parser
+from vetri_cli.subcommands.diagnose import build_diagnose_parser
 from vetri_cli.subcommands.browser import build_browser_parser
 from vetri_cli.subcommands.secrets import build_secrets_parser
 from vetri_cli.subcommands.codex_runtime import build_codex_runtime_parser
@@ -3340,6 +3342,8 @@ def _build_cli_parser():
     build_moa_parser(subparsers)
     build_fallback_parser(subparsers)
     build_worktree_parser(subparsers)
+    build_models_parser(subparsers)
+    build_diagnose_parser(subparsers)
     build_browser_parser(subparsers)
     build_secrets_parser(subparsers)
     # OUTBOUND egress firewall; ``vetri proxy`` (gateway group) is the INBOUND one.

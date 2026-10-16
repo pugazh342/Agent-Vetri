@@ -1,8 +1,6 @@
 ---
 name: testing-jwt-token-security
-description: Assessing JSON Web Token implementations for cryptographic weaknesses,
-  algorithm confusion attacks, and authorization bypass vulnerabilities during security
-  engagements.
+description: "Assessing JSON Web Token implementations for cryptographic."
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -26,8 +24,8 @@ mitre_attack:
 - T1505.003
 - T1083
 - T1027
+platforms: [linux, macos, windows]
 ---
-
 # Testing JWT Token Security
 
 ## When to Use

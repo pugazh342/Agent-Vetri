@@ -1,11 +1,6 @@
 ---
 name: performing-directory-traversal-testing
-description: Test web applications for path traversal and Local/Remote File Inclusion
-  vulnerabilities by manipulating file path parameters, applying encoding and filter-bypass
-  techniques, automating discovery with ffuf and dotdotpwn, and reading high-value files
-  or achieving code execution. Use during authorized penetration tests of file download,
-  view, or include functionality, or when assessing APIs that accept file names or file
-  paths as parameters.
+description: "Test web applications for path traversal and Local/Remote."
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -28,8 +23,8 @@ mitre_attack:
 - T1059.007
 - T1505.003
 - T1083
+platforms: [linux, macos, windows]
 ---
-
 # Performing Directory Traversal Testing
 
 ## When to Use
@@ -231,8 +226,8 @@ HIGH_VALUE_LINUX=(
   "/var/www/html/.env"
   "/var/www/html/config.php"
   "/var/www/html/wp-config.php"
-  "/home/user/.ssh/id_rsa"
-  "/home/user/.bash_history"
+  "~/.ssh/id_rsa"
+  "~/.bash_history"
   "/root/.bash_history"
   "/var/log/auth.log"
 )
@@ -253,7 +248,7 @@ HIGH_VALUE_WIN=(
   "C:\\Windows\\win.ini"
   "C:\\Windows\\System32\\drivers\\etc\\hosts"
   "C:\\inetpub\\wwwroot\\web.config"
-  "C:\\Users\\Administrator\\.ssh\\id_rsa"
+  "%USERPROFILE%\\.ssh\\id_rsa"
   "C:\\xampp\\apache\\conf\\httpd.conf"
   "C:\\xampp\\mysql\\data\\mysql\\user.MYD"
 )
@@ -316,7 +311,7 @@ A .NET application serves files via `?path=docs\manual.pdf`. Traversing to `..\.
 |------|--------|
 | /etc/passwd | User enumeration (42 accounts) |
 | /var/www/html/.env | Database credentials exposed |
-| /home/deploy/.ssh/id_rsa | SSH private key recovered |
+| ~/.ssh/id_rsa | SSH private key recovered |
 | /proc/self/environ | Environment variables with API keys |
 
 ### Filter Bypass Required

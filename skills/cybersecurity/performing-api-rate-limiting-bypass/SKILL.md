@@ -1,13 +1,6 @@
 ---
 name: performing-api-rate-limiting-bypass
-description: 'Tests API rate limiting for bypass vulnerabilities using Python (requests/aiohttp)
-  and Burp Suite Turbo Intruder to manipulate headers (e.g. X-Forwarded-For spoofing),
-  IPs, HTTP methods, API versions, and encodings, mapping findings to OWASP API4:2023
-  Unrestricted Resource Consumption. Use when assessing, under written authorization,
-  whether rate limits can be bypassed to enable brute force or resource-exhaustion
-  attacks.
-
-  '
+description: "Tests API rate limiting for bypass vulnerabilities using."
 domain: cybersecurity
 subdomain: api-security
 tags:
@@ -31,6 +24,7 @@ mitre_attack:
 - T1552.001
 - T1027
 - T1055
+platforms: [linux, macos, windows]
 ---
 # Performing API Rate Limiting Bypass
 

@@ -1,8 +1,6 @@
 ---
 name: performing-second-order-sql-injection
-description: Detect and exploit second-order SQL injection vulnerabilities where malicious
-  input is stored in a database and later executed in an unsafe SQL query during a
-  different application operation.
+description: "Detect and exploit second-order SQL injection."
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -27,8 +25,8 @@ mitre_attack:
 - T1505.003
 - T1083
 - T1055
+platforms: [linux, macos, windows]
 ---
-
 # Performing Second-Order SQL Injection
 
 ## When to Use

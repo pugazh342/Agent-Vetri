@@ -1,7 +1,6 @@
 ---
 name: testing-for-xss-vulnerabilities-with-burpsuite
-description: Identifying and validating cross-site scripting vulnerabilities using
-  Burp Suite's scanner, intruder, and repeater tools during authorized security assessments.
+description: "Identifying and validating cross-site scripting."
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -24,8 +23,8 @@ mitre_attack:
 - T1059.007
 - T1505.003
 - T1083
+platforms: [linux, macos, windows]
 ---
-
 # Testing for XSS Vulnerabilities with Burp Suite
 
 ## When to Use

@@ -1,8 +1,6 @@
 ---
 name: performing-graphql-security-assessment
-description: Assessing GraphQL API endpoints for introspection leaks, injection attacks,
-  authorization flaws, and denial-of-service vulnerabilities during authorized security
-  tests.
+description: "Assessing GraphQL API endpoints for introspection leaks."
 domain: cybersecurity
 subdomain: web-application-security
 tags:
@@ -26,8 +24,8 @@ mitre_attack:
 - T1505.003
 - T1083
 - T1055
+platforms: [linux, macos, windows]
 ---
-
 # Performing GraphQL Security Assessment
 
 ## When to Use

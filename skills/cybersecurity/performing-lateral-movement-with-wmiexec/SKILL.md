@@ -1,8 +1,6 @@
 ---
 name: performing-lateral-movement-with-wmiexec
-description: Perform lateral movement across Windows networks using WMI-based remote
-  execution techniques including Impacket wmiexec.py, CrackMapExec, and native WMI
-  commands for stealthy post-exploitation during red team engagements.
+description: "Perform lateral movement across Windows networks using."
 domain: cybersecurity
 subdomain: red-teaming
 tags:
@@ -32,6 +30,7 @@ mitre_attack:
 - T1059
 - T1078
 - T1021
+platforms: [linux, macos, windows]
 ---
 # Performing Lateral Movement with WMIExec
 
