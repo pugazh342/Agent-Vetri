@@ -6,7 +6,7 @@ description: "Independent Vetri integration of Victor Taelin's OptMem design: lo
 maintainer: rarf
 tier: community
 category: memory
-requires_vetri: ">=0.21.2"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/rarf/optmem-vetri-plugin/blob/2868af6620bf07958f833ca354fbeecf2a56b265/README.md
 version: "0.3.3"
 image: https://raw.githubusercontent.com/rarf/optmem-vetri-plugin/2868af6620bf07958f833ca354fbeecf2a56b265/docs/assets/catalog-banner-card.png

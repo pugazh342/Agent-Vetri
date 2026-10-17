@@ -6,7 +6,7 @@ Usage (via cron with --no-agent):
     vetri cron create vetri-issues \\
       --schedule "*/5 * * * *" --no-agent \\
       --script "$VETRI_HOME/skills/devops/watchers/scripts/watch_github.py" \\
-      --script-args "--name vetri-issues --repo NousResearch/vetri-agent --scope issues"
+      --script-args "--name vetri-issues --repo pugazh342/Agent-Vetri --scope issues"
 
 Set GITHUB_TOKEN (or GH_TOKEN) in the Vetri .env file
 (``${VETRI_HOME:-~/.vetri}/.env``) to avoid the 60 req/hr

@@ -6,7 +6,7 @@ description: "Vetri Desktop session analytics and provider-reported usage: annua
 maintainer: hassan-kamel
 tier: community
 category: desktop
-requires_vetri: ">=0.21.7"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/hassan-kamel/vetri-activity
 version: "0.2.1"
 screenshots:

@@ -14,7 +14,7 @@ does not run.
 
 The Termux package runs Vetri on **aarch64 (arm64-v8a)** Android devices.
 Two APT channels are published under
-`https://hermes-assets.nousresearch.com/releases/termux/<channel>`:
+`https://pugazh342.github.io/Agent-Vetri/releases/termux/<channel>`:
 
 | Channel | APT suite | Contents |
 | --- | --- | --- |
@@ -51,7 +51,7 @@ Do not use the desktop/server `install.sh` or a glibc Linux archive on this targ
    ```bash
    mkdir -p "$PREFIX/etc/apt/keyrings"
    curl -fsSL \
-     https://hermes-assets.nousresearch.com/releases/termux/stable/key.asc \
+     https://pugazh342.github.io/Agent-Vetri/releases/termux/stable/key.asc \
      -o "$PREFIX/etc/apt/keyrings/vetri-agent.asc"
    ```
 
@@ -73,7 +73,7 @@ Do not use the desktop/server `install.sh` or a glibc Linux archive on this targ
 
    ```bash
    printf '%s\n' \
-     "deb [signed-by=$PREFIX/etc/apt/keyrings/vetri-agent.asc] https://hermes-assets.nousresearch.com/releases/termux/stable vetri-stable main" \
+     "deb [signed-by=$PREFIX/etc/apt/keyrings/vetri-agent.asc] https://pugazh342.github.io/Agent-Vetri/releases/termux/stable vetri-stable main" \
      > "$PREFIX/etc/apt/sources.list.d/vetri-agent.list"
    ```
 

@@ -5,7 +5,7 @@ description: Persistent session file diffs, run comparisons, and individual edit
 maintainer: Adolanium
 tier: community
 category: desktop
-requires_vetri: ">=0.21.3"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/Adolanium/vetri-session-diff#readme
 capabilities:
   provides_tools: []

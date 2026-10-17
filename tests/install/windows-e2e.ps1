@@ -109,7 +109,7 @@ param(
 
     [string]$WorkRoot = $(if ($env:VETRI_E2E_WORKROOT) { $env:VETRI_E2E_WORKROOT } else { Join-Path $env:TEMP "vetri-desktop-gui-e2e" }),
 
-    [string]$SetupExeUrl = "https://hermes-assets.nousresearch.com/Vetri-Setup.exe",
+    [string]$SetupExeUrl = "https://github.com/pugazh342/Agent-Vetri/releases/latest/download/Vetri-Setup.exe",
 
     # Driver dependencies come from the current checkout lockfile.
     [string]$DriverNode = $env:VETRI_E2E_NODE
@@ -190,8 +190,8 @@ function Confirm-OldChat([string]$Out) {
     $script:ChatFailure = $false
 }
 
-$RepoUrlHttps = "https://github.com/NousResearch/vetri-agent.git"
-$RepoUrlSsh   = "git@github.com:NousResearch/vetri-agent.git"
+$RepoUrlHttps = "https://github.com/pugazh342/Agent-Vetri.git"
+$RepoUrlSsh   = "git@github.com:pugazh342/Agent-Vetri.git"
 
 function Write-Step([string]$Message) {
     Write-Host ""
@@ -1480,8 +1480,8 @@ function Assert-RedirectIsTransportOnly {
     # `git config --get remote.origin.url`. If the configured URL ever looked
     # like the rehearsal source, channel resolution would fail and this leg
     # would be testing a fork install rather than the real user path.
-    $official = @('https://github.com/NousResearch/vetri-agent.git',
-                  'git@github.com:NousResearch/vetri-agent.git')
+    $official = @('https://github.com/pugazh342/Agent-Vetri.git',
+                  'git@github.com:pugazh342/Agent-Vetri.git')
     $configured = (Invoke-Git @('-C', $InstallDir, 'config', '--get', 'remote.origin.url') | Out-String).Trim()
     Assert-True ($official -contains $configured) "origin stays configured as an official URL (got '$configured')"
     $real = if ($env:VETRI_E2E_REAL_GIT) { $env:VETRI_E2E_REAL_GIT } else { 'git' }

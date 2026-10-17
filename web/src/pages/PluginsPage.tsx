@@ -15,18 +15,18 @@ import type {
   MemoryProviderSetupResult,
   PluginsHubResponse,
 } from "@/lib/api";
-import { Button } from "@nous-research/ui/ui/components/button";
-import { Badge } from "@nous-research/ui/ui/components/badge";
-import { Select, SelectOption } from "@nous-research/ui/ui/components/select";
-import { Switch } from "@nous-research/ui/ui/components/switch";
-import { Spinner } from "@nous-research/ui/ui/components/spinner";
-import { CommandBlock, CopyButton } from "@nous-research/ui/ui/components/command-block";
-import { Card, CardContent, CardHeader, CardTitle } from "@nous-research/ui/ui/components/card";
-import { ConfirmDialog } from "@nous-research/ui/ui/components/confirm-dialog";
-import { Input } from "@nous-research/ui/ui/components/input";
-import { Label } from "@nous-research/ui/ui/components/label";
-import { useToast } from "@nous-research/ui/hooks/use-toast";
-import { Toast } from "@nous-research/ui/ui/components/toast";
+import { Button } from "@vetri/ui/ui/components/button";
+import { Badge } from "@vetri/ui/ui/components/badge";
+import { Select, SelectOption } from "@vetri/ui/ui/components/select";
+import { Switch } from "@vetri/ui/ui/components/switch";
+import { Spinner } from "@vetri/ui/ui/components/spinner";
+import { CommandBlock, CopyButton } from "@vetri/ui/ui/components/command-block";
+import { Card, CardContent, CardHeader, CardTitle } from "@vetri/ui/ui/components/card";
+import { ConfirmDialog } from "@vetri/ui/ui/components/confirm-dialog";
+import { Input } from "@vetri/ui/ui/components/input";
+import { Label } from "@vetri/ui/ui/components/label";
+import { useToast } from "@vetri/ui/hooks/use-toast";
+import { Toast } from "@vetri/ui/ui/components/toast";
 import { useI18n } from "@/i18n";
 import { en } from "@/i18n/en";
 import { PluginSlot } from "@/plugins";
@@ -904,7 +904,7 @@ export default function PluginsPage() {
               {t.pluginsPage.catalogEmpty ?? "No catalog entries match."}{" "}
               <a
                 className="underline"
-                href="https://hermes-agent.nousresearch.com/docs/plugins"
+                href="https://pugazh342.github.io/Agent-Vetri/docs/plugins"
                 target="_blank"
                 rel="noreferrer"
               >

@@ -7,7 +7,7 @@ description: Opt-in idle/daily gateway conversation resets. Reads the existing s
 maintainer: fastfinge
 tier: community
 category: automation
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/fastfinge/vetri-session-reset-policy#readme
 version: "0.3.0"
 platforms: []

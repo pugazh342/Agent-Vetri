@@ -6,7 +6,7 @@ description: "Markdown wiki as Vetri long-term memory: plain files you and the a
 maintainer: ottosulin
 tier: community
 category: memory
-requires_vetri: ">=0.21.4"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/ottosulin/hwiki
 readme: true
 capabilities:

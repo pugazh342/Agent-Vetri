@@ -7,7 +7,7 @@ description: "Preview, publish, and manage websites hosted on Showly from Vetri 
 maintainer: cuboteam
 tier: community
 category: tools
-requires_vetri: ">=0.21.6"
+requires_vetri: ">=0.1.0"
 version: "0.7.2"
 docs_url: https://showly.ai/docs/mcp/overview
 platforms: []

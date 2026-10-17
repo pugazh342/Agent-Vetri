@@ -56,7 +56,7 @@ test('the current CLI "Not installed:" tail parses into findings + trust', () =>
   // hard-block clause between "never" and "installs" (seen on a live arxiv install).
   const wrappedHardBlock = [
     'Not installed: the security scan found 9 high-risk pattern(s) in ',
-    "'NousResearch/vetri-agent/skills/research/arxiv' (listed above). Vetri never ",
+    "'pugazh342/Agent-Vetri/skills/research/arxiv' (listed above). Vetri never ",
     'installs unverified skills with high-risk findings, even with --force. Review '
   ]
 

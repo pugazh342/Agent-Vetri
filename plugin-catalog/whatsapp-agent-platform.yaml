@@ -2,7 +2,7 @@ name: whatsapp-agent-platform
 repo: https://github.com/ahtishamdilawar/vetri-whatsapp-agent-platform
 sha: 4d8fc1c482ed06a34b6609b1dcdf59e370de7d40
 version: "0.2.0"
-requires_vetri: ">=0.21.4"
+requires_vetri: ">=0.1.0"
 title: WhatsApp Agent Platform
 description: >-
   Community platform plugin (not affiliated with Meta or Nous Research) connecting a WhatsApp Agent to

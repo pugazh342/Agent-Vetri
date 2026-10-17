@@ -28,7 +28,7 @@ const NVIDIA_APP: ConnectionOperationTarget = {
   kind: 'plugin',
   name: 'nvidia-app',
   platforms: ['windows'],
-  repo: 'https://github.com/NousResearch/vetri-nvidia',
+  repo: 'https://github.com/pugazh342/vetri-nvidia',
   sha: SHA,
   state: 'pending',
   subdir: 'nvidia-app',

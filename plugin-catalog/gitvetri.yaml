@@ -5,7 +5,7 @@ description: GitHub PRs and issues as a right workspace pane in Vetri Desktop, v
 maintainer: claudiumio
 tier: community
 category: desktop
-requires_vetri: ">=0.21.1"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/claudiumio/gitvetri#readme
 version: "0.5.0"
 image: https://raw.githubusercontent.com/claudiumio/gitvetri/09d5b566da650290dc0d639ea1e77def4bcdab31/docs/social-preview.png

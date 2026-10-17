@@ -16,7 +16,7 @@ description: >-
 maintainer: madpower2000
 tier: community
 category: automation
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/madpower2000/vetri-telegram-notify
 version: "1.1.3"
 platforms: []

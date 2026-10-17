@@ -46,11 +46,11 @@ uv2nix 环境、覆盖包、插件依赖和开发 shell 使用同一个解释器
 
 ```bash
 # 直接运行（首次使用时构建，之后使用缓存）
-nix run github:NousResearch/vetri-agent -- setup
-nix run github:NousResearch/vetri-agent -- chat
+nix run github:pugazh342/Agent-Vetri -- setup
+nix run github:pugazh342/Agent-Vetri -- chat
 
 # 或持久化安装
-nix profile install github:NousResearch/vetri-agent
+nix profile install github:pugazh342/Agent-Vetri
 vetri setup
 vetri chat
 ```
@@ -61,7 +61,7 @@ vetri chat
 <summary><strong>从本地克隆构建</strong></summary>
 
 ```bash
-git clone https://github.com/NousResearch/vetri-agent.git
+git clone https://github.com/pugazh342/Agent-Vetri.git
 cd vetri-agent
 nix build
 ./result/bin/vetri setup
@@ -86,7 +86,7 @@ nix build
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    vetri-agent.url = "github:NousResearch/vetri-agent";
+    vetri-agent.url = "github:pugazh342/Agent-Vetri";
   };
 
   outputs = { nixpkgs, vetri-agent, ... }: {
@@ -696,7 +696,7 @@ services.vetri-agent = {
 
 ```nix
 {
-  inputs.vetri-agent.url = "github:NousResearch/vetri-agent";
+  inputs.vetri-agent.url = "github:pugazh342/Agent-Vetri";
   outputs = { vetri-agent, nixpkgs, ... }: {
     nixpkgs.overlays = [ vetri-agent.overlays.default ];
     # 然后：

@@ -27,9 +27,12 @@ import { BACKEND_BOOT_WAIT_TIMEOUT_MS, withTimeout } from '@/lib/with-timeout'
 import { activeGatewayProfileKey, requestGatewayForProfile } from '@/store/gateway'
 import { $gatewayState } from '@/store/session'
 
-export const CATALOG_ORIGIN = 'https://hermes-agent.nousresearch.com'
-export const CATALOG_PICKER_URL = `${CATALOG_ORIGIN}/docs/plugins?embed=picker`
-export const PLUGIN_CATALOG_URL = `${CATALOG_ORIGIN}/docs/api/plugins.json`
+/** The docs-site origin the picker iframe and its postMessage come from. */
+export const CATALOG_ORIGIN = 'https://pugazh342.github.io'
+/** On GitHub Pages the docs site lives under the project path. */
+const CATALOG_BASE = `${CATALOG_ORIGIN}/Agent-Vetri`
+export const CATALOG_PICKER_URL = `${CATALOG_BASE}/docs/plugins?embed=picker`
+export const PLUGIN_CATALOG_URL = `${CATALOG_BASE}/docs/api/plugins.json`
 
 /** Catalog names are directory names under `plugin-catalog/`; anything else is not a lookup key. */
 export const PLUGIN_CATALOG_NAME_RE = /^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$/

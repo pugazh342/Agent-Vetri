@@ -4,19 +4,18 @@
 
 # Vetri Agent ⬢
 <p align="center">
-  <a href="https://hermes-agent.nousresearch.com/">Vetri Agent</a> | <a href="https://hermes-agent.nousresearch.com/">Vetri Desktop</a>
+  <a href="https://pugazh342.github.io/Agent-Vetri/">Vetri Agent</a> | <a href="https://pugazh342.github.io/Agent-Vetri/">Vetri Desktop</a>
 </p>
 <p align="center">
-  <a href="https://hermes-agent.nousresearch.com/docs/"><img src="https://img.shields.io/badge/Docs-hermes--agent.nousresearch.com-FFD700?style=for-the-badge" alt="Documentación"></a>
-  <a href="https://discord.gg/NousResearch"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
-  <a href="https://github.com/NousResearch/vetri-agent/blob/main/LICENSE"><img src="https://img.shields.io/badge/Licencia-MIT-green?style=for-the-badge" alt="Licencia: MIT"></a>
-  <a href="https://nousresearch.com"><img src="https://img.shields.io/badge/Creado%20por-Nous%20Research-blueviolet?style=for-the-badge" alt="Creado por Nous Research"></a>
+  <a href="https://pugazh342.github.io/Agent-Vetri/docs/"><img src="https://img.shields.io/badge/Docs-pugazh342.github.io%2FAgent--Vetri-FFD700?style=for-the-badge" alt="Documentación"></a>
+  <a href="https://github.com/pugazh342/Agent-Vetri/blob/main/LICENSE"><img src="https://img.shields.io/badge/Licencia-MIT-green?style=for-the-badge" alt="Licencia: MIT"></a>
+  <a href="https://github.com/pugazh342"><img src="https://img.shields.io/badge/Creado%20por-Nous%20Research-blueviolet?style=for-the-badge" alt="Creado por Pugazhmani K"></a>
   <a href="README.md"><img src="https://img.shields.io/badge/Lang-English-blue?style=for-the-badge" alt="English"></a>
   <a href="README.zh-CN.md"><img src="https://img.shields.io/badge/Lang-中文-red?style=for-the-badge" alt="中文"></a>
   <a href="README.ur-pk.md"><img src="https://img.shields.io/badge/Lang-اردو-green?style=for-the-badge" alt="اردو"></a>
 </p>
 
-**El agente de IA con mejora continua creado por [Nous Research](https://nousresearch.com).** Es el único agente con un bucle de aprendizaje integrado: crea habilidades a partir de la experiencia, las mejora durante el uso, se impulsa a sí mismo a persistir el conocimiento, busca en sus propias conversaciones pasadas y construye un modelo cada vez más profundo de quién eres a lo largo de las sesiones. Ejecútalo en un VPS de $5, un clúster de GPUs o infraestructura sin servidor que cuesta casi nada cuando está inactivo. No está atado a tu laptop — habla con él desde Telegram mientras trabaja en una VM en la nube.
+**El agente de IA con mejora continua creado por [Pugazhmani K](https://github.com/pugazh342).** Es el único agente con un bucle de aprendizaje integrado: crea habilidades a partir de la experiencia, las mejora durante el uso, se impulsa a sí mismo a persistir el conocimiento, busca en sus propias conversaciones pasadas y construye un modelo cada vez más profundo de quién eres a lo largo de las sesiones. Ejecútalo en un VPS de $5, un clúster de GPUs o infraestructura sin servidor que cuesta casi nada cuando está inactivo. No está atado a tu laptop — habla con él desde Telegram mientras trabaja en una VM en la nube.
 
 Usa cualquier modelo que quieras — [Nous Portal](https://portal.nousresearch.com), [OpenRouter](https://openrouter.ai) (más de 200 modelos), [NovitaAI](https://novita.ai), [NVIDIA NIM](https://build.nvidia.com) (Nemotron), [Xiaomi MiMo](https://platform.xiaomimimo.com), [z.ai/GLM](https://z.ai), [Kimi/Moonshot](https://platform.moonshot.ai), [MiniMax](https://www.minimax.io), [Hugging Face](https://huggingface.co), OpenAI, o tu propio endpoint. Cambia con `vetri model` — sin cambios de código, sin dependencias.
 
@@ -37,17 +36,17 @@ Usa cualquier modelo que quieras — [Nous Portal](https://portal.nousresearch.c
 ### Linux, macOS, WSL2
 
 ```bash
-curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/pugazh342/Agent-Vetri/main/scripts/install.sh | bash
 ```
 
 ### Windows (nativo, PowerShell)
 
-> **Nota:** En Windows nativo, Vetri funciona sin WSL — la CLI, el gateway, la TUI y las herramientas funcionan de forma nativa. Si prefieres usar WSL2, el comando de Linux/macOS de arriba también funciona allí. ¿Encontraste un error? Por favor [crea un issue](https://github.com/NousResearch/vetri-agent/issues).
+> **Nota:** En Windows nativo, Vetri funciona sin WSL — la CLI, el gateway, la TUI y las herramientas funcionan de forma nativa. Si prefieres usar WSL2, el comando de Linux/macOS de arriba también funciona allí. ¿Encontraste un error? Por favor [crea un issue](https://github.com/pugazh342/Agent-Vetri/issues).
 
 Ejecuta esto en PowerShell:
 
 ```powershell
-iex (irm https://hermes-agent.nousresearch.com/install.ps1)
+iex (irm https://raw.githubusercontent.com/pugazh342/Agent-Vetri/main/scripts/install.ps1)
 ```
 
 El instalador de código fuente usa PM para Python 3.14, Node.js, npm,
@@ -55,7 +54,7 @@ ripgrep, FFmpeg y las dependencias de Python. Si falta Git, descarga el archivo
 verificado de Git for Windows en el almacén de Vetri, sin reemplazar el Git
 del sistema. MSIX/App Installer es una distribución separada.
 
-> **Android / Termux:** Hay un paquete APT en pruebas para dispositivos aarch64. Incluye Python, Node.js y la TUI. Sigue la [guía de Termux](https://hermes-agent.nousresearch.com/docs/getting-started/termux), no el script de instalación para escritorio y servidor.
+> **Android / Termux:** Hay un paquete APT en pruebas para dispositivos aarch64. Incluye Python, Node.js y la TUI. Sigue la [guía de Termux](https://pugazh342.github.io/Agent-Vetri/docs/getting-started/termux), no el script de instalación para escritorio y servidor.
 >
 > **Windows:** Windows nativo es totalmente compatible — el comando de PowerShell de arriba instala todo. Si prefieres usar WSL2, el comando de Linux también funciona allí. La instalación nativa de Windows se encuentra en `%LOCALAPPDATA%\vetri`; WSL2 instala en `~/.vetri` como en Linux.
 
@@ -82,7 +81,7 @@ vetri update       # Actualiza a la última versión
 vetri doctor       # Diagnostica cualquier problema
 ```
 
-📖 **[Documentación completa →](https://hermes-agent.nousresearch.com/docs/)**
+📖 **[Documentación completa →](https://pugazh342.github.io/Agent-Vetri/docs/)**
 
 ---
 
@@ -99,7 +98,7 @@ Un comando desde una instalación nueva:
 vetri setup --portal
 ```
 
-Esto te autentica vía OAuth, establece Nous como tu proveedor y activa el Tool Gateway. Comprueba qué está conectado en cualquier momento con `vetri portal info`. Detalles completos en la [página de documentación del Tool Gateway](https://hermes-agent.nousresearch.com/docs/user-guide/features/tool-gateway).
+Esto te autentica vía OAuth, establece Nous como tu proveedor y activa el Tool Gateway. Comprueba qué está conectado en cualquier momento con `vetri portal info`. Detalles completos en la [página de documentación del Tool Gateway](https://pugazh342.github.io/Agent-Vetri/docs/user-guide/features/tool-gateway).
 
 Puedes seguir usando tus propias claves por herramienta cuando quieras — el gateway es por backend, no todo o nada.
 
@@ -121,31 +120,31 @@ Vetri tiene dos puntos de entrada: inicia la interfaz de terminal con `vetri`, o
 | Interrumpir trabajo actual          | `Ctrl+C` o enviar un nuevo mensaje            | `/stop` o enviar un nuevo mensaje                                                 |
 | Estado específico de plataforma     | `/platforms`                                  | `/status`, `/sethome`                                                             |
 
-Para las listas de comandos completas, consulta la [guía de CLI](https://hermes-agent.nousresearch.com/docs/user-guide/cli) y la [guía del Gateway de Mensajería](https://hermes-agent.nousresearch.com/docs/user-guide/messaging).
+Para las listas de comandos completas, consulta la [guía de CLI](https://pugazh342.github.io/Agent-Vetri/docs/user-guide/cli) y la [guía del Gateway de Mensajería](https://pugazh342.github.io/Agent-Vetri/docs/user-guide/messaging).
 
 ---
 
 ## Documentación
 
-Toda la documentación está en **[hermes-agent.nousresearch.com/docs](https://hermes-agent.nousresearch.com/docs/)**:
+Toda la documentación está en **[pugazh342.github.io/docs](https://pugazh342.github.io/Agent-Vetri/docs/)**:
 
 | Sección                                                                                             | Contenido                                                    |
 | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| [Inicio rápido](https://hermes-agent.nousresearch.com/docs/getting-started/quickstart)              | Instalar → configurar → primera conversación en 2 minutos   |
-| [Uso de CLI](https://hermes-agent.nousresearch.com/docs/user-guide/cli)                             | Comandos, atajos de teclado, personalidades, sesiones        |
-| [Configuración](https://hermes-agent.nousresearch.com/docs/user-guide/configuration)               | Archivo de configuración, proveedores, modelos, todas las opciones |
-| [Gateway de Mensajería](https://hermes-agent.nousresearch.com/docs/user-guide/messaging)           | Telegram, Discord, Slack, WhatsApp, Signal, Home Assistant   |
-| [Seguridad](https://hermes-agent.nousresearch.com/docs/user-guide/security)                        | Aprobación de comandos, emparejamiento por DM, aislamiento en contenedor |
-| [Herramientas y Toolsets](https://hermes-agent.nousresearch.com/docs/user-guide/features/tools)   | Más de 40 herramientas, sistema de toolsets, backends de terminal |
-| [Sistema de Habilidades](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills)   | Memoria procedimental, Skills Hub, creación de habilidades   |
-| [Memoria](https://hermes-agent.nousresearch.com/docs/user-guide/features/memory)                   | Memoria persistente, perfiles de usuario, mejores prácticas  |
-| [Integración MCP](https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp)              | Conecta cualquier servidor MCP para capacidades extendidas   |
-| [Programación Cron](https://hermes-agent.nousresearch.com/docs/user-guide/features/cron)           | Tareas programadas con entrega a plataforma                  |
-| [Archivos de Contexto](https://hermes-agent.nousresearch.com/docs/user-guide/features/context-files) | Contexto de proyecto que da forma a cada conversación      |
-| [Arquitectura](https://hermes-agent.nousresearch.com/docs/developer-guide/architecture)            | Estructura del proyecto, bucle del agente, clases principales |
-| [Contribuir](https://hermes-agent.nousresearch.com/docs/developer-guide/contributing)              | Configuración de desarrollo, proceso de PR, estilo de código |
-| [Referencia de CLI](https://hermes-agent.nousresearch.com/docs/reference/cli-commands)             | Todos los comandos y flags                                   |
-| [Variables de Entorno](https://hermes-agent.nousresearch.com/docs/reference/environment-variables) | Referencia completa de variables de entorno                  |
+| [Inicio rápido](https://pugazh342.github.io/Agent-Vetri/docs/getting-started/quickstart)              | Instalar → configurar → primera conversación en 2 minutos   |
+| [Uso de CLI](https://pugazh342.github.io/Agent-Vetri/docs/user-guide/cli)                             | Comandos, atajos de teclado, personalidades, sesiones        |
+| [Configuración](https://pugazh342.github.io/Agent-Vetri/docs/user-guide/configuration)               | Archivo de configuración, proveedores, modelos, todas las opciones |
+| [Gateway de Mensajería](https://pugazh342.github.io/Agent-Vetri/docs/user-guide/messaging)           | Telegram, Discord, Slack, WhatsApp, Signal, Home Assistant   |
+| [Seguridad](https://pugazh342.github.io/Agent-Vetri/docs/user-guide/security)                        | Aprobación de comandos, emparejamiento por DM, aislamiento en contenedor |
+| [Herramientas y Toolsets](https://pugazh342.github.io/Agent-Vetri/docs/user-guide/features/tools)   | Más de 40 herramientas, sistema de toolsets, backends de terminal |
+| [Sistema de Habilidades](https://pugazh342.github.io/Agent-Vetri/docs/user-guide/features/skills)   | Memoria procedimental, Skills Hub, creación de habilidades   |
+| [Memoria](https://pugazh342.github.io/Agent-Vetri/docs/user-guide/features/memory)                   | Memoria persistente, perfiles de usuario, mejores prácticas  |
+| [Integración MCP](https://pugazh342.github.io/Agent-Vetri/docs/user-guide/features/mcp)              | Conecta cualquier servidor MCP para capacidades extendidas   |
+| [Programación Cron](https://pugazh342.github.io/Agent-Vetri/docs/user-guide/features/cron)           | Tareas programadas con entrega a plataforma                  |
+| [Archivos de Contexto](https://pugazh342.github.io/Agent-Vetri/docs/user-guide/features/context-files) | Contexto de proyecto que da forma a cada conversación      |
+| [Arquitectura](https://pugazh342.github.io/Agent-Vetri/docs/developer-guide/architecture)            | Estructura del proyecto, bucle del agente, clases principales |
+| [Contribuir](https://pugazh342.github.io/Agent-Vetri/docs/developer-guide/contributing)              | Configuración de desarrollo, proceso de PR, estilo de código |
+| [Referencia de CLI](https://pugazh342.github.io/Agent-Vetri/docs/reference/cli-commands)             | Todos los comandos y flags                                   |
+| [Variables de Entorno](https://pugazh342.github.io/Agent-Vetri/docs/reference/environment-variables) | Referencia completa de variables de entorno                  |
 
 ---
 
@@ -190,9 +189,8 @@ de verificación están en [Development Setup](CONTRIBUTING.md#development-setup
 
 ## Comunidad
 
-- 💬 [Discord](https://discord.gg/NousResearch)
 - 📚 [Skills Hub](https://agentskills.io)
-- 🐛 [Issues](https://github.com/NousResearch/vetri-agent/issues)
+- 🐛 [Issues](https://github.com/pugazh342/Agent-Vetri/issues)
 - 🔌 [computer-use-linux](https://github.com/avifenesh/computer-use-linux) — Servidor MCP de control de escritorio Linux para Vetri y otros hosts MCP, con árboles de accesibilidad AT-SPI, entrada Wayland/X11, capturas de pantalla y targeting de ventanas del compositor.
 - 🔌 [VetriClaw](https://github.com/AaronWong1999/vetriclaw) — Puente WeChat comunitario: Ejecuta Vetri Agent y OpenClaw en la misma cuenta de WeChat.
 
@@ -202,4 +200,4 @@ de verificación están en [Development Setup](CONTRIBUTING.md#development-setup
 
 MIT — ver [LICENSE](LICENSE).
 
-Creado por [Nous Research](https://nousresearch.com).
+Creado por [Pugazhmani K](https://github.com/pugazh342).

@@ -6,7 +6,7 @@ description: "Process hygiene for agent machines — finds the background proces
 maintainer: ZidoCode
 tier: community
 category: tools
-requires_vetri: ">=0.21.6"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/ZidoCode/agent-janitor#readme
 platforms: []
 capabilities:

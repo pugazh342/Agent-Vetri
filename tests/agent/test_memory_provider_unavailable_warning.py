@@ -1,4 +1,4 @@
-"""Regression tests for NousResearch/vetri-agent#2765.
+"""Regression tests for pugazh342/Agent-Vetri#2765.
 
 A memory provider configured via ``memory.provider`` but reporting
 ``is_available() == False`` (e.g. missing credentials, or a systemd/gateway

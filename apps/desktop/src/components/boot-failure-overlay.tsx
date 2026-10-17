@@ -428,12 +428,6 @@ export function BootFailureOverlay() {
       },
       localAction,
       { ...retryAction, variant: 'secondary' },
-      {
-        key: 'discord',
-        label: copy.cloudDownDiscord,
-        onClick: () => openExternalLink('https://discord.gg/NousResearch'),
-        variant: 'ghost'
-      },
       { ...settingsAction, variant: 'ghost' }
     ]
     hint = copy.cloudDownHint

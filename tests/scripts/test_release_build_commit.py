@@ -101,7 +101,7 @@ def test_commit_build_cli_dispatches_only_the_resolved_remote_commit(fixture_rep
         result, calls = invoke('--build-commit', revision)
         assert result.returncode == 0, result.stderr
         assert tip in result.stdout
-        assert f'https://hermes-assets.nousresearch.com/releases/commit/{tip}/index.html' in result.stdout
+        assert f'https://pugazh342.github.io/Agent-Vetri/releases/commit/{tip}/index.html' in result.stdout
         assert not any(call[1:3] == ['workflow', 'run'] for call in calls)
     result, calls = invoke('--build-commit', tip, '--publish')
     assert result.returncode == 0, result.stderr
@@ -128,13 +128,13 @@ def test_commit_build_dispatch_is_repository_independent(fixture_repo):
     assert dispatches == [expected]
     assert 'disposable' not in result.stdout.lower()
     # The upstream URL used to select a different command shape; it no longer does.
-    git(repo, 'remote', 'set-url', 'origin', 'https://github.com/NousResearch/vetri-agent.git')
+    git(repo, 'remote', 'set-url', 'origin', 'https://github.com/pugazh342/Agent-Vetri.git')
     result, calls = invoke('--build-commit', tip, '--publish',
-                           extra={'PROBE_UPSTREAM_URL': 'https://github.com/NousResearch/vetri-agent.git'})
+                           extra={'PROBE_UPSTREAM_URL': 'https://github.com/pugazh342/Agent-Vetri.git'})
     assert result.returncode == 0, result.stderr
     dispatches = [call for call in calls if call[1:3] == ['workflow', 'run']]
     assert dispatches == [['gh', 'workflow', 'run', 'desktop-bundled-release.yml',
-                           '--ref', 'main', '--repo', 'NousResearch/vetri-agent',
+                           '--ref', 'main', '--repo', 'pugazh342/Agent-Vetri',
                            '-f', f'build_commit={tip}', '-f', 'tag=', '-f', 'upload_release=false',
                            '-f', 'termux_upgrade_from_tag=']]
 

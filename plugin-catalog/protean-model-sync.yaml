@@ -5,7 +5,7 @@ description: "Fleet-wide provider and model presets with CLI and Vetri Desktop s
 maintainer: aska-digital
 tier: community
 category: models
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/aska-digital/protean-model-sync
 version: "1.1.0"
 readme: true

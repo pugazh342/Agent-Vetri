@@ -6,7 +6,7 @@ description: "OpenTelemetry for Vetri Agent: sessions, LLM and API calls, tool c
 maintainer: briancaffey
 tier: community
 category: general
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 docs_url: https://briancaffey.github.io/vetri-otel/
 version: "1.18.2"
 image: https://raw.githubusercontent.com/briancaffey/vetri-otel/d234865b13e997e0b3a50dc18aaad7c7d7b1b1fe/docs/catalog-banner.png

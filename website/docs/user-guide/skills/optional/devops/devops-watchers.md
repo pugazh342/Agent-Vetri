@@ -81,7 +81,7 @@ Watch a GitHub repo (set `GITHUB_TOKEN` in `${VETRI_HOME:-~/.vetri}/.env` to avo
 
 ```bash
 python $VETRI_HOME/skills/devops/watchers/scripts/watch_github.py \
-  --name vetri-issues --repo NousResearch/vetri-agent --scope issues
+  --name vetri-issues --repo pugazh342/Agent-Vetri --scope issues
 ```
 
 Poll an arbitrary JSON API:

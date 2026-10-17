@@ -6,7 +6,7 @@ description: "Local ledger of the slash commands you run in Vetri (built-in comm
 maintainer: olric3015
 tier: community
 category: tools
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/olric3015/vetri-plugins/tree/main/command-ledger
 version: "1.1.0"
 image: https://raw.githubusercontent.com/olric3015/vetri-plugins/12263b1fd89e8d647549e39d349add157c7570b4/docs/command-ledger-card.png

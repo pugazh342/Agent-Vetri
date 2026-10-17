@@ -771,7 +771,7 @@ _SSH_HINT_LOOPBACK = (
     "         ssh -N -L {port}:127.0.0.1:{port} <user>@<this-host>\n"
     "       then open the URL above and let it redirect normally.\n"
     "\n"
-    "  See: https://hermes-agent.nousresearch.com/docs/guides/oauth-over-ssh\n")
+    "  See: https://pugazh342.github.io/Agent-Vetri/docs/guides/oauth-over-ssh\n")
 
 
 def _announce_authorization_url(
@@ -934,9 +934,10 @@ def remove_oauth_tokens(server_name: str, *, vetri_home: str | Path | None = Non
 
 # CIMD (OAuth Client ID Metadata Documents): the client_id IS an HTTPS URL the server fetches for our
 # name/logo/redirect URIs, replacing per-install DCR. The SDK does the protocol; Vetri only decides
-# eligibility. Published from ``website/static/oauth/client-metadata.json``; the github.io origin is
-# deliberate — servers MUST NOT follow redirects when fetching it, and hermes-agent.nousresearch.com/docs/* 301s here.
-_CIMD_CLIENT_METADATA_URL = "https://nousresearch.github.io/vetri-agent/docs/oauth/client-metadata.json"
+# eligibility. Published from ``website/static/oauth/client-metadata.json``; the GitHub Pages origin is
+# deliberate — servers MUST NOT follow redirects when fetching it, and Pages serves it at a stable
+# path under the project baseUrl.
+_CIMD_CLIENT_METADATA_URL = "https://pugazh342.github.io/Agent-Vetri/docs/oauth/client-metadata.json"
 # Loopback ports/hosts declared in that document (exact match, so no ephemeral port under CIMD);
 # below Linux's 32768 ephemeral floor. tests/tools/test_mcp_cimd.py keeps them in sync.
 _CIMD_PORTS = (27890, 27891, 27892, 27893, 27894)

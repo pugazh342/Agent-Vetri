@@ -81,7 +81,7 @@ def test_promotion_reuses_the_receipt_digest_without_rebuilding():
 
     promote_stable('rc.1-v1.2.3', digest, 'v1.2.3', run=run)
     create = next(argv for argv in calls if argv[3] == 'create')
-    assert create[-1] == f'nousresearch/vetri-agent@{digest}'
+    assert create[-1] == f'pugazh342/agent-vetri@{digest}'
     assert all('build' not in argv for argv in calls)
 
     with pytest.raises(DockerReleaseError, match='versioned tag'):
@@ -106,16 +106,16 @@ def test_promotion_preserves_independent_desktop_digest():
         raise AssertionError(argv)
 
     promote_stable('rc.1-v1.2.3', slim, 'v1.2.3', run=run)
-    assert 'nousresearch/vetri-agent:rc.1-v1.2.3-desktop' in inspected
+    assert 'pugazh342/agent-vetri:rc.1-v1.2.3-desktop' in inspected
     assert {tuple(cmd[4:]) for cmd in created} == {
-        ('-t', 'nousresearch/vetri-agent:v1.2.3', '-t', 'nousresearch/vetri-agent:stable',
-         '-t', 'nousresearch/vetri-agent:latest', f'nousresearch/vetri-agent@{slim}'),
-        ('-t', 'nousresearch/vetri-agent:v1.2.3-desktop', '-t',
-         'nousresearch/vetri-agent:stable-desktop', '-t',
-         'nousresearch/vetri-agent:latest-desktop', f'nousresearch/vetri-agent@{desktop}'),
+        ('-t', 'pugazh342/agent-vetri:v1.2.3', '-t', 'pugazh342/agent-vetri:stable',
+         '-t', 'pugazh342/agent-vetri:latest', f'pugazh342/agent-vetri@{slim}'),
+        ('-t', 'pugazh342/agent-vetri:v1.2.3-desktop', '-t',
+         'pugazh342/agent-vetri:stable-desktop', '-t',
+         'pugazh342/agent-vetri:latest-desktop', f'pugazh342/agent-vetri@{desktop}'),
     }
-    assert 'nousresearch/vetri-agent:stable-desktop' in inspected
-    assert 'nousresearch/vetri-agent:latest-desktop' in inspected
+    assert 'pugazh342/agent-vetri:stable-desktop' in inspected
+    assert 'pugazh342/agent-vetri:latest-desktop' in inspected
 
 
 def test_promotion_requires_desktop_version_before_moving_any_alias():
@@ -146,7 +146,7 @@ def test_published_digest_checks_desktop_tag():
         return 'sha256:' + ('e' if argv[4].endswith('-desktop') else 'd') * 64
 
     assert published_digest('v1.2.3', run=run) == 'sha256:' + 'd' * 64
-    assert inspected == ['nousresearch/vetri-agent:v1.2.3',
-                         'nousresearch/vetri-agent:v1.2.3-desktop']
+    assert inspected == ['pugazh342/agent-vetri:v1.2.3',
+                         'pugazh342/agent-vetri:v1.2.3-desktop']
     with pytest.raises(DockerReleaseError, match='desktop'):
         published_digest('v1.2.3', run=lambda argv: 'garbage' if argv[4].endswith('-desktop') else 'sha256:' + 'd' * 64)

@@ -27,19 +27,19 @@ import {
   Upload,
   X,
 } from "lucide-react";
-import { Badge } from "@nous-research/ui/ui/components/badge";
-import { Button } from "@nous-research/ui/ui/components/button";
-import { Spinner } from "@nous-research/ui/ui/components/spinner";
-import { H2 } from "@nous-research/ui/ui/components/typography/h2";
-import { Card, CardContent } from "@nous-research/ui/ui/components/card";
-import { Checkbox } from "@nous-research/ui/ui/components/checkbox";
-import { Input } from "@nous-research/ui/ui/components/input";
-import { Label } from "@nous-research/ui/ui/components/label";
-import { Select, SelectOption } from "@nous-research/ui/ui/components/select";
-import { Toast } from "@nous-research/ui/ui/components/toast";
-import { useToast } from "@nous-research/ui/hooks/use-toast";
-import { useConfirmDelete } from "@nous-research/ui/hooks/use-confirm-delete";
-import { ConfirmDialog } from "@nous-research/ui/ui/components/confirm-dialog";
+import { Badge } from "@vetri/ui/ui/components/badge";
+import { Button } from "@vetri/ui/ui/components/button";
+import { Spinner } from "@vetri/ui/ui/components/spinner";
+import { H2 } from "@vetri/ui/ui/components/typography/h2";
+import { Card, CardContent } from "@vetri/ui/ui/components/card";
+import { Checkbox } from "@vetri/ui/ui/components/checkbox";
+import { Input } from "@vetri/ui/ui/components/input";
+import { Label } from "@vetri/ui/ui/components/label";
+import { Select, SelectOption } from "@vetri/ui/ui/components/select";
+import { Toast } from "@vetri/ui/ui/components/toast";
+import { useToast } from "@vetri/ui/hooks/use-toast";
+import { useConfirmDelete } from "@vetri/ui/hooks/use-confirm-delete";
+import { ConfirmDialog } from "@vetri/ui/ui/components/confirm-dialog";
 import { useModalBehavior } from "@/hooks/useModalBehavior";
 import { DeleteConfirmDialog } from "@/components/DeleteConfirmDialog";
 import { VetriConsoleModal } from "@/components/VetriConsoleModal";

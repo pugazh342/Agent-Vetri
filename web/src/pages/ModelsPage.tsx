@@ -30,12 +30,12 @@ import {
   shouldCloseOuterModalOnEscape,
 } from "@/lib/dashboard-modal-shell";
 import { compactNumber } from "@vetri/shared";
-import { Button } from "@nous-research/ui/ui/components/button";
-import { Spinner } from "@nous-research/ui/ui/components/spinner";
-import { Stats } from "@nous-research/ui/ui/components/stats";
-import { Card, CardContent, CardHeader, CardTitle } from "@nous-research/ui/ui/components/card";
-import { Badge } from "@nous-research/ui/ui/components/badge";
-import { Switch } from "@nous-research/ui/ui/components/switch";
+import { Button } from "@vetri/ui/ui/components/button";
+import { Spinner } from "@vetri/ui/ui/components/spinner";
+import { Stats } from "@vetri/ui/ui/components/stats";
+import { Card, CardContent, CardHeader, CardTitle } from "@vetri/ui/ui/components/card";
+import { Badge } from "@vetri/ui/ui/components/badge";
+import { Switch } from "@vetri/ui/ui/components/switch";
 import { ConfirmDialog } from "@/components/ConfirmDialog";
 import { useModalBehavior } from "@/hooks/useModalBehavior";
 import { usePageHeader } from "@/contexts/usePageHeader";

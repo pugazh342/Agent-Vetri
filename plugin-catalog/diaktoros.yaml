@@ -5,7 +5,7 @@ description: "Unattended GitHub pull-request review between two Vetri agents: on
 maintainer: coe0718
 tier: community
 category: automation
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/coe0718/diaktoros#readme
 version: "0.3.0"
 image: "https://raw.githubusercontent.com/coe0718/diaktoros/777458fb0ab7cdcea7fe4b2c032f6eebcb83b52e/docs/banner.jpg"

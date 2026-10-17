@@ -10,7 +10,7 @@ description: "Per-provider quota and balance readout in the Vetri desktop status
 maintainer: PhoeniXAbhisheK
 tier: community
 category: desktop
-requires_vetri: ">=0.21.0"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/PhoeniXAbhisheK/vetri-plugin-provider-usage#readme
 version: "0.2.0"
 screenshots:

@@ -1,4 +1,4 @@
-# Draft for NousResearch/vetri-agent/plugin-catalog/vetri-adaptive-effort.yaml
+# Draft for pugazh342/Agent-Vetri/plugin-catalog/vetri-adaptive-effort.yaml
 # Pinned to master after the v0.3.1 pre-release (repository-root payload, so no subdir).
 # The plugin payload is identical to v0.3.1; the pin adds the README screenshots and release tooling.
 # Update sha and version together for later releases; a bump is a new catalog PR.
@@ -9,7 +9,7 @@ description: "Choose a separate scorer to set the reasoning effort of each Vetri
 maintainer: atostivint
 tier: community
 category: models
-requires_vetri: ">=0.21.6"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/atostivint/vetri-adaptive-effort/blob/0998a083d85ea52fbef38427b44a54d27332358a/docs/README.md
 version: "0.3.1"
 readme: true

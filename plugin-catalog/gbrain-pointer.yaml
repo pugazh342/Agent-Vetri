@@ -7,7 +7,7 @@ description: "Read-only memory.provider for GBrain (garrytan/gbrain, MIT; not af
 maintainer: praggybuilds
 tier: community
 category: memory
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/praggybuilds/vetri-gbrain-pointer#readme
 platforms: []
 capabilities:

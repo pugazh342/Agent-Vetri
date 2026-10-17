@@ -6,7 +6,7 @@ description: "Guided Desktop workspace in BOTS: tailored questions, reference fi
 maintainer: itsflownium
 tier: community
 category: desktop
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/itsflownium/vetri-agent-builder#readme
 version: "1.0.0"
 image: https://raw.githubusercontent.com/itsflownium/vetri-agent-builder/6ed39da7c7054587cbe2a42e60c3e9cbe4969cf6/docs/banner.png

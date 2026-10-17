@@ -49,7 +49,6 @@ export const jaBoot = {
       cloudDownHint:
         '下のボタンから Nous Portal（インスタンスの状態と操作）を開くか、Discord でサポートを受けられます。',
       cloudDownCheckPortal: 'Portal のステータスを確認',
-      cloudDownDiscord: 'Discord でサポートを受ける',
       hideRecentLogs: '最近のログを非表示',
       showRecentLogs: '最近のログを表示',
       signedInTitle: 'サインインしました',

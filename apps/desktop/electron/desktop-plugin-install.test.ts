@@ -25,8 +25,8 @@ function mkdtemp(prefix: string) {
 
 describe('resolvePluginGitUrl', () => {
   it('maps owner/repo shorthand to github git url', () => {
-    expect(resolvePluginGitUrl('NousResearch/vetri-example-plugins')).toEqual({
-      gitUrl: 'https://github.com/NousResearch/vetri-example-plugins.git',
+    expect(resolvePluginGitUrl('pugazh342/vetri-example-plugins')).toEqual({
+      gitUrl: 'https://github.com/pugazh342/vetri-example-plugins.git',
       subdir: null
     })
   })

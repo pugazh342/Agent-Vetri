@@ -9,7 +9,7 @@ tier: community
 category: platform
 docs_url: https://github.com/zenplace-system/vetri-plugin-salesforce-chatter#readme
 version: "0.2.1"
-requires_vetri: ">=0.21.3"
+requires_vetri: ">=0.1.0"
 platforms: []
 capabilities:
   provides_tools: []

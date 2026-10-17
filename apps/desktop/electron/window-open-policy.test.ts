@@ -21,13 +21,13 @@ describe('hub-iframe-policy predicates', () => {
     expect(isVetriHubOrigin('')).toBe(false)
     expect(isVetriHubOrigin(null)).toBe(false)
     expect(isVetriHubOrigin(undefined)).toBe(false)
-    expect(isVetriHubOrigin('https://hermes-agent.nousresearch.com.evil.example')).toBe(false)
+    expect(isVetriHubOrigin('https://pugazh342.github.io/Agent-Vetri.evil.example')).toBe(false)
     expect(isVetriHubOrigin('https://evil.example')).toBe(false)
     expect(isVetriHubOrigin('file://')).toBe(false)
   })
 
   it('delegates only http/https/mailto external URLs', () => {
-    expect(isVetriHubExternalUrl('https://github.com/NousResearch/vetri-agent')).toBe(true)
+    expect(isVetriHubExternalUrl('https://github.com/pugazh342/Agent-Vetri')).toBe(true)
     expect(isVetriHubExternalUrl('http://example.com/docs')).toBe(true)
     expect(isVetriHubExternalUrl('mailto:support@example.com')).toBe(true)
 
@@ -47,7 +47,7 @@ describe('hub-iframe-policy predicates', () => {
 })
 
 describe('createWindowOpenHandler trusted-hub delegation', () => {
-  const baseDetails = { url: 'https://github.com/NousResearch/vetri-agent' }
+  const baseDetails = { url: 'https://github.com/pugazh342/Agent-Vetri' }
 
   it('still denies artifact frames (opaque origin) with NO external open', () => {
     const openExternalUrl = vi.fn()
@@ -70,7 +70,7 @@ describe('createWindowOpenHandler trusted-hub delegation', () => {
     })
 
     expect(handler(baseDetails)).toEqual({ action: 'deny' })
-    expect(openExternalUrl).toHaveBeenCalledExactlyOnceWith('https://github.com/NousResearch/vetri-agent')
+    expect(openExternalUrl).toHaveBeenCalledExactlyOnceWith('https://github.com/pugazh342/Agent-Vetri')
   })
 
   it('delegates from the fallback (GitHub Pages) hub origin too', () => {
@@ -103,7 +103,7 @@ describe('createWindowOpenHandler trusted-hub delegation', () => {
     const openExternalUrl = vi.fn()
 
     const handler = createWindowOpenHandler(undefined, {
-      getOpenerOrigin: () => 'https://hermes-agent.nousresearch.com.evil.example',
+      getOpenerOrigin: () => 'https://pugazh342.github.io/Agent-Vetri.evil.example',
       openExternalUrl
     })
 

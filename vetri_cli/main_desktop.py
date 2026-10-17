@@ -1652,7 +1652,7 @@ def cmd_gui(args: argparse.Namespace):
             print(
                 "  This Vetri came from Homebrew, which does not ship the desktop app's\n"
                 "  source tree, so it cannot be built from this install.\n"
-                "  Install the desktop app from https://hermes-agent.nousresearch.com,\n"
+                "  Install the desktop app from https://pugazh342.github.io/Agent-Vetri,\n"
                 "  or run `vetri desktop` from a source checkout."
             )
         sys.exit(1)

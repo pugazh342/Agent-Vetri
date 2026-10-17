@@ -71,7 +71,7 @@ $script:BoundParams = $PSBoundParameters
 # Under iex, script scope is the caller's session and outlives a run; start
 # each run without the previous run's answer (see Set-LauncherUserPath).
 $script:BinDirOnCallerPath = $null
-$RepoUrl = if ($env:VETRI_REPO_URL) { $env:VETRI_REPO_URL } else { "https://github.com/NousResearch/vetri-agent.git" }
+$RepoUrl = if ($env:VETRI_REPO_URL) { $env:VETRI_REPO_URL } else { "https://github.com/pugazh342/Agent-Vetri.git" }
 
 # --- BEGIN GENERATED: bootstrap pins (scripts/gen-bootstrap-pins.py) ---
 # Derived from pm/lock.json. DO NOT EDIT BY HAND:
@@ -80,12 +80,12 @@ $script:UvPinVersion = "0.12.3"
 $script:UvPinFiles = @{
     "win32-x64" = @{
         Url    = "https://github.com/astral-sh/uv/releases/download/0.12.3/uv-x86_64-pc-windows-msvc.zip"
-        MirrorUrl = "https://hermes-assets.nousresearch.com/upstream/sha256/b23350c79e8ad0192b8124af13a0f17e8d4e4549524785e1aef389ae5a06990e"
+        MirrorUrl = ""
         Sha256 = "b23350c79e8ad0192b8124af13a0f17e8d4e4549524785e1aef389ae5a06990e"
     }
     "win32-arm64" = @{
         Url    = "https://github.com/astral-sh/uv/releases/download/0.12.3/uv-aarch64-pc-windows-msvc.zip"
-        MirrorUrl = "https://hermes-assets.nousresearch.com/upstream/sha256/4343217d668727b8a8eb5cad92389a1d2eeead93c89940d1b955ba1bb15462eb"
+        MirrorUrl = ""
         Sha256 = "4343217d668727b8a8eb5cad92389a1d2eeead93c89940d1b955ba1bb15462eb"
     }
 }
@@ -94,12 +94,12 @@ $script:GitPinVersion = "2.53.0+3"
 $script:GitPinFiles = @{
     "win32-x64" = @{
         Url    = "https://github.com/git-for-windows/git/releases/download/v2.53.0.windows.3/PortableGit-2.53.0.3-64-bit.7z.exe"
-        MirrorUrl = "https://hermes-assets.nousresearch.com/upstream/sha256/b365da794b1d2225eb24d5f5e09ef7792cfd5fa26c3a3586210280c80dff3a2a"
+        MirrorUrl = ""
         Sha256 = "b365da794b1d2225eb24d5f5e09ef7792cfd5fa26c3a3586210280c80dff3a2a"
     }
     "win32-arm64" = @{
         Url    = "https://github.com/git-for-windows/git/releases/download/v2.53.0.windows.3/PortableGit-2.53.0.3-arm64.7z.exe"
-        MirrorUrl = "https://hermes-assets.nousresearch.com/upstream/sha256/0db54010054c01f35501cf69e1e32d3710138ecb934d188bd77093afed24300e"
+        MirrorUrl = ""
         Sha256 = "0db54010054c01f35501cf69e1e32d3710138ecb934d188bd77093afed24300e"
     }
 }
@@ -418,7 +418,12 @@ function Invoke-VerifiedDownload {
             $httpFailure = $_.Exception.Message
             continue
         }
-        $digest = (Get-FileHash -Path $OutFile -Algorithm SHA256).Hash.ToLowerInvariant()
+        # .NET hashing, not Get-FileHash: a stripped Windows PowerShell may
+        # ship without the Utility cmdlet, and this runs before any install.
+        $sha = [System.Security.Cryptography.SHA256]::Create()
+        $stream = [System.IO.File]::OpenRead($OutFile)
+        try { $digest = ([System.BitConverter]::ToString($sha.ComputeHash($stream)) -replace '-', '').ToLowerInvariant() }
+        finally { $stream.Dispose(); $sha.Dispose() }
         if ($digest -eq $Sha256.ToLowerInvariant()) { return }
         Remove-Item -Path $OutFile -Force -ErrorAction SilentlyContinue
         # Wrong bytes = tampering or a corrupt mirror, not a routing problem.
@@ -533,7 +538,11 @@ function Get-Uv {
         $zipPath = Join-Path $tmpDir "uv.zip"
         Invoke-VerifiedDownload -Url $pin.Url -MirrorUrl $pin.MirrorUrl -Sha256 $pin.Sha256 -OutFile $zipPath
         $extractDir = Join-Path $tmpDir "unpacked"
-        Expand-Archive -Path $zipPath -DestinationPath $extractDir -Force
+        # .NET extraction, not Expand-Archive: same stripped-Windows-PowerShell
+        # concern as the digest check above.
+        Add-Type -AssemblyName System.IO.Compression.FileSystem
+        if (Test-Path $extractDir) { Remove-Item -Path $extractDir -Recurse -Force }
+        [System.IO.Compression.ZipFile]::ExtractToDirectory($zipPath, $extractDir)
         # The zip carries uv.exe (+ uvx.exe) at the root or under one
         # versioned wrapper dir — take whichever layout arrived.
         $found = Get-ChildItem -Path $extractDir -Filter "uv.exe" -Recurse | Select-Object -First 1
@@ -618,7 +627,7 @@ function Write-Banner {
     Write-Host "+---------------------------------------------------------+" -ForegroundColor Magenta
     Write-Host "|             * Vetri Agent Installer                    |" -ForegroundColor Magenta
     Write-Host "+---------------------------------------------------------+" -ForegroundColor Magenta
-    Write-Host "|  An open source AI agent by Nous Research.              |" -ForegroundColor Magenta
+    Write-Host "|  An open source AI agent by Pugazhmani K.               |" -ForegroundColor Magenta
     Write-Host "+---------------------------------------------------------+" -ForegroundColor Magenta
     Write-Host ""
 }

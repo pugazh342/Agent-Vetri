@@ -5,7 +5,7 @@ description: "Named subagent teammates for Vetri: the operator defines a roster 
 maintainer: 100yenadmin
 tier: community
 category: automation
-requires_vetri: ">=0.21.4"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/100yenadmin/vetri-teammates#readme
 version: "0.1.2"
 image: https://raw.githubusercontent.com/100yenadmin/vetri-teammates/5c6f9cd00df3ddbf105bb06107577ef2945ef047/docs/media/banner.png

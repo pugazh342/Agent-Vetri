@@ -5,7 +5,7 @@ description: "Attach an independent verifier (advisor) model to your Vetri sessi
 maintainer: am423
 tier: community
 category: tools
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/am423/vetri-verifier#readme
 version: "0.4.1"
 capabilities:

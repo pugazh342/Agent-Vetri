@@ -5,7 +5,7 @@ description: "SwitchBot OpenAPI v1.1, personal use. No Plug Mini on/off. Locks o
 maintainer: TakeshiTGAL
 tier: community
 category: tools
-requires_vetri: ">=0.21.4"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/TakeshiTGAL/vetri-plugin-switchbot-control#readme
 version: "0.1.1"
 platforms: []

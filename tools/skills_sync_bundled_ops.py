@@ -60,12 +60,12 @@ def reset_bundled_skill(name: str, restore: bool = False) -> dict:
     return {"ok": True, "action": action, "message": message, "synced": synced}
 
 
-_OWN_REPO_PREFIXES = ("nousresearch/vetri-agent/skills/", "skills-sh/nousresearch/vetri-agent/")
+_OWN_REPO_PREFIXES = ("pugazh342/agent-vetri/skills/", "skills-sh/nousresearch/vetri-agent/")
 
 
 def bundled_skill_for_install(identifier: str) -> Optional[str]:
     """Bundled skill name an install identifier means, else None: a bare bundled name, or this
-    repo's own copy of one (``NousResearch/vetri-agent/skills/<cat>/<name>``, which the Skills Hub
+    repo's own copy of one (``pugazh342/Agent-Vetri/skills/<cat>/<name>``, which the Skills Hub
     site hands out for built-ins, or its ``skills-sh/nousresearch/vetri-agent/<name>`` mirror).
     Fetched from GitHub, that copy is scanned as a community skill and refused — every time."""
     ident = identifier.strip().strip("/")

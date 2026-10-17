@@ -5,7 +5,7 @@ description: OpenRouter speech-to-text and text-to-speech providers for Vetri Ag
 maintainer: esketids
 tier: community
 category: voice
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/esketids/vetri-openrouter-voice#readme
 capabilities:
   provides_tools: []

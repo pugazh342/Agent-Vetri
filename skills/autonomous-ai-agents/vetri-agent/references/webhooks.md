@@ -83,7 +83,7 @@ vetri webhook subscribe todoist-vetri \
   --deliver telegram --deliver-chat-id "12345"
 ```
 
-Full filter syntax: https://hermes-agent.nousresearch.com/docs/user-guide/messaging/webhooks#payload-filters
+Full filter syntax: https://pugazh342.github.io/Agent-Vetri/docs/user-guide/messaging/webhooks#payload-filters
 
 ### List subscriptions
 ```bash

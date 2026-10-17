@@ -204,7 +204,7 @@ async function locateVetri(ssh, remoteVetriPath) {
     //   - version checking: `<python> --version` printed "Python x.y.z" instead of
     //     the Vetri version, and
     //   - capability probing: `<python> serve --help` failed entirely.
-    // See https://github.com/NousResearch/vetri-agent/issues/74411
+    // See https://github.com/pugazh342/Agent-Vetri/issues/74411
     return candidate
   }
 
@@ -264,7 +264,7 @@ async function locateVetri(ssh, remoteVetriPath) {
 
   const err: any = new Error(
     'Vetri is not installed on the remote host (could not find a `vetri` executable). ' +
-      'Install it on the remote with:  curl -fsSL https://hermes-agent.nousresearch.com/install.sh | sh  ' +
+      'Install it on the remote with:  curl -fsSL https://raw.githubusercontent.com/pugazh342/Agent-Vetri/main/scripts/install.sh | sh  ' +
       '— or set the Vetri path explicitly in the SSH connection settings.'
   )
 

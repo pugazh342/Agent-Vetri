@@ -5,7 +5,7 @@ description: "FXMacroData macro and FX research: official-source economic releas
 maintainer: fxmacrodata
 tier: community
 category: tools
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/fxmacrodata/vetri-fxmacrodata#readme
 version: "0.2.0"
 platforms: []

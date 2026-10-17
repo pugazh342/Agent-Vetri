@@ -17,7 +17,7 @@ Build comparable-company valuation workbooks in Excel.
 | Source | Optional — install with `vetri skills install official/finance/comps-analysis` |
 | Path | `optional-skills/finance/comps-analysis` |
 | Version | `1.0.0` |
-| Author | Anthropic (adapted by Nous Research) |
+| Author | Anthropic (adapted for Vetri) |
 | License | Apache-2.0 |
 | Platforms | linux, macos, windows |
 | Tags | `finance`, `valuation`, `comps`, `excel`, `openpyxl`, `modeling`, `investment-banking` |

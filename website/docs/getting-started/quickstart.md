@@ -52,7 +52,7 @@ Pick the row that matches your goal:
 
 ## 1. Install Vetri Agent
 ### With the Vetri Desktop installer on macOS or Windows (recommended)
-To easily install the command-line and desktop applications, [download the Vetri Desktop installer](https://hermes-agent.nousresearch.com/) from our website and run it.
+To easily install the command-line and desktop applications, [download the Vetri Desktop installer](https://pugazh342.github.io/Agent-Vetri/) from our website and run it.
 
 ### Without Vetri Desktop:
 For a command-line only install without Vetri Desktop, run:
@@ -61,14 +61,14 @@ For aarch64 Android devices, use the separate [Termux APT guide](./termux.md).
 
 #### Linux / macOS / WSL2
 ```bash
-curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/pugazh342/Agent-Vetri/main/scripts/install.sh | bash
 ```
 
 #### Windows (native)
 
 Run in powershell:
 ```powershell
-iex (irm https://hermes-agent.nousresearch.com/install.ps1) 
+iex (irm https://raw.githubusercontent.com/pugazh342/Agent-Vetri/main/scripts/install.ps1) 
 ```
 
 After it finishes, reload your shell:

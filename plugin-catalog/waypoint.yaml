@@ -5,7 +5,7 @@ description: "Session status for Vetri Desktop: a thin bar next to every sidebar
 maintainer: mochiNJ
 tier: community
 category: desktop
-requires_vetri: ">=0.21.6"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/mochiNJ/vetri-waypoint
 version: "2.5.0"
 screenshots:

@@ -7,7 +7,7 @@ description: Ace Data Cloud GPT models with streaming and tool calling.
 maintainer: AceDataCloud
 tier: community
 category: models
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 version: "1.0.1"
 docs_url: https://github.com/AceDataCloud/AceDataCloudModelProviderVetri/blob/32f999fe1093f053648035b8fd8c5e641733d2b1/README.md
 known_issues:

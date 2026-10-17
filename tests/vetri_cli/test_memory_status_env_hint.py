@@ -1,6 +1,6 @@
 """`vetri memory status` should explain *why* a provider is unavailable.
 
-Regression coverage for NousResearch/vetri-agent#2765: when the selected
+Regression coverage for pugazh342/Agent-Vetri#2765: when the selected
 provider reports unavailable, status lists the missing env vars and surfaces
 the systemd/gateway ``.env``-inheritance gotcha that most often causes it.
 """

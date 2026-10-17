@@ -5,7 +5,7 @@ description: Notes, checklists and documents beside Vetri that your agent can re
 maintainer: Totoro-qaq
 tier: community
 category: desktop
-requires_vetri: '>=0.21.5'
+requires_vetri: ">=0.1.0"
 version: '0.4.0'
 title: 'Jot'
 readme: true

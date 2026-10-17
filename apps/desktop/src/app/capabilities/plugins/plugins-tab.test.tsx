@@ -188,7 +188,7 @@ describe('PluginsTab', () => {
         kind: 'disk',
         status: 'loaded',
         packageName: 'vetri-media-studio',
-        packageOrigin: { repo: 'https://github.com/NousResearch/vetri-media-studio.git', sha: 'abc' }
+        packageOrigin: { repo: 'https://github.com/pugazh342/vetri-media-studio.git', sha: 'abc' }
       }
     })
 
@@ -201,7 +201,7 @@ describe('PluginsTab', () => {
       expect($pluginInstallRequest.get()).toMatchObject({
         legacyHint: 'agent',
         profile: 'workbot',
-        repo: 'https://github.com/NousResearch/vetri-media-studio.git',
+        repo: 'https://github.com/pugazh342/vetri-media-studio.git',
         sha: 'abc'
       })
     })
@@ -239,7 +239,7 @@ describe('PluginsTab', () => {
           tier: 'community',
           type: 'vetri-plugin-pick'
         },
-        origin: 'https://hermes-agent.nousresearch.com'
+        origin: 'https://pugazh342.github.io/Agent-Vetri'
       })
     )
 
@@ -386,7 +386,7 @@ describe('PluginsTab', () => {
           subdir: 'nested-plugin',
           type: 'vetri-plugin-pick'
         },
-        origin: 'https://hermes-agent.nousresearch.com'
+        origin: 'https://pugazh342.github.io/Agent-Vetri'
       })
     )
 
@@ -733,7 +733,7 @@ describe('PluginsTab catalog UX', () => {
           repo: 'https://github.com/example/demo-weather',
           type: 'vetri-plugin-pick'
         },
-        origin: 'https://hermes-agent.nousresearch.com'
+        origin: 'https://pugazh342.github.io/Agent-Vetri'
       })
     )
 
@@ -766,7 +766,7 @@ describe('PluginsTab catalog UX', () => {
           repo: 'https://github.com/example/demo-weather',
           type: 'vetri-plugin-pick'
         },
-        origin: 'https://hermes-agent.nousresearch.com'
+        origin: 'https://pugazh342.github.io/Agent-Vetri'
       })
     )
 

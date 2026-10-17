@@ -6,7 +6,7 @@ maintainer: bmtrnavsky
 tier: community
 category: desktop
 version: "1.1.0"
-requires_vetri: '>=0.21'
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/bmtrnavsky/deepseek-whale#readme
 capabilities:
   provides_tools: []

@@ -6,7 +6,7 @@ maintainer: promptclickrun
 tier: community
 category: tools
 version: "0.1.0"
-requires_vetri: ">=0.21.2"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/promptclickrun/vetri-parcel#readme
 platforms: []
 capabilities:

@@ -13,7 +13,7 @@ description: >-
 maintainer: morajabi
 tier: community
 category: platform
-requires_vetri: ">=0.21.3"
+requires_vetri: ">=0.1.0"
 version: "0.0.21"
 capabilities:
   provides_tools:

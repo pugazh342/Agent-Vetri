@@ -2,7 +2,7 @@
 
 Set via `vetri model` (picker) or `vetri setup`. 35+ provider profiles ship as
 plugins under `plugins/model-providers/`; user plugins of the same name override.
-Full docs: https://hermes-agent.nousresearch.com/docs/integrations/providers
+Full docs: https://pugazh342.github.io/Agent-Vetri/docs/integrations/providers
 
 ### Providers
 

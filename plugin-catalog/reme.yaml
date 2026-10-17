@@ -9,7 +9,7 @@ description: Local-first, file-native long-term memory with HTTP and embedded Re
 maintainer: agentscope-ai
 tier: community
 category: memory
-requires_vetri: '>=0.21'
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/agentscope-ai/ReMe/tree/main/integrations/vetri_agent
 capabilities:
   provides_tools: []

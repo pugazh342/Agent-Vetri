@@ -24,8 +24,8 @@ import { $paneHeightOverride, setPaneHeightOverride } from '@/store/panes'
 // to the parent window. We validate the origin and route the install through
 // the standard hub action pipeline (background action + tailed log + Skills
 // list invalidation), scoped to the Capabilities profile selector.
-const HUB_ORIGIN = 'https://hermes-agent.nousresearch.com'
-const HUB_PICKER_URL = `${HUB_ORIGIN}/docs/skills?embed=picker`
+const HUB_ORIGIN = 'https://pugazh342.github.io'
+const HUB_PICKER_URL = `${HUB_ORIGIN}/Agent-Vetri/docs/skills?embed=picker`
 
 // Hub viewport height: persisted through the shared pane store (same one the
 // terminal/editor panes use), dragged from the section's TOP edge — "pull the

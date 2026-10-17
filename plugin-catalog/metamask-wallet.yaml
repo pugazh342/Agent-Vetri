@@ -6,7 +6,7 @@ description: MetaMask Agent Wallet for Vetri — chat-only setup, reads, and app
 maintainer: akugone
 tier: community
 category: tools
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/akugone/vetri-metamask-wallet
 platforms: [macos, linux]
 capabilities:

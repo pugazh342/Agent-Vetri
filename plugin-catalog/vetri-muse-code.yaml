@@ -5,7 +5,7 @@ description: Muse Spark in Vetri billed to the Muse Code monthly login (device-c
 maintainer: TheStreamCode
 tier: community
 category: models
-requires_vetri: ">=0.21.3"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/TheStreamCode/vetri-muse-code
 platforms: []
 capabilities:

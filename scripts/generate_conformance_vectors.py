@@ -231,7 +231,7 @@ def generate(out_dir: Path) -> dict[str, Any]:
                 "native renderers are the oracle (executable spec)."
             ),
             "oracle": {
-                "repo": "NousResearch/vetri-agent",
+                "repo": "pugazh342/Agent-Vetri",
                 "commit": commit,
                 "generator": "scripts/generate_conformance_vectors.py",
                 "generator_version": GENERATOR_VERSION,

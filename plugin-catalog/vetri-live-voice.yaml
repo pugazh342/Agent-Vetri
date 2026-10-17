@@ -6,7 +6,7 @@ description: "Full-duplex Live Voice for Vetri Desktop — GPT-Live-1 on the Cha
 maintainer: Synero
 tier: community
 category: voice
-requires_vetri: ">=0.21.7"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/Synero/vetri-live-voice
 platforms: []
 capabilities:

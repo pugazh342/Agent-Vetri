@@ -385,7 +385,7 @@ file bridge, background jobs with no human channel) fail closed. Private keys,
 
 When set, `write_file` and `patch` may only target paths inside the listed directory prefix(es). Anything outside is **hard-blocked** — not routed through dangerous-command approval.
 
-- Set automatically in the [official Docker image](https://github.com/NousResearch/vetri-agent) (`VETRI_WRITE_SAFE_ROOT=/opt/data`)
+- Set automatically in the [official Docker image](https://github.com/pugazh342/Agent-Vetri) (`VETRI_WRITE_SAFE_ROOT=/opt/data`)
 - Supports multiple roots separated by `:` on Unix or `;` on Windows
 - **Do not add to `~/.vetri/.env` casually.** If you set it to a project directory, the agent cannot write to `~/.vetri/cron/jobs.json`, profile skills, or other Vetri state outside that prefix
 
@@ -523,7 +523,7 @@ docker exec -u vetri vetri-agent vetri pairing approve telegram ABC12DEF
 If you already ran the command as root and the user is still unauthorized,
 restart the container — the entrypoint will fix ownership on the next start.
 
-[i10270]: https://github.com/NousResearch/vetri-agent/issues/10270
+[i10270]: https://github.com/pugazh342/Agent-Vetri/issues/10270
 :::
 
 **Storage:** Pairing data is stored in `~/.vetri/pairing/` with per-platform JSON files:
@@ -562,7 +562,7 @@ Container resources are configurable in `~/.vetri/config.yaml`:
 ```yaml
 terminal:
   backend: docker
-  docker_image: "nousresearch/vetri-sandbox:desktop"
+  docker_image: "pugazh342/agent-vetri-sandbox:desktop"
   docker_forward_env: []  # Explicit allowlist only; empty keeps secrets out of the container
   container_cpu: 1        # CPU cores
   container_memory: 5120  # MB (default 5GB)

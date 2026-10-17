@@ -7,7 +7,7 @@ description: "Dense semantic memory for Vetri, stored in a Qdrant collection you
 maintainer: kuehnberger
 tier: community
 category: memory
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/kuehnberger/vetri-qdrant-memory#readme
 known_issues:
 - "Windows on ARM is unsupported: grpcio, pulled in by qdrant-client, has no win_arm64 wheel. Linux and macOS on x86_64/arm64 and Windows x86_64 are supported."

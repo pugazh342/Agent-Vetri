@@ -5,7 +5,7 @@ description: The Vetri desktop app in your browser. `vetri workbench` serves the
 maintainer: sxuff
 tier: community
 category: desktop
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/sxuff/vetri-workbench#readme
 version: "0.2.1"
 image: https://raw.githubusercontent.com/sxuff/vetri-workbench/f07fb5c90e24c1a396604758feb0fd4ae077760b/docs/media/banner.png

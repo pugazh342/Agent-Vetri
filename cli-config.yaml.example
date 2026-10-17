@@ -459,7 +459,7 @@ terminal:
 #   cwd: "/workspace"  # Path INSIDE the container (default: /)
 #   timeout: 180
 #   lifetime_seconds: 300
-#   docker_image: "nousresearch/vetri-sandbox:desktop"
+#   docker_image: "pugazh342/agent-vetri-sandbox:desktop"
 #   docker_mount_cwd_to_workspace: true   # Explicit opt-in: mount your launch cwd into /workspace
 #   # Optional: run the container as your host user's uid:gid so files written
 #   # into bind-mounted dirs are owned by you, not root. Drops SETUID/SETGID
@@ -489,7 +489,7 @@ terminal:
 #   cwd: "/workspace"  # Path INSIDE the container (default: /root)
 #   timeout: 180
 #   lifetime_seconds: 300
-#   singularity_image: "docker://nousresearch/vetri-sandbox:desktop"
+#   singularity_image: "docker://pugazh342/agent-vetri-sandbox:desktop"
 
 # -----------------------------------------------------------------------------
 # OPTION 5: Modal cloud execution
@@ -501,7 +501,7 @@ terminal:
 #   cwd: "/workspace"  # Path INSIDE the sandbox (default: /root)
 #   timeout: 180
 #   lifetime_seconds: 300
-#   modal_image: "nousresearch/vetri-sandbox:desktop"
+#   modal_image: "pugazh342/agent-vetri-sandbox:desktop"
 
 # -----------------------------------------------------------------------------
 # OPTION 6: Daytona cloud execution
@@ -514,7 +514,7 @@ terminal:
 #   cwd: "~"
 #   timeout: 180
 #   lifetime_seconds: 300
-#   daytona_image: "nousresearch/vetri-sandbox:desktop"
+#   daytona_image: "pugazh342/agent-vetri-sandbox:desktop"
 #   container_disk: 10240          # Daytona max is 10GB per sandbox
 
 #
@@ -1677,7 +1677,7 @@ stt:
   #   local_command/xai/
   #   elevenlabs             -> unsupported; DEBUG log, then continue
   #   plugin providers       -> `prompt` in `**extra`; plugin owns limits
-  # prompt: "Vetri, Teknium, Nous Research, kanban"
+  # prompt: "Vetri, Teknium, Pugazhmani, kanban"
   local:
     model: "base"              # tiny | base | small | medium | large-v3 | turbo
     # language: ""             # auto-detect; set to "en", "es", "fr", etc. to force
@@ -2283,7 +2283,7 @@ updates:
 #     are skipped with a startup warning (never a silent clobber)
 #   - a source's override_existing lets it beat .env/shell values, but
 #     never another secret source's claim
-# Docs: https://hermes-agent.nousresearch.com/docs/user-guide/secrets/
+# Docs: https://pugazh342.github.io/Agent-Vetri/docs/user-guide/secrets/
 #
 # secrets:
 #   # Optional explicit ordering of enabled sources.

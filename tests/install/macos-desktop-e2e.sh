@@ -49,7 +49,7 @@ PHASE="all"
 UPDATE_METHOD=""
 INSTALL_REF=""
 UPDATE_REF=""
-DMG_URL="https://hermes-assets.nousresearch.com/Vetri-Setup.dmg"
+DMG_URL="https://github.com/pugazh342/Agent-Vetri/releases/latest/download/Vetri-Setup.dmg"
 while [ "$#" -gt 0 ]; do
   case "$1" in
     --phase)

@@ -6,7 +6,7 @@ description: "The official Fish Audio plugin, maintained by Electric Sheep: expr
 maintainer: 100yenadmin
 tier: community
 category: voice
-requires_vetri: ">=0.21.6"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/100yenadmin/fish-audio-vetri#readme
 version: "1.5.2"
 image: https://raw.githubusercontent.com/100yenadmin/fish-audio-vetri/4c9874557e3b167a05b4ed32022c05cc2843b460/docs/media/banner.png
@@ -18,7 +18,7 @@ screenshots:
 readme: true
 platforms: [linux, macos]
 known_issues:
-  - "Vetri's text normaliser alters <|speaker:N|> markup on the plain text_to_speech path; use fish_speak for multi-speaker speech (NousResearch/vetri-agent#133131)."
+  - "Vetri's text normaliser alters <|speaker:N|> markup on the plain text_to_speech path; use fish_speak for multi-speaker speech (pugazh342/Agent-Vetri#133131)."
   - "Under plugins.isolation: host the vetri fish terminal command is unavailable and voice replies use whole-file speech instead of streaming; /fish, the tools and both providers still work."
 capabilities:
   provides_tools:

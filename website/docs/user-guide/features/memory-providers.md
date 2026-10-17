@@ -600,7 +600,7 @@ Holographic used to ship inside the Vetri tree. If your `config.yaml` already ha
 
 Your facts (`$VETRI_HOME/memory_store.db`, or the `db_path` you set) and your `plugins.vetri-memory-store` settings are read exactly as before, so no memory is lost. Verify with `vetri memory status` and `vetri plugins list`.
 
-If you installed Nous Research's interim copy by URL (`NousResearch/vetri-plugin-holographic`, now archived), `vetri plugins update holographic` moves it onto the catalog entry; your data stays where it is.
+If you installed Nous Research's interim copy by URL (`pugazh342/vetri-plugin-holographic`, now archived), `vetri plugins update holographic` moves it onto the catalog entry; your data stays where it is.
 
 ---
 

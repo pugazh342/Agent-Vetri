@@ -1,4 +1,4 @@
-import { Button } from "@nous-research/ui/ui/components/button";
+import { Button } from "@vetri/ui/ui/components/button";
 import { Copy } from "lucide-react";
 import { cn } from "@/lib/utils";
 

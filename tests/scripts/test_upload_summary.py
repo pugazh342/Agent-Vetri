@@ -7,7 +7,7 @@ from scripts.releases import r2, upload_summary
 from scripts.releases.r2_scope import R2Scope
 
 
-BASE = "https://hermes-assets.nousresearch.com"
+BASE = "https://pugazh342.github.io/Agent-Vetri"
 KEY = "releases/commit/" + "a" * 40 + "/VetriBundled-1.2.3-win-x64.msix"
 
 

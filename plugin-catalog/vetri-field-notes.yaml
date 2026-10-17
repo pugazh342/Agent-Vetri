@@ -5,7 +5,7 @@ description: "Field notes for a Vetri install: search known pitfalls before debu
 maintainer: itpartypattaya
 tier: community
 category: tools
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/itpartypattaya/vetri-field-notes/blob/2ee9f2fe4baaa59e563796b3be23fbb2ff6f8e08/README.md
 version: "1.2.4"
 image: "https://raw.githubusercontent.com/itpartypattaya/vetri-field-notes/2ee9f2fe4baaa59e563796b3be23fbb2ff6f8e08/docs/banner.png"

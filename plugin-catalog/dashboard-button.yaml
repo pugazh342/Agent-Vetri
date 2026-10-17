@@ -6,7 +6,7 @@ description: "One-click access to the Vetri Web Dashboard (127.0.0.1:9119) from 
 maintainer: g3org3yo
 tier: community
 category: desktop
-requires_vetri: ">=0.21.2"
+requires_vetri: ">=0.1.0"
 version: "1.1.0"
 readme: true
 capabilities:

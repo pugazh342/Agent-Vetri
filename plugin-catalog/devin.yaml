@@ -24,4 +24,4 @@ capabilities:
     - post_approval_response
   provides_middleware: []
   requires_env: []
-requires_vetri: ">=0.21.6"
+requires_vetri: ">=0.1.0"

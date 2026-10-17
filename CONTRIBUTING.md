@@ -24,10 +24,10 @@ A quick search before you build saves your time and keeps the PR queue clean —
 
 - **Search both open *and* merged PRs and issues** for your topic or error symptom — the duplicate-check in the PR template fires at review time, after you've already done the work:
   ```bash
-  gh search issues --repo NousResearch/vetri-agent "<your terms>"
-  gh search prs --repo NousResearch/vetri-agent --state all "<your terms>"
+  gh search issues --repo pugazh342/Agent-Vetri "<your terms>"
+  gh search prs --repo pugazh342/Agent-Vetri --state all "<your terms>"
   ```
-  Or use the web UI: [issues](https://github.com/NousResearch/vetri-agent/issues?q=) · [PRs (all states)](https://github.com/NousResearch/vetri-agent/pulls?q=is%3Apr).
+  Or use the web UI: [issues](https://github.com/pugazh342/Agent-Vetri/issues?q=) · [PRs (all states)](https://github.com/pugazh342/Agent-Vetri/pulls?q=is%3Apr).
 - **The issue tracker can lag the code.** Many requested features are already implemented in-tree, so also search the source (`search_files`, or your editor's grep) for the capability before proposing it.
 - **If an open PR already addresses it**, consider reviewing or improving that one instead of opening a competing duplicate.
 - **For larger work**, comment on the issue to signal you're working on it, so others don't start the same thing.
@@ -63,7 +63,7 @@ Bundled skills (in `skills/`) ship with every Vetri install. They should be **br
 
 If your skill is official and useful but not universally needed (e.g., a paid service integration, a heavyweight dependency), put it in **`optional-skills/`** — it ships with the repo but isn't activated by default. Users can discover it via `vetri skills browse` (labeled "official") and install it with `vetri skills install` (no third-party warning, built-in trust).
 
-If your skill is specialized, community-contributed, or niche, it's better suited for a **Skills Hub** — upload it to a skills registry and share it in the [Nous Research Discord](https://discord.gg/NousResearch). Users can install it with `vetri skills install`.
+If your skill is specialized, community-contributed, or niche, it's better suited for a **Skills Hub** — upload it to a skills registry and share it with the community. Users can install it with `vetri skills install`.
 
 ---
 
@@ -93,10 +93,9 @@ The reason is maintenance load, not quality. Every external product absorbed int
 
 Publish these as a **standalone plugin repo** instead:
 
-- Implement the relevant ABC and use the existing plugin discovery path (`~/.vetri/plugins/`, project `.vetri/plugins/`, or a pip entry point) — see [Build a Vetri Plugin](https://hermes-agent.nousresearch.com/docs/guides/build-a-vetri-plugin)
+- Implement the relevant ABC and use the existing plugin discovery path (`~/.vetri/plugins/`, project `.vetri/plugins/`, or a pip entry point) — see [Build a Vetri Plugin](https://pugazh342.github.io/Agent-Vetri/docs/guides/build-a-vetri-plugin)
 - Register lifecycle hooks (`pre_tool_call`, `post_tool_call`, `pre_llm_call`, `post_llm_call`, `on_session_start`, `on_session_end`), tools (`ctx.register_tool`), and CLI subcommands (`ctx.register_cli_command`) through the surface we already expose — no core changes needed
 - If your plugin needs a capability the framework doesn't expose, that's a feature request to **widen the generic plugin surface** (a new hook or `ctx` method) — never special-case your plugin in core
-- Promote it in the [Nous Research Discord](https://discord.gg/NousResearch) `#plugins-skills-and-skins` channel so users can find and install it
 
 A well-built third-party-product plugin can clear automated review and still be closed for this reason — it's a placement decision, not a verdict on the code. PRs that add such a directory under `plugins/` will be closed with a pointer to publish it as its own repo.
 
@@ -104,7 +103,7 @@ A well-built third-party-product plugin can clear automated review and still be 
 
 ## Submitting a Plugin to the Catalog
 
-A standalone plugin reaches users through the [plugin catalog](https://hermes-agent.nousresearch.com/docs/plugins): a PR to this repo adding one `plugin-catalog/<name>.yaml` file that pins your repo at an exact commit. Read **[Submitting to the plugin catalog](https://hermes-agent.nousresearch.com/docs/developer-guide/plugins/catalog-submission)** before opening one. It covers what to check first (`vetri plugins validate --install-deps`), how review works, and every admission rule. The canonical rules live in [`plugin-catalog/README.md`](plugin-catalog/README.md); if you change them, change the mirrored block in the docs page in the same PR (a test keeps the two identical).
+A standalone plugin reaches users through the [plugin catalog](https://pugazh342.github.io/Agent-Vetri/docs/plugins): a PR to this repo adding one `plugin-catalog/<name>.yaml` file that pins your repo at an exact commit. Read **[Submitting to the plugin catalog](https://pugazh342.github.io/Agent-Vetri/docs/developer-guide/plugins/catalog-submission)** before opening one. It covers what to check first (`vetri plugins validate --install-deps`), how review works, and every admission rule. The canonical rules live in [`plugin-catalog/README.md`](plugin-catalog/README.md); if you change them, change the mirrored block in the docs page in the same PR (a test keeps the two identical).
 
 The rules that most often send a submission back: the plugin must extend Vetri only through public hooks, `ctx.register_*` APIs and the Desktop SDK (no patching core code or Desktop markup at runtime), must not update itself, must declare the capabilities it registers, and must disclose risky behaviour.
 
@@ -310,7 +309,7 @@ vetri-agent/
 ├── skills/                   # Bundled skills (copied to ~/.vetri/skills/ on install)
 ├── optional-skills/          # Official optional skills (discoverable via hub, not activated by default)
 ├── tests/                    # Test suite
-├── website/                  # Documentation site (hermes-agent.nousresearch.com)
+├── website/                  # Documentation site (pugazh342.github.io)
 │
 ├── cli-config.yaml.example   # Example configuration (copied to ~/.vetri/config.yaml)
 └── AGENTS.md                 # Development guide for AI coding assistants
@@ -1018,7 +1017,7 @@ test(tools): add unit tests for file_operations
 
 ## Reporting Issues
 
-- Use [GitHub Issues](https://github.com/NousResearch/vetri-agent/issues)
+- Use [GitHub Issues](https://github.com/pugazh342/Agent-Vetri/issues)
 - Include: OS, Python version, Vetri version (`vetri --version`), full error traceback
 - Include steps to reproduce
 - Check existing issues before creating duplicates
@@ -1028,7 +1027,6 @@ test(tools): add unit tests for file_operations
 
 ## Community
 
-- **Discord**: [discord.gg/NousResearch](https://discord.gg/NousResearch) — for questions, showcasing projects, and sharing skills
 - **GitHub Discussions**: For design proposals and architecture discussions
 - **Skills Hub**: Upload specialized skills to a registry and share them with the community
 

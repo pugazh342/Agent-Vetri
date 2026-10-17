@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router";
-import { H2 } from "@nous-research/ui/ui/components/typography/h2";
-import { Card, CardContent } from "@nous-research/ui/ui/components/card";
-import { Badge } from "@nous-research/ui/ui/components/badge";
-import { Button } from "@nous-research/ui/ui/components/button";
-import { Input } from "@nous-research/ui/ui/components/input";
-import { Label } from "@nous-research/ui/ui/components/label";
-import { Checkbox } from "@nous-research/ui/ui/components/checkbox";
-import { Toast } from "@nous-research/ui/ui/components/toast";
-import { useToast } from "@nous-research/ui/hooks/use-toast";
+import { H2 } from "@vetri/ui/ui/components/typography/h2";
+import { Card, CardContent } from "@vetri/ui/ui/components/card";
+import { Badge } from "@vetri/ui/ui/components/badge";
+import { Button } from "@vetri/ui/ui/components/button";
+import { Input } from "@vetri/ui/ui/components/input";
+import { Label } from "@vetri/ui/ui/components/label";
+import { Checkbox } from "@vetri/ui/ui/components/checkbox";
+import { Toast } from "@vetri/ui/ui/components/toast";
+import { useToast } from "@vetri/ui/hooks/use-toast";
 import { api } from "@/lib/api";
 import type {
   McpHttpAuth,

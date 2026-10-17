@@ -6,7 +6,7 @@ description: "Companion to vetri-kame-api-rotation (install both). A model-provi
 maintainer: Kame696
 tier: community
 category: models
-requires_vetri: ">=0.21.4"
+requires_vetri: ">=0.1.0"
 version: "1.8.2.2"
 docs_url: https://github.com/Kame696/kame-api-rotation-for-vetri/tree/v1.8.2.2/vetri-kame-provider#readme
 readme: true

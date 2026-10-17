@@ -17,7 +17,7 @@ Usage::
 Output: ``website/static/api/model-catalog.json``
 
 Live URL (after ``deploy-site.yml`` runs on merge to main):
-``https://hermes-agent.nousresearch.com/docs/api/model-catalog.json``
+``https://pugazh342.github.io/Agent-Vetri/docs/api/model-catalog.json``
 """
 
 from __future__ import annotations
@@ -64,7 +64,7 @@ def build_catalog() -> dict:
         "updated_at": datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "metadata": {
             "source": "vetri-agent repo",
-            "docs": "https://hermes-agent.nousresearch.com/docs/reference/model-catalog",
+            "docs": "https://pugazh342.github.io/Agent-Vetri/docs/reference/model-catalog",
         },
         "providers": {
             "openrouter": {

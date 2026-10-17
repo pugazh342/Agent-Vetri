@@ -1,6 +1,6 @@
 name: Sandbox desktop image
 
-# nousresearch/vetri-sandbox:desktop is the terminal-backend sandbox base
+# pugazh342/agent-vetri-sandbox:desktop is the terminal-backend sandbox base
 # (nikolaik/python-nodejs) plus a display stack; Bot Screen, computer_use and
 # the bot's browser run inside it when terminal.backend is docker/ssh/etc.
 # It contains NO Vetri code, so it does not need to track main: it changes
@@ -34,12 +34,12 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 env:
-  IMAGE_NAME: nousresearch/vetri-sandbox
+  IMAGE_NAME: pugazh342/agent-vetri-sandbox
 
 jobs:
   # PR code: secret-free build + smoke per arch.
   build:
-    if: github.repository == 'NousResearch/vetri-agent'
+    if: github.repository == 'pugazh342/Agent-Vetri'
     strategy:
       fail-fast: false
       matrix:
@@ -75,7 +75,7 @@ jobs:
 
   # Trusted source only; the sole Docker Hub credential boundary.
   publish:
-    if: github.repository == 'NousResearch/vetri-agent' && (github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && inputs.publish))
+    if: github.repository == 'pugazh342/Agent-Vetri' && (github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && inputs.publish))
     needs: [build]
     environment: container-publish
     strategy:
@@ -129,7 +129,7 @@ jobs:
 
   # Registry-side stitch of the two digests into one tagged manifest list.
   merge:
-    if: ${{ !cancelled() && github.repository == 'NousResearch/vetri-agent' && (github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && inputs.publish)) }}
+    if: ${{ !cancelled() && github.repository == 'pugazh342/Agent-Vetri' && (github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && inputs.publish)) }}
     needs: [publish]
     runs-on: blacksmith-4vcpu-ubuntu-2404
     timeout-minutes: 10

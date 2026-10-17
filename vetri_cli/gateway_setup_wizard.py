@@ -254,20 +254,28 @@ def _prompt_unauthorized_access(platform_key: str) -> None:
 
 
 def _telegram_auto_setup(token_var: str) -> tuple[bool, object]:
-    """Offer the managed-bot QR flow. Returns (token_saved, owner_user_id)."""
+    """Offer the managed-bot QR flow when an onboarding service is configured.
+
+    Returns (token_saved, owner_user_id). Without a configured service the offer is
+    skipped entirely and the caller's form does manual @BotFather entry instead.
+    """
+    try:
+        from vetri_cli.telegram_managed_bot import (
+            auto_setup_telegram_bot_result, is_valid_telegram_bot_token, onboarding_configured,
+        )
+    except ImportError:
+        _gw().print_warning("  Automatic setup is unavailable in this install.")
+        return False, None
+    if not onboarding_configured():
+        _gw().print_info("  Automatic setup needs an onboarding service; this build does not include one.")
+        _gw().print_info("  Create a bot with @BotFather and paste its token below.")
+        return False, None
     print()
     _gw()._print_info_lines(
         "  Telegram can be configured automatically with a managed bot:",
         "  [1] Automatic (scan QR → confirm in Telegram → done)", "  [2] Manual BotFather token",
     )
     if _gw().prompt("  Choice [1/2]", default="1").strip() != "1":
-        return False, None
-    try:
-        from vetri_cli.telegram_managed_bot import (
-            auto_setup_telegram_bot_result, is_valid_telegram_bot_token,
-        )
-    except ImportError:
-        _gw().print_warning("  Automatic setup is unavailable in this install.")
         return False, None
     result = auto_setup_telegram_bot_result()
     if result and is_valid_telegram_bot_token(result.token):

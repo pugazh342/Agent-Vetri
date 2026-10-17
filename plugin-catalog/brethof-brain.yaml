@@ -7,7 +7,7 @@ description: "brethof-brain long-term memory provider — the memory's briefing 
 maintainer: BrethofAI
 tier: community
 category: memory
-requires_vetri: ">=0.21.0"
+requires_vetri: ">=0.1.0"
 docs_url: https://brethof.ai/brain/docs/
 capabilities:
   provides_tools: []

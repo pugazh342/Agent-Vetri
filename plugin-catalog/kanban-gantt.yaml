@@ -5,7 +5,7 @@ description: "Gantt timeline view for the Vetri kanban boards: a full /kanban-ga
 maintainer: e-is
 tier: community
 category: desktop
-requires_vetri: ">=0.21.6"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/e-is/vetri-kanban-gantt
 version: "1.5.0"
 image: https://raw.githubusercontent.com/e-is/vetri-kanban-gantt/e735cd297f3d0ba8473b93319057dcd4a2038a6d/docs/catalog-card.png

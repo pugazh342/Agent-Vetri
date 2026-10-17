@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "updated_at": "2026-10-13T18:12:26Z",
+  "updated_at": "2026-10-16T14:50:48Z",
   "metadata": {
     "source": "vetri-agent repo",
-    "docs": "https://hermes-agent.nousresearch.com/docs/reference/model-catalog"
+    "docs": "https://pugazh342.github.io/Agent-Vetri/docs/reference/model-catalog"
   },
   "providers": {
     "openrouter": {

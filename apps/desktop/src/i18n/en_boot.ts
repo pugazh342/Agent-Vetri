@@ -69,7 +69,6 @@ export const enBoot = {
       cloudDownHint:
         'The buttons below open the Nous Portal (instance status and controls) and our Discord for support.',
       cloudDownCheckPortal: 'Check Portal status',
-      cloudDownDiscord: 'Get help on Discord',
       hideRecentLogs: 'Hide recent logs',
       showRecentLogs: 'Show recent logs',
       signedInTitle: 'Signed in',

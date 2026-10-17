@@ -35,7 +35,7 @@ import vetri_cli.plugins as plugins_mod
 from tools import transcription_tools
 
 
-PROMPT = "Vetri, Teknium, Nous Research, kanban"
+PROMPT = "Vetri, Teknium, Pugazhmani, kanban"
 
 
 # ---------------------------------------------------------------------------

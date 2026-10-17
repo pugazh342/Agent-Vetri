@@ -370,7 +370,7 @@ def _beta_header(betas: list) -> dict[str, str]:
 def _attribution_headers() -> dict[str, str]:
     """Same client-attribution set sent to OpenRouter / Vercel AI Gateway / Fireworks."""
     return {
-        "HTTP-Referer": "https://hermes-agent.nousresearch.com", "X-Title": "Vetri Agent",
+        "HTTP-Referer": "https://pugazh342.github.io/Agent-Vetri", "X-Title": "Vetri Agent",
         "User-Agent": f"VetriAgent/{get_version_info().base_version}",
     }
 
@@ -576,10 +576,11 @@ def _oauth_wire_namer(anthropic_tools: list[dict[str, Any]]):
 
 _OAUTH_SYSTEM_REPLACEMENTS = (
     ("Vetri Agent", "Claude Code"), ("Vetri agent", "Claude Code"), ("Nous Research", "Anthropic"),
+    ("Pugazhmani K", "Anthropic"),
 )
 # The slug is rewritten only as a standalone prose word. Joined to a host, path, repo, mailbox
-# or quoted as an identifier (``hermes-agent.nousresearch.com``, ``~/.vetri/vetri-agent/venv``,
-# ``NousResearch/vetri-agent``, ``skill_view(name='vetri-agent')``) it is an address the model
+# or quoted as an identifier (``pugazh342.github.io``, ``~/.vetri/vetri-agent/venv``,
+# ``pugazh342/Agent-Vetri``, ``skill_view(name='vetri-agent')``) it is an address the model
 # dereferences, and the rewritten form does not exist (#48860). The OPENING quote marks an
 # identifier; a sentence-final ``.`` or a possessive ``'s`` is prose.
 _OAUTH_SLUG_PATTERN = re.compile(r"""(?<![\w./:@'"`-])vetri-agent(?![\w/@-]|\.\w)""")

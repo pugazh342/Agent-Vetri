@@ -6,7 +6,7 @@ description: "Draft enhancement, reusable prompt libraries, undo/redo, and owner
 maintainer: Deadtrix21
 tier: community
 category: voice
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/noxius-studium/enchanted-composer/blob/63cb51633a68eb1c2739b6ab8d17a383361d20c4/README.md
 version: "0.2.0"
 image: https://raw.githubusercontent.com/noxius-studium/enchanted-composer/63cb51633a68eb1c2739b6ab8d17a383361d20c4/docs/media/banner.png

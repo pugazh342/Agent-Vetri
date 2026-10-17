@@ -17,8 +17,8 @@ use, web search, and 22 messaging platforms were absent from the index every
 LLM reads to learn what Vetri does.
 
 Both publish at:
-  https://hermes-agent.nousresearch.com/docs/llms.txt
-  https://hermes-agent.nousresearch.com/docs/llms-full.txt
+  https://pugazh342.github.io/Agent-Vetri/docs/llms.txt
+  https://pugazh342.github.io/Agent-Vetri/docs/llms-full.txt
 
 The `/docs/` prefix is not a mistake — Docusaurus serves `website/static/`
 at the `docs/` base path. Clients and IDE plugins that probe the classic
@@ -39,7 +39,7 @@ WEBSITE = SCRIPT_DIR.parent
 DOCS = WEBSITE / "docs"
 STATIC = WEBSITE / "static"
 
-SITE_BASE = "https://hermes-agent.nousresearch.com/docs"
+SITE_BASE = "https://pugazh342.github.io/Agent-Vetri/docs"
 
 # The product story: which pages lead, and in what order. Everything not named
 # here is still indexed — ABSORB decides where it lands — so this list is safe
@@ -295,7 +295,7 @@ def emit_llms_index() -> str:
     lines.append("# Vetri Agent")
     lines.append("")
     lines.append(
-        "> The self-improving AI agent built by Nous Research. A terminal-native "
+        "> The self-improving AI agent. A terminal-native "
         "autonomous coding and task agent with persistent memory, agent-created skills, "
         "and a messaging gateway that lives on 21+ messaging platforms — 19 native to "
         "the gateway plus IRC and Microsoft Teams via plugins (Telegram, Discord, Slack, "
@@ -305,12 +305,12 @@ def emit_llms_index() -> str:
     )
     lines.append("")
     lines.append(
-        "Install: `curl -fsSL https://raw.githubusercontent.com/NousResearch/"
-        "vetri-agent/main/scripts/install.sh | bash`  "
+        "Install: `curl -fsSL https://raw.githubusercontent.com/pugazh342/Agent-Vetri/"
+        "main/scripts/install.sh | bash`  "
         "(Linux, macOS, WSL2)"
     )
     lines.append("")
-    lines.append("Repo: https://github.com/NousResearch/vetri-agent")
+    lines.append("Repo: https://github.com/pugazh342/Agent-Vetri")
     lines.append("")
 
     for section, items in SECTIONS:
@@ -344,8 +344,8 @@ def emit_llms_full() -> str:
             "Started, Using Vetri, Features, Messaging, Integrations, Guides, "
             "Developer Guide, Reference, then everything else.\n"
         ),
-        "Canonical site: https://hermes-agent.nousresearch.com/docs\n",
-        "Short index: https://hermes-agent.nousresearch.com/docs/llms.txt\n",
+        "Canonical site: https://pugazh342.github.io/Agent-Vetri/docs\n",
+        "Short index: https://pugazh342.github.io/Agent-Vetri/docs/llms.txt\n",
         "\n---\n\n",
     ]
 

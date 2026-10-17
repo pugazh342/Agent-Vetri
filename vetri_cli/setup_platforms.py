@@ -122,22 +122,34 @@ def _telegram_allowlist_nudge() -> None:
 def _obtain_telegram_token():
     """Return (token, setup_result); auto flow first when chosen, else manual paste."""
     from vetri_cli.setup import _info, print_error, prompt
-    _info("How would you like to create your Telegram bot?", None,
-          "  [1] Automatic (recommended)",
-          "      Scan a QR code → confirm in Telegram → done.",
-          "      No token copy-paste needed.", None,
-          "  [2] Manual",
-          "      Create a bot via @BotFather yourself and paste the token.", None)
     token = setup_result = None
-    if prompt("Choice [1/2]", default="1").strip() == "1":
-        setup_result = _setup_telegram_auto_result()
-        if setup_result:
-            token = setup_result.token
-            if not _is_valid_telegram_bot_token(token):
-                print_error("Automatic setup returned an invalid Telegram bot token.")
-                token = setup_result = None
-        if not token:
-            _info(None, "Falling back to manual setup...", None)
+    managed = False
+    try:
+        from vetri_cli.telegram_managed_bot import onboarding_configured
+
+        managed = onboarding_configured()
+    except ImportError:
+        managed = False
+    if managed:
+        _info("How would you like to create your Telegram bot?", None,
+              "  [1] Automatic (recommended)",
+              "      Scan a QR code → confirm in Telegram → done.",
+              "      No token copy-paste needed.", None,
+              "  [2] Manual",
+              "      Create a bot via @BotFather yourself and paste the token.", None)
+        if prompt("Choice [1/2]", default="1").strip() == "1":
+            setup_result = _setup_telegram_auto_result()
+            if setup_result:
+                token = setup_result.token
+                if not _is_valid_telegram_bot_token(token):
+                    print_error("Automatic setup returned an invalid Telegram bot token.")
+                    token = setup_result = None
+            if not token:
+                _info(None, "Falling back to manual setup...", None)
+    else:
+        _info("Automatic Telegram setup needs an onboarding service, which this build does not "
+              "include.", None,
+              "Create a bot via @BotFather and paste its token below.", None)
     if not token:
         token = _prompt_telegram_bot_token()
     return token, setup_result
@@ -233,7 +245,7 @@ def _setup_webhooks():
     print_warning("   internet. For security, run the gateway in a sandboxed environment")
     print_warning("   (Docker, VM, etc.) to limit blast radius from prompt injection.")
     print()
-    _info("   Full guide: https://hermes-agent.nousresearch.com/docs/user-guide/messaging/webhooks/", None)
+    _info("   Full guide: https://pugazh342.github.io/Agent-Vetri/docs/user-guide/messaging/webhooks/", None)
     _save_port("WEBHOOK_PORT", prompt("Webhook port (default 8644)"), "8644")
     save_prompted("WEBHOOK_SECRET", "Global HMAC secret (shared across all routes)", password=True,
                    success_msg="Webhook secret saved",
@@ -246,7 +258,7 @@ def _setup_webhooks():
           "   2. Point your service (GitHub, GitLab, etc.) at:",
           "      http://your-server:8644/webhooks/<route-name>", None,
           "   Route configuration guide:",
-          "   https://hermes-agent.nousresearch.com/docs/user-guide/messaging/webhooks/#configuring-routes",
+          "   https://pugazh342.github.io/Agent-Vetri/docs/user-guide/messaging/webhooks/#configuring-routes",
           None,
           # Printed twice upstream; kept verbatim for output parity.
           "   Open config in your editor:  vetri config edit",

@@ -142,12 +142,12 @@ def test_passive_reads_and_missing_objects_make_one_attempt(monkeypatch):
 
 
 @pytest.mark.parametrize(("base", "headers", "blocked"), [
-    ("https://hermes-assets.nousresearch.com", {"Server": "cloudflare", "Content-Type": "text/html"}, True),
-    ("https://hermes-assets.nousresearch.com", {"Server": "cloudflare", "cf-cache-status": "DYNAMIC"}, False),
-    ("https://other-r2.example", {"Server": "cloudflare", "Content-Type": "text/html"}, False),
+    ("https://pugazh342.github.io/Agent-Vetri", {"Server": "cloudflare", "cf-mitigated": "challenge"}, True),
+    ("https://pugazh342.github.io/Agent-Vetri", {"Server": "cloudflare", "Content-Type": "text/html"}, False),
+    ("https://other.example", {"Server": "cloudflare", "Content-Type": "text/html"}, False),
 ])
 def test_cdn_firewall_403_names_the_network_not_the_install(base, headers, blocked):
-    """#128295: a Cloudflare block that never reached our bucket must not read as a bare HTTP 403."""
+    """#128295: only an explicit CDN challenge signal is named; a bare 403 stays a channel error."""
     from email.message import Message
     from urllib.error import HTTPError
     from vetri_cli.release_channels import ChannelError, ChannelReader

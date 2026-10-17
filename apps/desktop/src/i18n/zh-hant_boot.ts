@@ -45,7 +45,6 @@ export const zhHantBoot = {
         '此閘道連線的 Nous 託管雲端代理正在回傳伺服器錯誤。無法在此處重新啟動——請檢查其狀態、切換至本機閘道，或取得支援。',
       cloudDownHint: '使用下方按鈕開啟 Nous Portal（檢視執行個體狀態與操作）或加入 Discord 取得支援。',
       cloudDownCheckPortal: '查看 Portal 狀態',
-      cloudDownDiscord: '在 Discord 取得協助',
       hideRecentLogs: '隱藏最近記錄',
       showRecentLogs: '顯示最近記錄',
       signedInTitle: '已登入',

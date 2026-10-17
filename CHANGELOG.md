@@ -3,6 +3,70 @@
 All notable changes to Vetri are documented here.
 Format: [Keep a Changelog](https://keepachangelog.com/) · Versioning: [SemVer](https://semver.org/)
 
+## [0.3.0] - 2026-10-17
+
+**Independence release** — Vetri now stands entirely on its own identity,
+infrastructure and release channel, with a guard that keeps it that way.
+
+### Added
+
+- **`scripts/check_vetri_independence.py`** — blocking guard (part of
+  `python scripts/check`, now 13 checks) failing on hermes/Nous branding
+  regressions outside an explicit reviewed allow-list: hermes identifiers,
+  `Nous Research` / `nousresearch.com` outside the known model-provider
+  subdomains, `NousResearch/` slugs, Discord invite links, the
+  nous-research org handle. Technical IDs (`com.nousresearch.vetri`, MSIX
+  org, signing CN, GUID) and CHANGELOG provenance are deliberately
+  preserved.
+- **CI (`ci.yml`)** — four blocking lanes on every push and PR: the full
+  `python scripts/check` gate, the canonical Python suite
+  (`scripts/run_tests.sh`, 4-slice matrix, WAL-checked, duration-cached),
+  every workspace's JS/TS checks, and an advisory prompt-surface diff summary
+  on PRs. Read-only token, SHA-pinned actions, no secrets.
+- **GitHub Pages docs deployment (`deploy-site.yml`)** building the Docusaurus
+  site and skills index on pushes to `main` and on releases →
+  <https://pugazh342.github.io/Agent-Vetri>.
+- **`osv-scanner.yml`** — weekly lockfile CVE scan (SHA-pinned upstream
+  reusable workflow, non-blocking) into the repository's Security tab.
+
+### Changed
+
+- **Identity independence completed** — remaining hermes/Nous branding removed
+  across code, docs, workflows and the plugin catalog: attribution →
+  Pugazhmani K, community → GitHub Discussions, docs host → GitHub Pages,
+  releases → `pugazh342/Agent-Vetri`. Nous Research is retained solely as a
+  model provider (portal/API endpoints, sign-in) and in the MIT LICENSE
+  copyright line; v0.1.0 provenance history stays in this changelog.
+- **The first-party plugin catalog installs for real.** The catalog's target
+  repositories now exist as `pugazh342/vetri-official-plugins`,
+  `pugazh342/vetri-nvidia` and `pugazh342/vetri-example-plugins`, adapted to
+  Vetri's host contracts (extension gate `com.nousresearch.vetri`,
+  `VETRI_*` environment contract incl. `VETRI_HOME` / kanban / transport-wrap,
+  `@vetri/plugin-sdk` imports) and re-pinned: all 13 first-party catalog
+  entries point at the adapted commits. `requires_vetri` floors normalized to
+  the Vetri version line; first-party `maintainer:` → `Pugazhmani K`.
+- **Holographic catalog entry** points at the third-party maintainer's real
+  repository again (`itpartypattaya/hermes-plugin-holographic`); an earlier
+  blind rename had left the URL dead.
+- **`@vetri/ui` vendored** under `vendor/ui` (wired via a `file:` dependency)
+  instead of fetching the upstream-scoped workspace package; `misaki`
+  dependency moved to `hexgrad/misaki`.
+- **Prompt-surface snapshots render byte-identically on every OS** —
+  `USERPROFILE` pinned in the render child env, `psutil` imported before the
+  platform pin, `newline="\n"` on snapshot writers, backslash-normalizing
+  `_scrub` — so Windows, Linux and macOS CI agree on the goldens.
+- **Deployment workflow** adapted: Vercel job removed, GitHub-hosted runners,
+  `github.token` instead of a GitHub App token, installers fetched from this
+  repository's raw URLs.
+
+### Notes
+
+- Version unified at **0.3.0** across `pyproject.toml` and all workspace
+  `package.json` files; `uv.lock` relocked canonically through
+  `pm.cli lock` (no dependency changes).
+- Community links moved to GitHub Discussions; the former Discord invite
+  surfaces were removed.
+
 ## [0.2.0] - 2026-10-16
 
 "Power tools" release - closes the gaps a side-by-side architecture comparison with

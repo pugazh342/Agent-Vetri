@@ -41,7 +41,7 @@ STEWARD_UPDATE_MESSAGES = {
         "\n"
         "Manage updates from within the desktop app.\n"
         "Prefer a self-managed source install? See:\n"
-        "  https://hermes-agent.nousresearch.com/docs/user-guide/switching-to-source"
+        "  https://pugazh342.github.io/Agent-Vetri/docs/user-guide/switching-to-source"
     ),
     STEWARD_NIX: (
         "✗ This Vetri runs from the Nix store.\n"
@@ -90,7 +90,7 @@ _STEWARD_UNINSTALL_MESSAGES = {
         "✗ This Vetri runs from a Docker image.\n"
         "\n"
         "There is no code to uninstall — remove the container and image:\n"
-        "  docker rm <container> && docker rmi nousresearch/vetri-agent\n"
+        "  docker rm <container> && docker rmi pugazh342/agent-vetri\n"
         "\n" +
         _STEWARD_DELETE_DATA_PREAMBLE +
         _STEWARD_DELETE_DATA_CLI

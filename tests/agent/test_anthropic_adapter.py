@@ -87,7 +87,7 @@ class TestBuildAnthropicClient:
             )
             kwargs = mock_sdk.Anthropic.call_args[1]
             headers = kwargs["default_headers"]
-            assert headers["HTTP-Referer"] == "https://hermes-agent.nousresearch.com"
+            assert headers["HTTP-Referer"] == "https://pugazh342.github.io/Agent-Vetri"
             assert headers["X-Title"] == "Vetri Agent"
             from vetri_cli.version_info import get_version_info
             assert headers["User-Agent"] == f"VetriAgent/{get_version_info().base_version}"
@@ -1360,7 +1360,7 @@ class TestConvertToolsToAnthropicDedup:
 
     Anthropic rejects requests with duplicate tool names.  This guard converts
     a hard failure into a warning log.  See:
-    https://github.com/NousResearch/vetri-agent/issues/18478
+    https://github.com/pugazh342/Agent-Vetri/issues/18478
     """
 
     def _make_openai_tool(self, name: str) -> dict:
@@ -1814,9 +1814,9 @@ def test_oauth_system_prompt_sanitizer_preserves_docs_url():
                 "role": "system",
                 "content": (
                     "Vetri Agent by Nous Research uses vetri-agent skills. "
-                    "Docs: https://hermes-agent.nousresearch.com/docs ; "
+                    "Docs: https://pugazh342.github.io/Agent-Vetri/docs ; "
                     "interpreter ~/.vetri/vetri-agent/venv/bin/python ; "
-                    "source github.com/NousResearch/vetri-agent ; mail vetri-agent@example.com ; "
+                    "source github.com/pugazh342/Agent-Vetri ; mail vetri-agent@example.com ; "
                     "skill_view(name='vetri-agent') ; vetri-agent's docs ; built by vetri-agent."
                 ),
             },
@@ -1830,11 +1830,11 @@ def test_oauth_system_prompt_sanitizer_preserves_docs_url():
 
     system_text = "\n".join(block["text"] for block in kwargs["system"])
     assert "Claude Code by Anthropic uses claude-code skills." in system_text
-    assert "https://hermes-agent.nousresearch.com/docs" in system_text
+    assert "https://pugazh342.github.io/Agent-Vetri/docs" in system_text
     # Paths and repo slugs are addresses too: a subagent told to run
     # ``~/.vetri/claude-code/venv/bin/python`` fails on a file that does not exist.
     assert "~/.vetri/vetri-agent/venv/bin/python" in system_text
-    assert "github.com/NousResearch/vetri-agent" in system_text
+    assert "github.com/pugazh342/Agent-Vetri" in system_text
     assert "vetri-agent@example.com" in system_text
     assert "skill_view(name='vetri-agent')" in system_text  # a quoted slug is an identifier
     assert "built by claude-code." in system_text  # a sentence-final dot is prose

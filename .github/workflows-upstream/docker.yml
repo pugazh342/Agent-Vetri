@@ -62,7 +62,7 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 env:
-  IMAGE_NAME: nousresearch/vetri-agent
+  IMAGE_NAME: pugazh342/agent-vetri
   # A stable run is on the default branch, so GITHUB_SHA is not the candidate.
   CANDIDATE_COMMIT: ${{ inputs.commit || github.sha }}
 
@@ -145,7 +145,7 @@ jobs:
     needs: [mode, detect]
     if: >-
       !cancelled() && needs.mode.result == 'success' &&
-      ((needs.mode.outputs.release != 'true' && github.repository == 'NousResearch/vetri-agent' && needs.detect.outputs.build == 'true') || needs.mode.outputs.phase == 'test')
+      ((needs.mode.outputs.release != 'true' && github.repository == 'pugazh342/Agent-Vetri' && needs.detect.outputs.build == 'true') || needs.mode.outputs.phase == 'test')
     strategy:
       fail-fast: false
       matrix:
@@ -337,7 +337,7 @@ jobs:
   publish:
     if: >-
       needs.mode.outputs.release != 'true' &&
-      github.repository == 'NousResearch/vetri-agent' &&
+      github.repository == 'pugazh342/Agent-Vetri' &&
       github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: [mode, build]
     environment: container-publish
@@ -442,7 +442,7 @@ jobs:
   merge:
     # `needs` is the whole 4-leg matrix: only publish both :main variants
     # after every arch and variant publisher succeeds.
-    if: ${{ !cancelled() && needs.mode.outputs.release != 'true' && github.repository == 'NousResearch/vetri-agent' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    if: ${{ !cancelled() && needs.mode.outputs.release != 'true' && github.repository == 'pugazh342/Agent-Vetri' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     runs-on: blacksmith-4vcpu-ubuntu-2404
     needs: [mode, publish]
     timeout-minutes: 10
@@ -732,7 +732,7 @@ jobs:
           import json, sys
           manifest = json.load(open("/tmp/manifest/manifest.json"))
           manifest["list-digest"] = sys.argv[2]
-          manifest["image"] = "nousresearch/vetri-agent"
+          manifest["image"] = "pugazh342/agent-vetri"
           manifest["tags"] = [sys.argv[1]]
           json.dump(manifest, open("/tmp/manifest/manifest.json", "w"), indent=2)
           EOF

@@ -9,7 +9,7 @@ description: >-
 maintainer: cygnostik
 tier: community
 category: tools
-requires_vetri: ">=0.21.3"
+requires_vetri: ">=0.1.0"
 version: "0.2.0"
 docs_url: https://github.com/cygnostik/vetri-plugin-remarkable#readme
 image: https://raw.githubusercontent.com/cygnostik/vetri-plugin-remarkable/5f841248b068d49f8a04208bf3471e00acd933f3/docs/media/remarkable-vetri-catalog.png

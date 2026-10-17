@@ -6,7 +6,7 @@ description: "Private Yandex Alice voice input for Vetri, with replies in Telegr
 maintainer: bablobanov
 tier: community
 category: voice
-requires_vetri: ">=0.21.3"
+requires_vetri: ">=0.1.0"
 version: "0.3.0"
 title: "Alice Voice Input"
 image: https://raw.githubusercontent.com/bablobanov/vetri-alice-voice/e31f2c8e65bb861c6806bd19e8f57a1e89726450/assets/hero.png

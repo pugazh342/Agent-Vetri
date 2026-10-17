@@ -15,7 +15,7 @@ description: >-
 maintainer: keeltrace
 tier: community
 category: automation
-requires_vetri: '>=0.21'
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/keeltrace/vetri-nerve#readme
 version: 0.3.1
 capabilities:

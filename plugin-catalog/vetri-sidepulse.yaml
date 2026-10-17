@@ -6,7 +6,7 @@ description: SidePulse lifecycle status backend; Desktop focus tracking requires
 maintainer: d31tcjg
 tier: community
 category: desktop
-requires_vetri: ">=0.21.3"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/d31tcjg/vetri-sidepulse/blob/v0.2.0-beta.1/README.md
 version: "0.2.0-beta.1"
 platforms:

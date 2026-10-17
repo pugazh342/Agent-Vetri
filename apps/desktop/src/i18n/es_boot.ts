@@ -64,7 +64,6 @@ export const esBoot = {
       cloudDownHint:
         'Los botones de abajo abren el Nous Portal (estado y controles de la instancia) y nuestro Discord para obtener ayuda.',
       cloudDownCheckPortal: 'Ver el estado en el Portal',
-      cloudDownDiscord: 'Pedir ayuda en Discord',
       hideRecentLogs: 'Ocultar registros recientes',
       showRecentLogs: 'Mostrar registros recientes',
       signedInTitle: 'Sesión iniciada',

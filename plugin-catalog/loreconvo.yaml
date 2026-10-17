@@ -15,6 +15,6 @@ capabilities:
   provides_middleware: []
   requires_env:
     - LORECONVO_VETRI_PROJECT
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 version: "0.10.16"
 docs_url: https://github.com/labyrinth-analytics/loreconvo?tab=readme-ov-file#loreconvo

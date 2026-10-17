@@ -6,7 +6,7 @@ description: "Tabular AI that grows with your tables — Vetri skills for honest
 maintainer: frankiethull
 tier: community
 category: tools
-requires_vetri: ">=0.21.6"
+requires_vetri: ">=0.1.0"
 version: "0.2.0"
 capabilities:
   provides_tools: []

@@ -22,7 +22,7 @@ permissions:
 
 jobs:
   check-freshness:
-    if: github.repository == 'NousResearch/vetri-agent'
+    if: github.repository == 'pugazh342/Agent-Vetri'
     runs-on: blacksmith-4vcpu-ubuntu-2404
     timeout-minutes: 10
     environment: trusted-automation
@@ -39,7 +39,7 @@ jobs:
         id: probe
         run: |
           set -e
-          URL="https://hermes-agent.nousresearch.com/docs/api/skills-index.json"
+          URL="https://pugazh342.github.io/Agent-Vetri/docs/api/skills-index.json"
           echo "Probing $URL"
           # -L follows redirects; -f fails on HTTP errors; -s suppresses progress
           if ! curl -fsSL --retry 3 --retry-delay 10 -o /tmp/skills-index.json "$URL"; then
@@ -175,7 +175,7 @@ jobs:
     # cross-origin. A browser rejects that fetch when any response in the redirect
     # chain lacks Access-Control-Allow-Origin (#136483). The probe above uses
     # curl -L, which never checks CORS, so it stays green while Desktop is blocked.
-    if: github.repository == 'NousResearch/vetri-agent'
+    if: github.repository == 'pugazh342/Agent-Vetri'
     runs-on: blacksmith-4vcpu-ubuntu-2404
     timeout-minutes: 5
     environment: trusted-automation

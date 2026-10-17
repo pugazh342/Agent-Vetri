@@ -5,7 +5,7 @@ description: "Cloud Files for Vetri Desktop — browse, search, create folders a
 maintainer: 100yenadmin
 tier: community
 category: desktop
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/electricsheephq/vetri-cloud-file-manager#readme
 version: "0.3.8"
 image: https://raw.githubusercontent.com/electricsheephq/vetri-cloud-file-manager/9ee6c10b9276b7cbfcf27d199c7833a4a6cfebbb/docs/media/banner.png

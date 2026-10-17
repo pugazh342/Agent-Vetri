@@ -22,7 +22,7 @@ Pick whichever fits the moment. They share state, so you can start a session in 
 
 ## Install
 
-Download the app from the [Vetri Desktop product page](https://hermes-agent.nousresearch.com/desktop), or follow the [installation instructions for Vetri Desktop](../getting-started/installation.md).
+Download the app from the [Vetri Desktop product page](https://pugazh342.github.io/Agent-Vetri/desktop), or follow the [installation instructions for Vetri Desktop](../getting-started/installation.md).
 
 If you already have Vetri installed, simply run
 
@@ -374,7 +374,7 @@ The desktop app and the Vetri backend it talks to update on separate clocks — 
 
 After any backend update, the app also re-checks its own version and warns with a one-click **Update desktop app** action if the GUI is still behind — so updating a remote backend can never silently leave you on a stale desktop build.
 
-The [manual update process](https://hermes-agent.nousresearch.com/docs/getting-started/updating) also works with the GUI.
+The [manual update process](https://pugazh342.github.io/Agent-Vetri/docs/getting-started/updating) also works with the GUI.
 
 ## Uninstalling
 
@@ -587,7 +587,7 @@ Vetri: **one row per plugin**, with two switch columns.
   half is **not** installed in the selected profile shows **Install here**,
   which pre-fills the install dialog from the package's origin (catalog entry
   or git remote) for that profile only. Optional extras such as the
-  [Accent Picker](https://github.com/NousResearch/vetri-official-plugins/tree/main/accent-picker)
+  [Accent Picker](https://github.com/pugazh342/vetri-official-plugins/tree/main/accent-picker)
   install from the plugin catalog.
 - **Uninstall** — every plugin installed under the selected profile's
   `plugins/` folder (user or git install) has a trash button beside its name.

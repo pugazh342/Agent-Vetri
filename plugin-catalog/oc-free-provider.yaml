@@ -5,7 +5,7 @@ description: "Unofficial OpenCode Zen free-model transport for Vetri. Discovers 
 maintainer: anpicasso
 tier: community
 category: models
-requires_vetri: ">=0.21.3"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/anpicasso/vetri-oc-free-provider#readme
 version: "3.0.0"
 platforms: []

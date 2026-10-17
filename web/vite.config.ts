@@ -88,9 +88,9 @@ export default defineConfig({
       "@": path.resolve(configDir, "./src"),
       "@vetri/shared": path.resolve(configDir, "../apps/shared/src"),
     },
-    // When @nous-research/ui is symlinked via `file:../../design-language`,
+    // When @vetri/ui is symlinked via `file:../vendor/ui`,
     // Node's module resolution would pick up shared deps from
-    // design-language/node_modules/*, giving us two copies + breaking
+    // vendor/ui/node_modules/*, giving us two copies + breaking
     // hooks (useRef-of-null), webgl contexts, etc. Force everything that
     // exists in BOTH places to use the dashboard's copy.
     //
@@ -145,7 +145,7 @@ export default defineConfig({
             },
             {
               name: "ui",
-              test: /node_modules[\\/]@nous-research[\\/]ui([\\/]|$)/,
+              test: /node_modules[\\/]@vetri[\\/]ui([\\/]|$)/,
             },
             {
               name: "vendor",

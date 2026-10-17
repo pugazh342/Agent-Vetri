@@ -141,7 +141,7 @@ The file is still written. The model reads the warning in the next turn's tool m
 ### Langfuse (moved to the plugin catalog)
 
 Langfuse tracing is no longer bundled with Vetri. It ships as the official
-[`langfuse`](https://github.com/NousResearch/vetri-official-plugins/tree/main/langfuse) catalog plugin, with the same hooks, `VETRI_LANGFUSE_*`
+[`langfuse`](https://github.com/pugazh342/vetri-official-plugins/tree/main/langfuse) catalog plugin, with the same hooks, `VETRI_LANGFUSE_*`
 environment variables and capture modes:
 
 ```bash
@@ -151,7 +151,7 @@ vetri plugins install langfuse
 Profiles that had `observability/langfuse` enabled get the plugin installed and
 enabled automatically by `vetri update` (or on the first start after updating),
 and keep tracing to the same Langfuse project. Setup, tuning and capture modes
-are documented in the [plugin's README](https://github.com/NousResearch/vetri-official-plugins/tree/main/langfuse).
+are documented in the [plugin's README](https://github.com/pugazh342/vetri-official-plugins/tree/main/langfuse).
 
 ### NeMo Relay native integration (migration note)
 

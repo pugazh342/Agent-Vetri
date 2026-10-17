@@ -7,7 +7,7 @@ tier: community
 category: models
 docs_url: https://github.com/mykeura/hopper#readme
 version: "1.4.0"
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 capabilities:
   provides_tools: []
   provides_hooks: []

@@ -8,7 +8,7 @@ tier: community
 category: tools
 docs_url: https://github.com/TakeshiTGAL/vetri-plugin-egov-law#readme
 version: "0.1.2"
-requires_vetri: ">=0.21.4"
+requires_vetri: ">=0.1.0"
 platforms: []
 capabilities:
   provides_tools:

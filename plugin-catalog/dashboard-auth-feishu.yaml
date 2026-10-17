@@ -6,7 +6,7 @@ maintainer: xielevi
 tier: community
 category: general
 title: Feishu / Lark Dashboard Login
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/xielevi/vetri-dashboard-auth-feishu#readme
 version: "1.0.1"
 known_issues:

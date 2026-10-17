@@ -67,7 +67,6 @@ export const deBoot = {
       cloudDownHint:
         'Die Schaltflächen unten öffnen das Nous Portal (Instanzstatus und Steuerung) und unseren Discord für Support.',
       cloudDownCheckPortal: 'Portal-Status prüfen',
-      cloudDownDiscord: 'Hilfe auf Discord holen',
       hideRecentLogs: 'Neueste Logs ausblenden',
       showRecentLogs: 'Neueste Logs anzeigen',
       signedInTitle: 'Angemeldet',

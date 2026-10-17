@@ -6,7 +6,7 @@ description: "Pinned glowing chip + fire-themed panel with live subscription-quo
 maintainer: maxshafransky-a11y
 tier: community
 category: desktop
-requires_vetri: ">=0.21.4"
+requires_vetri: ">=0.1.0"
 platforms: [windows, macos, linux]
 docs_url: https://github.com/maxshafransky-a11y/vetri-usage-flame
 screenshots:

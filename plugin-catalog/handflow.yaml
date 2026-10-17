@@ -6,7 +6,7 @@ description: Manus-style planning flow — the agent plans in steps and marks th
 maintainer: DECRUX9812
 tier: community
 category: automation
-requires_vetri: ">=0.19"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/DECRUX9812/vetri-handflow#readme
 platforms: []
 capabilities:

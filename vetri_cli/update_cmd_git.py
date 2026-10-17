@@ -27,7 +27,7 @@ _ORPHAN_RESCUE_REF_MAX_AGE_DAYS = 30
 _GIT_TEXT_KW = dict(capture_output=True, text=True, encoding="utf-8", errors="replace",
                    creationflags=windows_hide_flags())
 _BAR = "=" * 68
-_UPSTREAM_ADD_CMD = "git remote add upstream https://github.com/NousResearch/vetri-agent.git"
+_UPSTREAM_ADD_CMD = "git remote add upstream https://github.com/pugazh342/Agent-Vetri.git"
 
 
 def _git_ok(git_cmd, args, cwd, **kw) -> bool:
@@ -270,12 +270,12 @@ def _print_parked_branch_kept_notice(current_branch: str, target_branch: str, un
 
 
 OFFICIAL_REPO_URLS = {
-    "https://github.com/NousResearch/vetri-agent.git",
-    "git@github.com:NousResearch/vetri-agent.git",
-    "https://github.com/NousResearch/vetri-agent",
-    "git@github.com:NousResearch/vetri-agent",
+    "https://github.com/pugazh342/Agent-Vetri.git",
+    "git@github.com:pugazh342/Agent-Vetri.git",
+    "https://github.com/pugazh342/Agent-Vetri",
+    "git@github.com:pugazh342/Agent-Vetri",
 }
-OFFICIAL_REPO_URL = "https://github.com/NousResearch/vetri-agent.git"
+OFFICIAL_REPO_URL = "https://github.com/pugazh342/Agent-Vetri.git"
 SKIP_UPSTREAM_PROMPT_FILE = ".skip_upstream_prompt"
 
 
@@ -340,7 +340,7 @@ def _offer_upstream_remote(git_cmd: list[str], cwd: Path, *, assume_yes: bool, i
     from vetri_cli.update_cmd import _add_upstream_remote, _mark_skip_upstream_prompt
     print(
         "\nℹ Your fork is not tracking the official Vetri repository.\n"
-        "  This means you may miss updates from NousResearch/vetri-agent.\n"
+        "  This means you may miss updates from pugazh342/Agent-Vetri.\n"
     )
     if assume_yes or (input_fn is None and not (sys.stdin.isatty() and sys.stdout.isatty())):
         print(f"  Skipping upstream setup (non-interactive run).\n  Add it later with: {_UPSTREAM_ADD_CMD}")
@@ -361,7 +361,7 @@ def _offer_upstream_remote(git_cmd: list[str], cwd: Path, *, assume_yes: bool, i
     if not _add_upstream_remote(git_cmd, cwd):
         print("  ✗ Failed to add upstream remote. Skipping upstream sync.")
         return False
-    print("  ✓ Added upstream: https://github.com/NousResearch/vetri-agent.git")
+    print("  ✓ Added upstream: https://github.com/pugazh342/Agent-Vetri.git")
     return True
 
 
@@ -520,7 +520,7 @@ _FETCH_FAILURE_RULES = (
     # key (or lack of one) was the cause (#82169).
     (lambda s: "Permission denied (publickey)" in s or "Host key verification failed" in s,
      "✗ SSH authentication failed — check your SSH key is added to GitHub, or switch"
-     " `origin` to HTTPS: `git remote set-url origin https://github.com/NousResearch/vetri-agent.git`."),
+     " `origin` to HTTPS: `git remote set-url origin https://github.com/pugazh342/Agent-Vetri.git`."),
 )
 
 

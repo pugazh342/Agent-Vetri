@@ -63,17 +63,17 @@ No clone needed. Nix fetches, builds, and runs everything:
 
 ```bash
 # Run the desktop app
-nix run github:NousResearch/vetri-agent#desktop
+nix run github:pugazh342/Agent-Vetri#desktop
 
 # Or install persistently
-nix profile install github:NousResearch/vetri-agent#desktop
+nix profile install github:pugazh342/Agent-Vetri#desktop
 
 # run the tui
-nix run github:NousResearch/vetri-agent -- setup
-nix run github:NousResearch/vetri-agent -- --tui
+nix run github:pugazh342/Agent-Vetri -- setup
+nix run github:pugazh342/Agent-Vetri -- --tui
 
 # or install it in your profile
-nix profile install github:NousResearch/vetri-agent
+nix profile install github:pugazh342/Agent-Vetri
 vetri setup
 vetri --tui
 ```
@@ -91,7 +91,7 @@ The `default` package adds ~700 MB to the closure. If you only need messaging pl
 <summary><strong>Running from a local clone</strong></summary>
 
 ```bash
-git clone https://github.com/NousResearch/vetri-agent.git
+git clone https://github.com/pugazh342/Agent-Vetri.git
 cd vetri-agent
 nix develop
 vetri setup
@@ -116,7 +116,7 @@ This module needs NixOS. Vetri is an agent for one person. If you want an agent 
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    vetri-agent.url = "github:NousResearch/vetri-agent";
+    vetri-agent.url = "github:pugazh342/Agent-Vetri";
   };
 
   outputs = { nixpkgs, vetri-agent, ... }: {
@@ -637,7 +637,7 @@ The option set is the same set that the NixOS module uses. It is `services.vetri
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    vetri-agent.url = "github:NousResearch/vetri-agent";
+    vetri-agent.url = "github:pugazh342/Agent-Vetri";
   };
 }
 ```
@@ -879,7 +879,7 @@ External flakes can override the package directly:
 
 ```nix
 {
-  inputs.vetri-agent.url = "github:NousResearch/vetri-agent";
+  inputs.vetri-agent.url = "github:pugazh342/Agent-Vetri";
   outputs = { vetri-agent, nixpkgs, ... }: {
     nixpkgs.overlays = [ vetri-agent.overlays.default ];
     # Then:

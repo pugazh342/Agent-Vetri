@@ -7,7 +7,7 @@ description: Cursor-style composer modes (ask / agent / plan / debug) for the Ve
 maintainer: LisandroNahuelH
 tier: community
 category: desktop
-requires_vetri: ">=0.21.3"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/LisandroNahuelH/vetri-composer-modes#readme
 platforms: []
 capabilities:

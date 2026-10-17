@@ -15,7 +15,7 @@ Vetri isn't just a CLI tool. You can import `AIAgent` directly and use it progra
 Clone Vetri and prepare its source environment through PM. The Bash recipe is:
 
 ```bash
-git clone https://github.com/NousResearch/vetri-agent.git
+git clone https://github.com/pugazh342/Agent-Vetri.git
 cd vetri-agent
 source ./activate
 ```

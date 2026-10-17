@@ -115,7 +115,7 @@ vetri plugins disable disk-cleanup
 
 ### Langfuse（已移至插件目录）
 
-Langfuse 追踪不再随 Vetri 内置，而是作为官方目录插件 [`langfuse`](https://github.com/NousResearch/vetri-official-plugins/tree/main/langfuse) 提供，
+Langfuse 追踪不再随 Vetri 内置，而是作为官方目录插件 [`langfuse`](https://github.com/pugazh342/vetri-official-plugins/tree/main/langfuse) 提供，
 hook、`VETRI_LANGFUSE_*` 环境变量和捕获模式保持不变：
 
 ```bash
@@ -123,7 +123,7 @@ vetri plugins install langfuse
 ```
 
 已启用 `observability/langfuse` 的配置文件会在 `vetri update`（或更新后的首次启动）时自动安装并启用该插件，
-继续向同一个 Langfuse 项目发送 trace。安装、调优和捕获模式见[插件 README](https://github.com/NousResearch/vetri-official-plugins/tree/main/langfuse)。
+继续向同一个 Langfuse 项目发送 trace。安装、调优和捕获模式见[插件 README](https://github.com/pugazh342/vetri-official-plugins/tree/main/langfuse)。
 
 ### google_meet
 

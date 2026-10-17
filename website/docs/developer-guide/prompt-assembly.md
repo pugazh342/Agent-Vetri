@@ -69,7 +69,7 @@ Here is a simplified view of what the final system prompt looks like when all la
 
 ```
 # Layer 1: Agent Identity (from ~/.vetri/SOUL.md)
-You are Vetri, an AI assistant created by Nous Research.
+You are Vetri, an AI assistant created by Pugazhmani K.
 You are an expert software engineer and researcher.
 You value correctness, clarity, and efficiency.
 ...
@@ -204,7 +204,7 @@ When `load_soul_md()` returns content, it replaces the hardcoded `DEFAULT_AGENT_
 If `SOUL.md` doesn't exist, the system falls back to:
 
 ```
-You are Vetri Agent, built by Nous Research. Be direct: match the length
+You are Vetri Agent, built by Pugazhmani K. Be direct: match the length
 of your reply to the weight of the ask — a one-line question gets a
 one-line answer, and finished work gets a short report of what changed,
 what's verified, and what's left, never a replay of the process. No

@@ -56,13 +56,13 @@ def source(tmp_path, monkeypatch):
     return SimpleNamespace(home=home, origin=origin, root=checkout, commits=commits, parser=parser)
 
 
-def record(name, *, repository="NousResearch/vetri-agent", state="active", destination=None):
+def record(name, *, repository="pugazh342/Agent-Vetri", state="active", destination=None):
     return {"schema": 1, "name": name, "repository": repository, "policy": "preview",
             "state": state, "identity": {}, "nextSequence": 2, "head": None,
             **({"destination": destination} if destination else {})}
 
 
-def reader_result(source, name, destination=None, repository="NousResearch/vetri-agent"):
+def reader_result(source, name, destination=None, repository="pugazh342/Agent-Vetri"):
     requested = record(name, repository=repository,
                        state="retired" if destination else "active", destination=destination)
     terminal = record(destination or name, repository=repository)
@@ -71,7 +71,7 @@ def reader_result(source, name, destination=None, repository="NousResearch/vetri
         "schema": 1, "request": {"buildId": "build-fixture", "channel": terminal["name"],
         "sequence": 1, "repository": repository, "commit": source.commits[1],
         "sourceVersion": "1.2.3", "version": "0.0.1", "identity": {}, "bundleEnv": {},
-        "publicBase": "https://hermes-assets.nousresearch.com"}, "packages": []})
+        "publicBase": "https://pugazh342.github.io/Agent-Vetri"}, "packages": []})
 
 
 def install_reader(monkeypatch, result):
@@ -248,7 +248,7 @@ def publish_channel_build(channel_archive, name, build_id, commit, *, sequence=1
                 "windowsExecutableName": "Fixture"}
     version = f"1.2.{sequence}" if stable else f"0.0.{sequence}"
     request = {"schema": 1, "channel": name, "buildId": build_id, "sequence": sequence,
-               "repository": "NousResearch/vetri-agent", "commit": commit,
+               "repository": "pugazh342/Agent-Vetri", "commit": commit,
                "sourceVersion": f"1.2.{sequence}", "version": version, "windowsVersion": version + ".0",
                "identity": identity, "bundleEnv": {}, "publicBase": base}
     if stable:
@@ -408,7 +408,7 @@ def test_tagless_zip_apply_uses_pinned_source_archive(source, monkeypatch, dirty
         assert (source.root / "notes.txt").read_text() == "do not remove"
     else:
         update_cmd._cmd_update_impl(source.parser.parse_args(["update"]), False)
-        assert urls == [f"https://github.com/NousResearch/vetri-agent/archive/{source.commits[1]}.zip"]
+        assert urls == [f"https://github.com/pugazh342/Agent-Vetri/archive/{source.commits[1]}.zip"]
         assert (source.root / "content.txt").read_text() == "published"
         assert completed[0]["expected_sha"] == source.commits[1]
         assert completed[0]["channel_retirement"]["destination"] == "stable"

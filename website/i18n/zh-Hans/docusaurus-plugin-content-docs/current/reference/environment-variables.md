@@ -159,7 +159,7 @@ description: "Vetri Agent 使用的所有环境变量完整参考"
 
 ### Langfuse 可观测性
 
-官方目录插件 [`langfuse`](https://github.com/NousResearch/vetri-official-plugins/tree/main/langfuse)（原内置的 `observability/langfuse`）的环境变量。在 `~/.vetri/.env` 中设置。在这些变量生效之前，必须先安装该插件（`vetri plugins install langfuse`）。
+官方目录插件 [`langfuse`](https://github.com/pugazh342/vetri-official-plugins/tree/main/langfuse)（原内置的 `observability/langfuse`）的环境变量。在 `~/.vetri/.env` 中设置。在这些变量生效之前，必须先安装该插件（`vetri plugins install langfuse`）。
 
 | 变量 | 描述 |
 |----------|-------------|
@@ -600,7 +600,7 @@ Graph 事件（Teams 会议、日历、聊天等）的入站变更通知监听�
 export VETRI_WRITE_SAFE_ROOT=/path/to/project:/home/you/.vetri
 ```
 
-取消设置或从 `.env` 中移除此变量可恢复常规写入（仍受凭证路径拒绝列表约束——见[文件写入安全](https://hermes-agent.nousresearch.com/docs/user-guide/security#file-write-safety)）。
+取消设置或从 `.env` 中移除此变量可恢复常规写入（仍受凭证路径拒绝列表约束——见[文件写入安全](https://pugazh342.github.io/Agent-Vetri/docs/user-guide/security#file-write-safety)）。
 
 ## 界面
 

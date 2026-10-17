@@ -6,7 +6,7 @@ maintainer: PriceDotWin
 tier: community
 category: tools
 version: "0.2.0"
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/PriceDotWin/pricewin-vetri-plugin#readme
 screenshots:
 - https://raw.githubusercontent.com/PriceDotWin/pricewin-vetri-plugin/c3644c21a02fc995791d5056cc4cc8ec9e859b54/docs/hotel-cards.png

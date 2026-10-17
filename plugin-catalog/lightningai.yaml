@@ -11,7 +11,7 @@ description: >-
 maintainer: dinosauria123
 tier: community
 category: models
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 version: "1.0.0"
 platforms: []
 capabilities:

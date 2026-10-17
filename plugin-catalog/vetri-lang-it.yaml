@@ -5,7 +5,7 @@ description: "Italian (Italiano) language pack for Vetri Agent — UI translatio
 maintainer: Lazzdaycod
 tier: community
 category: general
-requires_vetri: ">=0.21.6"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/Lazzdaycod/vetri-lang-it#readme
 version: "1.0.0"
 platforms: []

@@ -5,7 +5,7 @@ description: "Reduce Vetri tool-schema overhead and show selector savings in the
 maintainer: aliasocracy
 tier: community
 category: tools
-requires_vetri: ">=0.19"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/aliasocracy/vetri-tool-slimmer#readme
 version: "0.8.0"
 capabilities:

@@ -1,6 +1,6 @@
 # Vetri plugin-catalog entry for vetri-frihet v0.1.0.
 #
-# Catalog: NousResearch/vetri-agent/plugin-catalog/frihet.yaml
+# Catalog: pugazh342/Agent-Vetri/plugin-catalog/frihet.yaml
 # Per the catalog rules (plugin-catalog/README.md):
 # - The maintainer of the plugin repository (Frihet-io) is the only one
 #   authorised to submit the entry.
@@ -66,7 +66,7 @@ maintainer: Frihet-io
 tier: community
 category: tools
 docs_url: https://github.com/Frihet-io/vetri-frihet#readme
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 version: "0.1.0"
 # Capabilities mirror plugin.yaml exactly.
 # Provides zero Python tools on purpose: the canonical Frihet surface

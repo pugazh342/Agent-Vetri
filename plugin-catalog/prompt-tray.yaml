@@ -5,7 +5,7 @@ description: "Saved chat prompts — click a tray item to insert it into the Vet
 maintainer: aydnOktay
 tier: community
 category: desktop
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/aydnOktay/vetri-prompt-tray
 version: "0.1.0"
 platforms: []

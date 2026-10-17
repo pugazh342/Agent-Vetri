@@ -73,7 +73,7 @@ _PLATFORM_OVERRIDES: dict[str, dict[str, Any]] = {
     },
     "email": {
         "name": "Email", "description": "Talk to Vetri through an IMAP/SMTP mailbox.",
-        "docs_url": "https://hermes-agent.nousresearch.com/docs/user-guide/messaging/",
+        "docs_url": "https://pugazh342.github.io/Agent-Vetri/docs/user-guide/messaging/",
         "env_vars": ("EMAIL_ADDRESS", "EMAIL_PASSWORD", "EMAIL_IMAP_HOST", "EMAIL_SMTP_HOST"),
         "required_env": ("EMAIL_ADDRESS", "EMAIL_PASSWORD", "EMAIL_IMAP_HOST", "EMAIL_SMTP_HOST"),
     },
@@ -99,7 +99,7 @@ _PLATFORM_OVERRIDES: dict[str, dict[str, Any]] = {
     },
     "google_chat": {
         "name": "Google Chat", "description": "Connect Vetri to Google Chat via Cloud Pub/Sub.",
-        "docs_url": "https://hermes-agent.nousresearch.com/docs/user-guide/messaging/google_chat",
+        "docs_url": "https://pugazh342.github.io/Agent-Vetri/docs/user-guide/messaging/google_chat",
     },
     "wecom": {
         "name": "WeCom (group bot)", "description": "Send-only WeCom group bot via webhook.",
@@ -120,7 +120,7 @@ _PLATFORM_OVERRIDES: dict[str, dict[str, Any]] = {
     "weixin": {
         "name": "Weixin / WeChat (Personal)",
         "description": "Connect a personal WeChat account through Tencent's iLink Bot API.",
-        "docs_url": "https://hermes-agent.nousresearch.com/docs/user-guide/messaging/weixin/",
+        "docs_url": "https://pugazh342.github.io/Agent-Vetri/docs/user-guide/messaging/weixin/",
         "env_vars": ("WEIXIN_ACCOUNT_ID", "WEIXIN_TOKEN", "WEIXIN_BASE_URL"),
         "required_env": ("WEIXIN_ACCOUNT_ID", "WEIXIN_TOKEN"),
     },
@@ -144,34 +144,34 @@ _PLATFORM_OVERRIDES: dict[str, dict[str, Any]] = {
     # Channels page can point at the Microsoft Teams setup guide.
     "teams": {
         "description": "Connect Vetri to Microsoft Teams chats via the Bot Framework.",
-        "docs_url": "https://hermes-agent.nousresearch.com/docs/user-guide/messaging/teams",
+        "docs_url": "https://pugazh342.github.io/Agent-Vetri/docs/user-guide/messaging/teams",
     },
     # Bundled platform plugins: name comes from the plugin registry label;
     # give each a human description (the registry's install_hint is a
     # dependency note, not a description) and a docs link.
     "irc": {
         "description": "Relay messages between an IRC channel (or DMs) and Vetri.",
-        "docs_url": "https://hermes-agent.nousresearch.com/docs/user-guide/messaging/irc",
+        "docs_url": "https://pugazh342.github.io/Agent-Vetri/docs/user-guide/messaging/irc",
     },
     "line": {
         "description": "Use Vetri from LINE via the LINE Messaging API webhook.",
-        "docs_url": "https://hermes-agent.nousresearch.com/docs/user-guide/messaging/line",
+        "docs_url": "https://pugazh342.github.io/Agent-Vetri/docs/user-guide/messaging/line",
     },
     "ntfy": {
         "description": "Chat with Vetri over ntfy push topics (ntfy.sh or self-hosted).",
-        "docs_url": "https://hermes-agent.nousresearch.com/docs/user-guide/messaging/ntfy",
+        "docs_url": "https://pugazh342.github.io/Agent-Vetri/docs/user-guide/messaging/ntfy",
     },
     "photon": {
         "description": "Use Vetri through iMessage via Photon's managed Spectrum platform.",
-        "docs_url": "https://hermes-agent.nousresearch.com/docs/user-guide/messaging/photon",
+        "docs_url": "https://pugazh342.github.io/Agent-Vetri/docs/user-guide/messaging/photon",
     },
     "raft": {
         "description": "Join a Raft workspace as an external agent.",
-        "docs_url": "https://hermes-agent.nousresearch.com/docs/user-guide/messaging/raft",
+        "docs_url": "https://pugazh342.github.io/Agent-Vetri/docs/user-guide/messaging/raft",
     },
     "simplex": {
         "description": "Talk to Vetri over SimpleX Chat via a local simplex-chat daemon.",
-        "docs_url": "https://hermes-agent.nousresearch.com/docs/user-guide/messaging/simplex",
+        "docs_url": "https://pugazh342.github.io/Agent-Vetri/docs/user-guide/messaging/simplex",
     },
     "yuanbao": {
         "name": "Yuanbao (元宝)", "description": "Connect Vetri to Tencent Yuanbao.", "docs_url": "",
@@ -180,7 +180,7 @@ _PLATFORM_OVERRIDES: dict[str, dict[str, Any]] = {
     "api_server": {
         "name": "API server",
         "description": "Expose Vetri as an OpenAI-compatible HTTP API for tools like Open WebUI.",
-        "docs_url": "https://hermes-agent.nousresearch.com/docs/user-guide/messaging/",
+        "docs_url": "https://pugazh342.github.io/Agent-Vetri/docs/user-guide/messaging/",
         "env_vars": (
             "API_SERVER_ENABLED", "API_SERVER_KEY", "API_SERVER_PORT", "API_SERVER_HOST",
             "API_SERVER_MODEL_NAME",
@@ -190,19 +190,19 @@ _PLATFORM_OVERRIDES: dict[str, dict[str, Any]] = {
     "webhook": {
         "name": "Webhooks",
         "description": "Receive events from GitHub, GitLab, and other webhook sources.",
-        "docs_url": "https://hermes-agent.nousresearch.com/docs/user-guide/messaging/webhooks/",
+        "docs_url": "https://pugazh342.github.io/Agent-Vetri/docs/user-guide/messaging/webhooks/",
         "env_vars": ("WEBHOOK_ENABLED", "WEBHOOK_PORT", "WEBHOOK_SECRET"), "required_env": (),
     },
     "msgraph_webhook": {
         "name": "Microsoft Graph Webhook",
         "description": "Receive Microsoft Graph change notifications (Teams meetings, Outlook, …).",
-        "docs_url": "https://hermes-agent.nousresearch.com/docs/user-guide/messaging/msgraph-webhook",
+        "docs_url": "https://pugazh342.github.io/Agent-Vetri/docs/user-guide/messaging/msgraph-webhook",
         "required_env": (),
     },
     "whatsapp_cloud": {
         "name": "WhatsApp Cloud API",
         "description": "Use Vetri via Meta's hosted WhatsApp Cloud API (no local bridge).",
-        "docs_url": "https://hermes-agent.nousresearch.com/docs/user-guide/messaging/whatsapp-cloud",
+        "docs_url": "https://pugazh342.github.io/Agent-Vetri/docs/user-guide/messaging/whatsapp-cloud",
     },
     "relay": {
         "name": "Relay (experimental)",
@@ -367,7 +367,8 @@ def _restart_gateway_after_whatsapp_onboarding(profile: Optional[str] = None) ->
     return _restart_gateway_after(profile, what="WhatsApp onboarding", label="WhatsApp onboarding")
 
 
-_TELEGRAM_ONBOARDING_DEFAULT_URL = "https://setup.hermes-agent.nousresearch.com"
+# No pairing backend ships with this build; TELEGRAM_ONBOARDING_URL points at one you run.
+_TELEGRAM_ONBOARDING_DEFAULT_URL = ""
 _TELEGRAM_ONBOARDING_USER_AGENT = f"VetriDashboard/{get_version_info().base_version}"
 
 
@@ -402,11 +403,17 @@ def _telegram_onboarding_error_message(error: str, fallback: str) -> str:
 
 _TELEGRAM_UNAVAILABLE = "Telegram setup service is unavailable. Try again shortly."
 _TELEGRAM_INVALID = "Telegram setup service returned an invalid response."
+_TELEGRAM_NOT_CONFIGURED = (
+    "Automatic Telegram setup is not configured for this build. "
+    "Create a bot with @BotFather and paste its token instead."
+)
 
 
 def _telegram_onboarding_request_sync(
     method: str, path: str, *, body: dict[str, Any] | None = None, bearer_token: str | None = None
 ) -> dict[str, Any]:
+    if not _telegram_onboarding_base_url():
+        raise HTTPException(status_code=503, detail=_TELEGRAM_NOT_CONFIGURED)
     import httpx
     headers = {"Accept": "application/json", "User-Agent": _TELEGRAM_ONBOARDING_USER_AGENT}
     request_kwargs: dict[str, Any] = {}

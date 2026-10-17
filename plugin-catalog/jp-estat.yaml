@@ -5,7 +5,7 @@ description: "Japanese government statistics for Vetri Agent, built on the e-Sta
 maintainer: TakeshiTGAL
 tier: community
 category: tools
-requires_vetri: ">=0.18"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/TakeshiTGAL/vetri-plugin-estat#readme
 version: "0.1.0"
 platforms: []

@@ -7,7 +7,7 @@ tier: community
 category: general
 docs_url: https://github.com/saiteja-madha/vetri-privacy-gateway#readme
 version: "0.1.1"
-requires_vetri: ">=0.20.4"
+requires_vetri: ">=0.1.0"
 platforms: [linux]
 capabilities:
   provides_tools: []

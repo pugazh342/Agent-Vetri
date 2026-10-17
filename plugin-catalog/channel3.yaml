@@ -7,7 +7,7 @@ maintainer: channel3-ai
 tier: community
 category: tools
 version: "0.1.0"
-requires_vetri: ">=0.21.6"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/channel3-ai/channel3-vetri-plugin#readme
 screenshots:
 - https://raw.githubusercontent.com/channel3-ai/channel3-vetri-plugin/5dfcb6df773ad62c033346824d0779594cc6c31e/docs/cards.png

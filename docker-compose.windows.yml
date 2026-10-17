@@ -11,7 +11,7 @@
 #
 services:
   gateway:
-    image: nousresearch/vetri-agent:latest
+    image: pugazh342/agent-vetri:latest
     container_name: vetri
     restart: unless-stopped
     volumes:
@@ -22,7 +22,7 @@ services:
     command: ["gateway", "run"]
 
   dashboard:
-    image: nousresearch/vetri-agent:latest
+    image: pugazh342/agent-vetri:latest
     container_name: vetri-dashboard
     restart: unless-stopped
     depends_on:

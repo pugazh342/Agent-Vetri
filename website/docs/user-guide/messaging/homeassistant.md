@@ -7,7 +7,7 @@ sidebar_position: 5
 
 # Home Assistant Integration
 
-Vetri Agent integrates with [Home Assistant](https://www.home-assistant.io/) through the official **`homeassistant` plugin** from the [plugin catalog](../features/plugins.md). The plugin is maintained by Nous Research in [NousResearch/vetri-official-plugins](https://github.com/NousResearch/vetri-official-plugins/tree/main/homeassistant) and is not part of Vetri core. It provides two things:
+Vetri Agent integrates with [Home Assistant](https://www.home-assistant.io/) through the official **`homeassistant` plugin** from the [plugin catalog](../features/plugins.md). The plugin is maintained by Pugazhmani K in [pugazh342/vetri-official-plugins](https://github.com/pugazh342/vetri-official-plugins/tree/main/homeassistant) and is not part of Vetri core. It provides two things:
 
 1. **Gateway platform** — subscribes to real-time state changes via WebSocket and responds to events
 2. **Smart home tools** — four LLM-callable tools (the `homeassistant` toolset) for querying and controlling devices via the REST API

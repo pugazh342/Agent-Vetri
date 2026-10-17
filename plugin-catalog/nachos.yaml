@@ -6,7 +6,7 @@ description: "Durable memory and context compression for Vetri Agent with local 
 maintainer: Nacho Labs LLC
 tier: community
 category: memory
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/Nacho-Labs-LLC/vetri-plugin-nachos#readme
 platforms: []
 capabilities:

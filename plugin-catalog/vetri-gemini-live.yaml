@@ -29,7 +29,7 @@ tier: community
 version: "0.1.0"
 category: voice
 docs_url: https://github.com/skappafrost/vetri-gemini-live#readme
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 platforms: []
 capabilities:
   provides_tools: []

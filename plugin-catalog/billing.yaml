@@ -5,7 +5,7 @@ description: Nous Portal usage widget for the Vetri desktop statusbar — remain
 maintainer: anotherchu
 tier: community
 category: desktop
-requires_vetri: ">=0.19"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/anotherchu/billing#readme
 capabilities:
   provides_tools: []

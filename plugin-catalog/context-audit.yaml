@@ -7,7 +7,7 @@ description: "Context-window forensics: per-turn input/output token estimates, t
 maintainer: ZidoCode
 tier: community
 category: tools
-requires_vetri: ">=0.21.6"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/ZidoCode/context-audit#readme
 platforms: []
 capabilities:

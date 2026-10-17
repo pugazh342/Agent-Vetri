@@ -6,7 +6,7 @@ description: Per-job progress updates in chat for jobs Vetri hands off to other 
 maintainer: c0mrade
 tier: community
 category: automation
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/c0mrade/tailgate#readme
 version: "0.2.0"
 platforms: [linux, macos]

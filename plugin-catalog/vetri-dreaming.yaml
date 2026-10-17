@@ -5,7 +5,7 @@ description: "Nightly deterministic memory consolidation (\"dreaming\"): corrobo
 maintainer: itpartypattaya
 tier: community
 category: memory
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/itpartypattaya/vetri-dreaming/blob/d484913c203d008cb196686d04331eaff2a7432d/README.md
 version: "2.7.0"
 image: "https://raw.githubusercontent.com/itpartypattaya/vetri-dreaming/d484913c203d008cb196686d04331eaff2a7432d/docs/banner.png"

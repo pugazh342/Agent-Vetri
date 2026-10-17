@@ -14,7 +14,7 @@ description: >-
 maintainer: cirwel
 tier: community
 category: automation
-requires_vetri: ">=0.21.0"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/cirwel/unitares-host-adapter#vetri-agent
 version: "0.3.3"
 readme: true

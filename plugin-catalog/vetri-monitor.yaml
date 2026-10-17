@@ -11,7 +11,7 @@ description: "Kanban worker health in the Desktop status bar — live activity p
 maintainer: Vetri Monitor contributors (independent of Nous Research)
 tier: community
 category: desktop
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 platforms: [linux, macos]
 docs_url: https://github.com/mr-3mm3/vetri-monitor
 screenshots:

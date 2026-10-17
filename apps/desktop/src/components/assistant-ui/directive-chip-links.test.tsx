@@ -8,7 +8,7 @@ import { DirectiveContent } from './directive-text'
 
 const desktopWindow = window as unknown as { vetriDesktop?: Window['vetriDesktop'] }
 
-const PR_URL = 'https://github.com/NousResearch/vetri-agent/pull/107950'
+const PR_URL = 'https://github.com/pugazh342/Agent-Vetri/pull/107950'
 
 function installDesktopBridge() {
   const openExternal = vi.fn().mockResolvedValue(undefined)

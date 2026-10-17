@@ -70,7 +70,7 @@ class TestCollectInventory:
         monkeypatch.setattr("vetri_cli.config.detect_install_method", lambda *a, **k: "docker")
         monkeypatch.setattr(
             "vetri_cli.config.recommended_update_command_for_method",
-            lambda m: "docker pull nousresearch/vetri-agent:latest",
+            lambda m: "docker pull pugazh342/agent-vetri:latest",
         )
         plan = ui.collect_runtime_inventory()
         assert plan.install_method == "docker"

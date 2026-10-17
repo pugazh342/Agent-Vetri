@@ -218,7 +218,7 @@ Secrets consumed by specific bundled / optional skills. Each is only needed if y
 
 ### Langfuse Observability
 
-Environment variables for the official [`langfuse`](https://github.com/NousResearch/vetri-official-plugins/tree/main/langfuse) catalog plugin (formerly bundled as `observability/langfuse`). Set these in `~/.vetri/.env`. The plugin must be installed (`vetri plugins install langfuse`) before any of these take effect.
+Environment variables for the official [`langfuse`](https://github.com/pugazh342/vetri-official-plugins/tree/main/langfuse) catalog plugin (formerly bundled as `observability/langfuse`). Set these in `~/.vetri/.env`. The plugin must be installed (`vetri plugins install langfuse`) before any of these take effect.
 
 | Variable | Description |
 |----------|-------------|
@@ -251,7 +251,7 @@ These variables configure the [Tool Gateway](../user-guide/features/tool-gateway
 |----------|-------------|
 | `TERMINAL_ENV` | Backend: `local`, `docker`, `ssh`, `singularity`, `modal`, `daytona`, `vercel_sandbox` |
 | `VETRI_DOCKER_BINARY` | Override the container binary Vetri shells out to (e.g. `podman`, `/usr/local/bin/docker`). When unset, Vetri auto-discovers `docker` or `podman` on `PATH`. Needed when both are installed and you want the non-default, or when the binary lives outside `PATH`. |
-| `TERMINAL_DOCKER_IMAGE` | Docker image (default: `nousresearch/vetri-sandbox:desktop`) |
+| `TERMINAL_DOCKER_IMAGE` | Docker image (default: `pugazh342/agent-vetri-sandbox:desktop`) |
 | `TERMINAL_DOCKER_FORWARD_ENV` | JSON array of env var names to explicitly forward into Docker terminal sessions. Note: skill-declared `required_environment_variables` are forwarded automatically — you only need this for vars not declared by any skill. |
 | `TERMINAL_DOCKER_VOLUMES` | Additional Docker volume mounts (comma-separated `host:container` pairs) |
 | `TERMINAL_DOCKER_ENV` | JSON object of extra env vars to set inside Docker terminal sessions (e.g. `{"FOO":"bar"}`) |

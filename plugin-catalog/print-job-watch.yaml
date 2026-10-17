@@ -5,7 +5,7 @@ description: "Reads one OctoPrint printer. A cron watch reports printer_disconne
 maintainer: TakeshiTGAL
 tier: community
 category: tools
-requires_vetri: ">=0.21.4"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/TakeshiTGAL/vetri-plugin-print-job-watch#readme
 version: "0.1.0"
 platforms: []

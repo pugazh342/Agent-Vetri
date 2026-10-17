@@ -5,7 +5,7 @@ description: "Answers an allowlisted direct message on your Meshtastic® radio. 
 maintainer: TakeshiTGAL
 tier: community
 category: platform
-requires_vetri: ">=0.21.6"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/TakeshiTGAL/vetri-plugin-radio-dm-gateway#readme
 version: "0.1.0"
 platforms: []

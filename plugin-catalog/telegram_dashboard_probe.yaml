@@ -7,7 +7,7 @@ description: "One pinned Telegram message with the state of your Vetri on one ph
 maintainer: bablobanov
 tier: community
 category: automation
-requires_vetri: ">=0.21.1"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/bablobanov/vetri-agent-telegram-dashboard#readme
 version: "0.11.0"
 image: https://raw.githubusercontent.com/bablobanov/vetri-agent-telegram-dashboard/682e20b4664c8e70f51faa9db5f89e42c24f0c0c/docs/social-preview.jpg

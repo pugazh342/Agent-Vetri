@@ -60,7 +60,7 @@ export const en: Translations = {
     closeNavigation: "Close navigation",
     closeModelTools: "Close model and tools",
     footer: {
-      org: "Nous Research",
+      org: "Pugazhmani K",
     },
     activeSessionsLabel: "Active Sessions:",
     gatewayStatusLabel: "Gateway Status:",

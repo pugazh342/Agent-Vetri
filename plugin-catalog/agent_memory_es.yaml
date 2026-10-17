@@ -5,7 +5,7 @@ description: "Self-owned long-term memory backed by the agent-memory-es service 
 maintainer: patrykkopycinski
 tier: community
 category: memory
-requires_vetri: ">=0.19"
+requires_vetri: ">=0.1.0"
 version: "0.1.0"
 docs_url: https://github.com/patrykkopycinski/vetri-plugin-agent-memory-es#readme
 homepage_url: https://patrykkopycinski.github.io/vetri-plugin-agent-memory-es/

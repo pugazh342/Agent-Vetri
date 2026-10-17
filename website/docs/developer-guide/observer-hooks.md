@@ -334,7 +334,7 @@ nested agent work or security lifecycle events.
 
 ## Existing Consumers
 
-The official [Langfuse catalog plugin](https://github.com/NousResearch/vetri-official-plugins/tree/main/langfuse) demonstrates direct hook-based
+The official [Langfuse catalog plugin](https://github.com/pugazh342/vetri-official-plugins/tree/main/langfuse) demonstrates direct hook-based
 observability for turns, provider requests, and tool calls.
 
 The native NeMo Relay SDK integration maps Vetri session, turn, LLM, and tool

@@ -5,7 +5,7 @@ description: "CCR compression plugin - 28-type classifier, 13 tools, opt-in cont
 maintainer: NikolaRHristov
 tier: community
 category: tools
-requires_vetri: ">=0.20.2"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/PlayForm/Aphrodite-Vetri#readme
 version: "2.2.6"
 capabilities:

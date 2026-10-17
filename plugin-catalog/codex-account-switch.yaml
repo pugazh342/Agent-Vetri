@@ -6,7 +6,7 @@ description: "Windows desktop plugin that switches which Codex login and which C
 maintainer: SmelterLabs
 tier: community
 category: desktop
-requires_vetri: ">=0.21.6"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/SmelterLabs/vetri-account-switcher#readme
 version: "1.2.2"
 platforms: [windows]

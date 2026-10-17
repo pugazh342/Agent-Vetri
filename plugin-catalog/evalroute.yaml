@@ -5,7 +5,7 @@ description: 'Route a task to the right (model, reasoning effort) arm before you
 maintainer: keppy
 tier: community
 category: tools
-requires_vetri: '>=0.21'
+requires_vetri: ">=0.1.0"
 version: "0.6.4"
 docs_url: https://github.com/keppy/vetri-plugin-evalroute#readme
 capabilities:

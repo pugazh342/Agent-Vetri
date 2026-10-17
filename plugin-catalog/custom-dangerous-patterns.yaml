@@ -9,7 +9,7 @@ description: >-
 maintainer: scross01
 tier: community
 category: tools
-requires_vetri: ">=0.21.4"
+requires_vetri: ">=0.1.0"
 version: "0.5.1"
 image: https://raw.githubusercontent.com/scross01/vetri-custom-dangerous-patterns-plugin/256ff08d0be04baf1916f5e7d841b1c2718aa1e4/assets/card.png
 platforms: []

@@ -680,7 +680,7 @@ def _stub_search(monkeypatch, results):
 
 
 @pytest.mark.parametrize("identifier", [
-    "computer-use", "NousResearch/vetri-agent/skills/productivity/pdf",
+    "computer-use", "pugazh342/Agent-Vetri/skills/productivity/pdf",
     "skills-sh/nousresearch/vetri-agent/google-workspace", "blender-bpy-enhanced"])
 def test_install_by_name_resolves_to_the_skill_it_names(monkeypatch, tmp_path, identifier):
     """`vetri skills install <bundled skill>` failed every time: the name resolved to a stranger's

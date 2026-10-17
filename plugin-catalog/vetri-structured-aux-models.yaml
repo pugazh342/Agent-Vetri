@@ -10,7 +10,7 @@ description: Routes selected Vetri auxiliary tasks (approval, MCP sampling, comp
 maintainer: trajectoire-ai
 tier: community
 category: models
-requires_vetri: '>=0.21'
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/trajectoire-ai/vetri-structured-aux-models#readme
 version: 0.1.0
 platforms: []

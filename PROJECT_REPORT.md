@@ -3,8 +3,8 @@
 **Project:** Complete rebuild and rebrand of the Hermes Agent personal AI stack as **Vetri**
 **Date:** 2026-10-15
 **Operator:** Pugazhmani K — AI & Cybersecurity Researcher
-**Product root:** `C:\Users\kpuga\vetri`
-**Runtime home:** `C:\Users\kpuga\AppData\Local\vetri`
+**Product root:** `%USERPROFILE%\vetri`
+**Runtime home:** `%USERPROFILE%\AppData\Local\vetri`
 
 ---
 
@@ -29,7 +29,7 @@ arsenal active by default.
 
 ## 2. Origin & Provenance
 
-- Source of truth: `C:\Users\kpuga\Desktop\hermes-backup-20260817-165802` (config.yaml v33,
+- Source of truth: `%USERPROFILE%\Desktop\hermes-backup-20260817-165802` (config.yaml v33,
   `.env`, `auth.json`) — untouched, verified byte-identical throughout.
 - Upstream source: `hermes-agent` (Nous Research), **MIT licensed** → fetched as source zipball,
   rebranded in place. MIT LICENSE and Nous Research attribution preserved; a provenance note was
@@ -41,7 +41,7 @@ arsenal active by default.
 
 - **130,923 text replacements across 1,908 files**; **294 files and 14 directories renamed**.
 - Result: zero "hermes" occurrences outside protected hostnames.
-- Global command: `vetri` (shim at `C:\Users\kpuga\.local\bin\vetri.cmd` →
+- Global command: `vetri` (shim at `%USERPROFILE%\.local\bin\vetri.cmd` →
   `.venv\Scripts\vetri.exe`, Python 3.14.7, `uv sync --extra all`).
 
 ## 4. Migration & Configuration

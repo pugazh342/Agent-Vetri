@@ -7,7 +7,7 @@ maintainer: web3blind
 tier: community
 category: tools
 version: "0.8.1"
-requires_vetri: ">=0.21.7"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/web3blind/vetri-secure-env-plugin/blob/96fac2a1295f51d45466276276af32e6d6059c41/README.md
 platforms: [linux]
 capabilities:

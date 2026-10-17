@@ -6,15 +6,15 @@ description: "Wakes and watchers for Vetri agents, maintained by Electric Sheep.
 maintainer: 100yenadmin
 tier: community
 category: automation
-requires_vetri: ">=0.21.6"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/electricsheephq/heartbeat2#readme
 version: "0.1.1"
 image: https://raw.githubusercontent.com/electricsheephq/heartbeat2/50ee8c6e4ad0ed6928fc125b36923dc30551386f/docs/media/banner.png
 readme: true
 platforms: [linux, macos]
 known_issues:
-  - "A wake turn that fails at the provider shows Vetri's own failure notice; the plugin cannot suppress it (NousResearch/vetri-agent#136749). HeartBeat 2.0 backs all wakes off until a model call on the profile succeeds."
-  - "notify=false silences the final reply; platforms that show tool progress by default (Discord, WhatsApp, Matrix) still show a progress bubble per wake turn unless display.platforms.<p>.tool_progress is off (quiet injection requested upstream: NousResearch/vetri-agent#136825)."
+  - "A wake turn that fails at the provider shows Vetri's own failure notice; the plugin cannot suppress it (pugazh342/Agent-Vetri#136749). HeartBeat 2.0 backs all wakes off until a model call on the profile succeeds."
+  - "notify=false silences the final reply; platforms that show tool progress by default (Discord, WhatsApp, Matrix) still show a progress bubble per wake turn unless display.platforms.<p>.tool_progress is off (quiet injection requested upstream: pugazh342/Agent-Vetri#136825)."
   - "v0.1 delivers only to messaging-gateway DMs; CLI, TUI, Desktop, API-server and cron arming are refused until Vetri core supports silent injected turns there."
 capabilities:
   provides_tools:

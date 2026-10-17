@@ -256,7 +256,7 @@ def test_switch_sandbox_image_decides_only_a_pending_switch(monkeypatch, tmp_pat
     assert "error" in resp and "pending" in resp["error"]["message"]
 
     decided = []
-    switch = sw.PendingSwitch("old/base:1", "nousresearch/vetri-sandbox:desktop", ["vetri-a"])
+    switch = sw.PendingSwitch("old/base:1", "pugazh342/agent-vetri-sandbox:desktop", ["vetri-a"])
     monkeypatch.setattr(sw, "pending", lambda: switch)
     monkeypatch.setattr(sw, "decide", lambda s, approve: decided.append((s, approve)) or s.target_image)
     monkeypatch.setattr(runtime, "status", lambda profile=None: runtime.DesktopStatus(
@@ -264,5 +264,5 @@ def test_switch_sandbox_image_decides_only_a_pending_switch(monkeypatch, tmp_pat
         socket=None, geometry="1280x800", install_command=None, browser=None))
     resp = _call(server, "display.switchSandboxImage", {"approve": False})
     assert decided == [(switch, False)]
-    assert resp["result"]["docker_image"] == "nousresearch/vetri-sandbox:desktop"
+    assert resp["result"]["docker_image"] == "pugazh342/agent-vetri-sandbox:desktop"
     assert resp["result"]["running"] is False and "lease" in resp["result"]

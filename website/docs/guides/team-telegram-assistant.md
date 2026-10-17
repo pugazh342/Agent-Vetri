@@ -375,7 +375,7 @@ On a shared team bot, use Docker as the terminal backend so agent commands run i
 ```bash
 # In ~/.vetri/.env
 TERMINAL_ENV=docker
-TERMINAL_DOCKER_IMAGE=nousresearch/vetri-sandbox:desktop
+TERMINAL_DOCKER_IMAGE=pugazh342/agent-vetri-sandbox:desktop
 ```
 
 Or in `~/.vetri/config.yaml`:

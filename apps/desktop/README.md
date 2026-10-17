@@ -1,13 +1,12 @@
 # Vetri Desktop ⬢
 
 <p align="center">
-  <a href="https://github.com/NousResearch/vetri-agent/releases"><img src="https://img.shields.io/badge/Download-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-FFD700?style=for-the-badge" alt="Download"></a>
-  <a href="https://hermes-agent.nousresearch.com/docs/"><img src="https://img.shields.io/badge/Docs-hermes--agent.nousresearch.com-FFD700?style=for-the-badge" alt="Documentation"></a>
-  <a href="https://discord.gg/NousResearch"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
-  <a href="https://github.com/NousResearch/vetri-agent/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License: MIT"></a>
+  <a href="https://github.com/pugazh342/Agent-Vetri/releases"><img src="https://img.shields.io/badge/Download-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-FFD700?style=for-the-badge" alt="Download"></a>
+  <a href="https://pugazh342.github.io/Agent-Vetri/docs/"><img src="https://img.shields.io/badge/Docs-pugazh342.github.io%2FAgent--Vetri-FFD700?style=for-the-badge" alt="Documentation"></a>
+  <a href="https://github.com/pugazh342/Agent-Vetri/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License: MIT"></a>
 </p>
 
-**The native desktop app for [Vetri Agent](../../README.md) — the self-improving AI agent from [Nous Research](https://nousresearch.com).** Same agent, same skills, same memory as the CLI and gateway, in a polished native window — chat with streaming tool output, side-by-side previews, a file browser, voice, and settings, no terminal required. Available for **macOS, Windows, and Linux**.
+**The native desktop app for [Vetri Agent](../../README.md) — the self-improving AI agent from [Pugazhmani K](https://github.com/pugazh342).** Same agent, same skills, same memory as the CLI and gateway, in a polished native window — chat with streaming tool output, side-by-side previews, a file browser, voice, and settings, no terminal required. Available for **macOS, Windows, and Linux**.
 
 > **Intel Macs:** the `Vetri-Setup.dmg` bootstrap installer is built for
 > Apple Silicon (arm64) only, so on an Intel Mac it reports "not supported on
@@ -41,7 +40,7 @@ It builds and launches the GUI against your existing install — same config, ke
 
 ### Prebuilt installers
 
-Prebuilt installers are built and distributed via [the Vetri Desktop website.](https://hermes-agent.nousresearch.com/).
+Prebuilt installers are built and distributed via [the Vetri Desktop website.](https://pugazh342.github.io/Agent-Vetri/).
 
 ---
 
@@ -258,9 +257,8 @@ Remove-Item -Recurse -Force "$env:LOCALAPPDATA\vetri\vetri-agent\venv"
 
 ## Community
 
-- 💬 [Discord](https://discord.gg/NousResearch)
-- 📖 [Documentation](https://hermes-agent.nousresearch.com/docs/)
-- 🐛 [Issues](https://github.com/NousResearch/vetri-agent/issues)
+- 📖 [Documentation](https://pugazh342.github.io/Agent-Vetri/docs/)
+- 🐛 [Issues](https://github.com/pugazh342/Agent-Vetri/issues)
 
 ---
 
@@ -268,4 +266,4 @@ Remove-Item -Recurse -Force "$env:LOCALAPPDATA\vetri\vetri-agent\venv"
 
 MIT — see [LICENSE](../../LICENSE).
 
-Built by [Nous Research](https://nousresearch.com).
+Built by [Pugazhmani K](https://github.com/pugazh342).

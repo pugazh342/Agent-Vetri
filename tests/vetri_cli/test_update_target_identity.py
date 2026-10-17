@@ -283,7 +283,7 @@ def test_stable_zip_consumes_the_same_commit_through_the_real_swap(update_tree, 
     archive_bytes = archive.read_bytes()
     _publish_stable(monkeypatch, t)
     routes = {
-        f'/NousResearch/vetri-agent/archive/{t.wanted}.zip': archive_bytes,
+        f'/pugazh342/Agent-Vetri/archive/{t.wanted}.zip': archive_bytes,
     }
 
     class Handler(BaseHTTPRequestHandler):
@@ -311,7 +311,7 @@ def test_stable_zip_consumes_the_same_commit_through_the_real_swap(update_tree, 
     def local_open(request, *args, **kwargs):
         url = request.full_url if isinstance(request, urllib.request.Request) else request
         parsed = urlsplit(url)
-        assert parsed.scheme == 'https' and parsed.netloc in {'api.github.com', 'github.com', 'hermes-assets.nousresearch.com'}, url
+        assert parsed.scheme == 'https' and parsed.netloc in {'api.github.com', 'github.com', 'pugazh342.github.io'}, url
         urls.append(url)
         local = f'http://127.0.0.1:{server.server_port}{parsed.path}'
         if parsed.query:
@@ -384,7 +384,7 @@ def test_stable_zip_consumes_the_same_commit_through_the_real_swap(update_tree, 
             assert request['snapshot_id'] == 'release-snapshot'
             assert (t.clone / 'content.txt').read_text(encoding='utf-8-sig') == 'release\n'
             assert [url for url in urls if '/archive/' in url] == [
-                f'https://github.com/NousResearch/vetri-agent/archive/{t.wanted}.zip']
+                f'https://github.com/pugazh342/Agent-Vetri/archive/{t.wanted}.zip']
         assert t.resumed
         if transport in {'git-error', 'dirty'}:
             assert failed and fetched

@@ -9,7 +9,7 @@ tier: community
 category: desktop
 docs_url: https://github.com/c-pompa/operations-vetri-desktop-plugin#readme
 version: "0.1.0"
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 image: https://raw.githubusercontent.com/c-pompa/operations-vetri-desktop-plugin/61b5e241c7893df32c64426eb6d84e6bb4334620/screenshots/card.png
 screenshots:
   - https://raw.githubusercontent.com/c-pompa/operations-vetri-desktop-plugin/61b5e241c7893df32c64426eb6d84e6bb4334620/screenshots/overview.png

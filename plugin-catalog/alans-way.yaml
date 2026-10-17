@@ -9,7 +9,7 @@ description: "Idle check-ins from the primary bot of a Vetri gateway on a Linux 
 maintainer: capthvnsen
 tier: community
 category: automation
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/capthvnsen/alans-way-agents/tree/d938c63b1e28db57a77b18fe907748ac4fe363b8/alans-way
 readme: true
 platforms: [linux, macos]

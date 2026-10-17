@@ -6,7 +6,7 @@ description: "A live board the agent builds for you: a Board tab in the Vetri da
 maintainer: 100yenadmin
 tier: community
 category: desktop
-requires_vetri: '>=0.21.2'
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/100yenadmin/boardstate-vetri-plugin#readme
 version: "1.5.1"
 screenshots:

@@ -361,7 +361,7 @@ build. Source checkouts are separate: `main` is their only valid channel.
 
 `--build-commit` prints its deterministic downloads-page URL before dispatch,
 including in dry runs:
-`https://hermes-assets.nousresearch.com/releases/commit/<full-sha>/index.html`.
+`https://pugazh342.github.io/Agent-Vetri/releases/commit/<full-sha>/index.html`.
 `CLOUDFLARE_R2_PUBLIC_URL` overrides the public origin. After admission, the
 commit summary runs even when a build or assembly job fails; it lists only
 receipt-backed existing downloads and marks missing binaries as not built.
@@ -486,7 +486,7 @@ claim tag object's immutable tagger timestamp (`year.hourOfYear.secondOfHour.0`)
 independently of the SemVer payload tag.
 Missing baseline
 artifacts are a blocker, not permission to fabricate or skip acceptance.
-See [the bundled update contract](https://github.com/NousResearch/vetri-agent/blob/main/tests/install/BUNDLED_UPDATES.md).
+See [the bundled update contract](https://github.com/pugazh342/Agent-Vetri/blob/main/tests/install/BUNDLED_UPDATES.md).
 
 ## Explicit exclusions and policy
 

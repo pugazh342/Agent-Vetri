@@ -89,7 +89,7 @@ class TestDoctorPlatformHints:
 
         hint = doctor_platform._sqlite_upgrade_hint()
 
-        assert "docker pull nousresearch/vetri-agent:latest" in hint
+        assert "docker pull pugazh342/agent-vetri:latest" in hint
         assert "vetri update" not in hint
 
 

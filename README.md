@@ -11,7 +11,8 @@
 
 **The open-source AI agent built for security work.**
 
-[![Version](https://img.shields.io/badge/version-0.2.0-blue?style=flat-square)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-0.3.0-blue?style=flat-square)](CHANGELOG.md)
+[![CI](https://github.com/pugazh342/Agent-Vetri/actions/workflows/ci.yml/badge.svg)](https://github.com/pugazh342/Agent-Vetri/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.11%20%E2%80%93%203.14-blue?style=flat-square)](pyproject.toml)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=flat-square)](#quick-start)
@@ -31,8 +32,7 @@ Telegram, Discord, Slack and ~20 more platforms. It remembers across sessions, d
 subagents, runs scheduled jobs, drives a real terminal and browser — and it **ships with a
 cybersecurity and penetration-testing skill arsenal by default**.
 
-Vetri is free, open-source software built on the MIT-licensed
-[Hermes Agent](https://github.com/NousResearch/hermes-agent) core from Nous Research.
+Vetri is free, open-source software, released under the [MIT License](LICENSE).
 
 ## Highlights
 
@@ -153,20 +153,16 @@ git pull
 uv sync --extra all
 ```
 
-## Provenance & Credits
+## Credits
 
-- **Core:** Vetri is a rebranded, extended distribution of
-  [Hermes Agent](https://github.com/NousResearch/hermes-agent) by **Nous Research**,
-  used under the [MIT License](LICENSE). Upstream copyright notices are preserved. Live Nous
-  Research service endpoints remain functional for model catalog and Tool Gateway features.
 - **Security skills:** curated from [Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills)
   by Mahipal Jangra ([@mukul975](https://github.com/mukul975)), [Apache-2.0](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/blob/main/LICENSE).
 - **Pentesting skills:** methodology playbooks by [Strix](https://docs.strix.ai) (Apache-2.0).
-- **Vetri development & branding:** [Pugazhmani K](https://github.com/pugazhmani) — AI & Cybersecurity Researcher.
+- **Vetri development & branding:** [Pugazhmani K](https://github.com/pugazh342) — AI & Cybersecurity Researcher.
 
 ## License
 
-[MIT](LICENSE) — © Nous Research (upstream) and contributors. Bundled third-party skills keep
+[MIT](LICENSE) — © Pugazhmani K and contributors. Bundled third-party skills keep
 their own licenses (see [`skills/cybersecurity/ATTRIBUTION.md`](skills/cybersecurity/ATTRIBUTION.md)).
 
 ---

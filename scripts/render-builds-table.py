@@ -57,7 +57,7 @@ from scripts.releases import handoff, r2, semver, stable, versioning
 
 MARKER = "<!-- VETRI_BUILDS_TABLE -->"
 END_MARKER = "<!-- /VETRI_BUILDS_TABLE -->"
-DEFAULT_REPO = "NousResearch/vetri-agent"
+DEFAULT_REPO = "pugazh342/Agent-Vetri"
 
 # Asset name shapes (electron-builder artifactName in
 # apps/desktop/electron-builder.config.cjs):

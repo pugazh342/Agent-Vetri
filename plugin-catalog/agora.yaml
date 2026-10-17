@@ -34,7 +34,7 @@ description: >-
 maintainer: yzy806806
 tier: community
 category: automation
-requires_vetri: '>=0.20'
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/yzy806806/agora#readme
 version: "2.0.12"
 platforms: []

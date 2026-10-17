@@ -7,7 +7,7 @@ description: "Local-first long-term memory backed by total-agent-memory (TAM) ov
 maintainer: vbcherepanov
 tier: community
 category: memory
-requires_vetri: ">=0.21.4"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/vbcherepanov/vetri-tam-memory#readme
 readme: true
 platforms: [linux, macos]

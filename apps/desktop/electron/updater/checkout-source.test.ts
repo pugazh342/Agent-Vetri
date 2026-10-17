@@ -110,7 +110,7 @@ function channelRecord(channel: 'stable' | 'canary', sequence: number): FixtureR
   return {
     schema: 1,
     name: channel,
-    repository: 'NousResearch/vetri-agent',
+    repository: 'pugazh342/Agent-Vetri',
     policy: channel === 'stable' ? 'stable-release' : 'canary-release',
     state: 'active',
     revision: 1,
@@ -160,7 +160,7 @@ function buildManifest(
       schema: 1,
       buildId: id,
       channel,
-      repository: 'NousResearch/vetri-agent',
+      repository: 'pugazh342/Agent-Vetri',
       commit: sha,
       sourceVersion: tag.replace(/^v/, '').split('+')[0],
       releaseTag: tag,
@@ -169,7 +169,7 @@ function buildManifest(
       windowsVersion: `0.0.${sequence}.0`,
       identity,
       bundleEnv: {},
-      publicBase: 'https://hermes-assets.nousresearch.com'
+      publicBase: 'https://pugazh342.github.io/Agent-Vetri'
     },
     packages: [
       {
@@ -258,16 +258,16 @@ it('carries each install channel from Python publication checks into the source 
         })
       )
       responses.set(`/${manifestKey(channel)}`, body)
-      responses.set(`/repos/NousResearch/vetri-agent/releases/tags/${tags[channel]}`, {
+      responses.set(`/repos/pugazh342/Agent-Vetri/releases/tags/${tags[channel]}`, {
         tag_name: tags[channel],
         draft: false,
         prerelease: channel === 'canary'
       })
-      responses.set(`/repos/NousResearch/vetri-agent/commits/${tags[channel]}`, { sha })
+      responses.set(`/repos/pugazh342/Agent-Vetri/commits/${tags[channel]}`, { sha })
     }
 
     // Stable IS the latest published GitHub release; no R2 record is consulted for it.
-    responses.set('/repos/NousResearch/vetri-agent/releases/latest', {
+    responses.set('/repos/pugazh342/Agent-Vetri/releases/latest', {
       tag_name: tags.stable,
       draft: false,
       prerelease: false
@@ -298,7 +298,7 @@ def install():
     passthrough = original_build().open
     def local(request, *args, **kwargs):
         parsed = urlsplit(request.full_url if isinstance(request, urllib.request.Request) else request)
-        assert parsed.hostname in ('hermes-assets.nousresearch.com', 'api.github.com')
+        assert parsed.hostname in ('pugazh342.github.io', 'api.github.com')
         url = 'http://127.0.0.1:${address.port}' + parsed.path + ('?' + parsed.query if parsed.query else '')
         # ChannelReader compares response.geturl() against the ORIGINAL request url:
         # wrap so the redirect detector still sees the un-rewritten authority.

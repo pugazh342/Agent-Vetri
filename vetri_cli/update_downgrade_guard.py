@@ -18,7 +18,7 @@ from pathlib import Path
 _RUNTIME_SCHEMA_MARKER = "CREATE TABLE IF NOT EXISTS session_admissions"
 _LEDGER_PROBE = ("SELECT EXISTS(SELECT 1 FROM session_admissions) "
                  "OR EXISTS(SELECT 1 FROM worker_executions)")
-_DOCS = "https://hermes-agent.nousresearch.com/docs/getting-started/updating#rolling-back-to-an-older-release"
+_DOCS = "https://pugazh342.github.io/Agent-Vetri/docs/getting-started/updating#rolling-back-to-an-older-release"
 
 
 def target_predates_runtime(git_cmd, root: Path, target_ref: str) -> bool:

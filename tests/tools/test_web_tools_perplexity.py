@@ -21,7 +21,7 @@ def _assert_vetri_identity_headers(headers):
     plus Perplexity's integration header."""
     from vetri_cli.version_info import get_version_info
 
-    assert headers["HTTP-Referer"] == "https://hermes-agent.nousresearch.com"
+    assert headers["HTTP-Referer"] == "https://pugazh342.github.io/Agent-Vetri"
     assert headers["X-Title"] == "Vetri Agent"
     assert headers["User-Agent"] == f"VetriAgent/{get_version_info().base_version}"
     assert headers["X-Pplx-Integration"] == "vetri-agent"

@@ -5,7 +5,7 @@ description: Local-only content-free usage tally and native Desktop statusline (
 maintainer: 3DPrintPioneers
 tier: community
 category: desktop
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/3DPrintPioneers/vetri-usage-ledger/blob/3fa6a32187c943ff2f43959b3a7d258cf9fe067e/README.md
 version: "0.4.4"
 readme: true

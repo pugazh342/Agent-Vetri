@@ -8,7 +8,7 @@ description: "Run several accounts of one provider in Vetri' credential pool: `v
 maintainer: roqianjas
 tier: community
 category: tools
-requires_vetri: ">=0.21.6"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/roqianjas/vetri-account-pool/blob/7a4fc9fd976ed68de9e6f70ba326ef2053741e69/README.md
 platforms: [linux, windows]
 screenshots:

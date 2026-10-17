@@ -7,7 +7,7 @@ description: "Self-hosted long-term memory on Qdrant with automatic per-turn pre
 maintainer: Neboy72
 tier: community
 category: memory
-requires_vetri: ">=0.19"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/Neboy72/nexus-memory/blob/4392e6d93e2fae1e412d59933a670b9dc53642c2/plugins/memory/nexus/README.md
 image: https://raw.githubusercontent.com/Neboy72/nexus-memory/4392e6d93e2fae1e412d59933a670b9dc53642c2/docs/images/nexus-logo-square.png
 capabilities:

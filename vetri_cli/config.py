@@ -324,7 +324,7 @@ def is_nix_install_method(method: str) -> bool:
 
 
 _UPDATE_COMMAND_BY_METHOD = {
-    "docker": "docker pull nousresearch/vetri-agent:latest",
+    "docker": "docker pull pugazh342/agent-vetri:latest",
     "apt": "pkg upgrade vetri-agent",  # "apt" == Termux APT by contract; uses Termux's `pkg`.
 }
 
@@ -350,17 +350,17 @@ def recommended_update_command() -> str:
 _DOCKER_UPDATE_MESSAGE = """\
 ✗ ``vetri update`` doesn't apply inside the Docker container.
 
-Vetri Agent runs as a published image (nousresearch/vetri-agent), not a
+Vetri Agent runs as a published image (pugazh342/agent-vetri), not a
 git checkout — the container has no working tree to pull into.  Update by
 pulling a fresh image and restarting your container instead:
 
-  docker pull nousresearch/vetri-agent:latest
+  docker pull pugazh342/agent-vetri:latest
   # then restart whatever started the container, e.g.:
   docker compose up -d --force-recreate vetri-agent
   # or, for ad-hoc runs, exit the current container and `docker run` again
 
 Verify the new version after restart:
-  docker run --rm nousresearch/vetri-agent:latest --version
+  docker run --rm pugazh342/agent-vetri:latest --version
 
 Notes:
   • If you pinned a specific tag (e.g. ``:v0.14.0``) the ``:latest`` tag

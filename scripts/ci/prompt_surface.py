@@ -79,6 +79,9 @@ def _pin_environment() -> None:
     socket.socket.connect = refuse  # type: ignore[method-assign]
     socket.create_connection = refuse  # type: ignore[assignment]
     socket.getaddrinfo = refuse  # type: ignore[assignment]
+    # psutil binds its platform backend at import; load it while sys.platform is honest so a
+    # Windows host doesn't take the linux backend (import resource) once the pin below lands.
+    import psutil  # side-effect-only preload, see comment above
     sys.platform = "linux"  # skills index ``platforms:`` gate
 
     import vetri_time
@@ -113,7 +116,19 @@ def _scrub(text: str, home: Path) -> str:
         f"{_platform.system()} ({_platform.release()})": "<HOST_OS>",
     }.items(), key=lambda kv: -len(kv[0])):
         text = text.replace(raw, token)
-    return text
+
+    # A host path continues past its token (``<HOME>\plain`` on Windows, ``<HOME>/plain``
+    # on POSIX). Normalize everything from the first path token to end of line so both
+    # hosts render identical bytes; literal Windows path examples (``C:\Users\<user>\``)
+    # never follow a token and stay untouched.
+    def _forward_slashes(line: str) -> str:
+        starts = [i for i in (line.find("<VETRI_HOME>"), line.find("<HOME>")) if i >= 0]
+        if not starts:
+            return line
+        head = min(starts)
+        return line[:head] + line[head:].replace("\\", "/")
+
+    return "\n".join(_forward_slashes(line) for line in text.split("\n"))
 
 
 def _enabled_toolsets(platform: str) -> list[str]:
@@ -176,7 +191,7 @@ def _write_snapshot(out: Path, prompts: dict[str, dict[str, str]], tools_by_surf
     manifest: dict[str, dict] = {}
     for surface, tiers in prompts.items():
         text = "\n\n".join(f"===== {tier} =====\n{tiers[tier]}" for tier in ("stable", "context", "volatile"))
-        (out / "prompts" / f"{surface}.txt").write_text(text + "\n", encoding="utf-8")
+        (out / "prompts" / f"{surface}.txt").write_text(text + "\n", encoding="utf-8", newline="\n")
         tools = tools_by_surface[surface]
         manifest[surface] = {
             "prompt_tokens": {tier: len(tiers[tier]) // CHARS_PER_TOKEN for tier in tiers},
@@ -187,11 +202,11 @@ def _write_snapshot(out: Path, prompts: dict[str, dict[str, str]], tools_by_surf
         variants = {s: json.dumps(t[name], indent=2, sort_keys=True, ensure_ascii=False) + "\n"
                     for s, t in tools_by_surface.items() if name in t}
         common = Counter(variants.values()).most_common(1)[0][0]
-        (out / "tools" / f"{name}.json").write_text(common, encoding="utf-8")
+        (out / "tools" / f"{name}.json").write_text(common, encoding="utf-8", newline="\n")
         for surface, text in variants.items():
             if text != common:
-                (out / "tools" / f"{name}.{surface}.json").write_text(text, encoding="utf-8")
-    (out / MANIFEST).write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+                (out / "tools" / f"{name}.{surface}.json").write_text(text, encoding="utf-8", newline="\n")
+    (out / MANIFEST).write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
 
 
 def render(out: Path) -> int:
@@ -203,6 +218,9 @@ def render(out: Path) -> int:
         staging = Path(tmp) / "out"
         env = {
             "PATH": os.environ.get("PATH", ""), "HOME": str(home), "VETRI_HOME": str(home / ".vetri"),
+            # Windows expanduser('~') reads USERPROFILE (HOME is POSIX-only there); point it
+            # at the throwaway home too so child home-resolution stays pinned and scrubbed.
+            "USERPROFILE": str(home),
             "TZ": "UTC", "LANG": "C.UTF-8", "PYTHONHASHSEED": "0", "PYTHONPATH": str(ROOT),
             "TMPDIR": tmp, "PYTHONDONTWRITEBYTECODE": "1",
         }

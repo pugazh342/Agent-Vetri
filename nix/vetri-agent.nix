@@ -344,7 +344,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   meta = with lib; {
     description = "AI agent with advanced tool-calling capabilities";
-    homepage = "https://github.com/NousResearch/vetri-agent";
+    homepage = "https://github.com/pugazh342/Agent-Vetri";
     mainProgram = "vetri";
     license = licenses.mit;
     platforms = platforms.unix;

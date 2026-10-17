@@ -36,7 +36,7 @@ Vetri Agent 可与任何兼容 OpenAI 的 API 配合使用。支持的提供商�
 **原生不支持。** Vetri Agent 需要类 Unix 环境。在 Windows 上，请安装 [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install) 并在其中运行 Vetri。标准安装命令在 WSL2 中可完美运行：
 
 ```bash
-curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/pugazh342/Agent-Vetri/main/scripts/install.sh | bash
 ```
 
 ### 我在 WSL2 中运行 Vetri，如何控制 Windows 上的普通 Chrome？
@@ -210,7 +210,7 @@ source ~/.bashrc
 # 如果之前使用 sudo 安装，请先清理：
 sudo rm /usr/local/bin/vetri
 # 然后重新运行标准安装程序
-curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/pugazh342/Agent-Vetri/main/scripts/install.sh | bash
 ```
 
 ---
@@ -735,7 +735,7 @@ skills:
 
 1. 在新机器上安装 Vetri Agent：
    ```bash
-   curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+   curl -fsSL https://raw.githubusercontent.com/pugazh342/Agent-Vetri/main/scripts/install.sh | bash
    ```
 
 2. 在**源机器**上创建完整备份：
@@ -856,6 +856,6 @@ vetri chat -q "hello" --model anthropic/claude-opus-4.7
 
 如果您的问题未在此处涵盖：
 
-1. **搜索现有 issue：** [GitHub Issues](https://github.com/NousResearch/vetri-agent/issues)
-2. **向社区提问：** [Nous Research Discord](https://discord.gg/nousresearch)
+1. **搜索现有 issue：** [GitHub Issues](https://github.com/pugazh342/Agent-Vetri/issues)
+2. **向社区提问：** [GitHub Discussions](https://github.com/pugazh342/Agent-Vetri/discussions)
 3. **提交 bug 报告：** 请包含您的操作系统、Python 版本（`python3 --version`）、Vetri 版本（`vetri --version`）以及完整的错误信息

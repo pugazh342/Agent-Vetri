@@ -6,7 +6,7 @@ description: "HydraDB long-term memory for Vetri: prompt-time recall (prefetch) 
 maintainer: hydra-db
 tier: community
 category: memory
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 version: "1.0.0"
 docs_url: https://github.com/hydra-db/hydradb-vetri-plugin#readme
 readme: true

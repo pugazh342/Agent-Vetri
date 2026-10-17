@@ -6,7 +6,7 @@ maintainer: tomekdot
 tier: community
 category: desktop
 version: "1.2.5"
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/tomekdot/vetri-my-github-plugin
 platforms: []
 capabilities:

@@ -29,8 +29,8 @@
 
 set -euo pipefail
 
-OFFICIAL_HTTPS="https://github.com/NousResearch/vetri-agent.git"
-OFFICIAL_SSH="git@github.com:NousResearch/vetri-agent.git"
+OFFICIAL_HTTPS="https://github.com/pugazh342/Agent-Vetri.git"
+OFFICIAL_SSH="git@github.com:pugazh342/Agent-Vetri.git"
 DEFAULT_SOURCE="https://github.com/ethernet8023/vetri-agent.git"
 
 SUBCMD=""

@@ -23,7 +23,7 @@ description: "Chinese-context desensitization for Vetri chats. Replaces PII and 
 maintainer: yubingz
 tier: community
 category: tools
-requires_vetri: ">=0.19"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/yubingz/vetri-desensitize#readme
 version: "1.4.1"
 readme: true

@@ -224,7 +224,7 @@ If you've worked through this guide and the issue persists:
 
 1. Run the job with `vetri cron run <job_id>` (fires on next gateway tick) and watch for errors in the chat output
 2. Check `~/.vetri/logs/agent.log` for scheduler messages and `~/.vetri/logs/errors.log` for warnings
-3. Open an issue at [github.com/NousResearch/vetri-agent](https://github.com/NousResearch/vetri-agent) with:
+3. Open an issue at [github.com/pugazh342/Agent-Vetri](https://github.com/pugazh342/Agent-Vetri) with:
    - The job ID and schedule
    - The delivery target
    - What you expected vs. what happened

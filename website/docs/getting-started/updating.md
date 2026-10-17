@@ -501,7 +501,7 @@ A few situations stop with a message rather than carry on, because carrying on c
 vetri --version
 ```
 
-Compare against the latest release at the [GitHub releases page](https://github.com/NousResearch/vetri-agent/releases).
+Compare against the latest release at the [GitHub releases page](https://github.com/pugazh342/Agent-Vetri/releases).
 
 ### Updating from Messaging Platforms
 
@@ -559,7 +559,7 @@ What this means outside `vetri update`:
 
 ### Image-managed installs (Docker): the provenance marker
 
-Published Docker images bake a small read-only marker (`/etc/vetri/image-provenance.json`) that authoritatively identifies the filesystem as image-managed. `vetri update`, `vetri update --check`, and the dashboard's Update button all consult it before touching anything: on an image-managed install they refuse cleanly (exit code 2), print the actual update command (`docker pull nousresearch/vetri-agent:latest`), and write a `refused` receipt so fleet tooling can see the attempt happened. The marker wins even when a source checkout is bind-mounted into the container — the refusal is based on what the running filesystem *is*, not what it looks like. A damaged marker still refuses (fail-closed). Nix- and apt-managed installs refuse through the same gate using the existing detection.
+Published Docker images bake a small read-only marker (`/etc/vetri/image-provenance.json`) that authoritatively identifies the filesystem as image-managed. `vetri update`, `vetri update --check`, and the dashboard's Update button all consult it before touching anything: on an image-managed install they refuse cleanly (exit code 2), print the actual update command (`docker pull pugazh342/agent-vetri:latest`), and write a `refused` receipt so fleet tooling can see the attempt happened. The marker wins even when a source checkout is bind-mounted into the container — the refusal is based on what the running filesystem *is*, not what it looks like. A damaged marker still refuses (fail-closed). Nix- and apt-managed installs refuse through the same gate using the existing detection.
 
 ### Note for Nix users
 

@@ -34,7 +34,7 @@ jobs:
   live:
     name: Live provider canaries
     # Forks and PRs never see these secrets; only run where they exist.
-    if: github.repository == 'NousResearch/vetri-agent'
+    if: github.repository == 'pugazh342/Agent-Vetri'
     runs-on: blacksmith-4vcpu-ubuntu-2404
     timeout-minutes: 25
     # Only booleans at job level: the key VALUES are scoped to the one step that

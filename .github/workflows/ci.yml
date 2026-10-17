@@ -1,0 +1,198 @@
+name: CI
+
+# Lean CI for Agent-Vetri: the four lanes that gate every push and PR.
+# Upstream's full orchestrator (detect-changes + ~20 sub-workflows) lives in
+# .github/workflows-upstream/ and returns lane by lane as it is adapted.
+#
+#   1. scripts-check   — `python scripts/check`, the exact blocking gate a
+#                        contributor runs locally (ruff, code-health ratchet,
+#                        Windows footguns, case collisions, lazy deps,
+#                        profile archives, blob size, vetri-independence, ...).
+#   2. python-tests    — the canonical suite via scripts/run_tests.sh with
+#                        per-file isolation (tests/e2e is release/dispatch-only
+#                        upstream; it stays out of the per-push lane here too).
+#   3. js-tests        — every workspace's check:* scripts (tsc, eslint,
+#                        vitest incl. the Electron contract suites).
+#   4. prompt-surface  — advisory PR summary of the committed prompt-surface
+#                        snapshot diff (system prompt + tools[] a stock
+#                        install sends); tests/ci/test_prompt_surface.py is
+#                        the actual staleness gate, inside python-tests.
+#
+# SECURITY: this workflow runs PR-controlled code. It uses no secrets — only
+# the read-only `github.token` — and grants `contents: read`.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event_name == 'pull_request' && github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  scripts-check:
+    name: scripts/check (13 gates)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+
+      - name: Set up the locked Python toolchain
+        uses: ./.github/actions/setup-pm
+        with:
+          cache-python: true
+          prune-python-cache: true
+
+      - name: Install pinned lint tools
+        uses: ./.github/actions/retry
+        with:
+          command: python -m scripts.ci.python_packages "$(python -m scripts.code_health --print-pins)"
+
+      - name: Run every blocking gate
+        run: python scripts/check
+
+      - name: Check the checkout is clean
+        uses: ./.github/actions/check-clean-worktree
+
+  python-tests:
+    name: Python tests (slice ${{ matrix.slice }}/4)
+    runs-on: ubuntu-latest
+    # Sharded like upstream: a single 4-vCPU hosted runner cannot finish all
+    # 6,200+ files in one job. Four slices stay under the timeout with room
+    # for load spikes; fail-fast off so every shard reports.
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        slice: [0, 1, 2, 3]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+
+      - name: Set up locked Python and test dependencies
+        uses: ./.github/actions/setup-pm
+        with:
+          packages: ripgrep
+          extras: '["all", "anthropic", "bedrock", "mistral", "fal", "modal", "daytona", "parallel-web"]'
+          test-environment: 'true'
+          prune-python-cache: true
+
+      - name: Check SQLite runs WAL
+        # Vetri picks DELETE journal mode on a SQLite with the WAL-reset bug;
+        # fail loudly instead of silently skipping every WAL test.
+        run: |
+          "$VETRI_PYTHON" -c "import sqlite3, sys, vetri_state_wal as w; v = w.is_sqlite_wal_reset_vulnerable(); print(f'Python {sys.version.split()[0]}, SQLite {sqlite3.sqlite_version}, WAL-reset vulnerable: {v}'); sys.exit(1 if v else 0)"
+
+      - name: Restore per-file duration cache
+        # Raises a slow file's timeout to 3x its last healthy duration so load
+        # spikes don't launder it into a flaky retry. PRs read, main writes.
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: test_durations.json
+          key: test-durations-never-exact
+          restore-keys: |
+            test-durations-
+
+      - name: Run tests
+        run: scripts/run_tests.sh
+        env:
+          VETRI_TEST_WORKERS: "4"
+          VETRI_TEST_FILE_TIMEOUT: "600"
+          # Ensure tests never call real APIs
+          OPENROUTER_API_KEY: ""
+          OPENAI_API_KEY: ""
+          NOUS_API_KEY: ""
+
+      - name: Save per-file duration cache (main only)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && hashFiles('test_durations.json') != ''
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: test_durations.json
+          key: test-durations-${{ github.run_id }}
+
+      - name: Check the checkout is clean
+        uses: ./.github/actions/check-clean-worktree
+
+  js-tests:
+    name: JS & TS checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+
+      - name: Set up the locked JS build toolchain
+        id: node
+        uses: ./.github/actions/setup-pm
+        with:
+          # Desktop checks also run Python payload and icon build helpers, and
+          # the electron contracts drive real vetri_cli/pm code through
+          # VETRI_PYTHON, which needs the application dependencies.
+          toolchain: all
+          extras: '[]'
+          test-environment: 'true'
+
+      - name: Install zsh and a virtual display for Electron
+        run: |
+          sudo apt-get install -y zsh xvfb \
+            libgtk-3-0 libnotify4 libnss3 libxss1 libxtst6 \
+            xdg-utils libatspi2.0-0 libdrm2 libgbm1 libasound2t64
+
+      - name: Restore node_modules
+        id: node-modules-cache
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            node_modules
+            apps/*/node_modules
+            ui-tui/node_modules
+            ui-tui/packages/*/node_modules
+            tests-js/node_modules
+            web/node_modules
+          key: node-modules-scripts-${{ runner.os }}-${{ runner.arch }}-node${{ steps.node.outputs.node-version }}-npm${{ steps.node.outputs.npm-version }}-${{ hashFiles('package-lock.json') }}
+
+      - uses: ./.github/actions/retry
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        with:
+          command: npm ci
+
+      - name: Run all workspace checks
+        run: node .github/scripts/run-workspace-checks.mjs
+
+      - name: Check the checkout is clean
+        uses: ./.github/actions/check-clean-worktree
+
+  prompt-surface:
+    name: Prompt surface diff (advisory)
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+        with:
+          fetch-depth: 0 # need history for the merge base
+          persist-credentials: false
+
+      - name: Summarise the snapshot diff
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          set -euo pipefail
+          # Merge base, not the base tip: surface changes that landed on main
+          # after the branch point are not this PR's doing.
+          BASE_SHA=$(git merge-base "origin/${BASE_REF}" HEAD)
+          SNAP=tests/fixtures/prompt_surface
+          mkdir -p "$RUNNER_TEMP/base"
+          if git cat-file -e "${BASE_SHA}:${SNAP}" 2>/dev/null; then
+            git archive "$BASE_SHA" "$SNAP" | tar -x -C "$RUNNER_TEMP/base"
+          fi
+          python3 scripts/ci/prompt_surface.py diff "$RUNNER_TEMP/base/$SNAP" "$SNAP" \
+            --output "$RUNNER_TEMP/prompt-surface.md"
+          if [ -s "$RUNNER_TEMP/prompt-surface.md" ]; then
+            { echo "## Prompt surface"; echo; cat "$RUNNER_TEMP/prompt-surface.md"; } >> "$GITHUB_STEP_SUMMARY"
+          fi

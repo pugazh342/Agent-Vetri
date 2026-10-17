@@ -13,7 +13,7 @@ description: >-
 maintainer: tempoxyz
 tier: community
 category: tools
-requires_vetri: ">=0.21.3"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/tempoxyz/vetri-mpp#native-plugin-installation
 capabilities:
   provides_tools:

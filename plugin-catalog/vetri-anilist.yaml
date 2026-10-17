@@ -41,7 +41,7 @@ description: "AniList tracker for Vetri Desktop — airing countdowns, a season 
 maintainer: BatataBF
 tier: community
 category: desktop
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/BatataBF/vetri-anilist#readme
 version: "0.9.0"
 platforms: []

@@ -18,7 +18,6 @@ _T = TypeVar("_T")
 _ATTEMPTS = 4
 _MAX_DELAY = 30.0
 _HTTP_RETRY = frozenset({408, 429, 500, 502, 503, 504})
-_R2_HOSTS = frozenset({"hermes-assets.nousresearch.com"})
 _NETWORK_ERRNOS = frozenset({
     errno.ECONNABORTED, errno.ECONNREFUSED, errno.ECONNRESET,
     errno.ENETDOWN, errno.ENETRESET, errno.ENETUNREACH,
@@ -47,10 +46,9 @@ def edge_block(exc: BaseException) -> str | None:
 
     A bare "HTTP 403" from a regional block reads as a broken install or a missing
     file (#128295). Cloudflare marks challenges with ``cf-mitigated`` and Vercel's
-    firewall sets ``x-vercel-mitigated``. Cloudflare's own block page carries
-    neither, but on our R2 custom domain a response without ``cf-cache-status``
-    never reached the bucket (Cloudflare R2 troubleshooting docs); other hosts
-    behind Cloudflare make no such promise, so that fallback is R2-only.
+    firewall sets ``x-vercel-mitigated``; only those explicit signals name the CDN,
+    because inferring a firewall from response shape alone mislabels ordinary
+    origin errors.
     """
     if not isinstance(exc, urllib.error.HTTPError) or exc.code not in (403, 429):
         return None
@@ -58,9 +56,7 @@ def edge_block(exc: BaseException) -> str | None:
     host = urllib.parse.urlsplit(exc.filename or "").hostname or ""
     if headers.get("x-vercel-mitigated"):
         cdn = "Vercel"
-    elif headers.get("cf-mitigated") or (
-            host in _R2_HOSTS and (headers.get("server") or "").lower() == "cloudflare"
-            and not headers.get("cf-cache-status")):
+    elif headers.get("cf-mitigated"):
         cdn = "Cloudflare"
     else:
         return None

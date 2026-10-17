@@ -6,7 +6,7 @@ description: "Vornik as Vetri's hardened broker and long-term memory: Vetri hold
 maintainer: EaseIT Labs
 tier: community
 category: tools
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 docs_url: https://docs.vornik.io/features/companion/
 version: "0.21.1"
 capabilities:

@@ -5,7 +5,7 @@ description: "Durable native memory for Vetri with LLM fact extraction. Conversa
 maintainer: cnkang
 tier: community
 category: memory
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 version: "0.2.1"
 docs_url: https://github.com/cnkang/vetri-plugin-qdrant-memory#readme
 readme: true

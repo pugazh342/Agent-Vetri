@@ -7,7 +7,7 @@ tier: community
 category: automation
 docs_url: https://github.com/TakeshiTGAL/vetri-plugin-model-drift#readme
 version: "0.1.0"
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 platforms: []
 capabilities:
   provides_tools:

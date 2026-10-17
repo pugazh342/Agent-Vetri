@@ -12,7 +12,7 @@ description: Live subscription-quota windows for every AI provider Vetri can rou
 maintainer: lvabarajithan
 tier: community
 category: desktop
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 platforms: [linux, macos]
 docs_url: https://github.com/lvabarajithan/vetri-ai-usage-tracker
 capabilities:

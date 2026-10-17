@@ -6,7 +6,7 @@ description: Session file tray — paths the Vetri agent touched via read_file,
 maintainer: aydnOktay
 tier: community
 category: desktop
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/aydnOktay/vetri-file-tray
 version: "0.1.0"
 platforms: []

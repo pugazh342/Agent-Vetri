@@ -7,7 +7,7 @@ description: "Beam (b1m.ai) as native tools: estimate, start, track and cancel v
 maintainer: Beam-Network
 tier: community
 category: tools
-requires_vetri: ">=0.21.6"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/Beam-Network/beam-vetri#readme
 readme: true
 capabilities:

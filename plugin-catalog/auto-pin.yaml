@@ -5,7 +5,7 @@ description: "Automatically pin every new interactive session (desktop, CLI, TUI
 maintainer: bmcfiv
 tier: community
 category: general
-requires_vetri: ">=0.21.1"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/bmcfiv/vetri-plugin-auto-pin#readme
 version: "1.0.0"
 platforms: []

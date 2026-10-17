@@ -14,16 +14,18 @@ import { requestForBot } from './routing'
 import type { RosterRow } from './types'
 
 // ── skills hub section: the REAL hub page (docs) embedded as a picker ──────
-// https://hermes-agent.nousresearch.com/docs/skills?embed=picker hides the
+// https://pugazh342.github.io/Agent-Vetri/docs/skills?embed=picker hides the
 // docs chrome and adds "+ Add to this Agent" per card, posting
 // {type: 'vetri-skill-pick', ...} to us (vetri-agent#86243). We validate
 // the origin, install via skills.manage, and bubble onInstalled so the
 // checklist above gains the row. Search-box fallback kept for offline use.
 
-const HUB_ORIGIN = 'https://hermes-agent.nousresearch.com'
-const FALLBACK_HUB_ORIGIN = 'https://nousresearch.github.io'
-const HUB_PICKER_URL = HUB_ORIGIN + '/docs/skills?embed=picker'
-const FALLBACK_HUB_PICKER_URL = FALLBACK_HUB_ORIGIN + '/vetri-agent/docs/skills?embed=picker'
+const HUB_ORIGIN = 'https://pugazh342.github.io'
+// The docs site is a single GitHub Pages deployment; the probe/fallback pair
+// stays so a transient fetch failure still resolves to the embedded picker.
+const FALLBACK_HUB_ORIGIN = HUB_ORIGIN
+const HUB_PICKER_URL = `${HUB_ORIGIN}/Agent-Vetri/docs/skills?embed=picker`
+const FALLBACK_HUB_PICKER_URL = HUB_PICKER_URL
 // A WAF-blocked or unreachable docs host must not delay the fallback longer
 // than this — the probe only decides which origin to embed, never blocks it.
 const HUB_PROBE_TIMEOUT_MS = 8_000

@@ -2,7 +2,7 @@
 name: anatomy
 description: Explain an idea as an interactive isometric machine figure.
 version: 1.0.0
-author: Ryan (wheresryan22), ported to Vetri by Nous Research
+author: Ryan (wheresryan22), ported to Vetri
 license: MIT
 platforms: [linux, macos, windows]
 metadata:

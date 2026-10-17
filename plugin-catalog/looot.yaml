@@ -5,7 +5,7 @@ description: "looot gives Vetri one sign-in and one prepaid balance for 2,500+ d
 maintainer: looot
 tier: community
 category: tools
-requires_vetri: ">=0.21.6"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/loootai/vetri-looot#readme
 version: "0.1.0"
 platforms: []

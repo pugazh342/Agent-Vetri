@@ -5,7 +5,7 @@ description: "Everything that snagged - cross-session shelf of failed tool calls
 maintainer: aydnOktay
 tier: community
 category: desktop
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/aydnOktay/vetri-snag-shelf
 version: "0.1.0"
 platforms: []

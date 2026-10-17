@@ -39,7 +39,7 @@ same reviewed commit this page describes.
 ## What's in an entry
 
 Each catalog entry is a small YAML file in the
-[`plugin-catalog/`](https://github.com/NousResearch/vetri-agent/tree/main/plugin-catalog)
+[`plugin-catalog/`](https://github.com/pugazh342/Agent-Vetri/tree/main/plugin-catalog)
 directory of the vetri-agent repository, declaring:
 
 | Field | Meaning |
@@ -222,7 +222,7 @@ unreviewed name index. Install such plugins by `owner/repo` or Git URL instead
 ### Live refresh
 
 The docs build publishes the catalog as one JSON document
-(`https://hermes-agent.nousresearch.com/docs/api/plugin-catalog.json`).
+(`https://pugazh342.github.io/Agent-Vetri/docs/api/plugin-catalog.json`).
 `search`/`install`/`update` fetch it at most every six hours and cache it under
 `~/.vetri/cache/`, so new entries and removals reach installed clients without
 updating Vetri. Offline, the cached copy is used for up to 24 hours, then the
@@ -255,7 +255,7 @@ The complete guidelines live in
 what to check before you submit, how the PR and review work, every admission
 rule, and how pin updates, delisting and removal work. That page mirrors the
 canonical rules in the
-[plugin-catalog README](https://github.com/NousResearch/vetri-agent/tree/main/plugin-catalog).
+[plugin-catalog README](https://github.com/pugazh342/Agent-Vetri/tree/main/plugin-catalog).
 
 In short, a listed plugin is submitted by its owner (or added in a reviewed
 maintainer sweep), lives in a public repository, pins an exact commit, passes

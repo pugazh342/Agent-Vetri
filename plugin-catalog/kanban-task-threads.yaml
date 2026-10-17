@@ -5,7 +5,7 @@ description: "Give every Vetri kanban task a live Discord forum thread with a re
 maintainer: diegomarino
 tier: community
 category: automation
-requires_vetri: ">=0.20"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/diegomarino/kanban-task-threads#readme
 version: "0.4.1"
 image: https://raw.githubusercontent.com/diegomarino/kanban-task-threads/467284665eb18360e9c32cd8fe4ff76690a66231/docs/assets/catalog-banner.png

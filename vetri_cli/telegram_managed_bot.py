@@ -1,5 +1,11 @@
-"""Telegram Managed Bot onboarding client: creates a user-owned child bot via the Nous onboarding
-service (no BotFather copy-paste); the raw Telegram token is saved locally after one retrieval."""
+"""Telegram Managed Bot onboarding client: creates a user-owned child bot via a hosted
+onboarding service (no BotFather copy-paste); the raw Telegram token is saved locally after
+one retrieval.
+
+No onboarding service ships with this build: ``DEFAULT_API_URL`` is empty, so the managed
+flow reports itself unavailable and every setup path falls back to manual @BotFather
+creation. Operators who run their own pairing backend point ``TELEGRAM_ONBOARDING_URL``
+at it to re-enable the QR flow."""
 
 from __future__ import annotations
 
@@ -13,8 +19,8 @@ from typing import Optional
 
 import httpx
 
-# Nous-hosted pairing API; override for PoC/staging with TELEGRAM_ONBOARDING_URL.
-DEFAULT_API_URL = "https://setup.hermes-agent.nousresearch.com"
+# No pairing backend is bundled: set TELEGRAM_ONBOARDING_URL to a service you operate.
+DEFAULT_API_URL = ""
 TELEGRAM_ONBOARDING_URL_ENV = "TELEGRAM_ONBOARDING_URL"
 DEFAULT_BOT_NAME = "Vetri Agent"
 DEFAULT_POLL_TIMEOUT = 180
@@ -43,8 +49,13 @@ class TelegramBotSetupResult:
 
 
 def _api_url(api_url: str | None = None) -> str:
-    """Resolve the onboarding API URL, honoring the PoC env override."""
+    """Resolve the onboarding API URL, honoring the env override."""
     return (api_url or os.environ.get(TELEGRAM_ONBOARDING_URL_ENV) or DEFAULT_API_URL).rstrip("/")
+
+
+def onboarding_configured(api_url: str | None = None) -> bool:
+    """True when a pairing backend is configured (env override or bundled default)."""
+    return bool(_api_url(api_url))
 
 
 def is_valid_telegram_bot_token(token: object) -> bool:
@@ -151,6 +162,10 @@ def auto_setup_telegram_bot_result(
     """Run the full automatic Telegram bot creation flow."""
     _ = manager_bot, profile_name  # accepted for callers; the service decides both
     resolved_api_url = _api_url(api_url)
+    if not resolved_api_url:
+        print("\n  Automatic Telegram setup is unavailable: no onboarding service is configured.")
+        print("    Continue with manual setup - create a bot with @BotFather and paste its token.")
+        return None
     print(f"\n  Contacting Vetri Telegram onboarding service: {resolved_api_url}")
     sys.stdout.flush()
     pairing = create_pairing(resolved_api_url)

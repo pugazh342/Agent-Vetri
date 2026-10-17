@@ -182,7 +182,6 @@
   "boot.failure.bundledReinstallHint": ["ar","de","es","fr","ja","ru","zh-hant"],
   "boot.failure.cloudDownCheckPortal": ["ru"],
   "boot.failure.cloudDownDescription": ["ru"],
-  "boot.failure.cloudDownDiscord": ["ru"],
   "boot.failure.cloudDownHint": ["ru"],
   "boot.failure.cloudDownTitle": ["ru"],
   "boot.failure.details": ["ar","ja","ru","zh","zh-hant"],

@@ -6,7 +6,7 @@ description: Browse every pet installed for this Vetri profile in its own deskto
 maintainer: poponline63
 tier: community
 category: desktop
-requires_vetri: ">=0.19"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/poponline63/vetri-pets-all
 platforms: []
 capabilities:

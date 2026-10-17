@@ -269,7 +269,7 @@ def stage(
                 "Package": fields["Package"],
                 "Version": fields["Version"],
                 "Architecture": arch,
-                "Maintainer": fields.get("Maintainer", "Vetri Agent <noreply@nousresearch.com>"),
+                "Maintainer": fields.get("Maintainer", "Vetri Agent <pugazh342@users.noreply.github.com>"),
                 "Installed-Size": fields.get("Installed-Size", "0"),
                 "Description": fields.get("Description", "Vetri Agent"),
                 "Filename": filename,
@@ -519,7 +519,7 @@ def main(argv: list | None = None) -> int:
     ap.add_argument("--pool", required=True, type=Path)
     ap.add_argument("--out", required=True, type=Path)
     # vetri-nightly is the suite actually published today
-    # (https://hermes-assets.nousresearch.com/releases/termux/nightly/,
+    # (https://pugazh342.github.io/Agent-Vetri/releases/termux/nightly/,
     # verified 2026-09-06); vetri-stable/vetri-canary are what CI stages
     # for the stable/canary channels.
     ap.add_argument(

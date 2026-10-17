@@ -5,7 +5,7 @@ description: Durable project ownership and bounded initiative management for Vet
 maintainer: Sahil-SS9
 tier: community
 category: automation
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/Sahil-SS9/vetri-project-stewardship
 platforms: []
 capabilities:

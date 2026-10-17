@@ -6,7 +6,7 @@ description: "Jev-powered Vetri plugin for skill/model routing, typed assess, DO
 maintainer: bgrablin
 tier: community
 category: tools
-requires_vetri: ">=0.21.3"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/bgrablin/vetri-switchyard/blob/895c101d4228f12cbb7e56194f94d0e555256339/docs/SETUP.md
 version: "0.6.0"
 image: https://raw.githubusercontent.com/bgrablin/vetri-switchyard/895c101d4228f12cbb7e56194f94d0e555256339/docs/assets/vetri-switchyard-overview.png

@@ -5,7 +5,7 @@ description: Bounded tools to list, read, create, and control local T3 coding th
 maintainer: thetasigmaio
 tier: community
 category: tools
-requires_vetri: ">=0.20.4"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/thetasigmaio/vetri-t3-control/blob/aeb5493e30e744b414cbfe88a70adb1acd59a1c8/docs/compatibility.md
 platforms: [linux]
 # Stock Vetri: t3_thread_send requires completion_policy: "none".

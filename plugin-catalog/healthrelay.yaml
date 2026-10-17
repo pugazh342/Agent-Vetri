@@ -5,7 +5,7 @@ description: "Read-only access to your own Apple Health data through a self-host
 maintainer: mwdearing
 tier: community
 category: tools
-requires_vetri: '>=0.20'
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/mwdearing/vetri-healthrelay#readme
 version: 0.4.4
 platforms: []

@@ -655,7 +655,7 @@ def _maybe_setup_dashboard_auth_interactively(args) -> None:
             "    vetri dashboard register\n"
             "  It provisions a Nous Portal OAuth client and writes "
             "VETRI_DASHBOARD_OAUTH_CLIENT_ID into ~/.vetri/.env for you.\n"
-            "  Docs: https://hermes-agent.nousresearch.com/docs/"
+            "  Docs: https://pugazh342.github.io/Agent-Vetri/docs/"
             "user-guide/features/web-dashboard#authentication-gated-mode"
         )
         sys.exit(0)

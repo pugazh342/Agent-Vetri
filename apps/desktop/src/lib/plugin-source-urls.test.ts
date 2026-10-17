@@ -4,9 +4,9 @@ import { resolvePluginSourceLinks } from './plugin-source-urls'
 
 describe('resolvePluginSourceLinks', () => {
   it('maps owner/repo to github browse and clone urls', () => {
-    expect(resolvePluginSourceLinks('NousResearch/vetri-example-plugins')).toEqual({
-      gitUrl: 'https://github.com/NousResearch/vetri-example-plugins.git',
-      browseUrl: 'https://github.com/NousResearch/vetri-example-plugins',
+    expect(resolvePluginSourceLinks('pugazh342/vetri-example-plugins')).toEqual({
+      gitUrl: 'https://github.com/pugazh342/vetri-example-plugins.git',
+      browseUrl: 'https://github.com/pugazh342/vetri-example-plugins',
       subdir: null
     })
   })

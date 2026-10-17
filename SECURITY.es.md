@@ -6,8 +6,8 @@ alcance para los informes de vulnerabilidades.
 
 ## 1. Reportar una Vulnerabilidad
 
-Reporta de forma privada a través de [GitHub Security Advisories](https://github.com/NousResearch/vetri-agent/security/advisories/new)
-o **security@nousresearch.com**. No abras issues públicos para
+Reporta de forma privada a través de [GitHub Security Advisories](https://github.com/pugazh342/Agent-Vetri/security/advisories/new).
+No abras issues públicos para
 vulnerabilidades de seguridad. **Vetri Agent no opera un programa de
 recompensas por errores.**
 
@@ -320,7 +320,6 @@ La decisión de fortalecimiento más importante es hacer coincidir el aislamient
 
 - **Ventana de divulgación coordinada:** 90 días desde el informe, o hasta que se
   publique una corrección, lo que ocurra primero.
-- **Canal:** el hilo GHSA o correspondencia por email con
-  security@nousresearch.com.
+- **Canal:** el hilo GHSA de este repositorio.
 - **Crédito:** los reportadores reciben crédito en las notas de versión a menos que
   se solicite anonimato.

@@ -1,19 +1,19 @@
 name: langfuse
-repo: https://github.com/NousResearch/vetri-official-plugins
-sha: c2a95963c442f3f23e4bc6fe0da898e1dd1fb63d
+repo: https://github.com/pugazh342/vetri-official-plugins
+sha: 085551ef5c6c4835db0db36094a3159ff4e2da68
 subdir: langfuse
 description: 'Langfuse observability for Vetri: one trace per turn, one generation per LLM call (usage
   and cost from Vetri'' own pricing, cache and reasoning tokens included), one observation per tool
   call and subagent. Content capture is sanitized by default (metadata-only and full are opt-in); sends
   traces only to the Langfuse project whose keys you set. Formerly built into Vetri core as
   observability/langfuse; existing users are migrated automatically.'
-maintainer: NousResearch
+maintainer: Pugazhmani K
 tier: official
 category: general
-requires_vetri: ">=0.21.7"
+requires_vetri: ">=0.1.0"
 version: "2.0.0"
-image: https://raw.githubusercontent.com/NousResearch/vetri-official-plugins/c2a95963c442f3f23e4bc6fe0da898e1dd1fb63d/assets/langfuse.jpg
-docs_url: https://github.com/NousResearch/vetri-official-plugins/tree/main/langfuse
+image: https://raw.githubusercontent.com/pugazh342/vetri-official-plugins/c2a95963c442f3f23e4bc6fe0da898e1dd1fb63d/assets/langfuse.jpg
+docs_url: https://github.com/pugazh342/vetri-official-plugins/tree/main/langfuse
 platforms: []
 capabilities:
   provides_tools: []

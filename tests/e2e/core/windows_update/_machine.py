@@ -72,9 +72,9 @@ UPDATE_TIMEOUT = 1200.0
 CMD_TIMEOUT = 300.0
 GATEWAY_READY_TIMEOUT = 240.0
 CANONICAL_URLS = (
-    "https://github.com/NousResearch/vetri-agent.git",
-    "https://github.com/NousResearch/vetri-agent",
-    "git@github.com:NousResearch/vetri-agent.git",
+    "https://github.com/pugazh342/Agent-Vetri.git",
+    "https://github.com/pugazh342/Agent-Vetri",
+    "git@github.com:pugazh342/Agent-Vetri.git",
 )
 NEXT_MARKER = ".vetri-e2e-next"
 # Captured before any machine strips PATH: harness plumbing (serve.git, rev-parse) only.

@@ -513,9 +513,9 @@ def commit_prefix_for(commit: str) -> str:
 
 
 # Public download origin for object keys. CI supplies the authoritative
-# value as CLOUDFLARE_R2_PUBLIC_URL; the documented production origin is the
-# fallback so a local command can still name a page it is about to publish.
-DEFAULT_PUBLIC_URL = "https://hermes-assets.nousresearch.com"
+# value as CLOUDFLARE_R2_PUBLIC_URL; the documented GitHub Pages origin is
+# the fallback so a local command can still name a page it is about to publish.
+DEFAULT_PUBLIC_URL = "https://pugazh342.github.io/Agent-Vetri"
 
 
 def public_base_url(explicit: str | None = None) -> str:

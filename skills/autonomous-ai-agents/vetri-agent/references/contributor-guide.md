@@ -1,6 +1,6 @@
 # Contributor Quick Reference
 
-For occasional contributors and PR authors. Full developer docs: https://hermes-agent.nousresearch.com/docs/developer-guide/
+For occasional contributors and PR authors. Full developer docs: https://pugazh342.github.io/Agent-Vetri/docs/developer-guide/
 
 ### Project Layout
 

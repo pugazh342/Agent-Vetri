@@ -1,6 +1,6 @@
 # Spotify
 
-Vetri can control Spotify — playback, queue, search, playlists, saved tracks/albums, and listening history — through the official **`spotify` plugin** from the [plugin catalog](./plugins.md). It uses Spotify's Web API with PKCE OAuth. The plugin is maintained by Nous Research in [NousResearch/vetri-official-plugins](https://github.com/NousResearch/vetri-official-plugins/tree/main/spotify) and is not part of Vetri core. Tokens are stored in `~/.vetri/auth.json` and refreshed automatically on 401; you only log in once per machine (refresh tokens expire after ~6 months; re-run `vetri spotify login` when they do).
+Vetri can control Spotify — playback, queue, search, playlists, saved tracks/albums, and listening history — through the official **`spotify` plugin** from the [plugin catalog](./plugins.md). It uses Spotify's Web API with PKCE OAuth. The plugin is maintained by Pugazhmani K in [pugazh342/vetri-official-plugins](https://github.com/pugazh342/vetri-official-plugins/tree/main/spotify) and is not part of Vetri core. Tokens are stored in `~/.vetri/auth.json` and refreshed automatically on 401; you only log in once per machine (refresh tokens expire after ~6 months; re-run `vetri spotify login` when they do).
 
 Unlike Vetri' built-in OAuth integrations, Spotify requires every user to register their own lightweight developer app. Spotify does not let third parties ship a public OAuth app that anyone can use. It takes about two minutes and `vetri spotify login` walks you through it.
 

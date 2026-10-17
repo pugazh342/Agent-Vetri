@@ -15,7 +15,7 @@ description: >-
 maintainer: AhmetArif0
 tier: community
 category: models
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/AhmetArif0/vetri-groq-provider
 version: "1.0.0"
 image: https://raw.githubusercontent.com/AhmetArif0/vetri-groq-provider/b5be0388c2b4cae8ed6a30c7371aaa1330731ee8/docs/card.png

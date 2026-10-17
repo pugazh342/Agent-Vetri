@@ -8,7 +8,7 @@ own; each cell then publishes a NEW upstream commit (or a new release record), s
 a real fetch, checkout and rebuild, never the "already current" branch.
 
 After the seed the sandbox loses the ``insteadOf`` rewrite: the checkout's origin is the official
-``https://github.com/NousResearch/vetri-agent.git`` again, and inside the namespace the only way
+``https://github.com/pugazh342/Agent-Vetri.git`` again, and inside the namespace the only way
 to reach it is the test's proxy, which routes ``github.com`` to a git smart-HTTP server over the
 same bare origin. The partial clone (``--filter=blob:none``) makes every lazy blob fetch of the
 checkout cross that proxy too.
@@ -35,8 +35,8 @@ from tests.e2e.core.upgrade import _helpers as H
 from tests.e2e.core.upgrade import _install_helpers as I
 from tests.e2e.core.upgrade.network import _netedge as N
 
-ASSETS = "hermes-assets.nousresearch.com"
-REPOSITORY = "NousResearch/vetri-agent"
+ASSETS = "pugazh342.github.io"
+REPOSITORY = "pugazh342/Agent-Vetri"
 # Hosts a correctly isolated update must never reach directly; with the proxy they appear in
 # the proxy log as "refused" (the proxy has no route for them).
 PUBLIC_INDEXES = ("pypi.org", "files.pythonhosted.org", "registry.npmjs.org")
@@ -214,7 +214,7 @@ def assert_isolated(inst: Installed) -> None:
     probe = (
         "import socket,sys\n"
         "bad=[]\n"
-        "for host in ('github.com','pypi.org','hermes-assets.nousresearch.com'):\n"
+        "for host in ('github.com','pypi.org','pugazh342.github.io'):\n"
         "    try: socket.getaddrinfo(host,443); bad.append('dns:'+host)\n"
         "    except OSError: pass\n"
         "for ip in ('140.82.112.3','1.1.1.1'):\n"
@@ -232,7 +232,7 @@ def assert_isolated(inst: Installed) -> None:
 
 
 # ---------------------------------------------------------------------------
-# Release-channel records (the R2 objects under https://hermes-assets.nousresearch.com/).
+# Release-channel records (the R2 objects under https://pugazh342.github.io/Agent-Vetri/).
 # ---------------------------------------------------------------------------
 
 def canonical(value: object) -> bytes:

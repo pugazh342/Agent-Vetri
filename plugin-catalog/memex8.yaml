@@ -7,7 +7,7 @@ description: "Self-hosted vector memory (Qdrant + TurboQuant compression) with a
 maintainer: Ex8-ca
 tier: community
 category: memory
-requires_vetri: ">=0.21.4"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/Ex8-ca/memex8/blob/main/plugins/memex8/README.md
 image: https://raw.githubusercontent.com/Ex8-ca/memex8/9f30627c7d7f35d44e0b6aa73e81417482d5bdb9/plugins/memex8/docs/banner.png
 capabilities:

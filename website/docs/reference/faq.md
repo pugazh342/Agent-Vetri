@@ -211,7 +211,7 @@ source ~/.bashrc
 # If you previously installed with sudo, clean up:
 sudo rm /usr/local/bin/vetri
 # Then re-run the standard installer
-curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/pugazh342/Agent-Vetri/main/scripts/install.sh | bash
 ```
 
 ---
@@ -653,9 +653,9 @@ If an MCP server crashes mid-request, Vetri will report a timeout. Check the ser
 
 #### The Skills Hub page won't load in the desktop app (403 / blocked)
 
-**Cause:** The docs site (`hermes-agent.nousresearch.com`) is served through Vercel, whose WAF denies some residential IP ranges it considers flagged. If your network is on such a range, every request to the domain returns a 403 block page.
+**Cause:** The docs site (`pugazh342.github.io`) is served through Vercel, whose WAF denies some residential IP ranges it considers flagged. If your network is on such a range, every request to the domain returns a 403 block page.
 
-**Solution:** The Skills Hub picker probes the primary domain and automatically falls back to the equivalent GitHub Pages deployment (`nousresearch.github.io/vetri-agent`), which serves the same catalog. If the page still fails on both origins, check whether a proxy, DNS filter, or firewall is blocking both hosts — and report the affected range to the maintainers so it can be reviewed on the deployment side.
+**Solution:** The Skills Hub picker probes the primary domain and automatically falls back to the equivalent GitHub Pages deployment (`pugazh342.github.io/Agent-Vetri`), which serves the same catalog. If the page still fails on both origins, check whether a proxy, DNS filter, or firewall is blocking both hosts — and report the affected range to the maintainers so it can be reviewed on the deployment side.
 
 ---
 
@@ -802,7 +802,7 @@ Skills with very long descriptions are truncated to 40 characters in the Telegra
 
 1. Install Vetri Agent on the new machine:
    ```bash
-   curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+   curl -fsSL https://raw.githubusercontent.com/pugazh342/Agent-Vetri/main/scripts/install.sh | bash
    ```
 
 2. On the **source machine**, create a full backup:
@@ -924,6 +924,6 @@ If using OpenRouter, make sure your API key has credits. A 400 from OpenRouter o
 
 If your issue isn't covered here:
 
-1. **Search existing issues:** [GitHub Issues](https://github.com/NousResearch/vetri-agent/issues)
-2. **Ask the community:** [Nous Research Discord](https://discord.gg/nousresearch)
+1. **Search existing issues:** [GitHub Issues](https://github.com/pugazh342/Agent-Vetri/issues)
+2. **Ask the community:** [GitHub Discussions](https://github.com/pugazh342/Agent-Vetri/discussions)
 3. **File a bug report:** Include your OS, Python version (`python3 --version`), Vetri version (`vetri --version`), and the full error message

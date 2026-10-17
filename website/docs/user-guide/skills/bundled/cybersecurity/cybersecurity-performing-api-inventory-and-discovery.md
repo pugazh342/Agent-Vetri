@@ -257,7 +257,7 @@ def extract_apis_from_javascript(js_urls):
 def find_js_files(domain):
     """Discover JavaScript files from a web application."""
     resp = requests.get(f"https://{domain}", timeout=10)
-    js_files = re.findall(r'src=["\'](https://github.com/NousResearch/vetri-agent/blob/main/skills/cybersecurity/performing-api-inventory-and-discovery/[^"\']+\.js[^"\']*)', resp.text)
+    js_files = re.findall(r'src=["\'](https://github.com/pugazh342/Agent-Vetri/blob/main/skills/cybersecurity/performing-api-inventory-and-discovery/[^"\']+\.js[^"\']*)', resp.text)
     full_urls = []
     for js in js_files:
         if js.startswith("http"):

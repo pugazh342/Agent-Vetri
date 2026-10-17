@@ -27,7 +27,7 @@ description: 'Claude Code-style plan mode on every interactive Vetri surface: /p
 maintainer: 100yenadmin
 tier: community
 category: tools
-requires_vetri: '>=0.21.3'
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/100yenadmin/vetri-plan-mode#readme
 version: "0.4.4"
 image: https://raw.githubusercontent.com/100yenadmin/vetri-plan-mode/9cd020105ac76409af164262195f8de77eace8a0/docs/media/banner.png

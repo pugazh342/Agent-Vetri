@@ -5,7 +5,7 @@ description: "Deterministic, local-first analysis of your own Apple Health data 
 maintainer: mwdearing
 tier: community
 category: tools
-requires_vetri: '>=0.20'
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/mwdearing/vetri-health-insights#readme
 version: 0.3.2
 platforms: []

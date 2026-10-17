@@ -5,7 +5,7 @@ description: "Read-only diagnostics for Vetri configuration: /vetri-doctor in-se
 maintainer: iap
 tier: community
 category: tools
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 version: "0.7.1"
 platforms: []
 capabilities:

@@ -311,16 +311,15 @@ describe('BootFailureOverlay', () => {
       // Cloud-specific title + actionable recovery instead of the generic
       // remote-failure copy.
       expect(await screen.findByText(/Nous Cloud agent is down/i)).toBeTruthy()
-      // Portal and Discord are dedicated action buttons (localized labels
-      // can't drift the URLs, which live in code).
+      // Portal is a dedicated action button (localized labels
+      // can't drift the URL, which lives in code).
       expect(screen.getByRole('button', { name: /check portal status/i })).toBeTruthy()
-      expect(screen.getByRole('button', { name: /get help on discord/i })).toBeTruthy()
       // Cloud-down is a remote failure: local-only Repair is dropped; the
       // actionable paths are Gateway settings + Use local gateway.
       expect(screen.queryByRole('button', { name: /repair/i })).toBeNull()
       expect(screen.getByRole('button', { name: /gateway settings/i })).toBeTruthy()
       expect(screen.getByRole('button', { name: /use local gateway/i })).toBeTruthy()
-      // The electron-built error message (portal / local mode / Discord) is
+      // The electron-built error message (portal / local mode) is
       // still surfaced in the error box.
       expect(screen.getByText(/ares-3009\.agents\.nousresearch\.com/i)).toBeTruthy()
     } finally {
@@ -361,7 +360,7 @@ describe('BootFailureOverlay', () => {
 
       fireEvent.click(screen.getByRole('button', { name: /reinstall the app/i }))
       await waitFor(() =>
-        expect(openExternal).toHaveBeenCalledWith('https://hermes-agent.nousresearch.com/docs/user-guide/desktop')
+        expect(openExternal).toHaveBeenCalledWith('https://pugazh342.github.io/Agent-Vetri/docs/user-guide/desktop')
       )
     } finally {
       restore()

@@ -27,7 +27,7 @@ Vetri 的 Termux 软件包适用于 aarch64（arm64-v8a）设备，目前处于�
    ```bash
    mkdir -p "$PREFIX/etc/apt/keyrings"
    curl -fsSL \
-     https://hermes-assets.nousresearch.com/releases/termux/canary/key.asc \
+     https://pugazh342.github.io/Agent-Vetri/releases/termux/canary/key.asc \
      -o "$PREFIX/etc/apt/keyrings/vetri-agent.asc"
    ```
 
@@ -49,7 +49,7 @@ Vetri 的 Termux 软件包适用于 aarch64（arm64-v8a）设备，目前处于�
 
    ```bash
    printf '%s\n' \
-     "deb [signed-by=$PREFIX/etc/apt/keyrings/vetri-agent.asc] https://hermes-assets.nousresearch.com/releases/termux/canary vetri-canary main" \
+     "deb [signed-by=$PREFIX/etc/apt/keyrings/vetri-agent.asc] https://pugazh342.github.io/Agent-Vetri/releases/termux/canary vetri-canary main" \
      > "$PREFIX/etc/apt/sources.list.d/vetri-agent.list"
    ```
 

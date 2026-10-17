@@ -5,7 +5,7 @@ description: "Session pane for Vetri Desktop: Firefox-style session groups with 
 maintainer: "AGANTILA — Deniz Yilmaz <info@agantila.com>"
 tier: community
 category: desktop
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/agantila/session-flow#readme
 version: "1.29.1"
 image: https://raw.githubusercontent.com/agantila/session-flow/359f9afecb5872fe0864eec79867a4dfa4d88d33/docs/marketing/sf-catalog-banner-2x1.png

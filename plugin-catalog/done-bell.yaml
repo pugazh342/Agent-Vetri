@@ -7,7 +7,7 @@ description: Ring when a Vetri turn finishes so you can leave the window. OS
 maintainer: aydnOktay
 tier: community
 category: desktop
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/aydnOktay/vetri-done-bell-
 version: "0.1.0"
 platforms: []

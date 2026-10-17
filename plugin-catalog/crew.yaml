@@ -5,7 +5,7 @@ description: "One /crew message becomes verified work on the kanban board. A coo
 maintainer: macd2
 tier: community
 category: automation
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/macd2/Crew#readme
 version: "0.9.7"
 image: https://raw.githubusercontent.com/macd2/Crew/2485e745f756da366db6943ff46b7e9c31f31ed9/assets/banner.png

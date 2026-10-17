@@ -3,7 +3,7 @@ name: neuroskill-bci
 description: "Use live BCI cognitive and mood state from NeuroSkill."
 platforms: [linux, macos, windows]
 version: 1.0.0
-author: Vetri Agent + Nous Research
+author: Vetri Agent
 license: MIT
 metadata:
   vetri:

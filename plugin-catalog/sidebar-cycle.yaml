@@ -6,7 +6,7 @@ description: 'Step through Vetri Desktop sidebar sessions in on-screen order wit
 maintainer: devseunggwan
 tier: community
 category: desktop
-requires_vetri: '>=0.21.5'
+requires_vetri: ">=0.1.0"
 version: '0.1.0'
 docs_url: https://github.com/devseunggwan/vetri-sidebar-cycle
 platforms: []

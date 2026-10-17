@@ -274,7 +274,7 @@ describe('CapabilitiesView toolset management', { timeout: 60_000 }, () => {
       window.dispatchEvent(
         new MessageEvent('message', {
           data: { type: 'vetri-skill-pick', name: 'web-research', identifier: 'web-research' },
-          origin: 'https://hermes-agent.nousresearch.com'
+          origin: 'https://pugazh342.github.io/Agent-Vetri'
         })
       )
     })

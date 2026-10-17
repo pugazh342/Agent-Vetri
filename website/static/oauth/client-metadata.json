@@ -1,8 +1,8 @@
 {
-  "client_id": "https://nousresearch.github.io/vetri-agent/docs/oauth/client-metadata.json",
+  "client_id": "https://pugazh342.github.io/Agent-Vetri/docs/oauth/client-metadata.json",
   "client_name": "Vetri Agent",
-  "client_uri": "https://hermes-agent.nousresearch.com",
-  "logo_uri": "https://nousresearch.github.io/vetri-agent/docs/img/logo.png",
+  "client_uri": "https://github.com/pugazh342/Agent-Vetri",
+  "logo_uri": "https://pugazh342.github.io/Agent-Vetri/docs/img/logo.png",
   "application_type": "native",
   "grant_types": ["authorization_code", "refresh_token"],
   "response_types": ["code"],

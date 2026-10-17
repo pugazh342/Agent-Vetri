@@ -20,7 +20,7 @@ set -u
 # hygiene can't break the locked sync the way it used to before pm owned it.
 export UV_NO_CONFIG=1
 
-REPO_URL="${VETRI_REPO_URL:-https://github.com/NousResearch/vetri-agent.git}"
+REPO_URL="${VETRI_REPO_URL:-https://github.com/pugazh342/Agent-Vetri.git}"
 BRANCH="main"
 INSTALL_COMMIT=""
 INSTALL_DIR="${VETRI_INSTALL_DIR:-}"
@@ -181,7 +181,7 @@ print_banner() {
     printf '%s\n' "┌─────────────────────────────────────────────────────────┐"
     printf '%s\n' "│             ⬢ Vetri Agent Installer                    │"
     printf '%s\n' "├─────────────────────────────────────────────────────────┤"
-    printf '%s\n' "│  An open source AI agent by Nous Research.              │"
+    printf '%s\n' "│  An open source AI agent by Pugazhmani K.               │"
     printf '%s\n' "└─────────────────────────────────────────────────────────┘"
     printf '%s\n' "$C_NC"
 }
@@ -263,32 +263,32 @@ uv_bootstrap_pin() {
     case "$1" in
         linux-x64)
             UV_PIN_URL="https://github.com/astral-sh/uv/releases/download/0.12.3/uv-x86_64-unknown-linux-gnu.tar.gz"
-            UV_PIN_MIRROR="https://hermes-assets.nousresearch.com/upstream/sha256/600cf9a742aca00d292673b16b5acffaa7b8c269a364ad0c2e79498dcb1fe101"
+            UV_PIN_MIRROR=""
             UV_PIN_SHA256="600cf9a742aca00d292673b16b5acffaa7b8c269a364ad0c2e79498dcb1fe101"
             ;;
         linux-arm64)
             UV_PIN_URL="https://github.com/astral-sh/uv/releases/download/0.12.3/uv-aarch64-unknown-linux-gnu.tar.gz"
-            UV_PIN_MIRROR="https://hermes-assets.nousresearch.com/upstream/sha256/bb66cb52e7b1823aed1183630d8d8e5c958840d584a4c55ec10a4cfc168dcca2"
+            UV_PIN_MIRROR=""
             UV_PIN_SHA256="bb66cb52e7b1823aed1183630d8d8e5c958840d584a4c55ec10a4cfc168dcca2"
             ;;
         linux-x64-musl)
             UV_PIN_URL="https://github.com/astral-sh/uv/releases/download/0.12.3/uv-x86_64-unknown-linux-musl.tar.gz"
-            UV_PIN_MIRROR="https://hermes-assets.nousresearch.com/upstream/sha256/0643b9fb8c9fb27458e709ce6ff939695013c41975ff7b02d3f3b138d8d4bdb3"
+            UV_PIN_MIRROR=""
             UV_PIN_SHA256="0643b9fb8c9fb27458e709ce6ff939695013c41975ff7b02d3f3b138d8d4bdb3"
             ;;
         linux-arm64-musl)
             UV_PIN_URL="https://github.com/astral-sh/uv/releases/download/0.12.3/uv-aarch64-unknown-linux-musl.tar.gz"
-            UV_PIN_MIRROR="https://hermes-assets.nousresearch.com/upstream/sha256/fa513fca1eb2913334c944fe9adbdd410274a1cbe8dd05d03699a9eb85311d4e"
+            UV_PIN_MIRROR=""
             UV_PIN_SHA256="fa513fca1eb2913334c944fe9adbdd410274a1cbe8dd05d03699a9eb85311d4e"
             ;;
         darwin-x64)
             UV_PIN_URL="https://github.com/astral-sh/uv/releases/download/0.12.3/uv-x86_64-apple-darwin.tar.gz"
-            UV_PIN_MIRROR="https://hermes-assets.nousresearch.com/upstream/sha256/4c9f52262a14da336e4a42ed24992d12d0c956acde87619e4611d321dffa602b"
+            UV_PIN_MIRROR=""
             UV_PIN_SHA256="4c9f52262a14da336e4a42ed24992d12d0c956acde87619e4611d321dffa602b"
             ;;
         darwin-arm64)
             UV_PIN_URL="https://github.com/astral-sh/uv/releases/download/0.12.3/uv-aarch64-apple-darwin.tar.gz"
-            UV_PIN_MIRROR="https://hermes-assets.nousresearch.com/upstream/sha256/546f7f8a6c70ff13a3a9d2bc958db3427298cebf3e0cb756f9177133b7068843"
+            UV_PIN_MIRROR=""
             UV_PIN_SHA256="546f7f8a6c70ff13a3a9d2bc958db3427298cebf3e0cb756f9177133b7068843"
             ;;
         *)
@@ -424,7 +424,7 @@ check_platform() {
     # install the phone cannot run (no Android wheels in the lock). The
     # signed APT package is the only supported shape there.
     if [ -n "${TERMUX_VERSION:-}" ] || case "${PREFIX:-}" in *com.termux/files/usr*) true ;; *) false ;; esac; then
-        fail "Termux is installed from its APT repository, not install.sh: pkg install vetri-agent (setup: https://hermes-agent.nousresearch.com/docs/getting-started/termux)" unsupported_platform
+        fail "Termux is installed from its APT repository, not install.sh: pkg install vetri-agent (setup: https://pugazh342.github.io/Agent-Vetri/docs/getting-started/termux)" unsupported_platform
     fi
     case "$(uname -s 2>/dev/null)" in
         Linux*) : ;;

@@ -8,7 +8,7 @@ description: >-
 maintainer: georgeatparallel
 tier: community
 category: web
-requires_vetri: ">=0.20.1"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/parallel-web/search-mcp#vetri-agent
 version: "0.1.2"
 platforms: []

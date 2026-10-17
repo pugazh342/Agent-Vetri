@@ -17,7 +17,7 @@ Import an OpenClaw setup (memories, skills) into Vetri.
 | Source | Optional — install with `vetri skills install official/migration/openclaw-migration` |
 | Path | `optional-skills/migration/openclaw-migration` |
 | Version | `1.0.0` |
-| Author | Vetri Agent (Nous Research) |
+| Author | Vetri Agent |
 | License | MIT |
 | Platforms | linux, macos, windows |
 | Tags | `Migration`, `OpenClaw`, `Vetri`, `Memory`, `Persona`, `Import` |

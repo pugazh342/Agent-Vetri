@@ -81,7 +81,7 @@ python $VETRI_HOME/skills/devops/watchers/scripts/watch_rss.py \
 
 ```bash
 python $VETRI_HOME/skills/devops/watchers/scripts/watch_github.py \
-  --name vetri-issues --repo NousResearch/vetri-agent --scope issues
+  --name vetri-issues --repo pugazh342/Agent-Vetri --scope issues
 ```
 
 轮询任意 JSON API：

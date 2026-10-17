@@ -165,7 +165,7 @@ You can set `providers.<id>.request_timeout_seconds` for a provider-wide request
 
 You can also set `providers.<id>.stale_timeout_seconds` for the non-streaming stale-call detector, plus `providers.<id>.models.<model>.stale_timeout_seconds` for a model-specific override. This wins over the legacy `VETRI_API_CALL_STALE_TIMEOUT` env var. The same key is the streaming stale-stream deadline: an explicit value is used as-is — the implicit context-size tiers (240s above 50k tokens, 300s above 100k) and the reasoning-model floors apply only to the 180s default, so an explicit value can shorten how long a hung stream is tolerated.
 
-Leaving these unset keeps the legacy defaults (`VETRI_API_TIMEOUT=1800`s, `VETRI_API_CALL_STALE_TIMEOUT=90`s, native Anthropic 900s). The non-streaming stale detector is auto-disabled for local endpoints when left implicit and can scale upward for very large contexts. Not currently wired for AWS Bedrock (both `bedrock_converse` and AnthropicBedrock SDK paths use boto3 with its own timeout configuration). See the commented example in [`cli-config.yaml.example`](https://github.com/NousResearch/vetri-agent/blob/main/cli-config.yaml.example).
+Leaving these unset keeps the legacy defaults (`VETRI_API_TIMEOUT=1800`s, `VETRI_API_CALL_STALE_TIMEOUT=90`s, native Anthropic 900s). The non-streaming stale detector is auto-disabled for local endpoints when left implicit and can scale upward for very large contexts. Not currently wired for AWS Bedrock (both `bedrock_converse` and AnthropicBedrock SDK paths use boto3 with its own timeout configuration). See the commented example in [`cli-config.yaml.example`](https://github.com/pugazh342/Agent-Vetri/blob/main/cli-config.yaml.example).
 
 ## Update Behavior
 
@@ -232,9 +232,9 @@ terminal:
   home_mode: auto   # auto | real | profile — subprocess HOME policy
   env_passthrough: []  # Env var names to forward to sandboxed execution (terminal + execute_code)
   sync_back_max_bytes: 2147483648  # Remote backends: refuse to extract a state archive larger than this (bytes)
-  singularity_image: "docker://nousresearch/vetri-sandbox:desktop"  # Container image for Singularity backend
-  modal_image: "nousresearch/vetri-sandbox:desktop"                 # Container image for Modal backend
-  daytona_image: "nousresearch/vetri-sandbox:desktop"               # Container image for Daytona backend
+  singularity_image: "docker://pugazh342/agent-vetri-sandbox:desktop"  # Container image for Singularity backend
+  modal_image: "pugazh342/agent-vetri-sandbox:desktop"                 # Container image for Modal backend
+  daytona_image: "pugazh342/agent-vetri-sandbox:desktop"               # Container image for Daytona backend
 ```
 
 `terminal.temp_dir` controls where Vetri puts session temp artifacts on the
@@ -359,7 +359,7 @@ terminal:
   # Any other image works for shell work; the screen then needs bot_desktop.placement: gateway.
   # Writing this key is a decision: a persisted container on another image is recreated on the next
   # terminal call. Left unset, an existing container is kept and the CLI / Screen pane ask first.
-  docker_image: "nousresearch/vetri-sandbox:desktop"
+  docker_image: "pugazh342/agent-vetri-sandbox:desktop"
   docker_mount_cwd_to_workspace: false  # Mount launch dir into /workspace
   docker_run_as_host_user: false   # See "Running container as host user" below
   docker_snap_compat: false        # See "Snap-packaged Docker (AppArmor)" below
@@ -591,7 +591,7 @@ Runs commands in a [Singularity/Apptainer](https://apptainer.org) container. Des
 ```yaml
 terminal:
   backend: singularity
-  singularity_image: "docker://nousresearch/vetri-sandbox:desktop"
+  singularity_image: "docker://pugazh342/agent-vetri-sandbox:desktop"
   container_cpu: 1                 # CPU cores
   container_memory: 5120           # MB
   container_persistent: true       # Writable overlay persists across sessions
@@ -2433,7 +2433,7 @@ stt:
   cloud_trim_silence: true     # trim long pauses with ffmpeg before uploading to a cloud provider (default: true)
   cloud_trim_threshold_db: -40 # audio quieter than this counts as silence
   cloud_trim_keep_ms: 300      # how much of each pause survives the trim (keeps natural pacing)
-  # prompt: "Vetri, Teknium, Nous Research, kanban"   # Static vocabulary hint (see below)
+  # prompt: "Vetri, Teknium, Pugazhmani, kanban"   # Static vocabulary hint (see below)
   local:
     model: "base"              # tiny, base, small, medium, large-v3, turbo
     language: ""               # per-provider override of stt.language
@@ -2491,7 +2491,7 @@ STT_OPENAI_BASE_URL=https://api.openai.com/v1
 ```yaml
 stt:
   provider: "local"
-  prompt: "Vetri, Teknium, Nous Research, kanban, Ollama"
+  prompt: "Vetri, Teknium, Pugazhmani, kanban, Ollama"
 ```
 
 **Composition.** The config value is the base. Plugins that register the [`pre_transcription`](./features/hooks.md#pre_transcription) hook mutate on top of it, last-writer-wins per field. Multiple plugins' hints compose deterministically: plugin discovery loads plugins in sorted order by plugin id, and each plugin's callbacks run in its own registration order, so the same set of plugins always produces the same final prompt. A hook returning an empty string for `prompt` clears the config prompt for that request. Hooks may also override `language` and `model`; `file_path` is read-only and any attempt to change it is logged and dropped. With no hook registered and no `stt.prompt` set, the outgoing request is identical to previous releases.

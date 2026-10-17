@@ -5,7 +5,7 @@ description: Review pending Vetri memory writes and inspect, add, edit, delete, 
 maintainer: MarcosAlves90
 tier: community
 category: desktop
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 version: "1.7.3"
 screenshots:
   - https://raw.githubusercontent.com/MarcosAlves90/magi/f849295b63a8af55b7130467167b3b6dcc19be8a/docs/screenshots/magi-dashboard.png

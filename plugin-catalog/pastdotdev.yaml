@@ -7,7 +7,7 @@ description: "past.dev memory provider: recall before each turn from source-trac
 maintainer: pastdotdev
 tier: community
 category: memory
-requires_vetri: ">=0.21.0"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/pastdotdev/vetri-plugin#readme
 capabilities:
   provides_tools: []

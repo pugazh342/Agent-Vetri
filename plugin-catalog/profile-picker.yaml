@@ -5,7 +5,7 @@ description: "Pick the profile for a new chat right in the composer, next to the
 maintainer: weltmaister
 tier: community
 category: desktop
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/weltmaister/vetri-profile-picker#readme
 version: "1.1.0"
 platforms: []

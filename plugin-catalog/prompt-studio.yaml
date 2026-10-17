@@ -5,7 +5,7 @@ description: "Step-by-step prompt builder for Vetri Desktop (F4): option cards p
 maintainer: bwoliveira
 tier: community
 category: desktop
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/bwoliveira/prompt-studio#readme
 version: "1.9.0"
 image: https://raw.githubusercontent.com/bwoliveira/prompt-studio/ecead76f0b2ff4f46c09341c871e234eb1692a1a/docs/images/banner.png

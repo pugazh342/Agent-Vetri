@@ -6,7 +6,7 @@ description: "Guided Markdown and source-code review in Vetri Desktop — annota
 maintainer: silentpr0
 tier: community
 category: desktop
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 version: "0.2.0"
 image: "https://raw.githubusercontent.com/silentpr0/vetri-redline/3fffa9b5af77c31119fb6cf138279cdc5349540c/docs/banner.png"
 screenshots:

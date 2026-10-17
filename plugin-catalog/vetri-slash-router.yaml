@@ -5,7 +5,7 @@ description: "Jev-powered routing for misspelled, shortened, and meaning-based s
 maintainer: raitoxlol
 tier: community
 category: desktop
-requires_vetri: ">=0.21.2"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/raitoxlol/vetri-slash-router#readme
 version: "0.3.1"
 platforms: []

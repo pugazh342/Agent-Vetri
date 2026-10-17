@@ -6,7 +6,7 @@ description: Search mybot.farm, plant/reinstall Vetri packs (Desktop Recruit + C
 maintainer: badkangaroo
 tier: community
 category: tools
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 docs_url: https://mybot.farm/install/vetri
 version: "0.3.0"
 platforms: []

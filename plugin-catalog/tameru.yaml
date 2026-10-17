@@ -20,4 +20,4 @@ capabilities:
   provides_hooks: []
   provides_middleware: []
   requires_env: []
-requires_vetri: ">=0.21.7"
+requires_vetri: ">=0.1.0"

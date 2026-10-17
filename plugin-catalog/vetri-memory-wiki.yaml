@@ -1,14 +1,14 @@
 name: vetri-memory-wiki
-repo: https://github.com/NousResearch/vetri-official-plugins
-sha: abec9e822a23089943dd1d476a104bf746f19f86
+repo: https://github.com/pugazh342/vetri-official-plugins
+sha: 085551ef5c6c4835db0db36094a3159ff4e2da68
 subdir: memory-wiki
 description: 'Memory Wiki dashboard tab: browsable subject pages and daily logs derived from local session
   history, plus a read-only Persistent Memory (MEMORY.md / USER.md) audit panel.'
-maintainer: NousResearch
+maintainer: Pugazhmani K
 tier: official
-requires_vetri: ">=0.21"
-docs_url: https://github.com/NousResearch/vetri-official-plugins/tree/main/memory-wiki
-image: https://raw.githubusercontent.com/NousResearch/vetri-official-plugins/abec9e822a23089943dd1d476a104bf746f19f86/assets/memory-wiki.jpg
+requires_vetri: ">=0.1.0"
+docs_url: https://github.com/pugazh342/vetri-official-plugins/tree/main/memory-wiki
+image: https://raw.githubusercontent.com/pugazh342/vetri-official-plugins/abec9e822a23089943dd1d476a104bf746f19f86/assets/memory-wiki.jpg
 platforms: []
 capabilities:
   provides_tools: []

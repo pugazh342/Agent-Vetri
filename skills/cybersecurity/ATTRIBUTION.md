@@ -5,8 +5,8 @@ The skills in this directory are a curated subset (62 of 818) of
 by **Mahipal Jangra ([@mukul975](https://github.com/mukul975))**, licensed under the
 **[Apache License 2.0](https://github.com/mukul975/Anthropic-Cybersecurity-Skills/blob/main/LICENSE)**.
 
-- This is an independent community project. It is not affiliated with Anthropic PBC, and
-  the upstream Vetri project, or Nous Research.
+- This is an independent community project. It is not affiliated with Anthropic PBC or the
+  upstream Vetri project.
 - Skills are vendored unmodified (YAML frontmatter + Markdown workflow + helper scripts).
 - The full 818-skill library covers 34 security domains mapped to MITRE ATT&CK, NIST CSF 2.0,
   MITRE ATLAS, D3FEND, NIST AI RMF and MITRE F3. Activate more skills from the upstream repo

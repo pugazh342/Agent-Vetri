@@ -12,7 +12,7 @@ description: "HyAtlas v4 — self-hosted 8-layer memory provider backed by a pur
 maintainer: tuancookiez-hub
 tier: community
 category: memory
-requires_vetri: ">=0.21.4"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/tuancookiez-hub/HyAtlas-Memory/tree/39bdccc246023ee8bdc5c6a84c3134d86bb94550/plugins/hyatlas
 platforms:
   - linux

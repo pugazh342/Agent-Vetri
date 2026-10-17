@@ -1,7 +1,7 @@
 # Configuration, Toolsets & Voice
 
 Edit with `vetri config edit` or `vetri config set section.key value`.
-Full reference: https://hermes-agent.nousresearch.com/docs/user-guide/configuration
+Full reference: https://pugazh342.github.io/Agent-Vetri/docs/user-guide/configuration
 
 ### Config Sections (most-used keys)
 

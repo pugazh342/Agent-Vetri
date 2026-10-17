@@ -186,13 +186,13 @@ def _compute_git_banner_state(repo_dir: Optional[Path] = None) -> Optional[dict]
     return {"upstream": upstream, "local": local, "ahead": max(ahead, 0)}
 
 
-_RELEASE_URL_BASE = "https://github.com/NousResearch/vetri-agent/releases/tag"
+_RELEASE_URL_BASE = "https://github.com/pugazh342/Agent-Vetri/releases/tag"
 
 
 def get_latest_release_tag(repo_dir: Optional[Path] = None) -> Optional[tuple]:
     """Return ``(tag, release_url)`` for the latest local git tag, or None (a miss is cached too).
 
-    Release URL always points at the canonical NousResearch/vetri-agent repo (forks get no link).
+    Release URL always points at the canonical pugazh342/Agent-Vetri repo (forks get no link).
     """
     def _compute():
         rd = repo_dir or _resolve_repo_dir()
@@ -604,18 +604,18 @@ def _banner_left_lines(model: str, cwd: str, session_id, context_length, provide
     lines = []
     pin = " (pinned)" if context_pinned else ""
     ctx_str = _dim_sep(f"{_format_context_length(context_length)} context{pin}") if context_length else ""
-    nous_str = _dim_sep("Nous Research")
+    brand_str = _dim_sep("Pugazhmani K")
     if (provider or "").strip().lower() == "moa":
         # MoA virtual provider: ``model`` is a preset name; show it with its aggregator.
         agg_label = _quiet(lambda: _moa_aggregator_label(model), "")
         agg_str = _dim_sep(f"agg {agg_label}") if agg_label else ""
-        lines.append(f"[{accent}]MoA: {_short_label(model)}[/]{agg_str}{ctx_str}{nous_str}")
+        lines.append(f"[{accent}]MoA: {_short_label(model)}[/]{agg_str}{ctx_str}{brand_str}")
     elif not (model or "").strip() or (model or "").strip().lower() == "unknown":
         # Unconfigured install: the clearest place to say what is wrong and how to fix it.
         lines.append(f"[bold red]no model configured[/] [dim {dim}]— run /model or vetri setup[/]")
     else:
         model_short = model.split("/")[-1].removesuffix(".gguf")
-        lines.append(f"[{accent}]{_short_label(model_short)}[/]{ctx_str}{nous_str}")
+        lines.append(f"[{accent}]{_short_label(model_short)}[/]{ctx_str}{brand_str}")
     if os.getenv("VETRI_YOLO_MODE"):
         lines.append(f"[bold red]⚠ YOLO mode[/] [dim {dim}]— all approval prompts bypassed[/]")
     lines.append(f"[dim {dim}]open-source AI agent by[/]")

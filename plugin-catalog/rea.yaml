@@ -1,6 +1,6 @@
 name: rea
-repo: https://github.com/NousResearch/vetri-official-plugins
-sha: 3a102d9a387983e9c95bf84379d08fa2492b1de8
+repo: https://github.com/pugazh342/vetri-official-plugins
+sha: 085551ef5c6c4835db0db36094a3159ff4e2da68
 subdir: rea
 description: 'Reverse engineer programs with REA (rea.tools): native binaries, .NET assemblies,
   Electron/JavaScript apps, Android packages, firmware and browser/process activity, through
@@ -10,12 +10,12 @@ description: 'Reverse engineer programs with REA (rea.tools): native binaries, .
   Disclosure — a few REA tools run a command under a PTY, launch or drive an application, change
   a connected Android device or overwrite a chosen file, and Vetri does not prompt before them;
   the bundled skill tells the agent to ask first and to skip them in unattended runs.'
-maintainer: NousResearch
+maintainer: Pugazhmani K
 tier: official
 category: tools
-requires_vetri: ">=0.22.1"
-docs_url: https://github.com/NousResearch/vetri-official-plugins/tree/main/rea
-image: https://raw.githubusercontent.com/NousResearch/vetri-official-plugins/3a102d9a387983e9c95bf84379d08fa2492b1de8/assets/rea.jpg
+requires_vetri: ">=0.1.0"
+docs_url: https://github.com/pugazh342/vetri-official-plugins/tree/main/rea
+image: https://raw.githubusercontent.com/pugazh342/vetri-official-plugins/3a102d9a387983e9c95bf84379d08fa2492b1de8/assets/rea.jpg
 platforms: []
 capabilities:
   provides_tools: []

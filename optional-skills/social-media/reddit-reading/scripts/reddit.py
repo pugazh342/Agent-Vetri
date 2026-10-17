@@ -37,7 +37,7 @@ import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 
-USER_AGENT = "vetri-agent/1.0 (reddit-reading skill; +https://github.com/NousResearch/vetri-agent)"
+USER_AGENT = "vetri-agent/1.0 (reddit-reading skill; +https://github.com/pugazh342/Agent-Vetri)"
 TIMEOUT = 25
 ATOM = {"a": "http://www.w3.org/2005/Atom"}
 WWW = "https://www.reddit.com"

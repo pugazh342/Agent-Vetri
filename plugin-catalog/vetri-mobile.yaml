@@ -7,7 +7,7 @@ description: "WebSocket platform for your own mobile, desktop or web app: it tal
 maintainer: geniok1980
 tier: community
 category: platform
-requires_vetri: ">=0.21.6"
+requires_vetri: ">=0.1.0"
 docs_url: https://geniok1980.github.io/vetri-mobile-adapter/
 version: "1.0.0"
 capabilities:

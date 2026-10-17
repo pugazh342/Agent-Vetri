@@ -125,8 +125,9 @@ apps/desktop/release/
 apps/desktop/.staging-*/
 *.tsbuildinfo
 
-# Web UI assets — synced from @nous-research/ui at build time via
-# `npm run sync-assets` (see web/package.json).
+# Legacy copy of @vetri/ui fonts synced into public/ by older builds; fonts
+# now load from the package (@vetri/ui/styles/fonts.css). Keep ignored so an
+# old local copy never leaks into commits.
 web/public/fonts/
 web/public/ds-assets/
 

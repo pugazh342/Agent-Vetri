@@ -6,7 +6,7 @@ description: Dual-panel commander file browser for Vetri Desktop — whitelist-g
 maintainer: Andreas Hiltner
 tier: community
 category: desktop
-requires_vetri: ">=0.19"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/AndreasHiltner/vetri-filebox#readme
 image: https://raw.githubusercontent.com/AndreasHiltner/vetri-filebox/718c595d2737a5eecc9ab14c45cd6d8fa7d372a7/docs/banner.png
 readme: true

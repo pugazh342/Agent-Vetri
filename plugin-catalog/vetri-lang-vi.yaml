@@ -5,7 +5,7 @@ description: "Vietnamese (Tieng Viet) language pack for Vetri Agent — full UI 
 maintainer: moken627-hub
 tier: community
 category: general
-requires_vetri: '>=0.21.6'
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/moken627-hub/vetri-lang-vi#readme
 version: "1.1.1"
 platforms: []

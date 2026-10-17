@@ -28,7 +28,7 @@ description: "Kanban board groups and worker health in the Vetri Desktop footer:
 maintainer: djmango
 tier: community
 category: desktop
-requires_vetri: ">=0.21"
+requires_vetri: ">=0.1.0"
 platforms: [linux, macos]
 docs_url: https://github.com/djmango/vetri-worker-monitor
 screenshots: []

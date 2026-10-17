@@ -127,16 +127,18 @@ def test_disposable_scope_streams_lists_and_never_touches_production(r2_server, 
 
 # ── SigV4 vectors ───────────────────────────────────────────────────────────
 
+# The us-east-1/service vector is botocore-generated and anchors the scheme;
+# the auto/s3 vectors pin the R2 request shapes this repo actually sends.
 @pytest.mark.parametrize('method,path,query,payload,scope,signature', [
     ('GET', '/', {}, EMPTY_SHA, 'us-east-1/service',
      '33399fd3d4a9d6104710c7c04005f7c959f8b1f8bf41b823587ed36b079e453f'),
     ('PUT', '/vetri-releases/VetriBundled-0.28.0-win-x64.msix', {},
      '44ce7dd67c959e0d3524ffac1771dfbba87d2b6b4b4e99e42034a8b803f8b072', 'auto/s3',
-     '05ba50acfb54042fac330848af50877e5fb477c4f2063c2f77f9cc80855eb1e9'),
+     'a4b10dbd3814ec4f664676232cec9e5e396f9f6f2897b8d9458c2f8cd07f55f7'),
     ('GET', '/vetri-releases', {'list-type': '2', 'prefix': 'VetriBundled-0.28.0-', 'max-keys': '1000'},
-     EMPTY_SHA, 'auto/s3', '3ec423c452a318664c85fbcc25667ad07201aedce688e3bb6b345b4baaa39d90'),
+     EMPTY_SHA, 'auto/s3', '6e80f5fbad3437a863d97a966351710c694f4e48554b5e8c21f5a9ddb51e7050'),
     ('DELETE', '/vetri-releases/VetriBundled-0.28.0+canary.20260818T000000Z-win-arm64.msix', {},
-     EMPTY_SHA, 'auto/s3', '40dba7bf7356837cf496d950605dfc2c62d82ca2b30aa45c8c0dc8dab7bc1bd1'),
+     EMPTY_SHA, 'auto/s3', '3bf569413702a39af701527fe34d9872e1f88b778b9515e2cd0079876cd863b7'),
 ])
 def test_independent_sigv4_vectors(method, path, query, payload, scope, signature):
     host = 'example.com' if scope == 'us-east-1/service' else 'abc123.r2.cloudflarestorage.com'
@@ -215,21 +217,21 @@ def test_download_page_keys_and_public_urls():
 
 def test_public_base_url_precedence(monkeypatch):
     # Explicit value, then $CLOUDFLARE_R2_PUBLIC_URL, then the documented
-    # production origin — so a local command always names a real page.
+    # GitHub Pages origin - so a local command always names a real page.
     monkeypatch.delenv("CLOUDFLARE_R2_PUBLIC_URL", raising=False)
-    assert public_base_url() == "https://hermes-assets.nousresearch.com"
+    assert public_base_url() == "https://pugazh342.github.io/Agent-Vetri"
     monkeypatch.setenv("CLOUDFLARE_R2_PUBLIC_URL", "https://cdn.example.com")
     assert public_base_url() == "https://cdn.example.com"
     assert public_base_url("https://explicit.example.com/") == "https://explicit.example.com"
 
 
 def test_channel_public_base_defaults_to_production(monkeypatch):
-    # Unscoped channel administration names the same documented production
+    # Unscoped channel administration names the same documented GitHub Pages
     # origin the commit-build path falls back to; the public URL is not a
     # secret, so a local command should not have to hand-set it.
     monkeypatch.delenv("CLOUDFLARE_R2_PUBLIC_URL", raising=False)
     monkeypatch.delenv("R2_DISPOSABLE_RUN", raising=False)
-    assert channel_public_base() == "https://hermes-assets.nousresearch.com"
+    assert channel_public_base() == "https://pugazh342.github.io/Agent-Vetri"
     monkeypatch.setenv("CLOUDFLARE_R2_PUBLIC_URL", "https://cdn.example.com")
     assert channel_public_base() == "https://cdn.example.com"
     assert channel_public_base("https://explicit.example.com/") == "https://explicit.example.com"

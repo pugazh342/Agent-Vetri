@@ -5,7 +5,7 @@ description: "Durable non-blocking questions with exact answer binding and gatew
 maintainer: web3blind
 tier: community
 category: automation
-requires_vetri: ">=0.21.6"
+requires_vetri: ">=0.1.0"
 platforms: [linux, macos]
 version: "0.2.4"
 docs_url: https://github.com/web3blind/vetri-deferred-questions#readme

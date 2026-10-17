@@ -8,7 +8,7 @@ description: Reference another Vetri session in the Desktop composer with @sessi
 maintainer: kama-dev
 tier: community
 category: desktop
-requires_vetri: ">=0.21.0"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/kama-dev/vetri-session-ref#readme
 version: "0.1.1"
 platforms: []

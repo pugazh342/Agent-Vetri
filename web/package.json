@@ -1,7 +1,7 @@
 {
   "name": "web",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@vetri/shared": "file:../apps/shared",
-    "@nous-research/ui": "0.18.2",
+    "@vetri/ui": "file:../vendor/ui",
     "@observablehq/plot": "0.6.17",
     "@react-three/fiber": "9.6.1",
     "@tailwindcss/vite": "4.3.3",

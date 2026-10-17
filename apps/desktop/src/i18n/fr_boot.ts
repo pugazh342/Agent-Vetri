@@ -66,7 +66,6 @@ export const frBoot = {
       cloudDownHint:
         "Les boutons ci-dessous ouvrent le portail Nous, pour consulter et contrôler l'instance, ainsi que notre Discord pour obtenir de l'aide.",
       cloudDownCheckPortal: "Vérifier l'état sur le portail",
-      cloudDownDiscord: "Obtenir de l'aide sur Discord",
       hideRecentLogs: 'Masquer les journaux récents',
       showRecentLogs: 'Afficher les journaux récents',
       signedInTitle: 'Connecté',

@@ -6,7 +6,7 @@ description: "Private AgentPlaybooks memory for Vetri: native recall, explicit m
 maintainer: matebenyovszky
 tier: community
 category: memory
-requires_vetri: ">=0.21.4"
+requires_vetri: ">=0.1.0"
 version: "0.2.0"
 docs_url: https://github.com/matebenyovszky/agentplaybooks/tree/819c3491d83c0371b678e2ccd7e95679b8a7d288/packages/vetri-memory/agentplaybooks
 image: https://raw.githubusercontent.com/matebenyovszky/agentplaybooks/819c3491d83c0371b678e2ccd7e95679b8a7d288/public/plugin-catalog/vetri-memory.png

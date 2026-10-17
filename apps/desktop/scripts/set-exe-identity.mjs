@@ -88,8 +88,8 @@ async function stampExeIdentity(
     'version-string': {
       ProductName: 'Vetri',
       FileDescription: 'Vetri',
-      CompanyName: 'Nous Research',
-      LegalCopyright: 'Copyright (c) 2026 Nous Research'
+      CompanyName: 'Pugazhmani K',
+      LegalCopyright: 'Copyright (c) 2026 Pugazhmani K'
     }
   }
 

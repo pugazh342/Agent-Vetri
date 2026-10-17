@@ -4,7 +4,7 @@
 
 [project]
 name = "vetri-agent"
-version = "0.2.0"
+version = "0.3.0"
 description = "The self-improving AI agent — creates skills from experience, improves them during use, and runs anywhere"
 readme = "README.md"
 # 3.14 is the newest python we know we have wheels for.
@@ -13,7 +13,7 @@ readme = "README.md"
 # Shortly after they do, we update to our latest python.
 # See tests/compat/README.md for the updater contract this keeps.
 requires-python = ">=3.11,<3.15"
-authors = [{ name = "Nous Research" }]
+authors = [{ name = "Pugazhmani K" }]
 license = "MIT"
 license-files = ["LICENSE"]
 dependencies = [
@@ -249,7 +249,7 @@ kittentts = [
   # raised to <3.15. Declaring it here makes KittenTTS's transitive
   # requirement resolve to the fork. Drop this line when upstream misaki
   # publishes a release that allows 3.14.
-  "misaki[en] @ git+https://github.com/NousResearch/misaki.git@f03fd2be7346952a83d3d4845c217fc7667f322d ; (platform_machine != 'ARM64' or sys_platform != 'win32') and (platform_machine != 'x86_64' or sys_platform != 'darwin')",
+  "misaki[en] @ git+https://github.com/hexgrad/misaki.git@f03fd2be7346952a83d3d4845c217fc7667f322d ; (platform_machine != 'ARM64' or sys_platform != 'win32') and (platform_machine != 'x86_64' or sys_platform != 'darwin')",
   "soundfile==0.14.0; (platform_machine != 'ARM64' or sys_platform != 'win32') and (platform_machine != 'x86_64' or sys_platform != 'darwin')",
 ]
 # onnxruntime has no Intel macOS wheel. Piper has no Windows ARM64 wheel.

@@ -84,7 +84,7 @@ edges, conservative at the waist.
   SaaS connectors, analytics dashboards, and other "someone else's product" plugins do NOT
   land under `plugins/` — every one becomes our burden against a fast-moving core for a
   backend we don't own. Ship as a **standalone plugin repo** (`~/.vetri/plugins/` or pip
-  entry point), promoted in the Nous Research Discord `#plugins-skills-and-skins`. This is a
+  entry point), promoted in the project's GitHub Discussions. This is a
   coupling decision, not a quality bar; such PRs are closed with a pointer to publish.
 
 ### Before you call it a bug — verify the premise (and when NOT to close)
@@ -268,7 +268,7 @@ See [Package management](../reference/package-management.md) for PM commands and
 - **Comments**: Only when explaining non-obvious intent, trade-offs, or API quirks
 - **Error handling**: Catch specific exceptions. Use `logger.warning()`/`logger.error()` with `exc_info=True` for unexpected errors
 - **Cross-platform**: Never assume Unix (see below)
-- **Profile-safe paths**: Never hardcode `~/.vetri` — use `get_vetri_home()` from `vetri_constants` for code paths and `display_vetri_home()` for user-facing messages. See [AGENTS.md](https://github.com/NousResearch/vetri-agent/blob/main/AGENTS.md#profiles-multi-instance-support) for full rules.
+- **Profile-safe paths**: Never hardcode `~/.vetri` — use `get_vetri_home()` from `vetri_constants` for code paths and `display_vetri_home()` for user-facing messages. See [AGENTS.md](https://github.com/pugazh342/Agent-Vetri/blob/main/AGENTS.md#profiles-multi-instance-support) for full rules.
 
 ## Cross-Platform Compatibility
 
@@ -413,7 +413,7 @@ When you ask Vetri to review a PR in a repository that has `.agents/checks/`, te
 
 ## Reporting Issues
 
-- Use [GitHub Issues](https://github.com/NousResearch/vetri-agent/issues)
+- Use [GitHub Issues](https://github.com/pugazh342/Agent-Vetri/issues)
 - Include: OS, Python version, Vetri version (`vetri --version`), full error traceback
 - Include steps to reproduce
 - Check existing issues before creating duplicates
@@ -421,10 +421,9 @@ When you ask Vetri to review a PR in a repository that has `.agents/checks/`, te
 
 ## Community
 
-- **Discord**: [discord.gg/NousResearch](https://discord.gg/NousResearch)
 - **GitHub Discussions**: For design proposals and architecture discussions
 - **Skills Hub**: Upload specialized skills and share with the community
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under the [MIT License](https://github.com/NousResearch/vetri-agent/blob/main/LICENSE).
+By contributing, you agree that your contributions will be licensed under the [MIT License](https://github.com/pugazh342/Agent-Vetri/blob/main/LICENSE).

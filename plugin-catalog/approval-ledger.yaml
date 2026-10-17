@@ -6,7 +6,7 @@ description: "Local ledger of Vetri's approval prompts (dangerous commands, prot
 maintainer: olric3015
 tier: community
 category: tools
-requires_vetri: ">=0.21.5"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/olric3015/vetri-plugins/tree/main/approval-ledger
 version: "1.2.0"
 image: https://raw.githubusercontent.com/olric3015/vetri-plugins/4a2ef866a51f1c99ed1d77e423136450340d901b/docs/approval-ledger-card.png

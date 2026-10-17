@@ -212,7 +212,7 @@ stdenv.mkDerivation {
 
   meta = with lib; {
     description = "Native Electron desktop shell for Vetri Agent";
-    homepage = "https://github.com/NousResearch/vetri-agent";
+    homepage = "https://github.com/pugazh342/Agent-Vetri";
     license = licenses.mit;
     platforms = platforms.unix;
     mainProgram = "vetri-desktop";

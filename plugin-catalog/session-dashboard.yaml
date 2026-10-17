@@ -6,7 +6,7 @@ description: 'Session Analyzer — per-session analytics for the Vetri desktop a
 maintainer: tommulkins
 tier: community
 category: desktop
-requires_vetri: ">=0.20.0"
+requires_vetri: ">=0.1.0"
 docs_url: https://github.com/tommulkins/vetri-plugin-session-analyzer
 platforms: []
 capabilities:
