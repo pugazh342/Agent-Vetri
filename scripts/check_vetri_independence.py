@@ -66,6 +66,11 @@ _KNOWN_SUBDOMAINS = frozenset({
 _KEEP: dict[str, tuple[str, ...]] = {
     "hermes": (
         "CHANGELOG.md",        # v0.1.0 provenance entry (historical record)
+        # hermes-parser / hermes-estree: Meta's Hermes Flow-parser npm packages,
+        # a real transitive dependency of eslint-plugin-react-hooks. Registry
+        # artifact names, not our branding surface (a lockfile rename breaks
+        # npm ci with a 404).
+        "package-lock.json",
         "PROJECT_REPORT.md",   # upstream project report (historical record)
         # Third-party maintainer's repository name (itpartypattaya's fork of the
         # holographic memory provider); not our branding and not renamable.
