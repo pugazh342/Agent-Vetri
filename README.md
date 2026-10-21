@@ -72,7 +72,7 @@ capability, with **72 active security skills** in two categories:
 (NVIDIA NIM free tier works out of the box)
 
 ```bash
-git clone <this-repo>
+git clone https://github.com/pugazh342/Agent-Vetri.git
 cd vetri
 
 # Provision the environment (uv-managed venv)
