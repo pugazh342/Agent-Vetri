@@ -13,6 +13,7 @@
 
 [![Version](https://img.shields.io/badge/version-0.3.0-blue?style=flat-square)](CHANGELOG.md)
 [![CI](https://github.com/pugazh342/Agent-Vetri/actions/workflows/ci.yml/badge.svg)](https://github.com/pugazh342/Agent-Vetri/actions/workflows/ci.yml)
+[![Docs](https://img.shields.io/badge/docs-pugazh342.github.io%2FAgent--Vetri-blue?style=flat-square)](https://pugazh342.github.io/Agent-Vetri/docs)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.11%20%E2%80%93%203.14-blue?style=flat-square)](pyproject.toml)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=flat-square)](#quick-start)
@@ -37,7 +38,7 @@ Vetri is free, open-source software, released under the [MIT License](LICENSE).
 ## Highlights
 
 - 🧠 **Persistent memory** — learns across sessions with pluggable memory providers
-- 🛠️ **Real tool use** — drives your terminal, files, browser (CDP), computer-use and 50+ built-in tools
+- 🛠️ **Real tool use** — drives your terminal, files, browser (CDP), computer-use and 60+ built-in tools
 - 🤖 **Subagents & delegation** — parallel specialist workers with isolated contexts
 - ⏰ **Scheduled jobs** — cron-style autonomous tasks and Kanban-driven goal loops
 - 🔌 **Plugins & skills** — capability lives at the edges: extend with plugins, MCP servers and skills
@@ -73,7 +74,7 @@ capability, with **72 active security skills** in two categories:
 
 ```bash
 git clone https://github.com/pugazh342/Agent-Vetri.git
-cd vetri
+cd Agent-Vetri
 
 # Provision the environment (uv-managed venv)
 ./activate            # macOS/Linux — PowerShell: activate.ps1 · fish: activate.fish
@@ -148,10 +149,18 @@ vetri/
 ## Updating
 
 ```bash
-cd vetri
+vetri update      # pulls the latest code, syncs the environment, restarts your gateway
+```
+
+Manual alternative:
+
+```bash
+cd Agent-Vetri
 git pull
 uv sync --extra all
 ```
+
+Full guide: [Updating & Uninstalling](https://pugazh342.github.io/Agent-Vetri/docs/getting-started/updating).
 
 ## Credits
 

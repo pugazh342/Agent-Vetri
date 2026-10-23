@@ -1090,7 +1090,10 @@ def _processes_with_vetri_home_under(roots) -> list[int]:
                 environ = handle.read().split(b"\0")
         except OSError:
             continue
-        home = next((item[12:] for item in environ if item.startswith(b"VETRI_HOME=")), None)
+        # Slice by the prefix's own length: a fixed offset silently drifts when the
+        # variable is renamed (12 was this block's off-by-one against VETRI_HOME=).
+        prefix = b"VETRI_HOME="
+        home = next((item[len(prefix):] for item in environ if item.startswith(prefix)), None)
         if not home:
             continue
         try:
