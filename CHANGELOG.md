@@ -3,7 +3,7 @@
 All notable changes to Vetri are documented here.
 Format: [Keep a Changelog](https://keepachangelog.com/) · Versioning: [SemVer](https://semver.org/)
 
-## [0.3.0] - 2026-10-17
+## [0.3.0] - 2026-10-23
 
 **Independence release** — Vetri now stands entirely on its own identity,
 infrastructure and release channel, with a guard that keeps it that way.
