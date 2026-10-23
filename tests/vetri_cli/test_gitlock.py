@@ -472,7 +472,10 @@ def test_a_git_elsewhere_exiting_mid_scan_is_gone_not_a_hidden_holder(repo: Path
     from tests.waiting import wait_until
 
     other = tmp_path / "other"
-    shutil.copytree(repo, other)
+    # git's own maintenance can create and drop its transient coordination locks while a
+    # loaded runner copies the tree (objects/maintenance.lock vanished mid-copy on CI);
+    # those files carry no state - git's own clone never copies them - so leave them behind.
+    shutil.copytree(repo, other, ignore=shutil.ignore_patterns("maintenance.lock", "gc.pid", "index.lock"))
     lock = repo / ".git" / "index.lock"
     lock.write_bytes(b"")  # a killed git's: nothing holds it
     marker = "vetri.test=exits-mid-scan"

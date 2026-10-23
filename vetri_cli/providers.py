@@ -89,6 +89,10 @@ VETRI_OVERLAYS: dict[str, VetriOverlay] = {
     # would treat a Vertex MoA slot as an unknown custom endpoint, losing the identity
     # _refresh_provider_credentials() needs to re-mint an expired token on 401.
     "vertex": VetriOverlay(auth_type="vertex"),
+    # models.dev's newer "commandcode" entry would shadow the plugin profile and its CMD_API_KEY,
+    # while every product surface (docs, doctor, dump, the plugin itself) documents
+    # COMMANDCODE_API_KEY; accept both so either spelling reaches the same endpoint.
+    "commandcode": VetriOverlay(extra_env_vars=("COMMANDCODE_API_KEY",)),
 }
 
 

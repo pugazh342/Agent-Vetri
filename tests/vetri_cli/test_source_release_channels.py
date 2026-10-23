@@ -56,7 +56,7 @@ def releases(tmp_path, monkeypatch, request):
     responses = {}
     requests = []
     for channel, tag in tags.items():
-        responses[f"/releases/{channel}/index.html"] = (
+        responses[f"/Agent-Vetri/releases/{channel}/index.html"] = (
             f'<meta name="vetri-build" content="{tag}">'
         )
         responses[f"/repos/pugazh342/Agent-Vetri/releases/tags/{tag}"] = {
@@ -68,7 +68,7 @@ def releases(tmp_path, monkeypatch, request):
     responses["/repos/pugazh342/Agent-Vetri/releases/latest"] = {
         "tag_name": tags["stable"], "draft": False, "prerelease": False,
     }
-    responses["/releases/stable/release-candidates.json"] = {
+    responses["/Agent-Vetri/releases/stable/release-candidates.json"] = {
         "tag": tags["stable"], "commit": commits[1],
     }
 
@@ -190,7 +190,7 @@ def test_fork_origin_uses_its_own_published_release_not_the_official_pointer(rel
     }
     releases.responses[f"/repos/Fixture/vetri-agent/commits/{tag}"] = {"sha": releases.commits[3]}
     assert resolve_source_release("stable", ["git"], releases.root) == (tag, releases.commits[3])
-    assert not any(path.startswith("/releases/") for path in releases.requests)
+    assert not any(path.startswith("/Agent-Vetri/releases/") for path in releases.requests)
 
 
 def test_zip_fallback_keeps_selected_repository_and_commit(releases, monkeypatch):
@@ -238,8 +238,8 @@ def test_origin_tag_cannot_substitute_a_fork_commit(releases, channel):
 
 @pytest.mark.parametrize("channel", ["stable", "canary"])
 def test_missing_pointers_fall_back_only_to_published_releases(releases, channel):
-    releases.responses.pop("/releases/stable/release-candidates.json")
-    releases.responses.pop(f"/releases/{channel}/index.html")
+    releases.responses.pop("/Agent-Vetri/releases/stable/release-candidates.json")
+    releases.responses.pop(f"/Agent-Vetri/releases/{channel}/index.html")
     published = releases.responses[f"/repos/pugazh342/Agent-Vetri/releases/tags/{releases.tags[channel]}"]
     releases.responses["/repos/pugazh342/Agent-Vetri/releases/latest"] = published
     releases.responses["/repos/pugazh342/Agent-Vetri/releases?per_page=100&page=1"] = [
@@ -268,11 +268,11 @@ def test_stable_is_the_latest_published_github_release_without_r2(releases):
 
     source_releases._resolve_channel = no_r2
     # A pointer naming a different build must not outrank the published release.
-    releases.responses["/releases/stable/release-candidates.json"] = {
+    releases.responses["/Agent-Vetri/releases/stable/release-candidates.json"] = {
         "tag": "v99.0.0", "commit": releases.commits[3]}
     target = source_releases.resolve_source_target("stable", ["git"], releases.root)
     assert (target.commit, target.version) == (releases.commits[1], "1.2.3")
-    assert not any(path.startswith("/releases/") for path in releases.requests)
+    assert not any(path.startswith("/Agent-Vetri/releases/") for path in releases.requests)
 
 
 @pytest.mark.parametrize("start,expected", [(0, 1), (3, 3)], ids=["behind-release", "newer-than-release"])

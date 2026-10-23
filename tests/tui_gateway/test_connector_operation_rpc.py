@@ -57,6 +57,14 @@ class PipeClient:
 SID = "op-rpc-session"
 
 
+@pytest.fixture(autouse=True)
+def _guest_gate(monkeypatch):
+    # Reissue reaches the real managed_client; the first-use guest bootstrap has its own contract
+    # suite, so keep it shut here instead of dialing the portal from an RPC dispatch test.
+    monkeypatch.setattr("tools.connectors.ensure_guest_identity", lambda: None)
+    monkeypatch.setattr("tools.connectors.managed.ensure_guest_identity", lambda: None)
+
+
 @pytest.fixture
 def owned(monkeypatch):
     live.reset_for_tests()

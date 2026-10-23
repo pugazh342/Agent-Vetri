@@ -17,6 +17,10 @@ from tui_gateway import server
 def _gate(monkeypatch):
     live.reset_for_tests()
     monkeypatch.setattr("tools.connectors.connectors_available", lambda: True)
+    # RPC dispatch tests target aliases and minting, not the first-use guest bootstrap, which has
+    # its own contract suite; leave the hosted identity gate shut so the portal is never dialed.
+    monkeypatch.setattr("tools.connectors.ensure_guest_identity", lambda: None)
+    monkeypatch.setattr("tools.connectors.managed.ensure_guest_identity", lambda: None)
     yield
     live.reset_for_tests()
 

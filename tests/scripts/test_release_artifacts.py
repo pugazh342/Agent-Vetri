@@ -20,6 +20,7 @@ from tests.scripts.test_stable_release import https_origin
 from tests.scripts.test_release_darwin import _inputs
 from scripts.bundles import release_artifacts as artifacts
 from scripts.releases import lanes as lane_set
+from tests.ci.workflow_files import workflow_file
 
 ROOT = Path(__file__).resolve().parents[2]
 SMOKE_RESULTS = {name: {'result': 'success'} for name in (
@@ -33,6 +34,10 @@ def test_windows_metadata_is_read_from_package_and_stale_stamp_is_rejected(tmp_p
     root = tmp_path / 'release'
     root.mkdir()
     package = root / 'Product-1.2.3-win-x64.msix'
+    # record() takes the executable version from this sidecar when present (the branch
+    # the canary publication fixture also supplies); this identity-focused fixture needs
+    # it so a Windows host skips the unpacked-executable probe the fake package lacks.
+    (root / 'version-info-x64.json').write_text(json.dumps({'productVersion': '1.2.3.0'}))
     manifest = '<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"><Identity Name="Product" Publisher="CN=Test" Version="1.2.3.0" ProcessorArchitecture="x64"/><Applications><Application Id="App"/></Applications></Package>'
 
     def write_package(sha, receiver=None):
@@ -305,9 +310,9 @@ def test_promote_refuses_when_one_macos_arch_is_missing(tmp_path, monkeypatch, r
 def candidate_workflow_step(tmp_path, r2_server, staged_candidate):
     """Run real workflow shell/CLIs; replace only service endpoints and tool setup."""
     manifest, fetched, base = staged_candidate
-    jobs = vetri_yaml.safe_load((ROOT / '.github/workflows/desktop-bundled-release.yml').read_text(encoding='utf-8-sig'))['jobs']
+    jobs = vetri_yaml.safe_load(workflow_file('desktop-bundled-release.yml').read_text(encoding='utf-8-sig'))['jobs']
     stable_jobs = vetri_yaml.safe_load(
-        (ROOT / '.github/workflows/stable-release.yml').read_text(encoding='utf-8-sig'))['jobs']
+        workflow_file('stable-release.yml').read_text(encoding='utf-8-sig'))['jobs']
     render = next(step for step in stable_jobs['complete']['steps']
                   if step.get('name', '').startswith('Render the admitted'))
     jobs['controller-promote'] = {

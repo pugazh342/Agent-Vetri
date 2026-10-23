@@ -11,6 +11,7 @@ import sys
 import pytest
 from ruamel.yaml import YAML
 
+from tests.ci.workflow_files import workflow_file
 
 ROOT = Path(__file__).resolve().parents[2]
 DRIVER = ROOT / "scripts/termux/build.py"
@@ -167,7 +168,7 @@ def test_release_workflow_runs_the_shared_sequence(build_fixture, identity):
     (tools / "python3").symlink_to(sys.executable)
     env.update(VETRI_BUILD_COMMIT=identity[1] if identity[0] == "--commit" else "",
                VETRI_PAYLOAD_TAG=identity[1] if identity[0] == "--tag" else "")
-    workflow = YAML(typ="safe").load((ROOT / ".github/workflows/desktop-bundled-release.yml").read_text())
+    workflow = YAML(typ="safe").load(workflow_file("desktop-bundled-release.yml").read_text())
     step = next(step for step in workflow["jobs"]["termux-deb"]["steps"]
                 if step.get("name") == "Assemble the .deb")
     bash = shutil.which("bash")

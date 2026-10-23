@@ -20,6 +20,10 @@ def homes(tmp_path, monkeypatch):
     bee.mkdir(parents=True)
     monkeypatch.setenv('VETRI_HOME', str(launch))
     monkeypatch.setattr(server, '_vetri_home', launch)
+    # Profile routing is under test, not the first-use guest bootstrap (which has its own suite);
+    # the dispatch gate would otherwise dial the portal before any verb reaches a profile.
+    monkeypatch.setattr("tools.connectors.ensure_guest_identity", lambda: None)
+    monkeypatch.setattr("tools.connectors.managed.ensure_guest_identity", lambda: None)
     return server, launch, bee
 
 

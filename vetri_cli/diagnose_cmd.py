@@ -19,7 +19,6 @@ from __future__ import annotations
 import json
 import os
 import re
-import shutil
 import subprocess
 from pathlib import Path
 from typing import Any, Optional
@@ -64,8 +63,14 @@ _CHECKER_ORDER: dict[str, tuple[str, ...]] = {
 
 def find_checkers() -> dict[str, Optional[str]]:
     """Map every known checker name to its resolved path (or None when absent)."""
+    from vetri_platform.resolver import locate_command
+
     names = {name for order in _CHECKER_ORDER.values() for name in order}
-    return {name: shutil.which(name) for name in sorted(names)}
+    found: dict[str, Optional[str]] = {}
+    for name in sorted(names):
+        hit = locate_command(name).command
+        found[name] = os.path.normpath(hit[0]) if hit else None
+    return found
 
 
 def pick_checker(language: str, checkers: dict[str, Optional[str]]) -> Optional[str]:
