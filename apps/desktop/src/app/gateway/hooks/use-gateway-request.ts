@@ -1,8 +1,7 @@
-import { isGatewayReauthRequired } from '@vetri/shared'
 import { useStore } from '@nanostores/react'
+import { isGatewayReauthRequired } from '@vetri/shared'
 import { useCallback, useEffect, useRef } from 'react'
 
-import type { VetriGateway } from '@/vetri'
 import { resolveDesktopGatewayWsUrl } from '@/lib/gateway-ws-url'
 import { RECONNECT_ATTEMPT_TIMEOUT_MS, withTimeout } from '@/lib/with-timeout'
 import {
@@ -15,6 +14,7 @@ import {
   isActivePrimary
 } from '@/store/gateway'
 import { $gatewayState, setConnection } from '@/store/session'
+import type { VetriGateway } from '@/vetri'
 
 export function useGatewayRequest() {
   const gatewayState = useStore($gatewayState)

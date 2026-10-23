@@ -6,7 +6,7 @@ import type {
   ProfilesResponse
 } from '@/types/vetri'
 
-import { capabilityScoped, vetriApi, type ProfileScope, STARTUP_REQUEST_TIMEOUT_MS } from './client'
+import { capabilityScoped, type ProfileScope, STARTUP_REQUEST_TIMEOUT_MS, vetriApi } from './client'
 
 export function getProfiles(scope?: ProfileScope): Promise<ProfilesResponse> {
   return vetriApi<ProfilesResponse>({

@@ -1,7 +1,7 @@
-import type { ModelOptionProvider, ModelPricing } from '@vetri/shared'
-import { fuzzyRank, modelSearchText } from '@vetri/shared'
 import { useStore } from '@nanostores/react'
 import { useQuery } from '@tanstack/react-query'
+import type { ModelOptionProvider, ModelPricing } from '@vetri/shared'
+import { fuzzyRank, modelSearchText } from '@vetri/shared'
 import { type ReactElement, useMemo, useRef, useState } from 'react'
 
 import { useI18n } from '@/i18n'
@@ -21,8 +21,8 @@ import {
 } from '@/store/local-runtime-jobs'
 import type { LocalModelLoadProgress, LocalRuntimeJob } from '@/types/vetri'
 
-import type { VetriGateway } from '../vetri'
 import { startManualOnboarding } from '../store/onboarding'
+import type { VetriGateway } from '../vetri'
 
 import { InlineNotice } from './notifications'
 import { ProviderStatusChip } from './provider-status-chip'

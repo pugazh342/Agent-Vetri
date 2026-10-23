@@ -1,7 +1,6 @@
 // The plugin authoring contract types; the SDK barrel re-exports them.
 
 export type {
-  VetriPlugin,
   PetMessageTone,
   PetSayOptions,
   PluginAppActionId,
@@ -16,5 +15,6 @@ export type {
   PluginRunActionResult,
   PluginSettingsPage,
   PluginSettingsSubpage,
-  PluginStorage
+  PluginStorage,
+  VetriPlugin
 } from '@/contrib/plugin'

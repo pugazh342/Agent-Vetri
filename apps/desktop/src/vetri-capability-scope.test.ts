@@ -5,12 +5,12 @@ import { getAuxiliaryModels, getGlobalModelInfo } from './api/models'
 import { getOfficialSkills, getSkillHubSources } from './api/skills'
 import { getTerminalBackends, getToolsetConfig, selectTerminalBackend } from './api/toolsets'
 import {
-  getVetriConfigRecord,
   getMcpCatalog,
   getSkillContent,
   getSkills,
   getToolsets,
   getUsageAnalytics,
+  getVetriConfigRecord,
   installSkillFromHub,
   profileScopeKey,
   saveMcpServers,

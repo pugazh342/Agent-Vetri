@@ -9,8 +9,8 @@
 
 import { atom, computed } from 'nanostores'
 
-import { getLocalCatalog, getLocalModelsStatus } from '@/vetri'
 import type { LocalCatalogModel, LocalModelsStatus } from '@/types/vetri'
+import { getLocalCatalog, getLocalModelsStatus } from '@/vetri'
 
 import { $localModelsEnabled } from './local-models-flag'
 import { $connection } from './session'

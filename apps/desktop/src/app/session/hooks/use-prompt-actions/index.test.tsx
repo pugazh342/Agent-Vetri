@@ -1,10 +1,9 @@
+import { act, cleanup, render, waitFor } from '@testing-library/react'
 import { JsonRpcGatewayError } from '@vetri/shared'
 import type { GatewayEventName } from '@vetri/shared'
-import { act, cleanup, render, waitFor } from '@testing-library/react'
 import type { MutableRefObject } from 'react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { getLatestSessionMessages, getSession } from '@/vetri'
 import { en } from '@/i18n/en'
 import { textPart } from '@/lib/chat-messages'
 import { createClientSessionState } from '@/lib/chat-runtime'
@@ -31,6 +30,7 @@ import {
 } from '@/store/session'
 import { dropSessionState, publishSessionState } from '@/store/session-states'
 import { $wakeWord, resetWakeWordState } from '@/store/wake-word'
+import { getLatestSessionMessages, getSession } from '@/vetri'
 
 import { actRender, Harness, type HarnessHandle, RUNTIME_SESSION_ID, sessionInfo } from './index-test-utils'
 import { clearSingleFlightSessionResumeState } from './single-flight-resume'

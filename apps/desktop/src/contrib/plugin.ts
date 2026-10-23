@@ -14,7 +14,6 @@
 
 import type { ReadableAtom } from 'nanostores'
 
-import { pluginRest, type PluginRestOptions, pluginSocket } from '@/vetri'
 import { createPluginI18n, type PluginI18n } from '@/i18n'
 import {
   listPluginAppActions,
@@ -27,6 +26,7 @@ import { readKey, writeKey } from '@/lib/storage'
 import { dispatchPluginNativeNotification, type PluginNativeNotificationInput } from '@/store/native-notifications'
 import { $petActive } from '@/store/pet'
 import { clearPetMessages, type PetSayOptions, sayPetMessage } from '@/store/pet-plugin-messages'
+import { pluginRest, type PluginRestOptions, pluginSocket } from '@/vetri'
 
 import { type GatewayEventListener, onGatewayEvent } from './events'
 import { $pluginRecords } from './plugins-store'
@@ -36,11 +36,11 @@ import { type PluginSettingsPage, settingsPageContribution } from './settings-pa
 export type { PluginSettingsPage, PluginSettingsSubpage } from './settings-pages'
 import type { Contribution } from './types'
 
-export type { PluginRestOptions } from '@/vetri'
-export type { VetriOpenTarget } from '@/lib/vetri-open-target'
 export type { PluginAppActionId, PluginAppActionInfo, PluginRunActionResult } from '@/lib/keybinds/plugin-actions'
+export type { VetriOpenTarget } from '@/lib/vetri-open-target'
 export type { PluginNativeNotificationInput, PluginNotificationAction } from '@/store/native-notifications'
 export type { PetMessageTone, PetSayOptions } from '@/store/pet-plugin-messages'
+export type { PluginRestOptions } from '@/vetri'
 
 /** A contribution as a plugin author writes it — provenance + id scoping are
  *  the host's job, so those fields are off-limits here. */

@@ -16,7 +16,6 @@
  */
 
 import { transcriptRowIds } from '@/app/session/hooks/use-session-actions/pending-turn-identity'
-import { getOlderSessionMessages, getSessionMessages, type ProfileScope } from '@/vetri'
 import { type ChatMessage, chatMessageText, toChatMessages } from '@/lib/chat-messages'
 import {
   recordTranscriptBackfillPage,
@@ -25,6 +24,7 @@ import {
   transcriptTailState
 } from '@/store/transcript-tail'
 import type { SessionMessage, SessionMessagesResponse } from '@/types/vetri'
+import { getOlderSessionMessages, getSessionMessages, type ProfileScope } from '@/vetri'
 
 /**
  * Compaction projection can stamp the session's opening USER row

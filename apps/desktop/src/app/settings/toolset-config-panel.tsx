@@ -4,20 +4,6 @@ import { useNavigate } from 'react-router'
 import { SETTINGS_ROUTE } from '@/app/routes'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import {
-  deleteEnvVar,
-  getActionStatus,
-  getToolsetConfig,
-  getToolsetModels,
-  pollOAuthSession,
-  type ProfileScope,
-  revealEnvVar,
-  runToolsetPostSetup,
-  selectToolsetModel,
-  selectToolsetProvider,
-  setEnvVar,
-  startOAuthLogin
-} from '@/vetri'
 import { useI18n } from '@/i18n'
 import { Check, Loader2, Save, Terminal } from '@/lib/icons'
 import { cn } from '@/lib/utils'
@@ -32,6 +18,20 @@ import type {
   ToolsetConfig,
   ToolsetModelsResponse
 } from '@/types/vetri'
+import {
+  deleteEnvVar,
+  getActionStatus,
+  getToolsetConfig,
+  getToolsetModels,
+  pollOAuthSession,
+  type ProfileScope,
+  revealEnvVar,
+  runToolsetPostSetup,
+  selectToolsetModel,
+  selectToolsetProvider,
+  setEnvVar,
+  startOAuthLogin
+} from '@/vetri'
 
 import { EnvVarActionsMenu, EnvVarActionsTrigger, EnvVarContextMenu } from './env-var-actions-menu'
 import { prettyName } from './helpers'

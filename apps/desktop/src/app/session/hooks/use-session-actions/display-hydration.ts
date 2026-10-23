@@ -1,7 +1,7 @@
 import type { MutableRefObject } from 'react'
 
-import type { SessionInfo } from '@/vetri'
 import { isSessionRemovalPending } from '@/store/session-removal'
+import type { SessionInfo } from '@/vetri'
 
 import type { ClientSessionState } from '../../../types'
 

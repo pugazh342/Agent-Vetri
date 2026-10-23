@@ -1,5 +1,5 @@
-import type { ModelOptionProvider, ProviderUsageAccount } from '@vetri/shared'
 import { fireEvent, render, screen, within } from '@testing-library/react'
+import type { ModelOptionProvider, ProviderUsageAccount } from '@vetri/shared'
 import { afterEach, expect, it, vi } from 'vitest'
 
 import { I18nProvider } from '@/i18n'

@@ -2,9 +2,9 @@ import { compactNumber } from '@vetri/shared'
 import { useNavigate } from 'react-router'
 
 import { Button } from '@/components/ui/button'
-import { type ProfileScope, profileScopeKey } from '@/vetri'
 import { useI18n } from '@/i18n'
 import type { ToolsetInfo } from '@/types/vetri'
+import { type ProfileScope, profileScopeKey } from '@/vetri'
 
 import { ToolChip } from '../../master-detail'
 import { PanelPill } from '../../overlays/panel'

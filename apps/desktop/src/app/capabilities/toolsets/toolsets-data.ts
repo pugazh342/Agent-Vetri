@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
 
-import { getToolsets, type ProfileScope, profileScopeKey } from '@/vetri'
 import { isDesktopToolsetVisible } from '@/lib/desktop-toolsets'
 import { normalize } from '@/lib/text'
 import type { ToolsetInfo } from '@/types/vetri'
+import { getToolsets, type ProfileScope, profileScopeKey } from '@/vetri'
 
 import { includesQuery, toolNames, toolsetDisplayLabel } from '../../settings/helpers'
 

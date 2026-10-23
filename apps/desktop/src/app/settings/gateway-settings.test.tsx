@@ -1,5 +1,5 @@
-import { GatewayReauthRequiredError } from '@vetri/shared'
 import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
+import { GatewayReauthRequiredError } from '@vetri/shared'
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { $notifications } from '@/store/notifications'

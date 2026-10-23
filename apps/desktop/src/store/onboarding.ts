@@ -1,18 +1,6 @@
 import type { ModelOptionProvider } from '@vetri/shared'
 import { atom } from 'nanostores'
 
-import {
-  cancelOAuthSession,
-  getGlobalModelOptions,
-  getRecommendedDefaultModel,
-  listOAuthProviders,
-  pollOAuthSession,
-  type ProfileScope,
-  setEnvVar,
-  startOAuthLogin,
-  submitOAuthCode,
-  validateProviderCredential
-} from '@/vetri'
 import { translateNow } from '@/i18n'
 import { isProviderSetupErrorMessage } from '@/lib/provider-setup-errors'
 import { evaluateRuntimeReadiness, type RuntimeReadinessResult } from '@/lib/runtime-readiness'
@@ -29,6 +17,18 @@ import { dismissNotification, notify, notifyError } from '@/store/notifications'
 import { afterOnboardingSurfaceClear, onboardingSurfaceOpen } from '@/store/onboarding-presence'
 import { captureOnboardingScope, type OnboardingScope } from '@/store/onboarding-scope'
 import type { OAuthProvider, OAuthStartResponse } from '@/types/vetri'
+import {
+  cancelOAuthSession,
+  getGlobalModelOptions,
+  getRecommendedDefaultModel,
+  listOAuthProviders,
+  pollOAuthSession,
+  type ProfileScope,
+  setEnvVar,
+  startOAuthLogin,
+  submitOAuthCode,
+  validateProviderCredential
+} from '@/vetri'
 
 type PkceStart = Extract<OAuthStartResponse, { flow: 'pkce' }>
 type DeviceStart = Extract<OAuthStartResponse, { flow: 'device_code' }>

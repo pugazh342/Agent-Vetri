@@ -43,4 +43,4 @@ function unwrapExpectedNotFound(value: unknown): unknown {
   return value
 }
 
-export { VETRI_API_EXPECTED_404, isExpectedNotFoundSentinel, unwrapExpectedNotFound }
+export { isExpectedNotFoundSentinel, unwrapExpectedNotFound, VETRI_API_EXPECTED_404 }

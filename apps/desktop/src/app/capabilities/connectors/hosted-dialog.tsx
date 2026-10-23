@@ -1,10 +1,10 @@
 import { useStore } from '@nanostores/react'
 import { useEffect, useState } from 'react'
 
-import type { ProfileScope } from '@/vetri'
 import { translateNow } from '@/i18n'
 import { openFreeTierSignIn } from '@/store/free-tier-sign-in'
 import { notify } from '@/store/notifications'
+import type { ProfileScope } from '@/vetri'
 
 import type { McpServersController } from '../mcp/use-mcp-servers'
 

@@ -1,9 +1,9 @@
 import { useStore } from '@nanostores/react'
 import { useEffect, useState } from 'react'
 
-import { getLogs } from '@/vetri'
 import { startCompletionPoll } from '@/lib/completion-poll'
 import { $activeGatewayProfile } from '@/store/profile'
+import { getLogs } from '@/vetri'
 
 export const LOG_POLL_MS = 2000
 

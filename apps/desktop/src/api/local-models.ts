@@ -1,6 +1,6 @@
 import type { LocalCatalogModel, LocalHardware, LocalModelsStatus, LocalRuntimeJob } from '@/types/vetri'
 
-import { vetriApi, profileScoped } from './client'
+import { profileScoped, vetriApi } from './client'
 
 export interface LocalModelsScope {
   connectionId: string | null

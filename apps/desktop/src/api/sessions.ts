@@ -18,10 +18,10 @@ import {
   connectionScoped,
   getApiRequestConnection,
   getApiRequestProfile,
-  vetriApi,
   type ProfileScope,
   profileScoped,
-  sessionReadOwnerPin
+  sessionReadOwnerPin,
+  vetriApi
 } from './client'
 
 const SESSION_LIST_REQUEST_TIMEOUT_MS = 60_000

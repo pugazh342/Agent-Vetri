@@ -3,16 +3,16 @@ import { act, cleanup, renderHook, waitFor } from '@testing-library/react'
 import { createElement } from 'react'
 import { afterEach, expect, it, vi } from 'vitest'
 
-import type * as VetriApi from '@/vetri'
-import { bindConfigReadOrigin, getVetriConfigRecord } from '@/vetri'
 import { queryClient } from '@/lib/query-client'
 import { $connection } from '@/store/session'
+import type * as VetriApi from '@/vetri'
+import { bindConfigReadOrigin, getVetriConfigRecord } from '@/vetri'
 
 import {
-  VETRI_CONFIG_KEY,
-  vetriConfigCacheWriter,
   setVetriConfigCache,
-  useVetriConfigRecord
+  useVetriConfigRecord,
+  VETRI_CONFIG_KEY,
+  vetriConfigCacheWriter
 } from './use-config-record'
 
 vi.mock('@/vetri', async importOriginal => ({

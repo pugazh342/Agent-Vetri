@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest'
 
 import {
   normalizeVetriOpenString,
-  pathFromVetriDeepLink,
   pathFromOpenDeepLink,
+  pathFromVetriDeepLink,
   resolveVetriOpenPath
 } from './vetri-open-target'
 

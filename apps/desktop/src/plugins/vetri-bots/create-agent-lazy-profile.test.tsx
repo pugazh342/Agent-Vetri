@@ -12,9 +12,9 @@
  *    every later open after a create or cancel silently started fresh.
  */
 
-import type * as VetriSdk from '@vetri/plugin-sdk'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import type * as VetriSdk from '@vetri/plugin-sdk'
 import type { ReactNode } from 'react'
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 

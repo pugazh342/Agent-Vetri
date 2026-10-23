@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import { searchSessions, type SessionSearchResult } from '@/vetri'
 import { ALL_PROFILES, normalizeProfileKey } from '@/store/profile'
+import { searchSessions, type SessionSearchResult } from '@/vetri'
 
 const SEARCH_DEBOUNCE_MS = 200
 

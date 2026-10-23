@@ -2,10 +2,10 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { atom } from 'nanostores'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import type * as VetriModule from '@/vetri'
-import type { SessionInfo } from '@/vetri'
 import type * as SessionStore from '@/store/session'
 import type * as SessionStatesStore from '@/store/session-states'
+import type * as VetriModule from '@/vetri'
+import type { SessionInfo } from '@/vetri'
 
 import { SidebarSessionRow } from './session-row'
 

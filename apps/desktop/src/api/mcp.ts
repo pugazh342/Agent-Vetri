@@ -1,6 +1,6 @@
 import type { McpCatalogResponse, McpServerSummary } from '@/types/vetri'
 
-import { capabilityScoped, vetriApi, type ProfileScope, profileScoped } from './client'
+import { capabilityScoped, type ProfileScope, profileScoped, vetriApi } from './client'
 
 export interface McpTestResult {
   ok: boolean

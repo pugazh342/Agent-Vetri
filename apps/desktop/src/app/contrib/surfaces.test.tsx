@@ -3,9 +3,9 @@ import { atom } from 'nanostores'
 import { MemoryRouter } from 'react-router'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import type { VetriGateway } from '@/vetri'
 import { $gateway } from '@/store/gateway'
 import { $activeGatewayProfile } from '@/store/profile'
+import type { VetriGateway } from '@/vetri'
 
 import { ChatRoutesSurface } from './surfaces'
 import type { WiringActions } from './types'

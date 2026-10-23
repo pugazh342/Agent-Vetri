@@ -1,6 +1,6 @@
-import type * as VetriSdk from '@vetri/plugin-sdk'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
+import type * as VetriSdk from '@vetri/plugin-sdk'
 import { afterEach, beforeAll, expect, it, vi } from 'vitest'
 
 import { I18nProvider, useI18n } from '@/i18n'

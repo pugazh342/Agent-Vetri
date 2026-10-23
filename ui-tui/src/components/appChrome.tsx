@@ -1,7 +1,7 @@
+import { useStore } from '@nanostores/react'
 import { Box, type ScrollBoxHandle, stringWidth, Text } from '@vetri/ink'
 import { compactNumber } from '@vetri/shared/format'
 import type { Usage } from '@vetri/shared/gateway-events'
-import { useStore } from '@nanostores/react'
 import { type ReactNode, type RefObject, useEffect, useMemo, useRef, useState } from 'react'
 import unicodeSpinners from 'unicode-animations'
 

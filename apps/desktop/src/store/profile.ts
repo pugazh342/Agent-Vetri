@@ -2,7 +2,6 @@ import { LOCAL_CONNECTION_ID, registryBackendScopeKey } from '@vetri/shared'
 import { atom, batch, computed } from 'nanostores'
 
 import type { VetriConnection } from '@/global'
-import { getProfiles, vetriApi, setApiRequestProfile, STARTUP_REQUEST_TIMEOUT_MS } from '@/vetri'
 import { sortByProfileOrder as sortProfilesByOrder } from '@/lib/profile-order'
 import { invalidateProfileScopedQueries } from '@/lib/query-client'
 import {
@@ -32,6 +31,7 @@ import { $connection, clearComposerSelectionOwner, setComposerSelectionOwner, se
 import type { SessionOwnerRoute } from '@/store/session-request-router'
 import { resetStarmapGraph } from '@/store/starmap'
 import type { ProfileInfo } from '@/types/vetri'
+import { getProfiles, setApiRequestProfile, STARTUP_REQUEST_TIMEOUT_MS, vetriApi } from '@/vetri'
 
 // Canonical key for a profile: trimmed, empty → "default". Used everywhere we
 // compare a session's owning profile against the live gateway's profile.

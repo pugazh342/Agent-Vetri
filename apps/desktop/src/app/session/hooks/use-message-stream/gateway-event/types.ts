@@ -1,5 +1,5 @@
-import type { GatewayEvent, PersistedTurn } from '@vetri/shared'
 import type { QueryClient } from '@tanstack/react-query'
+import type { GatewayEvent, PersistedTurn } from '@vetri/shared'
 import type { MutableRefObject } from 'react'
 
 import type { GatewayEventPayload } from '@/lib/chat-messages'

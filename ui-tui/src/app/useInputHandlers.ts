@@ -1,5 +1,5 @@
-import { forceRedraw, useInput } from '@vetri/ink'
 import { useStore } from '@nanostores/react'
+import { forceRedraw, useInput } from '@vetri/ink'
 import { useEffect, useRef } from 'react'
 
 import { sharedControlParams } from '../canonicalGateway.js'

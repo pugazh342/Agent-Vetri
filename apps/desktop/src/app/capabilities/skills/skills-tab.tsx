@@ -1,20 +1,12 @@
-import { compactNumber } from '@vetri/shared'
 import { useStore } from '@nanostores/react'
 import { useQuery } from '@tanstack/react-query'
+import { compactNumber } from '@vetri/shared'
 import { type ReactNode, useCallback, useMemo, useState } from 'react'
 
 import { ArchiveSkillConfirmDialog } from '@/app/learning/archive-skill-confirm-dialog'
 import { CodeEditor } from '@/components/chat/code-editor'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import {
-  editLearningNode,
-  getLearningNode,
-  getOfficialSkills,
-  type ProfileScope,
-  profileScopeKey,
-  setSkillEnabled
-} from '@/vetri'
 import { useI18n } from '@/i18n'
 import { Loader2 } from '@/lib/icons'
 import { Codecs, persistentAtom } from '@/lib/persisted'
@@ -24,6 +16,14 @@ import { useStoreSelector } from '@/lib/use-session-slice'
 import { $hubActions, installHubSkill, notifyHubActionFailed, OFFICIAL_SKILLS_KEY } from '@/store/hub-actions'
 import { notify, notifyError } from '@/store/notifications'
 import type { OfficialSkillInfo, SkillInfo } from '@/types/vetri'
+import {
+  editLearningNode,
+  getLearningNode,
+  getOfficialSkills,
+  type ProfileScope,
+  profileScopeKey,
+  setSkillEnabled
+} from '@/vetri'
 
 import {
   CapRow,

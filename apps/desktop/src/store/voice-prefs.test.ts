@@ -5,8 +5,8 @@ vi.mock('@/vetri', () => ({
   saveVetriConfig: vi.fn(async () => undefined)
 }))
 
-import { saveVetriConfig } from '@/vetri'
 import { isVoiceStopCommand } from '@/lib/voice-stop-word'
+import { saveVetriConfig } from '@/vetri'
 
 import {
   $bargeInEnabled,

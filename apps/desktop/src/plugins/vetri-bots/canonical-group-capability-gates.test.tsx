@@ -1,6 +1,6 @@
+import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import type * as VetriSdk from '@vetri/plugin-sdk'
 import { host } from '@vetri/plugin-sdk'
-import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import type { WritableAtom } from 'nanostores'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 

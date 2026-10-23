@@ -1,4 +1,3 @@
-import { getLocalModelsJobs, getLocalModelsStatus } from '@/vetri'
 import type { Translations } from '@/i18n/types'
 import { queryClient } from '@/lib/query-client'
 import { localTipDue } from '@/lib/tips/local-cta'
@@ -8,6 +7,7 @@ import { localRuntimeInstallBusy, startLocalRuntimeInstall } from '@/store/local
 import { $connection } from '@/store/session'
 import { $activeTip, $retiredTips, $tipsEnabled, $tipShownAt, dismissTip, showTip } from '@/store/tips'
 import type { LocalModelsStatus, LocalRuntimeJob } from '@/types/vetri'
+import { getLocalModelsJobs, getLocalModelsStatus } from '@/vetri'
 
 let snapshot: { readAt: number; status: LocalModelsStatus | null; jobs: LocalRuntimeJob[] } | null = null
 let pending = false

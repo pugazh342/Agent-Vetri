@@ -3,9 +3,9 @@ import { afterEach, expect, it, vi } from 'vitest'
 
 import { setApiRequestConnection } from '@/api/client'
 import type { VetriApiRequest } from '@/global'
-import type { VetriConfigRecord } from '@/vetri'
 import { $activeGatewayProfile } from '@/store/profile'
 import { $connection } from '@/store/session'
+import type { VetriConfigRecord } from '@/vetri'
 
 import { useI18n } from './context'
 import { ProfileI18nProvider as I18nProvider } from './profile-provider'

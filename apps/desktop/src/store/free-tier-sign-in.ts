@@ -1,9 +1,9 @@
 import type { FreeTierClaimNudgeResult } from '@vetri/shared'
 import { atom } from 'nanostores'
 
-import { cancelOAuthSession, listOAuthProviders, pollOAuthSession, startOAuthLogin } from '@/vetri'
 import { gatewayActivationEpoch } from '@/store/gateway'
 import type { FreeTierStatus } from '@/types/vetri'
+import { cancelOAuthSession, listOAuthProviders, pollOAuthSession, startOAuthLogin } from '@/vetri'
 
 import { $freeTierStatus, type FreeTierRequester, NOUS_PROVIDER_ID, refreshFreeTierStatus } from './free-tier'
 import { $localModelOfferPending } from './local-model-offer'

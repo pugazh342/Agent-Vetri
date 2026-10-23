@@ -90,9 +90,12 @@ it('explicit npm snapshots remain replaceable and isolated from toolchain-only p
 
 // Key isolation, offline wheel/receipt relocation and the transport action are
 // covered by tests/scripts/test_desktop_build_cache.py. These declarations guard
-// the caller seam: a cache hit never replaces preparation.
-const desktop = action('../.github/workflows/desktop-bundled-release.yml')
-const payload = action('../.github/workflows/pm-bundle.yml')
+// the caller seam: a cache hit never replaces preparation. The release
+// workflows are parked (lean CI keeps only the active set in .github/workflows)
+// until the v0.3.1 desktop/MSIX release pipeline is re-adopted; the contract
+// stays pinned against the parked copies.
+const desktop = action('../.github/workflows-upstream/desktop-bundled-release.yml')
+const payload = action('../.github/workflows-upstream/pm-bundle.yml')
 const BUILD_CACHE = './.github/actions/desktop-build-cache'
 // Jobs are found by the cache action they use, not by id: build legs get
 // split and renamed while this contract stays the same.

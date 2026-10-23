@@ -1,7 +1,6 @@
 import { type ReactElement, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
-import { pauseLocalDownload, resumeLocalDownload } from '@/vetri'
 import { useI18n } from '@/i18n'
 import { Loader2, Pause, Play } from '@/lib/icons'
 import { cn } from '@/lib/utils'
@@ -13,6 +12,7 @@ import {
 } from '@/store/local-runtime-jobs'
 import { notifyError } from '@/store/notifications'
 import type { LocalRuntimeJob } from '@/types/vetri'
+import { pauseLocalDownload, resumeLocalDownload } from '@/vetri'
 
 import { Pill } from './primitives'
 

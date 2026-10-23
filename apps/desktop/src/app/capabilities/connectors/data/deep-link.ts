@@ -1,5 +1,5 @@
-import { type ProfileScope, profileScopeKey } from '@/vetri'
 import { activeGatewayConnectionId } from '@/store/gateway'
+import { type ProfileScope, profileScopeKey } from '@/vetri'
 
 import { CAPABILITIES_ROUTE } from '../../../routes'
 

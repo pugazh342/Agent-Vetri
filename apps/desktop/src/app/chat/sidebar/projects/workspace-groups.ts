@@ -1,6 +1,6 @@
 import type { VetriGitBranch, VetriGitWorktree } from '@/global'
-import type { ProjectInfo, SessionInfo } from '@/vetri'
 import { normalize } from '@/lib/text'
+import type { ProjectInfo, SessionInfo } from '@/vetri'
 
 import { rankSessions } from '../order'
 

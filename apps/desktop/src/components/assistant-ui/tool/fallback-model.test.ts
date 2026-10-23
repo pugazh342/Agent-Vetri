@@ -237,7 +237,7 @@ describe('buildToolView browser_navigate title', () => {
     )
 
     expect(view.status).toBe('error')
-    expect(view.title).toContain('pugazh342.github.io/docs')
+    expect(view.title).toContain('pugazh342.github.io/Agent-Vetri/docs')
   })
 
   it('shows opened title on success', () => {
@@ -251,7 +251,7 @@ describe('buildToolView browser_navigate title', () => {
     )
 
     expect(view.status).toBe('success')
-    expect(view.title).toContain('pugazh342.github.io/docs')
+    expect(view.title).toContain('pugazh342.github.io/Agent-Vetri/docs')
   })
 })
 

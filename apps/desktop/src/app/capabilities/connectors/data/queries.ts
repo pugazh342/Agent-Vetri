@@ -1,13 +1,13 @@
-import type { ConnectorAccountRow, ConnectorToolsResult } from '@vetri/shared'
 import { useMutation, useQuery } from '@tanstack/react-query'
+import type { ConnectorAccountRow, ConnectorToolsResult } from '@vetri/shared'
 import { useCallback, useEffect, useMemo } from 'react'
 
 import { GATEWAY_NOT_CONNECTED_MESSAGE } from '@/api/client'
-import type { ProfileScope } from '@/vetri'
 import { translateNow } from '@/i18n'
 import { isMissingRpcMethod, isOutOfSyncRpcParams } from '@/lib/gateway-rpc'
 import { queryClient } from '@/lib/query-client'
 import { notifyError } from '@/store/notifications'
+import type { ProfileScope } from '@/vetri'
 
 import { hostedPhase } from '../derive'
 import { toolReadStatus } from '../derive-tools'

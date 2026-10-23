@@ -1,6 +1,6 @@
-import type { GatewayEvent, GatewayEventName } from '@vetri/shared'
 import { QueryClient } from '@tanstack/react-query'
 import { act, render } from '@testing-library/react'
+import type { GatewayEvent, GatewayEventName } from '@vetri/shared'
 import { useEffect, useRef } from 'react'
 import { vi } from 'vitest'
 

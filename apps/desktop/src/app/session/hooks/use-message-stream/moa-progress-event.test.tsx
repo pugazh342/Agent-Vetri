@@ -1,5 +1,5 @@
-import type { GatewayEvent } from '@vetri/shared'
 import { act, cleanup } from '@testing-library/react'
+import type { GatewayEvent } from '@vetri/shared'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { type MessageStreamHarness, renderMessageStream } from './test-harness'

@@ -5,9 +5,9 @@ import { MemoryRouter } from 'react-router'
 import type * as ReactRouterDom from 'react-router'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type * as VetriApi from '@/vetri'
 import { queryClient } from '@/lib/query-client'
 import type * as HubActions from '@/store/hub-actions'
+import type * as VetriApi from '@/vetri'
 
 const getSkills = vi.fn()
 const getToolsets = vi.fn()
@@ -274,7 +274,7 @@ describe('CapabilitiesView toolset management', { timeout: 60_000 }, () => {
       window.dispatchEvent(
         new MessageEvent('message', {
           data: { type: 'vetri-skill-pick', name: 'web-research', identifier: 'web-research' },
-          origin: 'https://pugazh342.github.io/Agent-Vetri'
+          origin: 'https://pugazh342.github.io'
         })
       )
     })

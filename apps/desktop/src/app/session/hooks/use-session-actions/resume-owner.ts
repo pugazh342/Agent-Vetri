@@ -1,8 +1,8 @@
-import type { SessionInfo } from '@/vetri'
 import { isActivePrimary, openGatewayForAgent, openGatewayForProfile } from '@/store/gateway'
 import { $showAllProfiles, ensureGatewayAgent, ensureGatewayProfile, normalizeProfileKey } from '@/store/profile'
 import { $connection, setSessionOwnerHint } from '@/store/session'
 import type { SessionOwnerScope, SessionProfileRoute } from '@/store/session-request-router'
+import type { SessionInfo } from '@/vetri'
 
 /**
  * Connection that supplied the current session list, captured before resume's

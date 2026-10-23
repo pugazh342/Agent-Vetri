@@ -1,11 +1,10 @@
-import { DEFAULT_REASONING_EFFORT, type ModelOptionsResult } from '@vetri/shared'
 import { useStore } from '@nanostores/react'
 import { useQuery } from '@tanstack/react-query'
+import { DEFAULT_REASONING_EFFORT, type ModelOptionsResult } from '@vetri/shared'
 import { atom } from 'nanostores'
 import { useRef } from 'react'
 
 import { useSessionView } from '@/app/chat/session-view'
-import type { VetriGateway } from '@/vetri'
 import { useI18n } from '@/i18n'
 import { modelOptionsQueryKey, requestModelOptions } from '@/lib/model-options'
 import { currentPickerSelection } from '@/lib/model-status-label'
@@ -19,6 +18,7 @@ import {
   setModelPreset
 } from '@/store/model-presets'
 import { $defaultReasoningEffort, markComposerSelectionManual } from '@/store/session'
+import type { VetriGateway } from '@/vetri'
 
 import type { ModelMenuController } from './model-catalog-menu'
 

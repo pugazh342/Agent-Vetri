@@ -1,6 +1,6 @@
-import type { ModelOptionsResult } from '@vetri/shared'
 import { useStore } from '@nanostores/react'
 import { useQueryClient } from '@tanstack/react-query'
+import type { ModelOptionsResult } from '@vetri/shared'
 import { useState } from 'react'
 
 import { useSessionView } from '@/app/chat/session-view'

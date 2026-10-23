@@ -1,10 +1,10 @@
 import { useCallback, useState } from 'react'
 
-import { type ProfileScope, saveVetriConfigRecord } from '@/vetri'
 import { useI18n } from '@/i18n'
 import { notify, notifyError } from '@/store/notifications'
+import { type ProfileScope, saveVetriConfigRecord } from '@/vetri'
 
-import { vetriConfigCacheWriter, useVetriConfigRecord } from '../hooks/use-config-record'
+import { useVetriConfigRecord, vetriConfigCacheWriter } from '../hooks/use-config-record'
 
 import { ToggleRow } from './primitives'
 

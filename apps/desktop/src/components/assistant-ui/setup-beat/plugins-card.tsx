@@ -1,8 +1,8 @@
 'use client'
 
-import type { CatalogPluginPresence, PluginsManageResult } from '@vetri/shared'
 import { useStore } from '@nanostores/react'
 import { useQuery } from '@tanstack/react-query'
+import type { CatalogPluginPresence, PluginsManageResult } from '@vetri/shared'
 import { Puzzle } from 'lucide-react'
 import { useEffect } from 'react'
 

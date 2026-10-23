@@ -1,8 +1,8 @@
 import type { Dispatch, SetStateAction } from 'react'
 
-import type { VetriGateway } from '@/vetri'
 import type { IconComponent } from '@/lib/icons'
 import type { EnvVarInfo } from '@/types/vetri'
+import type { VetriGateway } from '@/vetri'
 
 export type SettingsView =
   | 'about'

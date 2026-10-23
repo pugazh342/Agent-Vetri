@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
 
-import { getSkills, type ProfileScope, profileScopeKey } from '@/vetri'
 import { normalize } from '@/lib/text'
 import type { OfficialSkillInfo, SkillInfo } from '@/types/vetri'
+import { getSkills, type ProfileScope, profileScopeKey } from '@/vetri'
 
 import { asText, includesQuery } from '../../settings/helpers'
 

@@ -1,4 +1,4 @@
-import { capabilityScoped, vetriApi, type ProfileScope, sessionReadOwnerPin } from '@/api/client'
+import { capabilityScoped, type ProfileScope, sessionReadOwnerPin, vetriApi } from '@/api/client'
 
 import type { TimelineEntry } from './timeline-data'
 

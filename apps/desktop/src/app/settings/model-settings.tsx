@@ -1,6 +1,6 @@
+import { useStore } from '@nanostores/react'
 import type { ModelOptionProvider } from '@vetri/shared'
 import { DEFAULT_REASONING_EFFORT, REASONING_EFFORT_VALUES } from '@vetri/shared'
-import { useStore } from '@nanostores/react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { Dispatch, SetStateAction } from 'react'
 
@@ -9,25 +9,6 @@ import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Switch } from '@/components/ui/switch'
-import {
-  getAuxiliaryModels,
-  getGlobalModelInfo,
-  getGlobalModelOptions,
-  getMoaModels,
-  getRecommendedDefaultModel,
-  saveVetriConfig,
-  saveMoaModels,
-  setEnvVar,
-  setModelAssignment
-} from '@/vetri'
-import type {
-  AuxiliaryModelsResponse,
-  AuxiliaryTaskAssignment,
-  MoaConfigResponse,
-  MoaModelSlot,
-  ModelAssignmentRequest,
-  StaleAuxAssignment
-} from '@/vetri'
 import { useI18n } from '@/i18n'
 import { isCodeSkewRestartRequired } from '@/lib/code-skew-error'
 import { AlertTriangle, Cpu, Loader2 } from '@/lib/icons'
@@ -39,8 +20,27 @@ import { $customModels, withCustomModels } from '@/store/custom-models'
 import { setMainModelAssignment } from '@/store/model-assignment'
 import { notify, notifyError, readableError } from '@/store/notifications'
 import { startManualLocalEndpoint, startManualOnboarding, startManualProviderOAuth } from '@/store/onboarding'
+import {
+  getAuxiliaryModels,
+  getGlobalModelInfo,
+  getGlobalModelOptions,
+  getMoaModels,
+  getRecommendedDefaultModel,
+  saveMoaModels,
+  saveVetriConfig,
+  setEnvVar,
+  setModelAssignment
+} from '@/vetri'
+import type {
+  AuxiliaryModelsResponse,
+  AuxiliaryTaskAssignment,
+  MoaConfigResponse,
+  MoaModelSlot,
+  ModelAssignmentRequest,
+  StaleAuxAssignment
+} from '@/vetri'
 
-import { vetriConfigCacheWriter, invalidateVetriConfig, useVetriConfigRecord } from '../hooks/use-config-record'
+import { invalidateVetriConfig, useVetriConfigRecord, vetriConfigCacheWriter } from '../hooks/use-config-record'
 import { useOnProfileSwitch } from '../hooks/use-on-profile-switch'
 import { PanelEmpty } from '../overlays/panel'
 

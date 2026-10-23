@@ -17,7 +17,6 @@ import type {
   DesktopVersionInfo,
   VetriConnection
 } from '@/global'
-import { checkVetriUpdate, getActionStatus, updateVetri } from '@/vetri'
 import { translateNow } from '@/i18n'
 import { persistString, storedString } from '@/lib/storage'
 import { $connectionsRegistry, refreshConnectionsRegistry } from '@/store/connections'
@@ -25,6 +24,7 @@ import { reconnectGateway } from '@/store/gateway-reconnect'
 import { dismissNotification, notify } from '@/store/notifications'
 import { $connection } from '@/store/session'
 import type { BackendUpdateCheckResponse, UpdateReceiptSummary } from '@/types/vetri'
+import { checkVetriUpdate, getActionStatus, updateVetri } from '@/vetri'
 
 /** Keyed per retired-channel revision: a new retirement (or a revision bump on
  *  the same channel) re-shows the notice, a plain re-check never does. */

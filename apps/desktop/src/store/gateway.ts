@@ -12,7 +12,6 @@ import { atom } from 'nanostores'
 
 import { canonicalOwnerProfile } from '@/api/canonical-protocol'
 import type { VetriConnection } from '@/global'
-import { VetriGateway, setApiRequestConnection } from '@/vetri'
 import { translateNow } from '@/i18n'
 import {
   decideLivenessForceClose,
@@ -32,6 +31,7 @@ import { notifyError, RECOVERY_ACTIONS } from '@/store/notifications'
 import { markNativeNotifyBaseline } from '@/store/notify-baseline'
 import { setConnection, setGatewayState } from '@/store/session'
 import { stampSecondaryProfileOwner } from '@/store/session-event-provenance'
+import { setApiRequestConnection, VetriGateway } from '@/vetri'
 
 // ── Multi-profile gateway routing ──────────────────────────────────────────
 // Concurrent sessions across profiles need concurrent sockets: the renderer's

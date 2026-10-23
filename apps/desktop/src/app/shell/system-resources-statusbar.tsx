@@ -2,12 +2,12 @@ import { useStore } from '@nanostores/react'
 import { useEffect, useState } from 'react'
 
 import type { StatusbarItem } from '@/app/shell/statusbar-controls'
-import { getLocalHardware } from '@/vetri'
 import { useI18n } from '@/i18n'
 import { Activity } from '@/lib/icons'
 import { $localModelsEnabled } from '@/store/local-models-flag'
 import { $statusbarHiddenIds } from '@/store/statusbar-prefs'
 import type { LocalHardware } from '@/types/vetri'
+import { getLocalHardware } from '@/vetri'
 
 // Live host-resource readout for the bottom bar: GPU utilization + VRAM +
 // RAM, fed by /api/local-models/hardware. Hidden by default (an item most

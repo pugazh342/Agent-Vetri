@@ -239,7 +239,7 @@ describe('PluginsTab', () => {
           tier: 'community',
           type: 'vetri-plugin-pick'
         },
-        origin: 'https://pugazh342.github.io/Agent-Vetri'
+        origin: 'https://pugazh342.github.io'
       })
     )
 
@@ -386,7 +386,7 @@ describe('PluginsTab', () => {
           subdir: 'nested-plugin',
           type: 'vetri-plugin-pick'
         },
-        origin: 'https://pugazh342.github.io/Agent-Vetri'
+        origin: 'https://pugazh342.github.io'
       })
     )
 
@@ -733,7 +733,7 @@ describe('PluginsTab catalog UX', () => {
           repo: 'https://github.com/example/demo-weather',
           type: 'vetri-plugin-pick'
         },
-        origin: 'https://pugazh342.github.io/Agent-Vetri'
+        origin: 'https://pugazh342.github.io'
       })
     )
 
@@ -766,7 +766,7 @@ describe('PluginsTab catalog UX', () => {
           repo: 'https://github.com/example/demo-weather',
           type: 'vetri-plugin-pick'
         },
-        origin: 'https://pugazh342.github.io/Agent-Vetri'
+        origin: 'https://pugazh342.github.io'
       })
     )
 

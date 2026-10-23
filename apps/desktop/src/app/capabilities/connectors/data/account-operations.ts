@@ -6,10 +6,10 @@ import type {
 } from '@vetri/shared'
 import { atom } from 'nanostores'
 
-import type { ProfileScope } from '@/vetri'
 import { type ConnectionTarget, parseConnectionTarget } from '@/store/connection-request'
 import { activeGatewayConnectionId } from '@/store/gateway'
 import { normalizeProfileKey } from '@/store/profile'
+import type { ProfileScope } from '@/vetri'
 
 import { invalidateConnectors } from './keys'
 import { accountOperationStatus } from './rpc'

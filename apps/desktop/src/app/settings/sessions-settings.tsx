@@ -4,14 +4,6 @@ import { restoreListedSession } from '@/app/session/hooks/use-session-actions/ut
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Tip } from '@/components/ui/tooltip'
-import {
-  deleteSession,
-  getVetriConfigRecord,
-  peekConfigReadOrigin,
-  retainConfigReadOrigin,
-  saveVetriConfig,
-  setSessionArchived
-} from '@/vetri'
 import { useI18n } from '@/i18n'
 import { sessionTitle } from '@/lib/chat-runtime'
 import { pathLeaf } from '@/lib/display-path'
@@ -24,7 +16,15 @@ import { applyConfiguredDefaultProjectDir, ensureDefaultWorkspaceCwd } from '@/s
 import { untombstoneSessions } from '@/store/session-removal'
 import { forgetSessionUnread } from '@/store/session-unread'
 import { listEveryArchivedSession } from '@/store/sidebar-archive'
-import type { VetriConfigRecord, SessionInfo } from '@/types/vetri'
+import type { SessionInfo, VetriConfigRecord } from '@/types/vetri'
+import {
+  deleteSession,
+  getVetriConfigRecord,
+  peekConfigReadOrigin,
+  retainConfigReadOrigin,
+  saveVetriConfig,
+  setSessionArchived
+} from '@/vetri'
 
 import { EmptyState, ListRow, SectionHeading, SettingsContent, SettingsSkeleton, ToggleRow } from './primitives'
 import { SETTING_IDS, settingElementId } from './settings-manifest'

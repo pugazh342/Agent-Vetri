@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 
 import type { SubmitTextOptions } from '@/app/session/hooks/use-prompt-actions/utils'
-import type { VetriGateway, ResolvedOwner } from '@/vetri'
+import type { ResolvedOwner, VetriGateway } from '@/vetri'
 
 import type { DroppedFile } from '../hooks/use-composer-actions'
 

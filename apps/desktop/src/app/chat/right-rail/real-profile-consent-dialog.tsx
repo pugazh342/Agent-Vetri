@@ -12,7 +12,6 @@ import {
   DialogTitle
 } from '@/components/ui/dialog'
 import type { VetriConnection } from '@/global'
-import { saveVetriConfigRecord } from '@/vetri'
 import { useI18n } from '@/i18n'
 import { Check, Globe } from '@/lib/icons'
 import { notify, notifyError } from '@/store/notifications'
@@ -24,8 +23,9 @@ import {
   releaseRealProfilePrompt
 } from '@/store/real-profile-consent'
 import { $connection } from '@/store/session'
+import { saveVetriConfigRecord } from '@/vetri'
 
-import { vetriConfigCacheWriter, useVetriConfigRecord } from '../../hooks/use-config-record'
+import { useVetriConfigRecord, vetriConfigCacheWriter } from '../../hooks/use-config-record'
 
 interface RealProfileConsentDialogProps {
   /** The Browser tab this pane renders — used only to claim the prompt so

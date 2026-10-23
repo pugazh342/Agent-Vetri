@@ -23,7 +23,6 @@
 
 import { atom } from 'nanostores'
 
-import { setSessionPinnedRemote } from '@/vetri'
 import { onConnectionScopeChange } from '@/lib/connection-scoped'
 import { $pinnedSessionIds, pinSession, unpinSession } from '@/store/layout'
 import { $activeGatewayProfile, normalizeProfileKey } from '@/store/profile'
@@ -38,6 +37,7 @@ import {
   setSessions
 } from '@/store/session'
 import type { SessionInfo } from '@/types/vetri'
+import { setSessionPinnedRemote } from '@/vetri'
 
 // pin ids we've successfully PATCHed pinned=true this session.
 const mirrored = new Set<string>()

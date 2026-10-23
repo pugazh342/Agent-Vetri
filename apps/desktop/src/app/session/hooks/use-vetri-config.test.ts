@@ -3,7 +3,6 @@ import { act, renderHook } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { $terminalFontFamily, setTerminalFontFamilyFromConfig } from '@/app/right-sidebar/terminal/terminal-font'
-import { getVetriConfig } from '@/vetri'
 import { persistString } from '@/lib/storage'
 import { $showReasoning, setShowReasoningFromConfig } from '@/store/reasoning-disclosure'
 import {
@@ -20,6 +19,7 @@ import {
   setDefaultReasoningEffort
 } from '@/store/session'
 import { $showToolActivity, setShowToolActivityFromConfig } from '@/store/tool-activity'
+import { getVetriConfig } from '@/vetri'
 
 import { deferred } from '../../../test/deferred'
 

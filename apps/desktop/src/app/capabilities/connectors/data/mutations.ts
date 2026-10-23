@@ -1,10 +1,10 @@
 import type { ConnectionAnswer, ConnectorAccountsResult, ConnectorPolicyGetResult } from '@vetri/shared'
 import { useCallback, useRef, useState } from 'react'
 
-import type { ProfileScope } from '@/vetri'
 import { translateNow } from '@/i18n'
 import { queryClient } from '@/lib/query-client'
 import { notifyError } from '@/store/notifications'
+import type { ProfileScope } from '@/vetri'
 
 import type { SaveResult } from '../use-tools-editor'
 

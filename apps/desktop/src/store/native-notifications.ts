@@ -1,8 +1,8 @@
 import { atom } from 'nanostores'
 
 import { translateNow } from '@/i18n'
-import { type VetriOpenTarget, resolveVetriOpenPath } from '@/lib/vetri-open-target'
 import { persistString, storedString } from '@/lib/storage'
+import { resolveVetriOpenPath, type VetriOpenTarget } from '@/lib/vetri-open-target'
 
 import { recordFeatureToggle } from './desktop-metrics'
 import { $gateway } from './gateway'

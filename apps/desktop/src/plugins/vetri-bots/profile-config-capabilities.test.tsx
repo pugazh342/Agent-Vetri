@@ -13,9 +13,9 @@
  * the wrong machine — so those builds must fail closed to "staged only".
  */
 
-import type * as VetriSdk from '@vetri/plugin-sdk'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { cleanup, render, screen } from '@testing-library/react'
+import type * as VetriSdk from '@vetri/plugin-sdk'
 import type { ReactNode } from 'react'
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 

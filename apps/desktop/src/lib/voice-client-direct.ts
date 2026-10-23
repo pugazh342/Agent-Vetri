@@ -1,4 +1,4 @@
-import { vetriApiAs, type OwnerScope, ownerScoped, type ResolvedOwner } from '@/api/client'
+import { type OwnerScope, ownerScoped, type ResolvedOwner, vetriApiAs } from '@/api/client'
 import { getApiRequestConnection, getApiRequestProfile, vetriApi } from '@/vetri'
 
 /**

@@ -1,10 +1,9 @@
-import type { GatewayEvent } from '@vetri/shared'
 import { QueryClient } from '@tanstack/react-query'
 import { act, cleanup, renderHook } from '@testing-library/react'
+import type { GatewayEvent } from '@vetri/shared'
 import { useRef } from 'react'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 
-import { getLatestSessionMessages } from '@/vetri'
 import { chatMessageText, toChatMessages } from '@/lib/chat-messages'
 import { resetInFlightTurnJournalStateForTests } from '@/lib/inflight-turn-journal'
 import { $activeGatewayProfile } from '@/store/profile'
@@ -20,6 +19,7 @@ import {
 } from '@/store/session'
 import { clearAllSessionStates } from '@/store/session-states'
 import type { SessionMessage, SessionResumeResult } from '@/types/vetri'
+import { getLatestSessionMessages } from '@/vetri'
 
 import { useMessageStream } from './use-message-stream'
 import { useSessionActions } from './use-session-actions'

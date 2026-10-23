@@ -3,9 +3,9 @@ import { useMemo } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { CountSkeleton } from '@/components/ui/skeleton'
-import { getSkillContent, type ProfileScope, profileScopeKey } from '@/vetri'
 import { useI18n } from '@/i18n'
 import type { SkillInfo } from '@/types/vetri'
+import { getSkillContent, type ProfileScope, profileScopeKey } from '@/vetri'
 
 import { PanelPill } from '../../overlays/panel'
 import { asText, prettyName } from '../../settings/helpers'

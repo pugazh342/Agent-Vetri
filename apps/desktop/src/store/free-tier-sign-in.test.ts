@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type * as VetriApi from '@/vetri'
 import type { FreeTierRequester } from '@/store/free-tier'
+import type * as VetriApi from '@/vetri'
 
 const startOAuthLogin = vi.fn()
 const pollOAuthSession = vi.fn()

@@ -16,7 +16,7 @@
  */
 
 import { ensureContrast, mix } from '@vetri/shared/color'
-import type { VetriSkin, SkinColors } from '@vetri/shared/skin'
+import type { SkinColors, VetriSkin } from '@vetri/shared/skin'
 
 import { luminance, normalizeHex, readableInk } from './color'
 import type { DesktopTheme, DesktopThemeColors } from './types'

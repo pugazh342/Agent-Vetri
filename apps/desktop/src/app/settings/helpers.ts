@@ -1,6 +1,6 @@
 import { foldPersonalityName } from '@/lib/personalities'
 import { asText, normalize } from '@/lib/text'
-import type { ConfigFieldSchema, VetriConfigRecord, ToolsetInfo } from '@/types/vetri'
+import type { ConfigFieldSchema, ToolsetInfo, VetriConfigRecord } from '@/types/vetri'
 
 import { BUILTIN_PERSONALITIES, ENUM_OPTIONS, PROVIDER_GROUPS, SECTIONS } from './constants'
 

@@ -1,12 +1,12 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type * as VetriModule from '@/vetri'
-import { getSession } from '@/vetri'
 import { $activeGatewayProfile, $profiles } from '@/store/profile'
 import { $projectTree } from '@/store/projects'
 import { $cronSessions, $messagingSessions, $sessions, $unlistedSessionOwnerRows } from '@/store/session'
 import { $removedSessionIds, tombstoneSessions, untombstoneSessions } from '@/store/session-removal'
 import type { SessionInfo } from '@/types/vetri'
+import type * as VetriModule from '@/vetri'
+import { getSession } from '@/vetri'
 
 import { cachedSessionRow, resolveStoredSession } from './utils'
 

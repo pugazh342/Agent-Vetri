@@ -1,7 +1,7 @@
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type * as VetriModule from '@/vetri'
 import type { ProfileInfo, SessionInfo } from '@/types/vetri'
+import type * as VetriModule from '@/vetri'
 
 const getSessionMock = vi.fn<(id: string, profile?: null | string) => Promise<SessionInfo>>()
 

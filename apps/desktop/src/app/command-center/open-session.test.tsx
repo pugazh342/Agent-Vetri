@@ -2,9 +2,9 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
+import { $sessions } from '@/store/session'
 import type * as VetriApi from '@/vetri'
 import type { SessionInfo } from '@/vetri'
-import { $sessions } from '@/store/session'
 
 import { CommandCenterView } from './index'
 

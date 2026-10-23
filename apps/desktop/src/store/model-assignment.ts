@@ -1,7 +1,7 @@
-import { type ProfileScope, setModelAssignment } from '@/vetri'
 import { translateNow } from '@/i18n'
 import { dismissNotification, notify } from '@/store/notifications'
 import type { ModelAssignmentRequest, ModelAssignmentResponse } from '@/types/vetri'
+import { type ProfileScope, setModelAssignment } from '@/vetri'
 
 /**
  * Selection-guard warning as a confirm toast. Resolves true on Confirm, false

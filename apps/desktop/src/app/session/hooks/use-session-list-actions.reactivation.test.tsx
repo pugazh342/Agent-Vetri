@@ -1,9 +1,9 @@
 import { act, renderHook } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
 
-import type { SessionInfo, SidebarSessionsResponse } from '@/vetri'
 import { ensureGatewayForAgent, setPrimaryGateway, setPrimaryGatewayConnection } from '@/store/gateway'
 import { $sessions, setSessions } from '@/store/session'
+import type { SessionInfo, SidebarSessionsResponse } from '@/vetri'
 
 import { deferred } from '../../../test/deferred'
 

@@ -16,13 +16,13 @@ import type {
 
 import {
   capabilityScoped,
-  vetriApi,
-  vetriApiAs,
   type OwnerScope,
   ownerScoped,
   type ProfileScope,
   profileScoped,
-  type ResolvedOwner
+  type ResolvedOwner,
+  vetriApi,
+  vetriApiAs
 } from './client'
 
 export const AUDIO_SPEAK_MIN_REQUEST_TIMEOUT_MS = 180_000

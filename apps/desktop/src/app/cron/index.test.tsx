@@ -3,11 +3,11 @@ import { QueryClientProvider } from '@tanstack/react-query'
 import { act, cleanup, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type * as VetriApi from '@/vetri'
-import type { CronJob, SessionInfo } from '@/vetri'
 import { queryClient } from '@/lib/query-client'
 import { $cronFocusJobId, $cronJobs, setCronFocusJobId, setCronJobs } from '@/store/cron'
 import { notifyCronChanged, setChangeEventsAvailable } from '@/store/live-sync'
+import type * as VetriApi from '@/vetri'
+import type { CronJob, SessionInfo } from '@/vetri'
 
 const getCronJobRuns = vi.fn()
 const getCronJobs = vi.fn()

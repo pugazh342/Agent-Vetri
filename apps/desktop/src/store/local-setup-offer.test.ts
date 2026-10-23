@@ -1,8 +1,8 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import type { VetriConnection } from '@/global'
-import type * as Vetri from '@/vetri'
 import type { LocalCatalogModel, LocalModelsStatus } from '@/types/vetri'
+import type * as Vetri from '@/vetri'
 
 const backend = vi.hoisted(() => ({ catalog: vi.fn(), status: vi.fn() }))
 

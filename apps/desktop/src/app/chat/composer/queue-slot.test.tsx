@@ -1,11 +1,11 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
 
-import type { VetriGateway } from '@/vetri'
 import { I18nProvider } from '@/i18n/context'
 import { en } from '@/i18n/en'
 import { $queuedPromptsBySession, getQueuedPrompts } from '@/store/composer-queue'
 import { reconcilePendingSubmissions } from '@/store/pending-submissions'
+import type { VetriGateway } from '@/vetri'
 
 import { renderComposerQueueSlot } from './queue-slot'
 

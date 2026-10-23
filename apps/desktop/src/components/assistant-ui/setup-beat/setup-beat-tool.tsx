@@ -1,8 +1,8 @@
 'use client'
 
 import type { ToolCallMessagePartProps } from '@assistant-ui/react'
-import type { SetupBeat } from '@vetri/shared'
 import { useStore } from '@nanostores/react'
+import type { SetupBeat } from '@vetri/shared'
 import { Puzzle } from 'lucide-react'
 import { type ComponentType, type ReactNode, useState } from 'react'
 

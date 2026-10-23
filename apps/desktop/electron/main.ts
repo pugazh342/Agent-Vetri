@@ -218,7 +218,7 @@ import type { RosterProfileMetadata } from './connection-registry'
 import { liveWindowState, overlayWindowState } from './connection-window-state'
 import { describeCrashReason, installCrashForensics } from './crash-forensics'
 import { adoptServedDashboardToken } from './dashboard-token'
-import { resolveDesktopVetriHome, resolveDesktopUserData } from './data-paths'
+import { resolveDesktopUserData, resolveDesktopVetriHome } from './data-paths'
 import { registerDeepLinkProtocol as registerDeepLinkProtocolWith } from './deep-link-protocol'
 import { loadOrCreateInstallationId, sshOwnershipId } from './desktop-installation'
 import { formatDesktopLogLine, formatLogStamp } from './desktop-log-line'
@@ -311,7 +311,7 @@ import {
   writeSecretFileAtomic
 } from './hardening'
 import { assertNotPassiveSpawn } from './host-backend-singleton'
-import { VETRI_HUB_FALLBACK_ORIGIN, VETRI_HUB_ORIGIN, isVetriHubClipboardWrite } from './hub-iframe-policy'
+import { isVetriHubClipboardWrite, VETRI_HUB_FALLBACK_ORIGIN, VETRI_HUB_ORIGIN } from './hub-iframe-policy'
 import { requestHudClose } from './hud-close'
 import { cursorPointInWindow } from './hud-cursor'
 import { startHudGameOverlayWatch } from './hud-game-overlay'
@@ -669,7 +669,6 @@ import {
   windowSize
 } from './window-state'
 import { hiddenWindowsChildOptions } from './windows-child-options'
-import { buildPathExtCandidates, chooseUpdaterArgs, resolveVenvVetriCommand } from './windows-vetri-path'
 import {
   connectWindowsRemote,
   detectRemotePlatform,
@@ -704,6 +703,7 @@ import {
   writeGpuStackCookieMarker
 } from './windows-stack-cookie-fallback'
 import { readWindowsUserEnvVar } from './windows-user-env'
+import { buildPathExtCandidates, chooseUpdaterArgs, resolveVenvVetriCommand } from './windows-vetri-path'
 import { isPackagedInstallPath as isPackagedInstallPathUnderRoots } from './workspace-cwd'
 import { readWslWindowsClipboardImage } from './wsl-clipboard-image'
 import { resolvePickerDefaultPath, setActiveGatewayProfile, setWslBridgeProfileState } from './wsl-path-bridge'

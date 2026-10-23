@@ -11,9 +11,9 @@ import type {
 import {
   connectionScoped,
   getApiRequestConnection,
-  vetriApi,
   profileScoped,
-  STARTUP_REQUEST_TIMEOUT_MS
+  STARTUP_REQUEST_TIMEOUT_MS,
+  vetriApi
 } from './client'
 
 // The cron trigger endpoint intentionally waits for the whole job so its

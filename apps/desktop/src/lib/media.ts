@@ -1,6 +1,6 @@
 import { LOCAL_CONNECTION_ID } from '@vetri/shared'
 
-import { capabilityScoped, vetriApi, type OwnerScope } from '@/api/client'
+import { capabilityScoped, type OwnerScope, vetriApi } from '@/api/client'
 import type { VetriConnection } from '@/global'
 import { translateNow } from '@/i18n'
 import { desktopFsCacheKey, isReadFileErrorResult, readDesktopFileDataUrl } from '@/lib/desktop-fs'

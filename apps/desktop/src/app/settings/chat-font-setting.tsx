@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
-import { saveVetriConfig } from '@/vetri'
 import { useI18n } from '@/i18n'
 import { notifyError } from '@/store/notifications'
 import {
@@ -11,6 +10,7 @@ import {
   setChatFontFamilyFromConfig
 } from '@/themes/chat-font'
 import type { VetriConfigRecord } from '@/types/vetri'
+import { saveVetriConfig } from '@/vetri'
 
 import { setVetriConfigCache, useVetriConfigRecord } from '../hooks/use-config-record'
 import { useOnProfileSwitch } from '../hooks/use-on-profile-switch'

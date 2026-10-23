@@ -8,8 +8,8 @@ import type {
 } from '@vetri/shared'
 import { JsonRpcGatewayError } from '@vetri/shared'
 
-import type { ProfileScope } from '@/vetri'
 import { requestGatewayForAgent } from '@/store/gateway'
+import type { ProfileScope } from '@/vetri'
 
 export type { ConnectorErrorReason }
 

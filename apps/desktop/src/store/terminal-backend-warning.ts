@@ -1,8 +1,8 @@
-import { getTerminalBackends, selectTerminalBackend } from '@/vetri'
 import { translateNow } from '@/i18n'
 import { notify, notifyError } from '@/store/notifications'
 import { requestRoute } from '@/store/recovery-requests'
 import type { TerminalBackendInfo } from '@/types/vetri'
+import { getTerminalBackends, selectTerminalBackend } from '@/vetri'
 
 /**
  * Proactive warning when the selected terminal backend (Docker, SSH, …)

@@ -1,13 +1,5 @@
 import { type QueryClient, useQueryClient } from '@tanstack/react-query'
 
-import {
-  activateLocalModel,
-  deleteLocalModel,
-  downloadLocalModel,
-  ejectLocalModel,
-  quickstartLocalModels,
-  setLocalServer
-} from '@/vetri'
 import { useI18n } from '@/i18n'
 import type { Translations } from '@/i18n/types'
 import {
@@ -20,6 +12,14 @@ import {
 } from '@/store/local-runtime-jobs'
 import { notify, notifyError } from '@/store/notifications'
 import type { LocalCatalogModel, LocalRuntimeJob } from '@/types/vetri'
+import {
+  activateLocalModel,
+  deleteLocalModel,
+  downloadLocalModel,
+  ejectLocalModel,
+  quickstartLocalModels,
+  setLocalServer
+} from '@/vetri'
 
 import { useScopedLocalModelsOwner } from './local-models-owner'
 

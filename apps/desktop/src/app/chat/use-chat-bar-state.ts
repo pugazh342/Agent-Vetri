@@ -1,11 +1,11 @@
-import type { ModelOptionsResult } from '@vetri/shared'
 import { useQuery } from '@tanstack/react-query'
+import type { ModelOptionsResult } from '@vetri/shared'
 import type * as React from 'react'
 import { useMemo } from 'react'
 
-import type { VetriGateway } from '@/vetri'
 import { quickModelOptions } from '@/lib/chat-runtime'
 import { currentModelCapabilities, modelOptionsQueryKey, requestModelOptions } from '@/lib/model-options'
+import type { VetriGateway } from '@/vetri'
 
 import type { ChatBarState } from './composer/types'
 

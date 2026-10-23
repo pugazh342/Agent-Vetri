@@ -246,7 +246,7 @@ it('carries each install channel from Python publication checks into the source 
       const manifest: FixtureManifest = buildManifest(channel, sha, tags[channel], buildId(channel))
       const body: string = canonicalJson(manifest)
       responses.set(
-        `/releases/channels/${channel}.json`,
+        `/Agent-Vetri/releases/channels/${channel}.json`,
         JSON.stringify({
           ...channelRecord(channel, channel === 'stable' ? 1 : 2),
           head: {
@@ -257,7 +257,7 @@ it('carries each install channel from Python publication checks into the source 
           }
         })
       )
-      responses.set(`/${manifestKey(channel)}`, body)
+      responses.set(`/Agent-Vetri/${manifestKey(channel)}`, body)
       responses.set(`/repos/pugazh342/Agent-Vetri/releases/tags/${tags[channel]}`, {
         tag_name: tags[channel],
         draft: false,
@@ -449,7 +449,7 @@ if not getattr(urllib.request, '_vetri_loopback', False):
 
     // The R2 record, not GitHub metadata, decides availability: retire the
     // canary object and the resolver must fail closed before any handoff.
-    responses.delete(`/releases/channels/canary.json`)
+    responses.delete(`/Agent-Vetri/releases/channels/canary.json`)
     vi.mocked(deps.stopBackendsForUpdate).mockClear()
     expect(await strategy.apply()).toMatchObject({ ok: false, error: 'release-unavailable' })
     expect(deps.stopBackendsForUpdate).not.toHaveBeenCalled()

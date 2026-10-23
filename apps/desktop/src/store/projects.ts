@@ -10,7 +10,6 @@ import {
   type SidebarProjectTree
 } from '@/app/chat/sidebar/projects/workspace-groups'
 import type { VetriGitBaseBranch, VetriGitBranch } from '@/global'
-import { getVetriConfig, vetriApi, type VetriGateway, type SessionInfo } from '@/vetri'
 import { translateNow } from '@/i18n'
 import { desktopDefaultCwd, isDesktopFsRemoteMode, selectDesktopPaths, writeDesktopFileText } from '@/lib/desktop-fs'
 import { desktopGit } from '@/lib/desktop-git'
@@ -54,6 +53,7 @@ import {
   tombstoneRowIds
 } from '@/store/session-removal'
 import type { ProjectInfo, ProjectsPayload } from '@/types/vetri'
+import { getVetriConfig, type SessionInfo, vetriApi, type VetriGateway } from '@/vetri'
 
 import { recordFeatureUse } from './desktop-metrics'
 

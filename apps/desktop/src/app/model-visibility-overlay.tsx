@@ -1,9 +1,9 @@
 import { useStore } from '@nanostores/react'
 
 import { ModelVisibilityDialog } from '@/components/model-visibility-dialog'
-import type { VetriGateway } from '@/vetri'
 import { $modelVisibilityOpen, setModelVisibilityOpen } from '@/store/model-visibility'
 import { $activeSessionId, $gatewayState } from '@/store/session'
+import type { VetriGateway } from '@/vetri'
 
 interface ModelVisibilityOverlayProps {
   gateway?: VetriGateway

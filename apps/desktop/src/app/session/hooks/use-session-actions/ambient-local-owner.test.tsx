@@ -3,12 +3,12 @@ import { useEffect, useRef } from 'react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import type { VetriConnection } from '@/global'
-import { getLatestSessionMessages, type SessionInfo } from '@/vetri'
 import { createClientSessionState } from '@/lib/chat-runtime'
 import * as gateways from '@/store/gateway'
 import { $activeGatewayProfile, $showAllProfiles } from '@/store/profile'
 import { _resetSessionOwnerHintsForTests, getSessionOwnerHint, setConnection, setSessions } from '@/store/session'
 import { clearAllSessionStates, publishSessionState, requestForOwnedSession } from '@/store/session-states'
+import { getLatestSessionMessages, type SessionInfo } from '@/vetri'
 
 import type { ClientSessionState } from '../../../types'
 

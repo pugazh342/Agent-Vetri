@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react'
 
-import type { VetriGateway } from '@/vetri'
 import type { Translations } from '@/i18n'
 import { type QueuedPromptEntry, removeQueuedPrompt, unparkQueuedPrompts } from '@/store/composer-queue'
 import { notifyError } from '@/store/notifications'
+import type { VetriGateway } from '@/vetri'
 
 import type { QueueEditState } from './composer-utils'
 import { cancelQueuedPrompt, discardLostPrompt } from './discard-lost-prompt'

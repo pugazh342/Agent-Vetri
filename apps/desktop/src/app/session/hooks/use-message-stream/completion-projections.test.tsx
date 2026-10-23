@@ -1,5 +1,5 @@
-import type { GatewayEventName } from '@vetri/shared'
 import { act, cleanup } from '@testing-library/react'
+import type { GatewayEventName } from '@vetri/shared'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 
 import { chatMessageText, textPart } from '@/lib/chat-messages'

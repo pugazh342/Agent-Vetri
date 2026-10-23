@@ -1,5 +1,5 @@
-import type { ProfileScope } from '@/vetri'
 import { requestGatewayForAgent, requestGatewayForProfile, retainGatewayForSessionTurn } from '@/store/gateway'
+import type { ProfileScope } from '@/vetri'
 
 import { resetBackgroundPollingGuardAfterRebind } from './session-gone-latch'
 

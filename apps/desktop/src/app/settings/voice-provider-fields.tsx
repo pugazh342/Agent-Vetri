@@ -1,6 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useMemo, useRef, useState } from 'react'
 
+import { useI18n } from '@/i18n'
+import { notifyError } from '@/store/notifications'
+import type { VetriConfigRecord } from '@/types/vetri'
 import {
   getElevenLabsVoices,
   getVetriConfigSchema,
@@ -8,11 +11,8 @@ import {
   profileScopeKey,
   saveVetriConfigRecord
 } from '@/vetri'
-import { useI18n } from '@/i18n'
-import { notifyError } from '@/store/notifications'
-import type { VetriConfigRecord } from '@/types/vetri'
 
-import { vetriConfigCacheWriter, useVetriConfigRecord } from '../hooks/use-config-record'
+import { useVetriConfigRecord, vetriConfigCacheWriter } from '../hooks/use-config-record'
 
 import { ConfigField } from './config-field'
 import { SECTIONS } from './constants'

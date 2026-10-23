@@ -2,11 +2,11 @@
 import { describe, expect, it, vi } from 'vitest'
 
 import {
-  VETRI_HUB_FALLBACK_ORIGIN,
-  VETRI_HUB_ORIGIN,
   isVetriHubClipboardWrite,
   isVetriHubExternalUrl,
-  isVetriHubOrigin
+  isVetriHubOrigin,
+  VETRI_HUB_FALLBACK_ORIGIN,
+  VETRI_HUB_ORIGIN
 } from './hub-iframe-policy'
 import { createWindowOpenHandler, describeDeniedUrl } from './window-open-policy'
 

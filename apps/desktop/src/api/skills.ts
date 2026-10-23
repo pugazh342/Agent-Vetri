@@ -9,7 +9,7 @@ import type {
 } from '@/types/vetri'
 import type { ActionResponse } from '@/types/vetri'
 
-import { capabilityScoped, vetriApi, type ProfileScope, profileScoped } from './client'
+import { capabilityScoped, type ProfileScope, profileScoped, vetriApi } from './client'
 
 export function getSkills(profile?: ProfileScope): Promise<SkillInfo[]> {
   return window.vetriDesktop.api<SkillInfo[]>({

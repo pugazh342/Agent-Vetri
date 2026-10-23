@@ -3,7 +3,7 @@ import { reconnectBackoffDelayMs } from '@vetri/shared'
 import type { VetriConnection } from '@/global'
 import { RECONNECT_ATTEMPT_TIMEOUT_MS, withTimeout } from '@/lib/with-timeout'
 
-import { getApiRequestConnection, getApiRequestProfile, vetriApi, profileScoped } from './client'
+import { getApiRequestConnection, getApiRequestProfile, profileScoped, vetriApi } from './client'
 
 /** Resolve the ACTIVE backend's connection descriptor, (connectionId,
  *  profile)-scoped — mirroring how store/profile resolves $connection: a

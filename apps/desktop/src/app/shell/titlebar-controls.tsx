@@ -1,5 +1,5 @@
-import { compactNumber } from '@vetri/shared'
 import { useStore } from '@nanostores/react'
+import { compactNumber } from '@vetri/shared'
 import { type ComponentProps, type MouseEvent, type ReactNode, useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 

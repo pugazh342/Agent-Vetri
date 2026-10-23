@@ -1,8 +1,8 @@
-import { applyDocumentLocale, isRecord } from '@vetri/shared/i18n'
 import { useStore } from '@nanostores/react'
+import { applyDocumentLocale, isRecord } from '@vetri/shared/i18n'
 import { createContext, type ReactNode, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 
-import { getVetriConfigRecord, type VetriConfigRecord, retainConfigReadOrigin, saveVetriConfig } from '@/vetri'
+import { getVetriConfigRecord, retainConfigReadOrigin, saveVetriConfig, type VetriConfigRecord } from '@/vetri'
 
 import { TRANSLATIONS } from './catalog'
 import {

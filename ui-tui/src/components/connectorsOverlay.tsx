@@ -1,3 +1,4 @@
+import { useStore } from '@nanostores/react'
 import { Box, Text, useInput, useStdout } from '@vetri/ink'
 import type {
   ConnectionOperationStatus,
@@ -8,7 +9,6 @@ import type {
   ConnectorsListResult
 } from '@vetri/shared/gateway-events'
 import { JsonRpcGatewayError } from '@vetri/shared/json-rpc-channel'
-import { useStore } from '@nanostores/react'
 import { type ReactNode, useEffect, useState } from 'react'
 
 import { $overlayState, hasPromptOpen, patchOverlayState } from '../app/overlayStore.js'

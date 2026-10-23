@@ -1,3 +1,4 @@
+import { useStore } from '@nanostores/react'
 import {
   forceRedraw,
   type ScrollBoxHandle,
@@ -10,7 +11,6 @@ import {
 } from '@vetri/ink'
 import type { SessionControlSnapshot } from '@vetri/shared/gateway-events'
 import { JSON_RPC_METHOD_NOT_FOUND, type ServerRequest } from '@vetri/shared/json-rpc-channel'
-import { useStore } from '@nanostores/react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { sharedControlParams } from '../canonicalGateway.js'

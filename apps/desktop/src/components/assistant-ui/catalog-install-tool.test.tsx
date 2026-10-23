@@ -1,6 +1,6 @@
 import type { ToolCallMessagePartProps } from '@assistant-ui/react'
-import type { ConnectionOperationTarget, ConnectionRequestPayload } from '@vetri/shared'
 import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react'
+import type { ConnectionOperationTarget, ConnectionRequestPayload } from '@vetri/shared'
 import { atom } from 'nanostores'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 

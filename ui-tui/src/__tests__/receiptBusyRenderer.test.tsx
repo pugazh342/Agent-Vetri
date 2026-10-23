@@ -3,8 +3,8 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { PassThrough } from 'node:stream'
 
-import { renderSync, Text } from '@vetri/ink'
 import { useStore } from '@nanostores/react'
+import { renderSync, Text } from '@vetri/ink'
 import React, { useEffect } from 'react'
 import { expect, it, vi } from 'vitest'
 

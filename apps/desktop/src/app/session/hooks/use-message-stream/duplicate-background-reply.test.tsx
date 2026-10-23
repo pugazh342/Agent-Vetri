@@ -1,5 +1,5 @@
-import type { GatewayEventName } from '@vetri/shared'
 import { act, cleanup, render, waitFor } from '@testing-library/react'
+import type { GatewayEventName } from '@vetri/shared'
 import { afterEach, expect, it } from 'vitest'
 
 import { graftRefreshedTailOntoBackfill } from '@/app/chat/transcript-backfill'

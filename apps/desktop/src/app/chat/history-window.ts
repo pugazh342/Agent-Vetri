@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
-import { capabilityScoped, vetriApi, type ProfileScope, sessionReadOwnerPin } from '@/api/client'
+import { capabilityScoped, type ProfileScope, sessionReadOwnerPin, vetriApi } from '@/api/client'
 import {
   cachedTimelineIndex,
   previousPromptRowId,

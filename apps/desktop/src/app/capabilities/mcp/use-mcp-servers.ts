@@ -2,16 +2,6 @@ import { useStore } from '@nanostores/react'
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useMemo, useRef, useState } from 'react'
 
-import {
-  getMcpCatalog,
-  type VetriGateway,
-  type McpCatalogEntry,
-  type McpCatalogResponse,
-  type McpTestResult,
-  type ProfileScope,
-  profileScopeKey,
-  saveMcpServers
-} from '@/vetri'
 import { useI18n } from '@/i18n'
 import { completeMcpDesktopOAuth } from '@/lib/mcp-dashboard-oauth'
 import { probeCache, probeKey } from '@/lib/mcp-probe-cache'
@@ -21,8 +11,18 @@ import { notify, notifyError } from '@/store/notifications'
 import { $activeGatewayProfile, normalizeProfileKey } from '@/store/profile'
 import { $activeSessionId } from '@/store/session'
 import type { VetriConfigRecord } from '@/types/vetri'
+import {
+  getMcpCatalog,
+  type McpCatalogEntry,
+  type McpCatalogResponse,
+  type McpTestResult,
+  type ProfileScope,
+  profileScopeKey,
+  saveMcpServers,
+  type VetriGateway
+} from '@/vetri'
 
-import { vetriConfigCacheWriter, useVetriConfigRecord } from '../../hooks/use-config-record'
+import { useVetriConfigRecord, vetriConfigCacheWriter } from '../../hooks/use-config-record'
 import { useOnProfileSwitch } from '../../hooks/use-on-profile-switch'
 import { useProfileSwitchLatch } from '../../hooks/use-profile-switch-latch'
 import { seedOptions } from '../connectors/data/persist'

@@ -1,10 +1,9 @@
 import type { AppendMessage, ThreadMessage } from '@assistant-ui/react'
+import { useStore } from '@nanostores/react'
 import { JsonRpcGatewayError } from '@vetri/shared'
 import { stripAnsi } from '@vetri/shared/ansi'
-import { useStore } from '@nanostores/react'
 import { type MutableRefObject, useCallback, useEffect, useRef } from 'react'
 
-import { type ResolvedOwner, transcribeAudio } from '@/vetri'
 import { useI18n } from '@/i18n'
 import { attachmentPathNeedsUpload } from '@/lib/attachment-upload-policy'
 import { type ChatMessage, textPart } from '@/lib/chat-messages'
@@ -45,6 +44,7 @@ import { clearSessionSubagents } from '@/store/subagents'
 import { runGatewayRestart } from '@/store/system-actions'
 import { clearSessionTodos } from '@/store/todos'
 import { setSessionDraftingTool } from '@/store/tool-drafting'
+import { type ResolvedOwner, transcribeAudio } from '@/vetri'
 
 import type {
   ClientSessionState,

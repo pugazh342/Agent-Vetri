@@ -1,7 +1,6 @@
 import { type MutableRefObject, useCallback, useRef, useState } from 'react'
 
 import { setTerminalFontFamilyFromConfig } from '@/app/right-sidebar/terminal/terminal-font'
-import { getVetriConfig, getVetriConfigDefaults } from '@/vetri'
 import { BUILTIN_PERSONALITIES, normalizePersonalityValue, personalityNamesFromConfig } from '@/lib/chat-runtime'
 import { composerServiceTier } from '@/lib/model-status-label'
 import { normalize } from '@/lib/text'
@@ -32,6 +31,7 @@ import {
   applyVoiceStopPhraseFromConfig
 } from '@/store/voice-prefs'
 import { setChatFontFamilyFromConfig } from '@/themes/chat-font'
+import { getVetriConfig, getVetriConfigDefaults } from '@/vetri'
 
 const DEFAULT_VOICE_SECONDS = 120
 

@@ -13,7 +13,7 @@ import type {
   WebhooksResponse
 } from '@/types/vetri'
 
-import { vetriApi, profileScoped } from './client'
+import { profileScoped, vetriApi } from './client'
 
 export function getMessagingPlatforms(profile?: null | string): Promise<MessagingPlatformsResponse> {
   return vetriApi<MessagingPlatformsResponse>({

@@ -14,7 +14,6 @@ import './kanban.css'
 import {
   cn,
   Codicon,
-  type VetriPlugin,
   host,
   type KeybindContribution,
   KEYBINDS_AREA,
@@ -27,7 +26,8 @@ import {
   STATUSBAR_AREAS,
   Tip,
   useQuery,
-  useValue
+  useValue,
+  type VetriPlugin
 } from '@vetri/plugin-sdk'
 
 import { $boardSlug, bindApi, boardKey, fetchBoard, useKanbanScope } from './api'
