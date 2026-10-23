@@ -134,6 +134,7 @@ class GatewayConnection:
     def start(self, timeout=90):
         deadline = time.monotonic() + timeout
         while True:
+            spent = None
             with self._start_lock:
                 if self.final:
                     if self._error is not None:
@@ -151,6 +152,17 @@ class GatewayConnection:
                         self.closed = False
                     thread = self._thread = spawn_context_thread(self._run, name="vetri-gateway-loop")
                     thread.start()
+                elif self._error is not None and self._ready.is_set():
+                    # A failed dial publishes its error and raises _ready just before its loop
+                    # thread exits. A call that ARRIVES in that window waited out no dial, so it
+                    # must not be handed the failure the waiting caller already consumed: wait the
+                    # thread out and take the spawn path above (which clears the spent error).
+                    spent = thread
+            if spent is not None:
+                spent.join(max(deadline - time.monotonic(), 0))
+                if time.monotonic() >= deadline:
+                    raise GatewayClientError("Gateway connection timed out; no local fallback")
+                continue
             # Every caller waits out a dial in progress, its own or another thread's.
             if not self._ready.wait(max(deadline - time.monotonic(), 0)):
                 raise GatewayClientError("Gateway connection timed out; no local fallback")

@@ -223,6 +223,32 @@ def test_a_transient_resume_failure_fails_the_reconnect_and_the_next_call_retrie
     assert conn.state(SID).subscription_id == "sub-3"
 
 
+class _UnwindingLoop(threading.Thread):
+    """A failed loop thread's publish-then-exit window, pinned open: reports alive until join()
+    observes it — the arrival race the spent-error check in start() closes."""
+
+    def __init__(self):
+        super().__init__(name="vetri-gateway-loop")
+        self._ended = False
+
+    def is_alive(self):
+        return not self._ended
+
+    def join(self, timeout=None):
+        self._ended = True
+
+
+def test_a_spent_dial_error_never_reaches_a_call_that_arrived_after_it(gateway, conn):
+    """_run publishes a dial failure and raises _ready in its finally, then its thread exits; a
+    call landing in that window waited out no dial, so it waits the thread out and redials instead
+    of re-raising the failure the waiting caller already consumed."""
+    conn._thread = _UnwindingLoop()  # error published and ready raised, thread not yet exited
+    conn._error = GatewayClientError("Gateway connection failed; no local fallback (TimeoutError)")
+    conn._ready.set()
+    assert conn.call("status") == {"status": "ok", "life": 2}
+    assert len(gateway.lives) == 2
+
+
 def test_close_after_a_failed_resume_is_still_final(gateway, conn):
     gateway.resume_errors.append(GatewayClientError("storage_unavailable"))
     gateway.hang_up(conn)
