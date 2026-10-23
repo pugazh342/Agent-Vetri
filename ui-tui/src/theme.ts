@@ -583,28 +583,28 @@ export interface ThemeTones {
 }
 
 /**
- * The fitted tone ladder. Knobs are REVERSE-ENGINEERED from the original
- * hand-tuned palettes (grid-search over mix/desaturate formula families
- * against the pre-refactor literals + every authored skin palette; see the
- * "reproduces the original hand-tuned tones" test for the contract):
+ * The fitted tone ladder. Knobs are REVERSE-ENGINEERED from the hand-tuned
+ * palettes (grid-search over mix/desaturate formula families against the
+ * literals + every authored skin palette; see the "reproduces the shipped
+ * hand-tuned tones" test for the pinned contract literals):
  *
- *   dark muted  #CC9B1F ≈ desaturate(mix(accent, bg, .19), .16)  (err 3)
- *   dark label  #DAA520 ≈ desaturate(mix(accent, bg, .13), .16)  (err 3)
- *   dark status #C0C0C0 = grayOf(mix(text, bg, .24))             (err 0)
- *   light muted #946C08 ≈ desaturate(accent, .05)                (err 2)
- *   light label #8E6B13 ≈ desaturate(mix(accent, text, .03), .15) (err 2)
- *   light status #6F6F6F = grayOf(mix(text, bg, .30))            (err 1)
- *   light surface #F5F5F5 ≈ bg + softened accent                 (err 5)
- *   light chip  #E0D1BF = mix(surface, accent, .25)              (err 8)
- *   light selection #D4E4F7 ≈ mix(bg, shellDollar, .20)          (err 7)
+ *   dark muted  ~ desaturate(mix(accent, bg, .19), .16)
+ *   dark label  ~ desaturate(mix(accent, bg, .13), .16)
+ *   dark status = grayOf(mix(text, bg, .24))
+ *   light muted ~ desaturate(accent, .05)
+ *   light label ~ desaturate(mix(accent, text, .03), .15)
+ *   light status = grayOf(mix(text, bg, .30))
+ *   light surface ~ bg + softened accent
+ *   light chip  = mix(surface, accent, .25)
+ *   light selection ~ mix(bg, shellDollar, .20)
  *
  * The light targets are the LIFT CANON: liftForContrast(dark literal,
- * white, 4.5) — what xterm's minimumContrastRatio showed on light hosts
- * for years — not hand-picked browns (those read as desaturated mud).
+ * white, 4.5) - what xterm's minimumContrastRatio showed on light hosts
+ * for years - not hand-picked browns (those read as desaturated mud).
  *
- * The classic dark navy fills (#1a1a2e/#333355/#3a3a55) are IRREDUCIBLE from
- * gold seeds — the search bottoms out at gray, err 10–17 — so they remain
- * explicit identity seeds on DARK_SEEDS rather than pretending to be math.
+ * The dark navy fills are IRREDUCIBLE from the accent seeds - the search
+ * bottoms out at gray - so they remain explicit identity seeds on
+ * DARK_SEEDS rather than pretending to be math.
  */
 export function deriveTones(seeds: {
   accent: string
@@ -621,9 +621,9 @@ export function deriveTones(seeds: {
 
   return {
     // Light knobs are fitted to the lift canon (xterm minimumContrastRatio
-    // 4.5 of the classic dark golds against white — see LIGHT_SEEDS), not
-    // to ink blends: muted #946C08 ≈ desat(accent .05), label #8E6B13 ≈
-    // desat(mix(accent, text, .03), .15), statusFg #6F6F6F ≈ gray 30% lift.
+    // 4.5 of the dark literals against white - see LIGHT_SEEDS), not to ink
+    // blends: muted ~ desat(accent .05), label ~ desat(mix(accent, text,
+    // .03), .15), statusFg ~ gray 30% lift.
     muted: isLight ? desaturate(accent, 0.05) : desaturate(mix(accent, bg, 0.19), 0.16),
     label: isLight ? desaturate(mix(accent, text, 0.03), 0.15) : desaturate(mix(accent, bg, 0.13), 0.16),
     statusFg: grayOf(mix(text, bg, isLight ? 0.3 : 0.24)),
@@ -856,7 +856,7 @@ export function fromSkin(
 
   // 1. Seeds: the skin's identity. Anything it doesn't define comes from the
   //    base seeds for this polarity. The base's IDENTITY FILLS (Vetri navy
-  //    surfaces, gold muted) only carry over for the skinless default — a
+  //    surfaces) only carry over for the skinless default - a
   //    skin with its own identity derives its fills from its own seeds.
   const identityFills: Partial<ThemeSeeds> = hasSkinColors
     ? {}

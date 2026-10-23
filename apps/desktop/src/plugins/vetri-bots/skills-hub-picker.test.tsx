@@ -99,7 +99,7 @@ describe('hub pick messages', () => {
     const frame = openHubBrowser()
 
     await waitFor(() =>
-      expect(frame.getAttribute('src')).toBe(`${FALLBACK_HUB_ORIGIN}/vetri-agent/docs/skills?embed=picker`)
+      expect(frame.getAttribute('src')).toBe(`${FALLBACK_HUB_ORIGIN}/Agent-Vetri/docs/skills?embed=picker`)
     )
   })
 
@@ -109,7 +109,7 @@ describe('hub pick messages', () => {
     const frame = openHubBrowser()
 
     await waitFor(() =>
-      expect(frame.getAttribute('src')).toBe(`${FALLBACK_HUB_ORIGIN}/vetri-agent/docs/skills?embed=picker`)
+      expect(frame.getAttribute('src')).toBe(`${FALLBACK_HUB_ORIGIN}/Agent-Vetri/docs/skills?embed=picker`)
     )
   })
 
@@ -142,7 +142,7 @@ describe('hub pick messages', () => {
         await vi.advanceTimersByTimeAsync(8_000)
       })
 
-      expect(frame.getAttribute('src')).toBe(`${FALLBACK_HUB_ORIGIN}/vetri-agent/docs/skills?embed=picker`)
+      expect(frame.getAttribute('src')).toBe(`${FALLBACK_HUB_ORIGIN}/Agent-Vetri/docs/skills?embed=picker`)
     } finally {
       vi.restoreAllMocks()
       vi.useRealTimers()
@@ -152,7 +152,7 @@ describe('hub pick messages', () => {
   it('keeps the Vercel picker when the probe succeeds', async () => {
     const frame = openHubBrowser()
 
-    await waitFor(() => expect(frame.getAttribute('src')).toBe(`${HUB_ORIGIN}/docs/skills?embed=picker`))
+    await waitFor(() => expect(frame.getAttribute('src')).toBe(`${HUB_ORIGIN}/Agent-Vetri/docs/skills?embed=picker`))
   })
 
   it('accepts an install message from the fallback picker frame', () => {
