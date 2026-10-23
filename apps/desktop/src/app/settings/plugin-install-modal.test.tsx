@@ -3,6 +3,8 @@ import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testi
 import { MemoryRouter } from 'react-router'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
+import { clearNotifications } from '@/store/notifications'
+
 // The host tab lists installed plugins on mount; only an `install` action counts as installing.
 const { requestGateway } = vi.hoisted(() => ({
   requestGateway: vi.fn(async (_method: string, _params?: Record<string, unknown>): Promise<unknown> => ({
@@ -101,6 +103,11 @@ beforeEach(() => {
 afterEach(() => {
   cleanup()
   closePluginInstallRequest()
+  // The install runner's success toast arms a 5s auto-dismiss (plugin-install-run).
+  // Cancelled here, it cannot fire after this file's jsdom env is torn down, where
+  // `window.clearTimeout` in dismissNotification is an uncaught ReferenceError that
+  // fails the whole run even though every test passed (CI: plugin-install-modal).
+  clearNotifications()
   vi.unstubAllGlobals()
 })
 
