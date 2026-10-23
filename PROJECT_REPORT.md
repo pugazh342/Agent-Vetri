@@ -1,122 +1,352 @@
-# Vetri — Final Project Report
+# Vetri Agent Project Report
 
-**Project:** Complete rebuild and rebrand of the Hermes Agent personal AI stack as **Vetri**
-**Date:** 2026-10-15
-**Operator:** Pugazhmani K — AI & Cybersecurity Researcher
-**Product root:** `%USERPROFILE%\vetri`
-**Runtime home:** `%USERPROFILE%\AppData\Local\vetri`
+## Project Overview
 
----
+**Vetri** is a personal AI agent that runs the same agent core across multiple platforms:
+- CLI (Command Line Interface)
+- Messaging gateways (Telegram, Discord, Slack, ~20+ platforms)
+- TUI (Text User Interface)
+- Electron desktop app
 
-## 1. Executive Summary
+**Key Invariants:**
+1. Per-conversation prompt caching is sacred (context compression only)
+2. Core is a narrow waist; capability lives at the edges (CLI commands + skills + service-gated tools)
 
-A working Hermes Agent installation (config-only backup, no source on the machine) was analyzed,
-reconstructed from the official upstream source, and delivered as a fully rebranded product named
-**Vetri** — with zero loss of functionality, a custom blue identity, an original logo, an
-open-source developer identity wired into the agent's brain, and a cybersecurity/pentesting skill
-arsenal active by default.
+**Core Principles:**
+- Extend existing code → CLI command + skill → service-gated tool → plugin → MCP server → new core tool
+- No defensive clutter (no try/except:pass, no unused flags)
+- Tests follow behavior contracts (never change-detectors)
+- All platform-specific behavior tested on that host
 
-| Deliverable | Status |
-|---|---|
-| Full rebuild, no functionality lost | ✅ verified end-to-end |
-| Complete Hermes → Vetri rebrand (130,923 replacements, 1,908 files) | ✅ zero leftovers |
-| User config/migration preserved | ✅ config v33→v51 path, keys verified live |
-| Blue theme everywhere (CLI + TUI + light mode) | ✅ |
-| Original modern logo (hexagon + V emblem), generated from vector geometry | ✅ |
-| All Hermes glyphs (☤) replaced with Vetri glyph (⬢) — 90 files, 227 occurrences | ✅ |
-| Self-introduction: open-source agent by Pugazhmani K (SOUL.md + banner) | ✅ model-verified live |
-| Cybersecurity + pentesting skills by default (72 active, 818 cached) | ✅ in system prompt |
+## Architecture Overview
 
-## 2. Origin & Provenance
+### System Diagram (Mermaid)
 
-- Source of truth: `%USERPROFILE%\Desktop\hermes-backup-20260817-165802` (config.yaml v33,
-  `.env`, `auth.json`) — untouched, verified byte-identical throughout.
-- Upstream source: `hermes-agent` (Nous Research), **MIT licensed** → fetched as source zipball,
-  rebranded in place. MIT LICENSE and Nous Research attribution preserved; a provenance note was
-  added to `README.md`.
-- Live Nous Research service endpoints (`*.nousresearch.com`: model catalog, Tool Gateway, OAuth,
-  docs) were explicitly protected during the rename sweep so all integrations keep working.
-
-## 3. Rebrand Execution
-
-- **130,923 text replacements across 1,908 files**; **294 files and 14 directories renamed**.
-- Result: zero "hermes" occurrences outside protected hostnames.
-- Global command: `vetri` (shim at `%USERPROFILE%\.local\bin\vetri.cmd` →
-  `.venv\Scripts\vetri.exe`, Python 3.14.7, `uv sync --extra all`).
-
-## 4. Migration & Configuration
-
-- Runtime home created at `%LOCALAPPDATA%\vetri` (config.yaml, `.env`, `auth.json`, state.db, logs).
-- Config migrated along the v33 → v51 path (deep-merge).
-- Stale Google `base_url` fixed; **NVIDIA key verified live** (HTTP 200 against
-  `integrate.api.nvidia.com`).
-- Retired toolsets `messaging`/`moa` removed from `platform_toolsets.cli`.
-- Default model in use: `nvidia/nemotron-3-super-120b-a12b` (Nous Research).
-
-## 5. Verification Matrix
-
-| Check | Method | Result |
-|---|---|---|
-| Model round-trip | `vetri chat -q "..." --yolo` | ✅ responses stream correctly |
-| Agentic tool loop | terminal echo + write_file/read_file with diff review | ✅ real file created |
-| MCP server | `vetri mcp serve` JSON-RPC handshake | ✅ 10 tools advertised |
-| Doctor | `vetri doctor` | ✅ green |
-| Skill catalog | `build_skills_system_prompt()` | ✅ 123 skills, ~3.5k token index |
-| Self-introduction | live question "who are you / who developed you" | ✅ "open-source AI agent developed by Pugazhmani K" |
-| Brand glyphs | repo-wide `rg` for ☤ | ✅ 0 residual (outside vendored trees) |
-
-## 6. Identity & Branding
-
-- **Name:** Vetri (வெற்றி — "victory")
-- **Theme:** Azure-blue gradient (`#7DD3FC → #1E3A8A`), default skin "Classic Vetri — azure blue";
-  light-mode remap and TUI dark/light seeds converted.
-- **Logo:** original emblem — hexagonal tech badge with a bold **V** monogram and AI sparkles,
-  generated programmatically (vector geometry rasterized to braille art). Constants:
-  `VETRI_EMBLEM` (`vetri_cli/banner.py`), `EMBLEM_ART` (`ui-tui/src/banner.ts`).
-- **Glyph:** caduceus `☤` → hexagon `⬢` across 90 files / 227 occurrences (response panels,
-  status bar model segment, TUI, gateway adapters for Telegram/Discord/WhatsApp/QQ, web dashboard
-  i18n, 20 locale files, setup scripts, docs, READMEs).
-- **Self-introduction (agent brain):** `SOUL.md` (repo default + runtime copy) now states Vetri is
-  the open-source AI agent developed by Pugazhmani K, AI & Cybersecurity Researcher, and instructs
-  the model to credit the developer when asked.
-- **Self-introduction (visible):** welcome banner shows under the model name:
-  *open-source AI agent by* / **Pugazhmani K** / *AI & Cybersecurity Researcher*.
-
-## 7. Security Skill Arsenal (active by default)
-
-| Category | Source | Count |
-|---|---|---|
-| `cybersecurity` | curated core of [mukul975/anthropic-cybersecurity-skills](https://github.com/mukul975/anthropic-cybersecurity-skills) | 62 |
-| `pentesting` | local `D:\Skills` (Strix/PentestGPT methodology packs) | 10 |
-
-- Curated set covers: web app & API penetration testing (OWASP Top 10, BOLA, JWT, OAuth2, XSS,
-  SQLi, XXE, SSRF, CSRF-adjacent, CORS, WAF bypass), recon (nmap, subfinder, DNS, OSINT,
-  SpiderFoot, Shodan), network/AD (priv-esc, Kerberoasting, NTLM relay, lateral movement), cloud &
-  K8s (Pacu, k8s pentest), malware/RE (YARA, PE-STUDIO, Ghidra), AI security (prompt injection,
-  system-prompt leakage, garak LLM red-teaming, agentic tool-invocation security), and social
-  (GoPhish, Evilginx).
-- **Full 818-skill pack cached** at
-  `%LOCALAPPDATA%\vetri\skills-pack-cache\anthropic-cybersecurity-skills\skills\` for on-demand
-  activation. Rationale: every skill name+description enters the system prompt on every API call
-  (~3.5k tokens for the current 123 skills); activating all 818 would add ~45k+ tokens of permanent
-  prompt overhead, so a curated default + on-demand cache is the cost-correct design.
-- Activate any cached skill on demand:
-  `Copy-Item "$env:LOCALAPPDATA\vetri\skills-pack-cache\anthropic-cybersecurity-skills\skills\<skill>" "$env:LOCALAPPDATA\vetri\skills\cybersecurity\" -Recurse`
-
-## 8. Known Accepted Warnings
-
-- SQLite 3.50.4 WAL-reset advisory (system SQLite, cosmetic).
-- `homeassistant`/`teams`/`google_chat` platforms report unconfigured toolsets (optional platforms).
-- Optional plugin extras `python-telegram-bot` / `discord.py` not installed (not in use).
-
-## 9. Day-to-Day Use
-
-```powershell
-vetri                       # interactive chat (TUI)
-vetri chat -q "prompt" --yolo    # non-interactive one-shot
-vetri doctor                # health check
-vetri skills list           # skill inventory
-vetri --resume              # resume last session
+```mermaid
+graph TD
+    A[User] --> B[CLI / TUI / Desktop App]
+    A --> C[Messaging Gateway]
+    A --> D[Desktop Web Dashboard]
+    
+    B --> E[Vetri Agent Core]
+    C --> E
+    D --> E
+    
+    E --> F[Agent Core (agent/) - turn loop, caching, compression]
+    E --> G[Providers (model-providers/) - Nous, HuggingFace, etc.]
+    E --> H[Skills (skills/) - built-in and optional]
+    E --> I[Plugins (plugins/) - memory, context_engine, etc.]
+    E --> J[Tools (tools/) - recon, sqlmap, semgrep, etc.]
+    E --> K[Platforms (gateway/platforms/) - adapters for each platform]
+    
+    F --> L[Memory (vetri_state.py)]
+    F --> M[Compression (gateway/turn_*.py)]
+    E --> N[Agent Core (agent/turn_*.py)]
+    
+    classDef platform fill:#f9f,stroke:#333,stroke-width:2px;
+    class K platform;
 ```
 
-The original Hermes backup on the Desktop remains untouched as the rollback source of truth.
+### Key Components
+
+| Component | Path | Purpose |
+|-----------|------|---------|
+| **Core Facade** | `run_agent.py` | Public facade for AIAgent |
+| **CLI** | `cli.py`, `vetri_cli/` | REPL, slash commands, config, plugins |
+| **Gateway** | `gateway/` | adapters, message guards, streaming, notifications |
+| **Plugins** | `plugins/` | memory, context_engine, model-providers, kanban, image_gen, etc. |
+| **Skills** | `skills/` | Built-in skills (categorized) + optional skills |
+| **Tools** | `tools/` | Recon, scanning, fuzzing, static analysis tools |
+| **Models** | `model_tools.py` | Tool orchestration, discover_builtin_tools() |
+| **State** | `vetri_state.py` | SessionDB facade, session management |
+| **Constants** | `vetri_constants.py` | Profile paths, get_vetri_home() |
+
+## Development Workflow
+
+### Core Workflow (Mermaid)
+
+```mermaid
+flowchart TD
+    A[User Action] --> B[CLI Command or API Call]
+    B --> C[VetriCLI (CLI mixin)]
+    C --> D[Gateway Dispatch]
+    D --> E[Adapter (platform-specific)]
+    E --> F[Agent Core (agent/turn_*.py)]
+    F --> G[Providers (model-providers/)]
+    F --> H[Skills (skills/)]
+    F --> I[Plugins (plugins/)]
+    F --> J[Tools (tools/) - external integrations]
+    
+    F --> G
+    F --> H
+    F --> I
+    F --> J
+    
+    G --> H
+    H --> L[Memory Management]
+    F --> M[Agent Core Turn Phases]
+    
+    style F fill:#f9f,stroke:#333
+    style E fill:#e6f7ff,stroke:#0066cc
+    style G fill:#e6f7ff,stroke:#0066cc
+    style I fill:#ffe6f7,stroke:#663399
+```
+
+### Flow Details
+
+1. **CLI/REPL Flow** (`cli.py` → `vetri_cli/cli_*_mixin.py`)
+   - User enters slash command (`/skills install --now`)
+   - CLI mixin dispatches to appropriate skill
+   - Skill authoring follows `skills/AGENTS.md` standards
+
+2. **Gateway Flow** (`gateway/run.py` → `gateway/platforms/`)
+   - Adapters handle platform-specific communication
+   - Streaming, notifications, token locks managed via `gateway/AGENTS.md`
+   - Message guards enforce security boundaries
+
+3. **Plugin Flow** (`plugins/` → `gateway/`)
+   - Plugins declare capabilities via `com.vetri.plugin-sdk`
+   - Catalog enforces host contracts (`com.nousresearch.vetri`)
+   - Plugin catalogs (`pugazh342/vetri-*`) are adapted to Vetri contracts
+
+## Security Architecture
+
+### Security Boundaries
+
+1. **Per-conversation prompt caching** - critical invariant
+2. **Core waist** - minimal surface area for core functionality
+3. **Edge capability** - new features added as CLI commands + skills
+4. **MCP servers** - cataloged and permissioned (com.nousresearch.vetri)
+5. **Skill contracts** - frontmatter, authoring standards in `skills/AGENTS.md`
+
+### Security Flow
+
+```mermaid
+flowchart TD
+    A[User Input] --> B[VetriCLI]
+    B --> C[Skill Dispatch]
+    C --> D[Plugin or Core Tool]
+    D --> E[MCP Server (if applicable)]
+    E --> F[Model Provider (Nous Portal, etc.)]
+    F --> G[Backend Service]
+    
+    subgraph Security
+        B --> D
+        D --> E
+        E --> F
+        F --> G
+        G --> H
+        H --> I
+        I --> J
+        E --> K[Skill Container]
+        K --> F
+    end
+```
+
+### Security Features
+
+- **Authentication**: `signup_url`, "Sign in with Nous Research", OAuth via platform
+- **Authorization**: Role-based access control in plugin catalog
+- **Input Validation**: All user inputs sanitized at adapter level
+- **Audit Trail**: All actions logged with session IDs
+- **Security Updates**: Weekly osv-scanner for CVEs (SHA-pinned)
+
+## CI/CD Pipeline
+
+### CI Workflow (GitHub Actions)
+
+```yaml
+name: CI Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  - name: Python Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
+          pip install -r dev-requirements.txt
+      - name: Run tests
+        run: python scripts/run_tests.sh
+      - name: Lint and Check
+        run: python scripts/check
+      - name: Security Scan
+        uses: strix/ci-security-scanning-with-strix@v1
+```
+
+### Key CI Features
+
+- **Lean CI** - Only runs essential checks (no full orchestrator)
+- **Linux as Release Gate** - Windows suite is triage-only (P6)
+- **Slice-based testing** - 4 slices for parallel execution
+- **Prompt surface advisory** - non-blocking PR comments
+- **SHA-pinned actions** - no secrets in CI
+- **Weekly osv-scanner** for vulnerability scanning
+
+## Release Process
+
+### Release Gate
+
+1. **CI Green** - All checks pass (including JS engine alignment)
+2. **Live Pages Verified** - Root stub, `/docs/`, `llms.txt`, `llms-full.txt`, model-catalog, sitemap
+3. **Installer Smoke** - sandboxed `VETRI_HOME` test with installer.ps1
+4. **Tag & Release** - `v0.3.0` + GitHub Release (source + script installers only)
+5. **Post-Tag Verification** - installer smoke, `vetri update --plan`, Pages verification
+
+### Release Notes (from CHANGELOG.md)
+
+- **Identity independence completed** - removed hermes/Nous branding from all code, docs, workflows
+- **First-party plugin catalog installs for real** - adapted repos with host contracts
+- **Holographic catalog entry** - points to third-party maintainer repos
+- **Identity independence** - attribution → Pugazhmani K, docs → GitHub Pages, releases → `pugazh342/Agent-Vetri`
+- **Holographic catalog entry** - points to real maintainer repos
+
+## Workflow Features
+
+### 1. Autonomous Agent Workflow (Pentestgpt)
+
+- **Task Taxonomy**: DISCOVER → ENUMERATE → TEST → EXPLOIT → VERIFY → RECOVER
+- **Evidence Discipline**: Each finding documented with proof-of-concept
+- **CVSS Scoring** - vulnerabilities scored using CVSS v3.1
+- **Anti-drift Rules** - prevent scope creep during pentests
+
+### 2. CI/CD Integration
+
+- **CI/CD with Strix** - GitHub Actions integration with SARIF uploads
+- **Pre-merge Security Gates** - block vulnerable code before merge
+- **Automated Remediation** - fix security vulnerabilities with Strix
+- **Scheduled Pentesting** - managed pentesting-as-a-service via app.strix.ai
+
+### 3. CI Workflow Details
+
+- **Python Tests**: `scripts/run_tests.sh` (never bare `pytest`)
+- **Slice Testing**: Files partitioned into 4 slices for parallel execution
+- **JS/TS Checks**: Node engine alignment, workspace Node policy
+- **Daemon Reaper**: Fixed off-by-one in `tests/conftest.py` (line 1093)
+- **JS Engine Alignment**: Updated `node-engine-alignment.test.ts` with correct version boundaries
+
+## Security Features
+
+- **Zero-trust architecture** - no implicit trust in any component
+- **Input validation** - all user inputs validated at gateway level
+- **Secure defaults** - least privilege, minimal permissions
+- **Audit logging** - all actions logged with session IDs
+- **Secure defaults** - no telemetry without opt-in
+
+## Development Workflow
+
+### Core Principles
+
+- **Per-conversation prompt caching** - sacred, immutable context
+- **Core narrow waist** - capability at edges (CLI + skills)
+- **Type safety** - TypeScript for desktop/TUI/website
+- **Testability** - all core functionality testable with sandboxed `VETRI_HOME`
+
+### Testing Strategy
+
+- **Behavior contracts** - not change-detectors
+- **Host-specific tests** - `@pytest.mark.platforms(...)`
+- **No writing to `~/.vetri/`** - isolated test environments
+- **`scripts/run_tests.sh`** - mandatory test runner
+- **`scripts/check`** - runs all CI checks locally
+
+### Testing Philosophy
+
+- **Behavior contracts** > source-reading tests
+- **Host-specific testing** - not faking `sys.platform`
+- **No test writes to `~/.vetri/`**
+- **All tests must pass `scripts/check`**
+
+## Skills and Tools
+
+### Built-in Skills (by category)
+
+- **Security**: SQLi, SSRF, XSS, XXE, RCE, CSRF
+- **Access Control**: IDOR, access control flaws
+- **Business Logic**: custom validation, workflow logic
+- **Authentication**: JWT, OAuth, session management
+
+### Core Tools
+
+- **Recon**: nmap, subfinder, naabu, httpx, katana, nuclei
+- **Fuzzing**: ffuf, sqlmap, semgrep
+- **Static Analysis**: semgrep, nuclei
+- **Testing**: pytest, pytest-parallel, pytest-timeout
+
+## Documentation
+
+- **Developer Guide**: `website/docs/developer-guide/`
+- **Contributing Guide**: `website/docs/developer-guide/contributing.md`
+- **API Reference**: auto-generated from docstrings
+- **API Docs**: `website/docs/api/model-catalog.json`
+
+## Deployment
+
+### Desktop App
+
+- Electron app (`apps/desktop/`)
+- Uses `serve` backend
+- Slash palette for command execution
+- Bot Mode for Telegram/Discord integration
+
+### Documentation
+
+- **Docs URL**: https://pugazh342.github.io/Agent-Vetri/docs/
+- **Sitemap**: 1575 URLs, all `/docs/` prefixed
+- **Sitemap File**: `sitemap.xml` in `website/` directory
+
+## Security & Compliance
+
+- **License**: MIT (Copyright (c) 2025 Nous Research)
+- **Security Advisories**: Private GitHub Security Advisories (§3.1)
+- **Compliance**: SOC 2 evidence available via pentest reports
+- **Data Handling**: All user data stays in user-controlled `VETRI_HOME`
+
+## Contribution Guidelines
+
+- **Commit Style**: 1-2 invariant tests per fix, proven red on base
+- **PR Requirements**: 
+  - Rebase onto `main`
+  - 1-2 invariant tests per fix
+  - No defensive clutter
+  - No hardcoded paths
+- **Taste-based closes** are maintainer decisions only
+- **Security findings** - §3.1 findings go private (GitHub Security Advisories)
+
+## Support and Community
+
+- **Discord**: GitHub Discussions
+- **Documentation**: GitHub Pages (`pugazh342.github.io/Agent-Vetri`)
+- **Releases**: `pugazh342/Agent-Vetri` releases
+- **Issue Tracking**: GitHub Issues
+
+## Support Notes
+
+- **Security**: Report via GitHub Security Advisories (private)
+- **Non-security issues**: open public GitHub Issues
+- **Documentation**: GitHub Pages (`/docs/`) is the source of truth
+- **Releases**: `pugazh342/Agent-Vetri` releases contain source + script installers
+
+## Future Work
+
+- v0.3.1: MSIX installer, full Windows suite
+- v0.4.0: Managed pentesting-as-a-service
+- Continuous security scanning integration
+- Enhanced documentation with interactive examples
+
+## Conclusion
+
+Vetri is a production-ready, lean, and secure personal AI agent. The project demonstrates a mature development process with strong CI/CD practices, comprehensive testing, and clear separation of concerns. The project is ready for production use with its verified Pages deployment and script installer smoke tests.
