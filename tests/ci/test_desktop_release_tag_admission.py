@@ -22,13 +22,15 @@ from pathlib import Path
 
 import pytest
 
+from tests.ci.workflow_files import workflow_file
+
 from tests.ci.desktop_release_roles import (
     DOWNLOADABLE_DISPATCHES, DRY_DISPATCH, SHA, admitted, credential_gate, evaluate, gate,
     native_builds, needs_of,
 )
 
 _REPO = Path(__file__).resolve().parents[2]
-_WORKFLOW = _REPO / ".github" / "workflows" / "desktop-bundled-release.yml"
+_WORKFLOW = workflow_file("desktop-bundled-release.yml")
 _SIGNING_ENV = "release-signing"
 _CONTROLLER = "c" * 40
 

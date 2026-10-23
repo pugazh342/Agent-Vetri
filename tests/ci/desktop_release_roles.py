@@ -17,9 +17,10 @@ from pathlib import Path
 import vetri_yaml
 
 from scripts.releases.job_groups import JOB_GROUPS
+from tests.ci.workflow_files import workflow_file
 
 ROOT = Path(__file__).resolve().parents[2]
-WORKFLOW = ROOT / ".github" / "workflows" / "desktop-bundled-release.yml"
+WORKFLOW = workflow_file("desktop-bundled-release.yml")
 SMOKE_WORKFLOW = "./.github/workflows/desktop-bundle-smoke.yml"
 BUILD_CACHE_ACTION = "./.github/actions/desktop-build-cache"
 SHA = "a" * 40

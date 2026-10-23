@@ -14,6 +14,8 @@ from pathlib import Path
 
 import pytest
 
+from tests.ci.workflow_files import workflow_file, workflow_paths
+
 _PATH = Path(__file__).resolve().parents[2] / "scripts" / "ci" / "live_comment.py"
 _spec = importlib.util.spec_from_file_location("live_comment", _PATH)
 if _spec is None or _spec.loader is None:
@@ -95,9 +97,8 @@ def test_workflow_watch_list_names_a_workflow_that_exists():
     from the comment, which no unit test on its own would notice.
     """
     yaml = pytest.importorskip("vetri_yaml")
-    root = Path(__file__).resolve().parents[2]
     caller = yaml.safe_load(
-        (root / ".github/workflows/ci-review-comment.yml").read_text(encoding="utf-8")
+        workflow_file("ci-review-comment.yml").read_text(encoding="utf-8")
     )
     step = next(
         s for s in caller["jobs"]["comment"]["steps"]
@@ -107,7 +108,7 @@ def test_workflow_watch_list_names_a_workflow_that_exists():
     assert watched, "the poller is watching nothing"
 
     known = set()
-    for path in (root / ".github/workflows").glob("*.yml"):
+    for path in workflow_paths("*.yml"):
         doc = yaml.safe_load(path.read_text(encoding="utf-8"))
         if isinstance(doc, dict) and isinstance(doc.get("name"), str):
             known.add(doc["name"])
@@ -124,9 +125,8 @@ def test_poller_never_watches_its_own_workflow():
     timeout.
     """
     yaml = pytest.importorskip("vetri_yaml")
-    root = Path(__file__).resolve().parents[2]
     doc = yaml.safe_load(
-        (root / ".github/workflows/ci-review-comment.yml").read_text(encoding="utf-8")
+        workflow_file("ci-review-comment.yml").read_text(encoding="utf-8")
     )
     own_name = doc["name"]
     step = next(
@@ -141,8 +141,7 @@ def test_the_merge_gate_never_shows_as_a_job_in_the_comment():
     """The gate's display name is versioned (bumped to void pre-change greens);
     every rename must reach the infra list, or the comment lists the gate as a job."""
     yaml = pytest.importorskip("vetri_yaml")
-    root = Path(__file__).resolve().parents[2]
-    ci = yaml.safe_load((root / ".github/workflows/ci.yaml").read_text(encoding="utf-8"))
+    ci = yaml.safe_load(workflow_file("ci.yaml").read_text(encoding="utf-8"))
     gate = ci["jobs"]["all-checks-pass"]["name"]
     completed, pending, _ = classify_jobs([{"name": gate, "status": "completed", "conclusion": "success"}])
     assert (completed, pending) == ({}, [])

@@ -519,10 +519,16 @@ def test_every_desktop_update_path_file_starts_the_desktop_update_suite(path):
 
 _REPO = Path(__file__).resolve().parents[2]
 
+from tests.ci.workflow_files import workflow_file
+
 
 def _yaml(rel: str) -> dict:
     yaml = pytest.importorskip("vetri_yaml")
-    return yaml.safe_load((_REPO / rel).read_text(encoding="utf-8-sig"))
+    if rel.startswith(".github/workflows/"):
+        target = workflow_file(rel.removeprefix(".github/workflows/"))
+    else:
+        target = _REPO / rel
+    return yaml.safe_load(target.read_text(encoding="utf-8-sig"))
 
 
 def test_every_lane_reaches_the_composite_action():
@@ -606,7 +612,7 @@ def test_remote_backends_lane_runs_test_files_that_exist_and_start_it():
     """The lane's test list and its path gate must agree: a renamed test file would
     otherwise drop silently out of the run (run_tests.sh skips a missing path) or stop
     starting the lane on the PR that edits it."""
-    text = (_REPO / ".github/workflows/remote-backends.yml").read_text(encoding="utf-8-sig")
+    text = workflow_file("remote-backends.yml").read_text(encoding="utf-8-sig")
     paths = sorted(set(re.findall(r"(tests/[\w/.-]+\.py)", text)))
     assert paths
     assert [p for p in paths if not (_REPO / p).is_file()] == []
@@ -619,7 +625,7 @@ def test_remote_backends_lane_runs_test_files_that_exist_and_start_it():
 def test_windows_venv_e2e_runs_only_test_files_that_exist():
     """``run_tests.sh`` drops a missing path (or a ``::node`` selector) without
     a word, so a stale entry silently stops running on every wine2e push."""
-    text = (_REPO / ".github/workflows/windows-venv-e2e.yml").read_text(encoding="utf-8-sig")
+    text = workflow_file("windows-venv-e2e.yml").read_text(encoding="utf-8-sig")
     paths = re.findall(r"(tests/[\w/.:-]+)", text)
     assert paths
     assert [p for p in paths if "::" in p or not (_REPO / p).is_file()] == []

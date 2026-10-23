@@ -7,6 +7,7 @@ import pytest
 from ruamel.yaml import YAML
 
 from tests.ci.desktop_release_roles import DOWNLOADABLE_DISPATCHES, gate, needs_of
+from tests.ci.workflow_files import workflow_file
 from tests.ci.workflow_steps import is_checkout
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -20,7 +21,7 @@ def needs_r2_credentials(step):
 
 
 def load(name):
-    return YAML(typ="base").load((ROOT / ".github/workflows" / name).read_text(encoding="utf-8"))
+    return YAML(typ="base").load(workflow_file(name).read_text(encoding="utf-8"))
 
 
 def test_archive_reader_accepts_bom_without_changing_pin_authority(tmp_path):

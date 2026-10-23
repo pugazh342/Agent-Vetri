@@ -31,6 +31,7 @@ from pathlib import Path
 from typing import Any
 
 import pytest
+from tests.ci.workflow_files import workflow_file
 
 from vetri_platform.host.facts import native_arch
 from tests.ci import _gha_expr as gha
@@ -88,7 +89,11 @@ def _real_classifier(paths: list[str]) -> dict[str, bool]:
 @cache
 def _yaml(rel: str) -> dict:
     yaml = pytest.importorskip("vetri_yaml")
-    return yaml.safe_load((_REPO / rel).read_text(encoding="utf-8-sig"))
+    if rel.startswith(".github/workflows/"):
+        target = workflow_file(rel.removeprefix(".github/workflows/"))
+    else:
+        target = _REPO / rel
+    return yaml.safe_load(target.read_text(encoding="utf-8-sig"))
 
 
 def _on(workflow: dict) -> dict:

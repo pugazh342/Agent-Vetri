@@ -39,7 +39,26 @@ _LEGACY_TEMPLATE_SOULS = (
     ) + _SCAFFOLD_TAIL,
     # Bare scaffold without the "Examples" block, shipped briefly.
     _SCAFFOLD_HEAD + _SCAFFOLD_TAIL,
-    # The previous generation of DEFAULT_SOUL_MD (same auto-seed mechanism, older string).
+    # The previous generation of DEFAULT_SOUL_MD (same auto-seed mechanism,
+    # older string). The upstream attribution in the entry below is a
+    # migration FINGERPRINT, not branding: installs seeded before the rewrite
+    # carry those exact bytes on disk, and matching them is how
+    # ensure_vetri_home upgrades an auto-written persona in place. Rewriting
+    # the attribution strands every old install on the stale text (and fails
+    # tests/vetri_cli/test_config.py::test_upgrades_pre_rewrite_default_soul_md).
+    (
+        "You are Vetri Agent, an intelligent AI assistant created by Nous "
+        "Research. You are helpful, knowledgeable, and direct. You assist "
+        "users with a wide range of tasks including answering questions, "
+        "writing and editing code, analyzing information, creative work, "
+        "and executing actions via your tools. You communicate clearly, "
+        "admit uncertainty when appropriate, and prioritize being "
+        "genuinely useful over being verbose unless otherwise directed "
+        "below. Be targeted and efficient in your exploration and "
+        "investigations."
+    ),
+    # The fork's first-generation default (pre-v0.3.0 rewrite), same
+    # auto-seed mechanism.
     (
         "You are Vetri Agent, an intelligent AI assistant created by Pugazhmani K. You are helpful, "
         "knowledgeable, and direct. You assist users with a wide range of tasks including answering questions, "

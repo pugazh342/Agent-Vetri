@@ -5,6 +5,8 @@ import shutil
 import subprocess
 import xml.etree.ElementTree as ET
 import zipfile
+
+from tests.ci.workflow_files import workflow_file
 from pathlib import Path
 
 import vetri_yaml
@@ -20,7 +22,7 @@ from tests.scripts.test_release_r2 import r2_server
 
 
 def smoke_workflow():
-    return vetri_yaml.safe_load((ROOT / '.github/workflows/desktop-bundle-smoke.yml').read_text(encoding='utf-8-sig'))
+    return vetri_yaml.safe_load(workflow_file('desktop-bundle-smoke.yml').read_text(encoding='utf-8-sig'))
 
 
 def smoke_fetch_script():

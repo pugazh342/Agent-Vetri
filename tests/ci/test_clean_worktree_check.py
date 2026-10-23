@@ -16,6 +16,7 @@ from pathlib import Path
 import pytest
 from ruamel.yaml import YAML
 
+from tests.ci.workflow_files import workflow_file, workflow_paths
 from tests.ci.workflow_steps import is_checkout
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -32,7 +33,7 @@ def _load(path: Path):
 
 def _checkout_jobs():
     for filename in WORKFLOWS:
-        for name, job in (_load(ROOT / ".github/workflows" / filename)["jobs"] or {}).items():
+        for name, job in (_load(workflow_file(filename))["jobs"] or {}).items():
             steps = job.get("steps") or []  # reusable-workflow calls have none
             if any(is_checkout(step) for step in steps):
                 yield f"{filename}:{name}", job, steps
@@ -62,7 +63,7 @@ def test_every_checkout_job_ends_with_the_clean_worktree_step():
 
 def test_no_workflow_overrides_the_master_switch():
     offenders = []
-    for path in sorted((ROOT / ".github/workflows").glob("*.y*ml")):
+    for path in workflow_paths():
         for name, job in (_load(path).get("jobs") or {}).items():
             for step in job.get("steps") or []:
                 if step.get("uses") == USES and "mode" in (step.get("with") or {}):

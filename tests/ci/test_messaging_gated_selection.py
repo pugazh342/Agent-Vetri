@@ -12,6 +12,8 @@ from pathlib import Path
 
 import pytest
 
+from tests.ci.workflow_files import workflow_file
+
 _REPO = Path(__file__).resolve().parents[2]
 _SDK_PROBE = re.compile(r"PathFinder\.find_spec\(\s*[\"'](discord|telegram|slack_bolt|slack_sdk)[\"']\s*\)")
 
@@ -21,7 +23,7 @@ def test_every_messaging_gated_gateway_file_runs_in_the_messaging_job():
                    if _SDK_PROBE.search(path.read_text(encoding="utf-8")))
     assert gated, "no messaging-gated gateway file found; the probe pattern drifted"
     yaml = pytest.importorskip("vetri_yaml")
-    job = yaml.safe_load((_REPO / ".github" / "workflows" / "tests.yml").read_text(encoding="utf-8"))["jobs"]["e2e"]
+    job = yaml.safe_load(workflow_file("tests.yml").read_text(encoding="utf-8"))["jobs"]["e2e"]
     extras = next(step["with"]["extras"] for step in job["steps"] if "setup-pm" in step.get("uses", ""))
     assert "messaging" in extras
     script = "\n".join(step.get("run", "") for step in job["steps"] if "messaging-gated" in step.get("name", ""))

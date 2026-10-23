@@ -6,6 +6,8 @@ from ruamel.yaml import YAML
 
 ROOT = Path(__file__).resolve().parents[2]
 WORKFLOWS = ROOT / ".github/workflows"
+
+from tests.ci.workflow_files import workflow_file
 LOCAL_CALL = re.compile(r"^\./\.github/workflows/(?P<name>[^/@]+)$")
 
 # Reusable workflows that already named their commit input before this contract.
@@ -16,7 +18,7 @@ CONTROLLER_CHECKOUTS: dict[tuple[str, str], str] = {}
 
 
 def load(name: str) -> dict:
-    return YAML(typ="base").load((WORKFLOWS / name).read_text(encoding="utf-8"))
+    return YAML(typ="base").load(workflow_file(name).read_text(encoding="utf-8"))
 
 
 def local_calls(doc: dict):
@@ -132,7 +134,7 @@ def test_no_lane_uses_the_controller_commit_as_the_commit_under_test():
     for name in reachable():
         if name in {"stable-release.yml", "desktop-bundled-release.yml"}:
             continue
-        for number, line in enumerate((WORKFLOWS / name).read_text(encoding="utf-8").splitlines(), 1):
+        for number, line in enumerate(workflow_file(name).read_text(encoding="utf-8").splitlines(), 1):
             text = line.strip()
             if text.startswith(("#", "group:")) or not REFERENCE.search(text):
                 continue

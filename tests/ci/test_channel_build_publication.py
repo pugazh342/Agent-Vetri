@@ -5,6 +5,8 @@ import copy
 import hashlib
 import json
 import os
+
+from tests.ci.workflow_files import workflow_file
 from pathlib import Path
 import shlex
 import subprocess
@@ -168,7 +170,7 @@ def test_scoped_receiver_publication_preserves_existing_head_and_requires_smoke(
 
 
 def workflow_step(workflow, job, name):
-    doc = vetri_yaml.safe_load((ROOT / ".github/workflows" / workflow).read_text(encoding="utf-8"))
+    doc = vetri_yaml.safe_load(workflow_file(workflow).read_text(encoding="utf-8"))
     return next(step["run"] for step in doc["jobs"][job]["steps"] if step.get("name") == name)
 
 

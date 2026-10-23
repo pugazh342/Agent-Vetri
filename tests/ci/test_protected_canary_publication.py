@@ -10,6 +10,8 @@ import json
 import os
 from pathlib import Path
 import plistlib
+
+from tests.ci.workflow_files import workflow_file
 import shlex
 import subprocess
 import sys
@@ -29,7 +31,7 @@ pytestmark = pytest.mark.platforms("posix")
 
 
 def workflow_jobs():
-    return vetri_yaml.safe_load((ROOT / ".github/workflows/desktop-bundled-release.yml").read_text())["jobs"]
+    return vetri_yaml.safe_load(workflow_file("desktop-bundled-release.yml").read_text())["jobs"]
 
 
 def canary_job():

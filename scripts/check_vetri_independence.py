@@ -97,7 +97,9 @@ _KEEP: dict[str, tuple[str, ...]] = {
         "skills/index-cache/*",             # third-party skill index cache
         "skills/productivity/*/LICENSE",    # third-party licenses in skill dirs
         "tests/*",                          # fixtures mirroring kept product strings
+        "website/src/data/userStories.json", # quoted community testimony + its upstream issue citations
         "ui-tui/*",                         # billing/subscription/branding catalog
+        "vetri_cli/default_soul.py",       # legacy SOUL migration fingerprint (auto-seed bytes)
         "vetri_cli/model_switch.py",        # vetri_models_not_agentic warning
         "vetri_platform/resolver/known_dirs.py",  # legacy upstream path resolution
         "website/docs/guides/run-nemotron-3-ultra-free.md",   # Nous model docs
@@ -131,6 +133,7 @@ _KEEP: dict[str, tuple[str, ...]] = {
         "website/docs/user-guide/features/web-dashboard.md",
         "website/docs/user-guide/skills/optional/gaming/gaming-pokemon-player.md",
         "website/i18n/*",
+        "website/src/data/userStories.json", # quoted community testimony + its upstream issue URLs
         "vendor/ui/*",                      # vendored @vetri/ui (see hermes entry)
     ),
     "discord.gg/": (
