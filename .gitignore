@@ -38,8 +38,12 @@ data/
 # `data/` pattern above would otherwise swallow it.
 !vetri_cli/data/
 # The Connectors page's wire layer (apps/desktop/src/app/capabilities/connectors/data/)
-# — same reason: the bare `data/` pattern above would otherwise swallow it.
+# - same reason: the bare `data/` pattern above would otherwise swallow it.
 !apps/desktop/src/app/capabilities/connectors/data/
+# The docs site's committed user-stories data (website/src/data/userStories.json)
+# - same reason. Generated skills.json/skills-meta.json in that directory stay
+# ignored via website/.gitignore.
+!website/src/data/
 .pytest_cache/
 test_durations.json
 .pytest-cache/
